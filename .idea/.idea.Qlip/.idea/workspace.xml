@@ -16,11 +16,24 @@
         <option value="$PROJECT_DIR$/Application/Class1.cs" />
         <option value="$PROJECT_DIR$/Domain/Class1.cs" />
         <option value="$PROJECT_DIR$/Persistance/Class1.cs" />
-        <option value="$PROJECT_DIR$/Api/appsettings.json" />
-        <option value="$PROJECT_DIR$/Persistance/DataContext.cs" />
-        <option value="$PROJECT_DIR$/Api/Program.cs" />
-        <option value="$PROJECT_DIR$/Api/Startup.cs" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Infrastructure/Class1.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/VideoUploadResult.cs" />
+        <option value="$PROJECT_DIR$/Persistance/DataContext.cs" />
+        <option value="$PROJECT_DIR$/Support/Class1.cs" />
+        <option value="$PROJECT_DIR$/Infrastructure/Video/IVideoAccessor.cs" />
+        <option value="$PROJECT_DIR$/Infrastructure/Video/VideoUploadResult.cs" />
+        <option value="$PROJECT_DIR$/Support/Video/VideoUploadResult.cs" />
+        <option value="$PROJECT_DIR$/Infrastructure/Video/VideoAccessor.cs" />
+        <option value="$PROJECT_DIR$/Support/Video/IVideoAccessor.cs" />
+        <option value="$PROJECT_DIR$/Api/Controllers/ClipController.cs" />
+        <option value="$PROJECT_DIR$/Domain/Clip.cs" />
+        <option value="$PROJECT_DIR$/Api/Program.cs" />
+        <option value="$PROJECT_DIR$/Api/appsettings.json" />
+        <option value="$PROJECT_DIR$/Api/Startup.cs" />
+        <option value="$PROJECT_DIR$/Api/Api.csproj" />
+        <option value="$PROJECT_DIR$/Application/Clip/CreateClip.cs" />
+        <option value="$PROJECT_DIR$/Support/Video/VideoAccessor.cs" />
       </list>
     </option>
   </component>
@@ -79,7 +92,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601575789883</updated>
-      <workItem from="1601575807050" duration="3124000" />
+      <workItem from="1601575807050" duration="13383000" />
     </task>
     <servers />
   </component>
@@ -96,14 +109,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1601576545157" />
-    <state x="689" y="144" key="Rider.ProjectTemplateDialog.Size" timestamp="1601576102369">
+    <state x="689" y="144" key="Rider.ProjectTemplateDialog.Size" timestamp="1601591531731">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="689" y="144" key="Rider.ProjectTemplateDialog.Size/0.0.1536.824@0.0.1536.824" timestamp="1601576102369" />
+    <state x="689" y="144" key="Rider.ProjectTemplateDialog.Size/0.0.1536.824@0.0.1536.824" timestamp="1601591531731" />
+    <state x="567" y="113" key="RiderGenerateDialog" timestamp="1601588250136">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="567" y="113" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1601588250136" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1601578277772">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1601578277772" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1601590492644">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1601590492644" />
     <state x="322" y="142" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601578244540">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

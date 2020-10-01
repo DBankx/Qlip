@@ -11,7 +11,9 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Controllers" t="Include" />
+        <e p="Controllers" t="Include">
+          <e p="ClipController.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -28,6 +30,9 @@
       <e p="Application" t="IncludeRecursive">
         <e p="Application.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Clip" t="Include">
+          <e p="CreateClip.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -38,6 +43,7 @@
       </e>
       <e p="Domain" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Clip.cs" t="Include" />
         <e p="Domain.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -51,6 +57,11 @@
       <e p="Persistance" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="DataContext.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="20201001231747_initialMigration.cs" t="Include" />
+          <e p="20201001231747_initialMigration.Designer.cs" t="Include" />
+          <e p="DataContextModelSnapshot.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -61,6 +72,22 @@
         <e p="Persistance.csproj" t="IncludeRecursive" />
       </e>
       <e p="Qlip.sln" t="IncludeFlat" />
+      <e p="Support" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Support.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Support.csproj" t="IncludeRecursive" />
+        <e p="Video" t="Include">
+          <e p="IVideoAccessor.cs" t="Include" />
+          <e p="VideoAccessor.cs" t="Include" />
+          <e p="VideoUploadResult.cs" t="Include" />
+        </e>
+      </e>
     </e>
   </component>
 </project>

@@ -5,7 +5,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="CloudinaryDotNet" Version="1.13.1" />
+      <PackageReference Include="FluentValidation.AspNetCore" Version="9.2.0" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Persistance\Persistance.csproj" />
+      <ProjectReference Include="..\Support\Support.csproj" />
     </ItemGroup>
 
 </Project>

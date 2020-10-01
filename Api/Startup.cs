@@ -1,25 +1,21 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Application.Clip;
+using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using Persistance;
+using Support.Video;
 
 namespace Api
 {
     public class Startup
     {
-        private string _connection = null;
+        private string _connection;
         
         public Startup(IConfiguration configuration)
         {
@@ -31,20 +27,29 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation(option =>
+            {
+                option.RegisterValidatorsFromAssemblyContaining<CreateClip>();
+            });
+            services.AddMediatR(typeof(CreateClip.Handler).Assembly);
             
             //=================== Connecting to mySqlDatabase =========================
             // building connection string;
-            var builder = new MySqlConnectionStringBuilder(Configuration.GetConnectionString("ApplicationDataBase"));
+            var builder = new MySqlConnectionStringBuilder();
             builder.Password = Configuration["dbpassword"];
+            builder.Server = "localhost";
+            builder.UserID = "root";
+            builder.Database = "qlip";
             _connection = builder.ConnectionString;
             // adding the database
             services.AddDbContext<DataContext>(option =>
             {
-                option.UseMySql(_connection);
+                option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"));
             });
             
             
+            // configuring DI interfaces
+            services.AddScoped<IVideoAccessor, VideoAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,8 +59,6 @@ namespace Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
