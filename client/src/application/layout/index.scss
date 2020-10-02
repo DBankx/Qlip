@@ -1,0 +1,18 @@
+﻿*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.p-menubar{
+  border-radius: 0;
+  position: sticky;
+  z-index: 400;
+}
+
+.p-toolbar{
+  border-radius: 0;
+  position: sticky;
+  display: block;
+}
+

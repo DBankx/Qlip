@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ContentModelUserStore">
     <attachedFolders />
-    <explicitIncludes />
+    <explicitIncludes>
+      <Path>client</Path>
+    </explicitIncludes>
     <explicitExcludes />
   </component>
 </project>

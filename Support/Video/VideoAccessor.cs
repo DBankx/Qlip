@@ -49,7 +49,10 @@ namespace Support.Video
 
         public string DeleteClip(string publicId)
         {
-            throw new NotImplementedException();
+           var deleteParams = new DeletionParams(publicId);
+           deleteParams.ResourceType = ResourceType.Video;
+           var result = _cloudinary.Destroy(deleteParams);
+           return result.Result == "ok" ? result.Result : null;
         }
     }
 }

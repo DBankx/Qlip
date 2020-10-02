@@ -17,4 +17,8 @@
       <ProjectReference Include="..\Support\Support.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Errors" />
+    </ItemGroup>
+
 </Project>

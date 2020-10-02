@@ -45,5 +45,12 @@ namespace Api.Controllers
         {
             return await _mediator.Send(new Details.Query {ClipId = id});
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> EditClip(string id, UpdateClip.Command command)
+        {
+            command.ClipId = id;
+            return await _mediator.Send(command);
+        }
     }
 }
