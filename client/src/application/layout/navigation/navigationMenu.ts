@@ -1,6 +1,6 @@
 ﻿const navigationMenuModel = [
     {
-        label: 'Browse Clips',
+        label: 'Browse Qlips',
         icon: 'pi pi-fw pi-video',
         items: [
             {

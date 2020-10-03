@@ -7,18 +7,32 @@
 body {
   background-color: #181818;
   color: #fff;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .p-menubar {
   border-radius: 0;
-  position: sticky;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 400;
+}
+
+.app-body {
+  z-index: 0;
+}
+
+.p-menu {
+  z-index: 7 !important;
 }
 
 .p-toolbar {
   border-radius: 0;
-  position: sticky;
+  top: 3.9em;
+  position: fixed;
+  width: 100%;
   display: block;
+  overflow: visible;
 }
 
 @media screen and (max-width: 960px) {
@@ -27,28 +41,6 @@ body {
     right: 15px;
   }
 }
-.main-sidebar .p-menu {
-  border-radius: 0;
-  overflow-y: scroll;
-  height: 81vh;
-}
-.main-sidebar .p-menu::-webkit-scrollbar {
-  width: 9px;
-  /* width of the entire scrollbar */
-}
-.main-sidebar .p-menu::-webkit-scrollbar-track {
-  background: #1E1E1E;
-  /* color of the tracking area */
-}
-.main-sidebar .p-menu::-webkit-scrollbar-thumb {
-  background-color: #4A4A4A;
-  /* color of the scroll thumb */
-  border-radius: 20px;
-  /* roundness of the scroll thumb */
-  border: 3px solid orange;
-  /* creates padding around scroll thumb */
-}
-
 .sidebar-contained {
   position: absolute;
   margin-left: 12.5em;
@@ -70,6 +62,72 @@ body {
   100%, 0%, 40%, 66%, 80%, 90% {
     stroke: #81C784;
   }
+}
+.p-menu.p-menu-overlay {
+  top: 40px;
+  position: absolute;
+}
+
+.clip-box {
+  width: 20rem;
+  height: 18rem;
+}
+.clip-box .clip-thumbnail {
+  width: 100%;
+}
+.clip-box a {
+  font-size: 1.15rem;
+  line-height: 1.2rem;
+  max-height: 4rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.video-thumbnail {
+  position: relative;
+}
+.video-thumbnail .clip-thumbnail {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.video-thumbnail .overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+.video-thumbnail .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.video-thumbnail .play-button {
+  width: 50px;
+}
+
+.video-thumbnail:hover .overlay {
+  opacity: 1;
+}
+.video-thumbnail:hover .clip-thumbnail {
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
+.clip-content {
+  margin-top: 0.5em;
+}
+
+.clip-duration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #181818;
+  font-size: 0.6em;
+  padding: 0.1em;
 }
 
 /*# sourceMappingURL=index.css.map */

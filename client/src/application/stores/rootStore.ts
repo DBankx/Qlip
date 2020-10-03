@@ -6,7 +6,7 @@ import {ClipStore} from "./clipStore";
 configure({enforceActions: "always"});
 
 export class RootStore{
-    clipStore: ClipStore
+    clipStore: ClipStore;
     constructor(){
         this.clipStore = new ClipStore(this);
     }

@@ -1,12 +1,13 @@
 ﻿import {RootStore} from "./rootStore";
-import {action, computed, observable, runInAction} from "mobx";
-import {IClip} from "../../infrastructure/models/clip"
+import {action, computed, makeObservable, observable, runInAction} from "mobx";
+import {IClip} from "../../infrastructure/models/clip";
 import {ClipRequest} from "../api/agent";
 
 export class ClipStore{
-    rootStore: RootStore
+    rootStore: RootStore;
     constructor(rootStore: RootStore) {
         this.rootStore = rootStore;
+        makeObservable(this);
     }
     
     // state watcher for all clips
@@ -23,7 +24,7 @@ export class ClipStore{
     @action loadAllClips = async () => {
         this.loadingInitial = true;
         try{
-            const clips: IClip[] = await ClipRequest.getAllClips();
+            const clips = await ClipRequest.getAllClips();
             runInAction(() => {
                 clips.forEach((clip: IClip) => {
                     this.clipRegistry.set(clip.id, clip);

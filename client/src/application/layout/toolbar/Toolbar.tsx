@@ -47,9 +47,9 @@ const Toolbars = () => {
                 e.preventDefault();
                 console.log(form);
             } }>
-                <SplitButton label={"Create"} model={buttonItems} className={"p-d-none p-d-md-inline-flex p-mr-4"} icon={"pi pi-plus"} />
+                <SplitButton label={"Create"} appendTo={document.body}  model={buttonItems} className={"p-d-none p-d-md-inline-flex p-mr-4"} icon={"pi pi-plus"} />
                 <div className="p-inputgroup">
-                    <InputText value={form} name={"find"} onChange={(e) => setForm(e.currentTarget.value)} placeholder={"Find a game clip"} />
+                    <InputText value={form} name={"find"} onChange={(e) => setForm(e.currentTarget.value)} placeholder={"Search for qlips"} />
                     <Button label="Search" icon={"pi pi-search"} className={"p-button-text"}/>
                 </div>
             </form>
@@ -64,7 +64,7 @@ const Toolbars = () => {
     
 
     return (<Fragment>
-        <Toolbar left={() => leftContent} />
+        <Toolbar className={"toolbar"} left={() => leftContent} />
     </Fragment>)
 }
 

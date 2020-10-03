@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Navbar from "./navigation/Navbar";
 import Toolbars from "./toolbar/Toolbar";
-import SideBar from "./navigation/SideBar";
 import {Route, Switch} from "react-router-dom";
 import ClipHome from "../../features/clip/clipHome/ClipHome";
+import {observer} from "mobx-react-lite";
 
 const App = () => {
   return (
-    <div className="App">
+    <Fragment>
       <Navbar />
       <Toolbars />
-      <SideBar />
-        <div>
+        <div style={{margin: "9em 1em 0 1em"}} className="app-body">
             <Switch>
                 <Route exact path={"/"} component={ClipHome} />
             </Switch>
         </div>
-      
-    </div>
+    </Fragment>
   );
 }
 
-export default App;
+export default observer(App);
