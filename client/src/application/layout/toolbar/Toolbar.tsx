@@ -1,6 +1,5 @@
 ﻿import React, {FormEvent, Fragment, useRef, useState} from "react";
 import {Toolbar} from "primereact/toolbar"
-import { Dropdown } from 'primereact/dropdown';
 import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
 import {SplitButton} from "primereact/splitbutton";
@@ -55,10 +54,10 @@ const Toolbars = () => {
                 </div>
             </form>
 
-            
-            <Button label="More" icon="pi pi-ellipsis-v" className="p-button-text p-button-plain" onClick={(event) => ref.current!.toggle(event)} aria-controls="popup_menu" aria-haspopup />
-            <Menu model={moreMenuItems} popup ref={ref} id="popup_menu" />
-            
+            <div>   
+                <Menu model={moreMenuItems} popup ref={ref} id="popup_menu" />
+            <Button label="More" icon="pi pi-ellipsis-v" className="p-button-text p-button-plain p-d-none p-d-md-inline-flex" onClick={(event) => ref.current!.toggle(event)} aria-controls="popup_menu" aria-haspopup />
+            </div>
         </Fragment>
     )
 

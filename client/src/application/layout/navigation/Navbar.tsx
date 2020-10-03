@@ -1,4 +1,4 @@
-﻿import React, { Fragment } from "react";
+﻿import React from "react";
 import navigationMenuModel from "./navigationMenu";
 import {Menubar} from "primereact/menubar";
 import logo from  "../images/placeholder_logo.png"
@@ -6,7 +6,7 @@ import {Button} from "primereact/button";
 
 
 const authButtons = (
-    <div >
+    <div className={"p-d-none p-d-md-inline-flex"}>
     <Button label={"Login"} className="p-button-outlined p-button-sm p-mr-3" icon={"pi pi-user"}/>
     <Button label={"Sign up"} className={"p-button-sm"} />
     </div>
@@ -14,7 +14,7 @@ const authButtons = (
 
 const Navbar = () => {
     return(
-        <Menubar model={navigationMenuModel}  start={() => <img src={logo} height="40" className="p-mr-2"/>} end={() => authButtons} />
+        <Menubar model={navigationMenuModel}  start={() => <img alt={"logo"} src={logo} height="40" className="p-mr-2"/>} end={() => authButtons} />
     )
 }
 

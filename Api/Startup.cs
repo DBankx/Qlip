@@ -49,6 +49,15 @@ namespace Api
                 option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"));
             });
             
+            //=================== Enabling Cors ==================
+            services.AddCors(option =>
+            {
+                option.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+                });
+            });
+            
             
             // configuring DI interfaces
             services.AddScoped<IVideoAccessor, VideoAccessor>();
@@ -64,6 +73,8 @@ namespace Api
             }
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

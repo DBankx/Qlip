@@ -1,7 +1,14 @@
-﻿*{
+﻿$main-color: #81C784;
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color: #181818;
+  color: #fff;
 }
 
 .p-menubar{
@@ -16,3 +23,57 @@
   display: block;
 }
 
+
+@media screen and (max-width: 960px){
+ .p-menubar .p-menubar-button {
+ position: absolute;
+   right:15px;
+ }
+}
+
+.main-sidebar .p-menu{
+  border-radius: 0;
+  overflow-y: scroll;
+  height: 81vh;
+
+  &::-webkit-scrollbar {
+    width: 9px;               /* width of the entire scrollbar */
+  }
+  &::-webkit-scrollbar-track {
+    background: #1E1E1E;        /* color of the tracking area */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #4A4A4A;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid orange;  /* creates padding around scroll thumb */
+  }
+}
+
+.sidebar-contained{
+  position: absolute; 
+  margin-left: 12.5em;
+}
+
+@media (max-width: 640px){
+.sidebar-nullified{
+  margin-left: 0;
+}
+}
+
+.spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes p-progress-spinner-color {
+  100%,
+  0% ,
+  40% ,
+  66% ,
+  80%,
+  90% {
+    stroke: $main-color;
+  }
+}
