@@ -28,5 +28,6 @@ const Requests = {
 
 // requests for clips
 export const ClipRequest = {
-    getAllClips: (): Promise<IClip[]> => Requests.get("/clip")
+    getAllClips: (): Promise<IClip[]> => Requests.get("/clip"),
+    getClip: (id: string) : Promise<IClip> => Requests.get(`/clip/${id}`)
 }

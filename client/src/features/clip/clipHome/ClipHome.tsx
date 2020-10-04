@@ -7,8 +7,10 @@ import Clip from "./Clip";
 
 const ClipHome = () => {
     const {loadingInitial, loadAllClips, clipsData} = useContext(rootStoreContext).clipStore;
+    const {showSidebar} = useContext(rootStoreContext).commonStore;
     
     useEffect(() => {
+        showSidebar();
         loadAllClips();
     }, [loadAllClips])
     
@@ -17,7 +19,7 @@ const ClipHome = () => {
     }
     
     return (
-        <div className={"p-d-flex p-flex-wrap"}>
+        <div className={"p-d-flex p-flex-wrap sidebar-way main-container sidebar-void"}>
             {clipsData.map((clip: IClip) => (
                 <div key={clip.id}>
                 <Clip clipData={clip} />

@@ -3,6 +3,7 @@ import navigationMenuModel from "./navigationMenu";
 import {Menubar} from "primereact/menubar";
 import logo from  "../images/placeholder_logo.png"
 import {Button} from "primereact/button";
+import {Link} from "react-router-dom";
 
 
 const authButtons = (
@@ -14,7 +15,7 @@ const authButtons = (
 
 const Navbar = () => {
     return(
-        <Menubar model={navigationMenuModel}  start={() => <img alt={"logo"} src={logo} height="40" className="p-mr-2"/>} end={() => authButtons} />
+        <Menubar model={navigationMenuModel}  start={() => <Link to={"/"}><img alt={"logo"} src={logo} height="40" className="p-mr-2"/></Link>} end={() => authButtons} />
     )
 }
 
