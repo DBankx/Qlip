@@ -238,9 +238,28 @@ body {
 .slider-volume > .p-slider .p-slider-handle {
   border: 2px solid #fff;
 }
+.slider-volume > .p-slider .p-slider-handle:hover {
+  border: 2px solid #fff;
+  background: #fff;
+}
 
 .slider-volume .p-slider .p-slider-range {
   background: #fff;
+}
+
+@media (max-width: 640px) {
+  .hide-sm {
+    display: none;
+  }
+
+  .text-sm {
+    font-size: 0.7em;
+  }
+}
+@media (min-width: 641px) {
+  .hide-bg {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

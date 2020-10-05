@@ -6,6 +6,7 @@
     <e p="C:\Users\Asus\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\Asus\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
     <e p="C:\Users\Asus\Desktop\c#\Qlip" t="IncludeFlat">
+      <e p=".git\info\exclude" t="IncludeRecursive" />
       <e p="Api" t="IncludeRecursive">
         <e p="Api.csproj" t="IncludeRecursive" />
         <e p="appsettings.Development.json" t="Include" />
@@ -83,6 +84,7 @@
       <e p="client\node_modules\@typescript-eslint\experimental-utils" t="IncludeRecursive" />
       <e p="client\node_modules\@typescript-eslint\parser" t="IncludeRecursive" />
       <e p="client\node_modules\@typescript-eslint\typescript-estree" t="IncludeRecursive" />
+      <e p="client\node_modules\acorn" t="IncludeRecursive" />
       <e p="client\node_modules\aggregate-error" t="IncludeRecursive" />
       <e p="client\node_modules\ansi-regex" t="IncludeRecursive" />
       <e p="client\node_modules\axios" t="IncludeRecursive" />
@@ -91,9 +93,11 @@
       <e p="client\node_modules\chalk" t="IncludeRecursive" />
       <e p="client\node_modules\classnames" t="IncludeRecursive" />
       <e p="client\node_modules\clean-stack" t="IncludeRecursive" />
+      <e p="client\node_modules\commander" t="IncludeRecursive" />
       <e p="client\node_modules\csstype" t="IncludeRecursive" />
       <e p="client\node_modules\del" t="IncludeRecursive" />
       <e p="client\node_modules\diff-sequences" t="IncludeRecursive" />
+      <e p="client\node_modules\fast-deep-equal" t="IncludeRecursive" />
       <e p="client\node_modules\fast-json-stable-stringify" t="IncludeRecursive" />
       <e p="client\node_modules\indent-string" t="IncludeRecursive" />
       <e p="client\node_modules\is-path-cwd" t="IncludeRecursive" />
@@ -115,6 +119,7 @@
       <e p="client\node_modules\jest-worker" t="IncludeRecursive" />
       <e p="client\node_modules\make-dir" t="IncludeRecursive" />
       <e p="client\node_modules\make-error" t="IncludeRecursive" />
+      <e p="client\node_modules\memoize-one" t="IncludeRecursive" />
       <e p="client\node_modules\mobx" t="IncludeRecursive" />
       <e p="client\node_modules\mobx-react-lite" t="IncludeRecursive" />
       <e p="client\node_modules\p-map" t="IncludeRecursive" />
@@ -124,12 +129,16 @@
       <e p="client\node_modules\primeicons" t="IncludeRecursive" />
       <e p="client\node_modules\primereact" t="IncludeRecursive" />
       <e p="client\node_modules\react" t="IncludeRecursive" />
+      <e p="client\node_modules\react-device-detect" t="IncludeRecursive" />
       <e p="client\node_modules\react-dom" t="IncludeRecursive" />
+      <e p="client\node_modules\react-fast-compare" t="IncludeRecursive" />
+      <e p="client\node_modules\react-player" t="IncludeRecursive" />
       <e p="client\node_modules\react-router-dom" t="IncludeRecursive" />
       <e p="client\node_modules\react-scripts" t="IncludeRecursive" />
       <e p="client\node_modules\react-transition-group" t="IncludeRecursive" />
       <e p="client\node_modules\sass" t="IncludeRecursive" />
       <e p="client\node_modules\strip-ansi" t="IncludeRecursive" />
+      <e p="client\node_modules\terser" t="IncludeRecursive" />
       <e p="client\node_modules\ts-jest" t="IncludeRecursive" />
       <e p="client\node_modules\ts-pnp" t="IncludeRecursive" />
       <e p="client\node_modules\tslib" t="IncludeRecursive" />
@@ -208,6 +217,8 @@
         <e p="Migrations" t="Include">
           <e p="20201001231747_initialMigration.cs" t="Include" />
           <e p="20201001231747_initialMigration.Designer.cs" t="Include" />
+          <e p="20201003183350_newColumn.cs" t="Include" />
+          <e p="20201003183350_newColumn.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

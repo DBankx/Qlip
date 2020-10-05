@@ -19,6 +19,7 @@
     "primeicons": "^4.0.0",
     "primereact": "^5.0.0",
     "react": "^16.13.1",
+    "react-device-detect": "^1.14.0",
     "react-dom": "^16.13.1",
     "react-player": "^2.6.2",
     "react-router-dom": "^5.2.0",

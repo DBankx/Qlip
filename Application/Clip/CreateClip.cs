@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CloudinaryDotNet;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Persistance;
 using Support.Video;
 using FluentValidation;
+using Microsoft.Extensions.Configuration;
 
 namespace Application.Clip
 {
@@ -33,11 +35,15 @@ namespace Application.Clip
         {
             private readonly DataContext _context;
             private readonly IVideoAccessor _videoAccessor;
+            private readonly IConfiguration _config;
+            public readonly Cloudinary _Cloudinary;
 
-            public Handler(DataContext context, IVideoAccessor videoAccessor)
+            public Handler(DataContext context, IVideoAccessor videoAccessor, IConfiguration config)
             {
                 _context = context;
                 _videoAccessor = videoAccessor;
+                _config = config;
+                _Cloudinary =  new Cloudinary(config["cloudinary"]);
             }
 
             public async Task<Domain.Clip> Handle(Command request, CancellationToken cancellationToken)
@@ -48,6 +54,7 @@ namespace Application.Clip
                 var clip = new Domain.Clip
                 {
                     Id = videoUploadResult.PublicId,
+                    Thumbnail = _Cloudinary.Api.UrlImgUp.ResourceType("video").Format("jpg").BuildUrl(videoUploadResult.PublicId),
                     Url = videoUploadResult.Url,
                     Title = request.Title,
                     Description = request.Description,
