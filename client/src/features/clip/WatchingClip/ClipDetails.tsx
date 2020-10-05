@@ -1,6 +1,5 @@
 ﻿import React from "react";
 import {observer} from "mobx-react-lite";
-import AvatarClip from "../../../application/common/AvatarClip";
 import ClipOwnerDetails from "./ClipOwnerDetails";
 import ClipPlayer from "./ClipPlayer";
 import {IClip} from "../../../infrastructure/models/clip";

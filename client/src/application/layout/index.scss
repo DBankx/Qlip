@@ -285,3 +285,19 @@ body{
     display: none;
   }
 }
+
+.rc-slider-handle{
+  border: 2px solid $main-color !important;
+  background-color: #383838 !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-top: -8.5px !important;
+}
+
+.rc-slider-track{
+  background-color: $main-color !important;
+}
+
+.rc-slider-rail{
+  background-color: #383838 !important;
+}

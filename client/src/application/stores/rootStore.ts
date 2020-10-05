@@ -2,6 +2,7 @@
 import {configure} from "mobx";
 import {ClipStore} from "./clipStore";
 import {CommonStore} from "./commonStore";
+import {ClipPlayerStore} from "./clipPlayerStore";
 
 //========================================================================
 //============= Store for controlling all stores in the app ================
@@ -13,10 +14,12 @@ configure({enforceActions: "always"});
 
 export class RootStore{
     clipStore: ClipStore;
-    commonStore: CommonStore
+    commonStore: CommonStore;
+    clipPlayerStore: ClipPlayerStore
     constructor(){
         this.clipStore = new ClipStore(this);
         this.commonStore = new CommonStore(this);
+        this.clipPlayerStore = new ClipPlayerStore(this);
     }
 }
 

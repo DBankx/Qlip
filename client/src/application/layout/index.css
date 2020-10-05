@@ -261,5 +261,20 @@ body {
     display: none;
   }
 }
+.rc-slider-handle {
+  border: 2px solid #81C784 !important;
+  background-color: #383838 !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-top: -8.5px !important;
+}
+
+.rc-slider-track {
+  background-color: #81C784 !important;
+}
+
+.rc-slider-rail {
+  background-color: #383838 !important;
+}
 
 /*# sourceMappingURL=index.css.map */

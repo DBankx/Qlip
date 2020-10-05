@@ -18,6 +18,7 @@
     "primeflex": "^2.0.0",
     "primeicons": "^4.0.0",
     "primereact": "^5.0.0",
+    "rc-slider": "^9.5.1",
     "react": "^16.13.1",
     "react-device-detect": "^1.14.0",
     "react-dom": "^16.13.1",
@@ -26,6 +27,7 @@
     "react-scripts": "3.4.3",
     "react-transition-group": "^4.4.1",
     "sass": "^1.26.11",
+    "screenfull": "^5.0.2",
     "typescript": "^3.7.5",
     "uikit-react": "^3.0.20"
   },

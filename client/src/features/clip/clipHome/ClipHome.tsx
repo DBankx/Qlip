@@ -12,7 +12,7 @@ const ClipHome = () => {
     useEffect(() => {
         showSidebar();
         loadAllClips();
-    }, [loadAllClips])
+    }, [loadAllClips, showSidebar])
     
     if(loadingInitial) {
         return <Spinner/>
