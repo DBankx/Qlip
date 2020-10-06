@@ -15,7 +15,7 @@ export class ClipPlayerStore {
         makeObservable(this);
     }
 
-    @observable playing: boolean = false;
+    @observable playing: boolean = true;
     @observable muted: boolean = false;
     @observable volume: number = 0.5;
     @observable played: number = 0;
@@ -60,11 +60,4 @@ export class ClipPlayerStore {
     @action changeTimeDisplayFormat = () => {
         this.timeDisplayFormat = this.timeDisplayFormat === "normal" ? "remaining" : "normal";
     }
-    
-    @action handleVideoProgress = () => {
-        
-    }
-
-    
-    
 }

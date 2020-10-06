@@ -28,7 +28,7 @@ const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerR
         {/*Top controls*/}
         <div className={"p-grid p-align-center vertical-container p-jc-between"} style={{padding: "0.5em 1em 0 1em"}}>
             <div className={"p-col-10 p-lg-10 pg-md-10 pg-sm-10"}>
-                <p style={{color: "#fff"}} className={"text-sm"}>{clip.title}</p>
+                <p style={{color: "#fff", fontSize: "0.8rem"}} className={"text-sm"}>{clip.title}</p>
             </div>
             <div className={"p-col-2 p-lg-2 pg-md-2 pg-sm-2"}>
                 <Button label={isMobile? "" : "Save"} className={"p-button-sm p-button-outlined text-sm"} style={{left: "0", border: "0", color: "#ddd"}} icon={"pi pi-bookmark"} />
@@ -45,7 +45,7 @@ const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerR
         {/*Middle controls*/}
 
         {/*Bottom controls*/}
-        <div className={"p-grid p-align-center vertical-container "} style={{padding: "0.5em 1em 0 1em"}}>
+        <div className={"p-grid p-align-center vertical-container "} >
             <div className={"p-col-12 p-lg-12"}>
                 <div className={"p-grid p-ai-center"}>
                     <div className={"p-col-10 p-md-12 p-lg-12 p-sm-10 p-xl-12"}>
@@ -65,27 +65,25 @@ const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerR
 
                         <div className={"p-grid"}>
 
-                            <div className={"p-col-2 p-md-3 p-sm-3"}>
+                            <div className={"p-col-2"}>
                                 <Button icon={playing ? "pi pi-pause" : "pi pi-play"} onClick={() => togglePlayButton()} className={"p-button-text p-button-plain p-button-sm"} />
                             </div>
 
-                            <div className={"p-col-7"}>
+                            <div className={"p-col-5"}>
 
-                                <div className={"p-grid p-ai-center"}>
+                                <ul className={"volume-controls"}>
 
-                                    <div className={"p-col-2"}>
+                                    <li>
                                         <Button className={"p-button-text p-button-plain p-button-sm"} onClick={() => toggleMute()} icon={muted ? "pi pi-volume-off" : "pi pi-volume-up"} />
-                                    </div>
+                                    </li>
                                     
-                                    <div className={"p-col-9 slider-volume"}>
-                                        <Slider max={10} min={0} disabled={muted}   value={muted ? 0 : muted ? 0 : volume * 10} step={1} onChange={(e) => updateVolume(e.value)} />
-                                    </div>
-
-                                </div>
-
+                                    <li className={"slider-volume"}>
+                                        <Slider max={10} min={0} disabled={muted} style={{width: "100px"}}   value={muted ? 0 : muted ? 0 : volume * 10} step={1} onChange={(e) => updateVolume(e.value)} />
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div className={"p-col-3"} style={{position: "relative", marginTop: "0.5em"}}>
+                            <div className={"p-col-4"} style={{position: "relative", marginTop: "0.5em"}}>
                                 <span onClick={() => changeTimeDisplayFormat()} style={{fontSize: "13px", top: "400", position: "absolute", color: "#959595"}}>
                                     {`${elapsedTime}/${totalDuration}`}
                                 </span>

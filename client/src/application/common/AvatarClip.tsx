@@ -7,7 +7,10 @@ const AvatarClip = () => {
         <div className={"avatar-clip"}>
             <div className={"p-d-flex p-flex-wrap p-jc-between p-ai-center"}>
                 <img src={user} alt={"username-clip"} />
-                <p>AlexGaming</p>
+                <div>
+                <span style={{fontSize: "0.9em"}}>AlexGaming</span>
+                    <span className={"followers-count"}>21.9k followers</span>
+                </div>
             </div>
         </div>
     )    

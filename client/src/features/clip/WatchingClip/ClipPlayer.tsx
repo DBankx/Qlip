@@ -55,7 +55,9 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
     return (
         <Fragment>
         <div ref={playerContainerRef} className={"p-mt-2 clip-video-container"} onMouseMove={handleMouseMove}>
-            <ReactPlayer  ref={playerRef} id={"clip-player"} playing={playing} url={clip.url} muted={muted} volume={volume} className={"clip-player"} width={"100"} onProgress={({played}) => handleProgress(played)} />
+            <div className={"video-clip"}>
+            <ReactPlayer ref={playerRef} id={"clip-player"} playing={playing} url={clip.url} muted={muted} volume={volume} className={"clip-player"} width={"100"} onProgress={({played}) => handleProgress(played)} />
+            </div>
             <div>
             <ClipPlayerControls playerRef={playerRef} clip={clip} onToggleFullScreen={onToggleFullScreen} controlsRef={controlsRef} />
             </div>

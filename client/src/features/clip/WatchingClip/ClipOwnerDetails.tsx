@@ -7,7 +7,7 @@ const ClipOwnerDetails = () => {
     return (
         <div className={"p-d-flex p-flex-wrap p-jc-between p-ai-center"}>
             <AvatarClip />
-            <Button label={"Subscribe"} icon={"pi pi-plus"} />
+            <Button label={"Subscribe"} className={"p-button-sm"} icon={"pi pi-plus"} />
         </div>
     )
 }

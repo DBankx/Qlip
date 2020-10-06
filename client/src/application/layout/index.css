@@ -208,11 +208,16 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 4;
+}
+
+.video-clip:hover .clip-player-controls {
+  visibility: visible;
 }
 
 .clip-video-container {
@@ -261,6 +266,27 @@ body {
     display: none;
   }
 }
+@media (max-width: 850px) {
+  .hide-md {
+    display: none;
+  }
+}
+.p-grid {
+  margin: 0;
+  padding: 0;
+}
+
+.volume-controls {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+@media (max-width: 360px) {
+  .hide-xs {
+    display: none;
+  }
+}
 .rc-slider-handle {
   border: 2px solid #81C784 !important;
   background-color: #383838 !important;
@@ -275,6 +301,33 @@ body {
 
 .rc-slider-rail {
   background-color: #383838 !important;
+}
+
+.game-tag {
+  color: #4A4A4A;
+  font-size: 0.7em;
+}
+
+.clip-detail-line {
+  color: #777777;
+  font-size: 0.9em;
+}
+
+.small-lines {
+  border: 1px solid #383838;
+  border-left: 0;
+  border-right: 0;
+  margin-top: 1em;
+}
+
+.followers-count {
+  display: block;
+  font-size: 0.8em;
+  color: #777777;
+}
+
+.clip-description {
+  font-size: 0.8em;
 }
 
 /*# sourceMappingURL=index.css.map */

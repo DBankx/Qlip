@@ -2,7 +2,7 @@
     id: string;
     url: string;
     thumbnail: string;
-    createdAt: string;
+    createdAt: Date;
     title: string;
     description: string;
 }
