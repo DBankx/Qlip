@@ -1,5 +1,6 @@
 ﻿import {RootStore} from "./rootStore";
 import {action, makeObservable, observable} from "mobx";
+import formatVideoTime from "../../infrastructure/HelperFunctions/formatVideoTime";
 
 //========================================================================
 //============= Store for clip player state in the app ================
@@ -19,6 +20,9 @@ export class ClipPlayerStore {
     @observable volume: number = 0.5;
     @observable played: number = 0;
     @observable seeking: boolean = false;
+    @observable elapsedTime: string = "00:00";
+    @observable totalDuration: string = "00:00";
+    @observable timeDisplayFormat: string = "normal";
     
     @action togglePlayButton = () => {
         this.playing = !this.playing;
@@ -44,6 +48,23 @@ export class ClipPlayerStore {
     @action stopSeeking = () => {
         this.seeking = false;
     }
+    
+    @action setElapsedTime = (time: any) => {
+        this.elapsedTime = this.timeDisplayFormat === "normal" ? formatVideoTime(time) : `-${formatVideoTime(time)}` ;
+    }
+    
+    @action setDuration = (time: any) => {
+        this.totalDuration = formatVideoTime(time);
+    }
+    
+    @action changeTimeDisplayFormat = () => {
+        this.timeDisplayFormat = this.timeDisplayFormat === "normal" ? "remaining" : "normal";
+    }
+    
+    @action handleVideoProgress = () => {
+        
+    }
+
     
     
 }

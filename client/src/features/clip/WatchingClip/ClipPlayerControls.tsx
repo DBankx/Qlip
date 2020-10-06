@@ -1,4 +1,5 @@
-﻿import React, {Fragment, useContext} from "react";
+﻿// @ts-nocheck
+import React, {Fragment, useContext, forwardRef, Props} from "react";
 import {Button} from "primereact/button";
 import {isMobile} from "react-device-detect";
 import {Slider} from "primereact/slider";
@@ -7,22 +8,23 @@ import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../../application/stores/rootStore";
 import ClipSlider from "../../../application/common/ClipSlider";
 
+
+
 interface IProps{
     clip: IClip,
     onToggleFullScreen: () => void;
     playerRef: any,
-    totalDuration: string,
-    elapsedTime: string
+    controlsRef: any
 }
 
-const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerRef, elapsedTime, totalDuration}) => {
+const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerRef, controlsRef}) => {
     
-    const {togglePlayButton, playing, toggleMute, muted, updateVolume, volume, played, updatePlayed, seek} = useContext(rootStoreContext).clipPlayerStore;
+    const {togglePlayButton, playing, toggleMute, muted, updateVolume, volume, elapsedTime, totalDuration, changeTimeDisplayFormat} = useContext(rootStoreContext).clipPlayerStore;
     
     return (
         <Fragment>
         {/* overlay controls */}
-    <div className={"clip-player-controls"}>
+    <div className={"clip-player-controls"} ref={controlsRef}>
         {/*Top controls*/}
         <div className={"p-grid p-align-center vertical-container p-jc-between"} style={{padding: "0.5em 1em 0 1em"}}>
             <div className={"p-col-10 p-lg-10 pg-md-10 pg-sm-10"}>
@@ -43,7 +45,7 @@ const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerR
         {/*Middle controls*/}
 
         {/*Bottom controls*/}
-        <div className={"p-grid p-align-center vertical-container"} style={{padding: "0.5em 1em 0 1em"}}>
+        <div className={"p-grid p-align-center vertical-container "} style={{padding: "0.5em 1em 0 1em"}}>
             <div className={"p-col-12 p-lg-12"}>
                 <div className={"p-grid p-ai-center"}>
                     <div className={"p-col-10 p-md-12 p-lg-12 p-sm-10 p-xl-12"}>
@@ -63,7 +65,7 @@ const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerR
 
                         <div className={"p-grid"}>
 
-                            <div className={"p-col-2"}>
+                            <div className={"p-col-2 p-md-3 p-sm-3"}>
                                 <Button icon={playing ? "pi pi-pause" : "pi pi-play"} onClick={() => togglePlayButton()} className={"p-button-text p-button-plain p-button-sm"} />
                             </div>
 
@@ -71,7 +73,7 @@ const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerR
 
                                 <div className={"p-grid p-ai-center"}>
 
-                                    <div className={"p-col-3"}>
+                                    <div className={"p-col-2"}>
                                         <Button className={"p-button-text p-button-plain p-button-sm"} onClick={() => toggleMute()} icon={muted ? "pi pi-volume-off" : "pi pi-volume-up"} />
                                     </div>
                                     
@@ -83,9 +85,9 @@ const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerR
 
                             </div>
 
-                            <div className={"p-col-3"} style={{position: "relative"}}>
-                                <span style={{fontSize: "13px", top: "400", position: "absolute"}}>
-                                    {`${elapsedTime} / ${totalDuration}`}
+                            <div className={"p-col-3"} style={{position: "relative", marginTop: "0.5em"}}>
+                                <span onClick={() => changeTimeDisplayFormat()} style={{fontSize: "13px", top: "400", position: "absolute", color: "#959595"}}>
+                                    {`${elapsedTime}/${totalDuration}`}
                                 </span>
                             </div>
 
@@ -121,4 +123,4 @@ const ClipPlayerControls: React.FC<IProps> = ({clip, onToggleFullScreen, playerR
     )
 }
 
-export default observer(ClipPlayerControls);
+export default observer(ClipPlayerControls, {forwardRef: true});

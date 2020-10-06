@@ -128,6 +128,7 @@
       <e p="client\node_modules\primeflex" t="IncludeRecursive" />
       <e p="client\node_modules\primeicons" t="IncludeRecursive" />
       <e p="client\node_modules\primereact" t="IncludeRecursive" />
+      <e p="client\node_modules\rc-slider" t="IncludeRecursive" />
       <e p="client\node_modules\react" t="IncludeRecursive" />
       <e p="client\node_modules\react-device-detect" t="IncludeRecursive" />
       <e p="client\node_modules\react-dom" t="IncludeRecursive" />
@@ -137,6 +138,7 @@
       <e p="client\node_modules\react-scripts" t="IncludeRecursive" />
       <e p="client\node_modules\react-transition-group" t="IncludeRecursive" />
       <e p="client\node_modules\sass" t="IncludeRecursive" />
+      <e p="client\node_modules\screenfull" t="IncludeRecursive" />
       <e p="client\node_modules\strip-ansi" t="IncludeRecursive" />
       <e p="client\node_modules\terser" t="IncludeRecursive" />
       <e p="client\node_modules\ts-jest" t="IncludeRecursive" />

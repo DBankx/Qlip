@@ -12,7 +12,7 @@
         return `${hh}:${mm.toString().padStart(2, "0")}:${ss}`
     }
 
-    return `${mm}: ${ss}`;
+    return `${mm}:${ss}`;
 }
 
 export default formatVideoTime;
