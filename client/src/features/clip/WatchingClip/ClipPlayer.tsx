@@ -49,8 +49,8 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
     
     useEffect(() => {
         setDuration(duration);
-        setElapsedTime( timeDisplayFormat == "normal" ? currentTime : remainingTime);
-    }, [setDuration, setElapsedTime, duration, currentTime])
+        setElapsedTime( timeDisplayFormat === "normal" ? currentTime : remainingTime);
+    }, [setDuration, setElapsedTime, duration, currentTime, remainingTime, timeDisplayFormat])
     
     return (
         <Fragment>

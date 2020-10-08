@@ -18,9 +18,11 @@ namespace Application.Clip
         /// </summary>
         public class Command : IRequest<Domain.Clip>
         {
-            public IFormFile videoFile { get; set; }
+            public string Id { get; set; }
             public string Title { get; set; }
             public string Description { get; set; }
+            public string Url { get; set; }
+            public string GameName { get; set; }
         }
 
         public class CommandValidator : AbstractValidator<Command>
@@ -28,6 +30,7 @@ namespace Application.Clip
             public CommandValidator()
             {
                 RuleFor(x => x.Title).NotNull().NotEmpty().MinimumLength(3);
+                RuleFor(x => x.GameName).NotNull().NotEmpty();
             }
         }
 
@@ -48,17 +51,15 @@ namespace Application.Clip
 
             public async Task<Domain.Clip> Handle(Command request, CancellationToken cancellationToken)
             {
-                var videoUploadResult = _videoAccessor.UploadClip(request.videoFile);
-
                 // create a new clip instance using the request
                 var clip = new Domain.Clip
                 {
-                    Id = videoUploadResult.PublicId,
-                    Thumbnail = _Cloudinary.Api.UrlImgUp.ResourceType("video").Format("jpg").BuildUrl(videoUploadResult.PublicId),
-                    Url = videoUploadResult.Url,
+                    Id = request.Id,
+                    Url = request.Url,
                     Title = request.Title,
                     Description = request.Description,
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTime.Now,
+                    GameName = request.GameName
                 };
 
                 _context.Clips.Add(clip);

@@ -4,6 +4,7 @@ import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
 import {SplitButton} from "primereact/splitbutton";
 import {Menu} from "primereact/menu";
+import {history} from "../../../index";
 
 const Toolbars = () => {
 
@@ -13,8 +14,9 @@ const Toolbars = () => {
     // placeholder button values
     const buttonItems = [
         {
-            label: 'Upload clip',
-            icon: 'pi pi-upload'
+            label: 'Create Qlip',
+            icon: 'pi pi-video',
+            command: () => history.push("/create")
         },
         {
             label: 'Delete',

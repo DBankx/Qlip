@@ -976,7 +976,15 @@ SELECT|sys.sys_config:null
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="304" parent="295" name="PRIMARY">
+    <column id="304" parent="295" name="Thumbnail">
+      <Position>6</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <column id="305" parent="295" name="GameName">
+      <Position>7</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <key id="306" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>

@@ -4,6 +4,7 @@ using Application.Clip;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Support.Video;
 
 namespace Api.Controllers
 {
@@ -52,5 +53,12 @@ namespace Api.Controllers
             command.ClipId = id;
             return await _mediator.Send(command);
         }
+
+        [HttpPost("upload")]
+        public async Task<ActionResult<VideoUploadResult>> UploadClip([FromForm] UploadClip.Command command)
+        {
+            return await _mediator.Send(command);
+        }
+        
     }
 }

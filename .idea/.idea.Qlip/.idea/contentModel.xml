@@ -41,6 +41,7 @@
           <e p="EditClip.cs" t="Include" />
           <e p="List.cs" t="Include" />
           <e p="RestException.cs" t="Include" />
+          <e p="UploadClip.cs" t="Include" />
         </e>
         <e p="Errors" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -80,6 +81,7 @@
         <e p="react-router-dom" t="IncludeRecursive" />
         <e p="testing-library__dom" t="IncludeRecursive" />
         <e p="yargs-parser" t="IncludeRecursive" />
+        <e p="yup" t="IncludeRecursive" />
       </e>
       <e p="client\node_modules\@typescript-eslint\experimental-utils" t="IncludeRecursive" />
       <e p="client\node_modules\@typescript-eslint\parser" t="IncludeRecursive" />
@@ -99,6 +101,7 @@
       <e p="client\node_modules\diff-sequences" t="IncludeRecursive" />
       <e p="client\node_modules\fast-deep-equal" t="IncludeRecursive" />
       <e p="client\node_modules\fast-json-stable-stringify" t="IncludeRecursive" />
+      <e p="client\node_modules\formik" t="IncludeRecursive" />
       <e p="client\node_modules\indent-string" t="IncludeRecursive" />
       <e p="client\node_modules\is-path-cwd" t="IncludeRecursive" />
       <e p="client\node_modules\is-path-in-cwd" t="IncludeRecursive" />
@@ -128,6 +131,7 @@
       <e p="client\node_modules\primeflex" t="IncludeRecursive" />
       <e p="client\node_modules\primeicons" t="IncludeRecursive" />
       <e p="client\node_modules\primereact" t="IncludeRecursive" />
+      <e p="client\node_modules\quill" t="IncludeRecursive" />
       <e p="client\node_modules\rc-slider" t="IncludeRecursive" />
       <e p="client\node_modules\react" t="IncludeRecursive" />
       <e p="client\node_modules\react-device-detect" t="IncludeRecursive" />
@@ -141,6 +145,7 @@
       <e p="client\node_modules\screenfull" t="IncludeRecursive" />
       <e p="client\node_modules\strip-ansi" t="IncludeRecursive" />
       <e p="client\node_modules\terser" t="IncludeRecursive" />
+      <e p="client\node_modules\tiny-warning" t="IncludeRecursive" />
       <e p="client\node_modules\ts-jest" t="IncludeRecursive" />
       <e p="client\node_modules\ts-pnp" t="IncludeRecursive" />
       <e p="client\node_modules\tslib" t="IncludeRecursive" />
@@ -200,6 +205,7 @@
         <e p="lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
       </e>
       <e p="client\node_modules\uikit-react" t="IncludeRecursive" />
+      <e p="client\node_modules\yup" t="IncludeRecursive" />
       <e p="Domain" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip.cs" t="Include" />
@@ -221,6 +227,8 @@
           <e p="20201001231747_initialMigration.Designer.cs" t="Include" />
           <e p="20201003183350_newColumn.cs" t="Include" />
           <e p="20201003183350_newColumn.Designer.cs" t="Include" />
+          <e p="20201007141446_addedGameName.cs" t="Include" />
+          <e p="20201007141446_addedGameName.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

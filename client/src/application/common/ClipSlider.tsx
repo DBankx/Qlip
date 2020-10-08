@@ -12,7 +12,7 @@ const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 const ClipSlider: React.FC<IProps> = ({playerRef}) => {
     
-    const {played, seek, seeking, updatePlayed, stopSeeking, elapsedTime} = useContext(rootStoreContext).clipPlayerStore;
+    const {played, seek, updatePlayed, stopSeeking, elapsedTime} = useContext(rootStoreContext).clipPlayerStore;
     
     const [visible, setVisible] = useState<boolean>(false);
     

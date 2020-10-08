@@ -29,9 +29,6 @@ namespace Support.Video
                         Transformation = new Transformation().StartOffset("0").EndOffset("120").Crop("fill")
 
                     };
-                    
-                    
-
                     uploadResult = _cloudinary.Upload(uploadParams);
                 }
             }

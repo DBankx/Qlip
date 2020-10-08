@@ -330,4 +330,41 @@ body {
   font-size: 0.8em;
 }
 
+.create-title {
+  font-size: 1.25em;
+  font-weight: 400;
+  color: #DBDBDB;
+}
+
+.container-wrapper {
+  margin: 10em 10em 0 10em;
+}
+
+@media (max-width: 640px) {
+  .container-wrapper {
+    margin: 10em 0em 0 0em;
+  }
+}
+.clip-form {
+  margin-top: 1em;
+}
+
+.title-counter {
+  float: right;
+  color: #777777;
+}
+
+.p-fileupload .p-fileupload-buttonbar .p-button {
+  background: none;
+  border: none;
+  color: #81C784;
+}
+.p-fileupload .p-fileupload-buttonbar .p-button:nth-child(3) {
+  color: red;
+}
+
+.p-fileupload-content {
+  border: 1px dashed blue;
+}
+
 /*# sourceMappingURL=index.css.map */

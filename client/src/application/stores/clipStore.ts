@@ -1,6 +1,6 @@
 ﻿import {RootStore} from "./rootStore";
 import {action, computed, makeObservable, observable, runInAction} from "mobx";
-import {IClip} from "../../infrastructure/models/clip";
+import {IClip, IUploadedClipValues} from "../../infrastructure/models/clip";
 import {ClipRequest} from "../api/agent";
 
 //========================================================================
@@ -19,8 +19,11 @@ export class ClipStore{
     @observable clipRegistry: Map<string, IClip> = new Map();
     @observable loadingInitial: boolean = false;
     @observable clip: IClip | null = null;
-    
-    
+    @observable uploadedClip: IUploadedClipValues | null = null;
+    @observable uploadingClip: boolean = false;
+    @observable progress: number = 0;
+    @observable selectedClip: string | null = null;
+
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
     }
@@ -65,5 +68,27 @@ export class ClipStore{
             });
             console.log(error);
         }
+    }
+    
+    @action uploadClip = async (videoFile: Blob) => {
+        this.uploadingClip = true;
+        try{
+            const clip = await ClipRequest.uploadClip(videoFile, (event: ProgressEvent) => {
+                runInAction(() => {this.progress =  Math.round((100 * event.loaded) / event.total);})
+            });
+            runInAction(() => {
+                this.uploadedClip = clip;
+                this.uploadingClip = false;
+            })
+        }catch(error){
+            runInAction(() => {
+                this.uploadingClip = false;
+            })
+            console.log(error);
+        }
+    }
+    
+    @action selectClip = (previewClip: any) => {
+        this.selectedClip = previewClip;
     }
 }

@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-import React, {Fragment, useContext, forwardRef, Props} from "react";
+import React, {Fragment, useContext} from "react";
 import {Button} from "primereact/button";
 import {isMobile} from "react-device-detect";
 import {Slider} from "primereact/slider";

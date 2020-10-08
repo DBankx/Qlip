@@ -7,6 +7,7 @@ import {observer} from "mobx-react-lite";
 import Sidebar from "./sidebar/Sidebar";
 import rootStoreContext from "../stores/rootStore";
 import ClipPage from "../../features/clip/WatchingClip/ClipPage";
+import CreateClip from "../../features/clip/clipForm/CreateClip";
 
 const App = () => {
     
@@ -22,6 +23,7 @@ const App = () => {
             <Switch>
                 <Route exact path={"/"} component={ClipHome} />
                 <Route exact path={`/qlip/:id`} component={ClipPage} />
+                <Route exact path={"/create"} component={CreateClip} />
             </Switch>
         </div>
     </Fragment>
