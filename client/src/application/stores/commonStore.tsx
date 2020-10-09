@@ -15,8 +15,15 @@ export class CommonStore{
     }
     
     @observable sidebarVisible: boolean = true;
+    @observable clipUploadHelpVisible: boolean = false;
     
     
+    @action showClipUploadHelper = () => {
+        this.clipUploadHelpVisible = true;
+    }
+    @action removeClipUploadHelper = () => {
+        this.clipUploadHelpVisible = false;
+    }
     
     // action to set the sidebar if visible or not
     @action clearSidebar = () => {

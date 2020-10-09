@@ -20,8 +20,8 @@ const ClipPage: React.FC<RouteComponentProps<{id: string}>> = ({match}) => {
     return (
         <div className={"normal-container"}>
             <div className="p-grid" style={{width: "100%", margin: "0 0.09em 0 0.08em"}}>
-                <div className="p-col-12 p-sm-12 p-md-12 p-lg-9" ><ClipDetails clip={clip} /></div>
-                <div className="p-col-12 p-md-12 p-sm-12 p-lg-3">This is for up next section</div>
+                <div className="p-col-12 p-sm-12 p-md-12 p-lg-7" ><ClipDetails clip={clip} /></div>
+                <div className="p-col-12 p-md-12 p-sm-12 p-lg-5">This is for up next section</div>
                 <div className={"p-col-12 p-sm-12 p-md-12 p-lg-9"}>This is for comment</div>
             </div>
         </div>

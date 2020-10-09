@@ -327,7 +327,7 @@ body {
 }
 
 .clip-description {
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .create-title {
@@ -340,6 +340,11 @@ body {
   margin: 10em 10em 0 10em;
 }
 
+@media (max-width: 1024px) {
+  .container-wrapper {
+    margin: 10em 2em 0 2em;
+  }
+}
 @media (max-width: 640px) {
   .container-wrapper {
     margin: 10em 0em 0 0em;
@@ -365,6 +370,12 @@ body {
 
 .p-fileupload-content {
   border: 1px dashed blue;
+}
+
+@media (max-width: 400px) {
+  .p-dialog {
+    width: 90vw !important;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

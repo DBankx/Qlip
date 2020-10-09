@@ -1,7 +1,8 @@
 ﻿import {RootStore} from "./rootStore";
 import {action, computed, makeObservable, observable, runInAction} from "mobx";
-import {IClip, IUploadedClipValues} from "../../infrastructure/models/clip";
+import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/models/clip";
 import {ClipRequest} from "../api/agent";
+import {toast} from "react-toastify";
 
 //========================================================================
 //============= Store for clip states in the app ================
@@ -23,6 +24,8 @@ export class ClipStore{
     @observable uploadingClip: boolean = false;
     @observable progress: number = 0;
     @observable selectedClip: string | null = null;
+    @observable selectedClipBlob: any = null;
+    @observable deletingClip: boolean = false;
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
@@ -74,21 +77,83 @@ export class ClipStore{
         this.uploadingClip = true;
         try{
             const clip = await ClipRequest.uploadClip(videoFile, (event: ProgressEvent) => {
-                runInAction(() => {this.progress =  Math.round((100 * event.loaded) / event.total);})
+                runInAction(() => {
+                    this.progress =  Math.round((100 * event.loaded) / event.total);
+                })
             });
             runInAction(() => {
                 this.uploadedClip = clip;
                 this.uploadingClip = false;
             })
+            toast.success("Qlip uploaded succesfully!")
         }catch(error){
             runInAction(() => {
                 this.uploadingClip = false;
             })
-            console.log(error);
+            toast.error("Error occured while uploading!")
         }
     }
     
     @action selectClip = (previewClip: any) => {
         this.selectedClip = previewClip;
+    }
+    
+    @action selectClipBlob = (previewClipBlob: Blob) => {
+        this.selectedClipBlob = previewClipBlob;
+    }
+    
+    // deleting the clip the user uploaded in the form
+    @action deleteUploadedClip = async () => {
+        this.deletingClip = true;
+        try{
+            if(this.uploadedClip != null){
+            await ClipRequest.deleteUploadedClip(this.uploadedClip.publicId);
+            runInAction(() => {
+                this.uploadedClip = null;
+                this.deletingClip = false;
+            })
+            }
+        } catch(error){
+            runInAction(() => {
+                this.deletingClip = false;
+            })
+            console.log(error);
+        }
+    }
+    
+    // remove the selected clip from state
+    @action removeSelectedClip = () => {
+        this.selectedClipBlob = null;
+        this.selectedClip = null;
+    }
+    
+    // create a clip
+    @action createClip = async (clip: IClipFormValues) => {
+        try{
+            const newClip = await ClipRequest.createClip(clip);
+            runInAction(() => {
+                this.clip = newClip;
+                this.clipRegistry.set(newClip.id, newClip);
+            });
+            toast.success("Qlip created successfully!")
+        }catch(error){
+            toast.error("Error occured creating qlip!")
+        }
+    }
+    
+    @action deleteClip = async (id: string) => {
+        this.deletingClip = true;
+        try{
+            await ClipRequest.deleteClip(id);
+            runInAction(() => {
+                this.clip = null;
+                this.clipRegistry.delete(id);
+                this.deletingClip = false;
+                toast.success("Qlip succesfully deleted!");
+            })
+        }catch(error){
+            runInAction(() => this.deletingClip = false);
+            toast.error("Error deleting Qlip!");
+        }
     }
 }

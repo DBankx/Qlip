@@ -14,6 +14,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="ClipController.cs" t="Include" />
+          <e p="UserController.cs" t="Include" />
         </e>
         <e p="Middlewares" t="Include">
           <e p="ErrorHandlingMiddleware.cs" t="Include" />
@@ -33,10 +34,17 @@
       </e>
       <e p="Application" t="IncludeRecursive">
         <e p="Application.csproj" t="IncludeRecursive" />
+        <e p="Auth" t="Include">
+          <e p="CurrentUser.cs" t="Include" />
+          <e p="Login.cs" t="Include" />
+          <e p="Register.cs" t="Include" />
+          <e p="UserReturnObject.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip" t="Include">
           <e p="CreateClip.cs" t="Include" />
           <e p="DeleteClip.cs" t="Include" />
+          <e p="DeleteUploadedClip.cs" t="Include" />
           <e p="Details.cs" t="Include" />
           <e p="EditClip.cs" t="Include" />
           <e p="List.cs" t="Include" />
@@ -68,6 +76,8 @@
         <e p="babel__generator" t="IncludeRecursive" />
         <e p="babel__template" t="IncludeRecursive" />
         <e p="babel__traverse" t="IncludeRecursive" />
+        <e p="domhandler" t="IncludeRecursive" />
+        <e p="domutils" t="IncludeRecursive" />
         <e p="history" t="IncludeRecursive" />
         <e p="istanbul-lib-coverage" t="IncludeRecursive" />
         <e p="istanbul-lib-report" t="IncludeRecursive" />
@@ -99,9 +109,12 @@
       <e p="client\node_modules\csstype" t="IncludeRecursive" />
       <e p="client\node_modules\del" t="IncludeRecursive" />
       <e p="client\node_modules\diff-sequences" t="IncludeRecursive" />
+      <e p="client\node_modules\domhandler" t="IncludeRecursive" />
       <e p="client\node_modules\fast-deep-equal" t="IncludeRecursive" />
       <e p="client\node_modules\fast-json-stable-stringify" t="IncludeRecursive" />
       <e p="client\node_modules\formik" t="IncludeRecursive" />
+      <e p="client\node_modules\html-dom-parser" t="IncludeRecursive" />
+      <e p="client\node_modules\html-react-parser" t="IncludeRecursive" />
       <e p="client\node_modules\indent-string" t="IncludeRecursive" />
       <e p="client\node_modules\is-path-cwd" t="IncludeRecursive" />
       <e p="client\node_modules\is-path-in-cwd" t="IncludeRecursive" />
@@ -127,6 +140,7 @@
       <e p="client\node_modules\mobx-react-lite" t="IncludeRecursive" />
       <e p="client\node_modules\p-map" t="IncludeRecursive" />
       <e p="client\node_modules\pirates" t="IncludeRecursive" />
+      <e p="client\node_modules\postcss" t="IncludeRecursive" />
       <e p="client\node_modules\pretty-format" t="IncludeRecursive" />
       <e p="client\node_modules\primeflex" t="IncludeRecursive" />
       <e p="client\node_modules\primeicons" t="IncludeRecursive" />
@@ -140,10 +154,12 @@
       <e p="client\node_modules\react-player" t="IncludeRecursive" />
       <e p="client\node_modules\react-router-dom" t="IncludeRecursive" />
       <e p="client\node_modules\react-scripts" t="IncludeRecursive" />
+      <e p="client\node_modules\react-toastify" t="IncludeRecursive" />
       <e p="client\node_modules\react-transition-group" t="IncludeRecursive" />
       <e p="client\node_modules\sass" t="IncludeRecursive" />
       <e p="client\node_modules\screenfull" t="IncludeRecursive" />
       <e p="client\node_modules\strip-ansi" t="IncludeRecursive" />
+      <e p="client\node_modules\style-to-object" t="IncludeRecursive" />
       <e p="client\node_modules\terser" t="IncludeRecursive" />
       <e p="client\node_modules\tiny-warning" t="IncludeRecursive" />
       <e p="client\node_modules\ts-jest" t="IncludeRecursive" />
@@ -207,6 +223,7 @@
       <e p="client\node_modules\uikit-react" t="IncludeRecursive" />
       <e p="client\node_modules\yup" t="IncludeRecursive" />
       <e p="Domain" t="IncludeRecursive">
+        <e p="ApplicationUser.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip.cs" t="Include" />
         <e p="Domain.csproj" t="IncludeRecursive" />
@@ -229,6 +246,8 @@
           <e p="20201003183350_newColumn.Designer.cs" t="Include" />
           <e p="20201007141446_addedGameName.cs" t="Include" />
           <e p="20201007141446_addedGameName.Designer.cs" t="Include" />
+          <e p="20201009210236_identityMigration.cs" t="Include" />
+          <e p="20201009210236_identityMigration.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -248,6 +267,16 @@
             <e p="netcoreapp3.1" t="Include">
               <e p="Support.AssemblyInfo.cs" t="Include" />
             </e>
+          </e>
+        </e>
+        <e p="Security" t="Include">
+          <e p="Jwt" t="Include">
+            <e p="IJwtGenerator.cs" t="Include" />
+            <e p="JwtGenerator.cs" t="Include" />
+          </e>
+          <e p="UserAccess" t="Include">
+            <e p="IUserAccessor.cs" t="Include" />
+            <e p="UserAccessor.cs" t="Include" />
           </e>
         </e>
         <e p="Support.csproj" t="IncludeRecursive" />

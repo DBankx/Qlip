@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import {IClip} from "../../../infrastructure/models/clip";
-import {Button} from "primereact/button";
+import parse from "html-react-parser";
 
 interface IProps{
     clip: IClip
@@ -10,9 +10,8 @@ const ClipDescription: React.FC<IProps> = ({clip}) => {
     const Description = () => {
         return (<div>
         <span className={"clip-description"}>
-            `${clip.description.substring(0, 200)}...` 
+            {parse(clip.description)}
         </span>
-           <Button label={"SHOW MORE"} icon={"pi pi-info"} className={"p-button-plain"}/> 
         </div>)
     }
     

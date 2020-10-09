@@ -1,9 +1,12 @@
-﻿import React, { Fragment } from "react";
+﻿import React, {Fragment, useContext, useRef} from "react";
 import {IClip} from "../../../infrastructure/models/clip";
 import {Button} from "primereact/button";
 import {observer} from "mobx-react-lite";
 import dayjs from 'dayjs'
 import relativeTime from "dayjs/plugin/relativeTime";
+import {Menu} from "primereact/menu";
+import rootStoreContext from "../../../application/stores/rootStore";
+import {history} from "../../../index";
 
 interface IProps{
     clip: IClip
@@ -13,6 +16,27 @@ interface IProps{
 dayjs.extend(relativeTime);
 
 const ClipAction: React.FC<IProps> = ({clip}) => {
+    
+    const {deleteClip, deletingClip} = useContext(rootStoreContext).clipStore;
+    
+    const optionsRef = useRef<any>(null);
+    
+    const optionsModel = [
+        {
+            label: 'Options',
+            items: [
+                {
+                    label: 'Report',
+                    icon: 'pi pi-envelope'
+                },
+                {
+                    label: 'Delete',
+                    icon: deletingClip ? "pi pi-spin pi-spinner" : "pi pi-times",
+                    command: () => deleteClip(clip.id).then(() => history.push("/"))
+                }
+            ]
+        }
+    ];
   
     return (
         <Fragment>
@@ -40,7 +64,8 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
                             <Button icon={"pi pi-bookmark"} className={"p-button-sm p-button-text"}/>
                         </div>
                         <div className={"p-lg-2 p-sm-3 hide-xs"}>
-                            <Button icon={"pi pi-ellipsis-v"} className={"p-button-sm p-button-text"}/>
+                            <Button icon={"pi pi-ellipsis-v"} onClick={(event) => optionsRef.current.toggle(event)} className={"p-button-sm p-button-text"} aria-controls="popup_menu" aria-haspopup/>
+                            <Menu popup={true} id={"popup_menu"} ref={optionsRef} model={optionsModel} />
                         </div>
                         <div className={"p-lg-2 hide-md"}>
                             <Button label={"SHARE"} icon={"pi pi-share-alt"} className={"p-button-sm p-button-text"}/>

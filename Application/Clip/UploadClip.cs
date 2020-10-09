@@ -17,12 +17,10 @@ namespace Application.Clip
 
         public class Handler : IRequestHandler<Command, VideoUploadResult>
         {
-            private readonly DataContext _context;
             private readonly IVideoAccessor _videoAccessor;
 
-            public Handler(DataContext context, IVideoAccessor videoAccessor)
+            public Handler( IVideoAccessor videoAccessor)
             {
-                _context = context;
                 _videoAccessor = videoAccessor;
             }
 

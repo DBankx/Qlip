@@ -24,7 +24,7 @@ namespace Api.Controllers
         }
         
         [HttpPost]
-        public async Task<ActionResult<Clip>> CreateClip([FromForm]CreateClip.Command command)
+        public async Task<ActionResult<Clip>> CreateClip(CreateClip.Command command)
         {
             return await _mediator.Send(command);
         }
@@ -55,9 +55,16 @@ namespace Api.Controllers
         }
 
         [HttpPost("upload")]
+        [DisableRequestSizeLimit]
         public async Task<ActionResult<VideoUploadResult>> UploadClip([FromForm] UploadClip.Command command)
         {
             return await _mediator.Send(command);
+        }
+        
+        [HttpDelete("delete/{id}")]
+        public async Task<ActionResult<Unit>> DeleteUploadedClip(string id)
+        {
+            return await _mediator.Send(new DeleteUploadedClip.Command{PublicId = id});
         }
         
     }

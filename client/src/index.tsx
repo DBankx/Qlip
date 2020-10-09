@@ -9,6 +9,7 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import "./application/layout/index.css";
 import 'rc-slider/assets/index.css';
+import 'react-toastify/dist/ReactToastify.css';
 // ========= routing ================
 import {Router} from "react-router-dom";
 import {createBrowserHistory} from "history";

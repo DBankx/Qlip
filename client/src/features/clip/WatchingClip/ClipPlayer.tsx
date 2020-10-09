@@ -58,7 +58,7 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
             <div className={"video-clip"}>
             <ReactPlayer ref={playerRef} id={"clip-player"} playing={playing} url={clip.url} muted={muted} volume={volume} className={"clip-player"} width={"100"} onProgress={({played}) => handleProgress(played)} />
             </div>
-            <div>
+            {/**/} <div>
             <ClipPlayerControls playerRef={playerRef} clip={clip} onToggleFullScreen={onToggleFullScreen} controlsRef={controlsRef} />
             </div>
         </div>

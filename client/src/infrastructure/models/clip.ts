@@ -1,8 +1,8 @@
 ﻿export interface IClip{
     id: string;
     url: string;
-    thumbnail: string;
-    createdAt: Date;
+    thumbnail?: string;
+    createdAt?: Date;
     gameName: string;
     title: string;
     description: string;
@@ -10,10 +10,10 @@
 
 export interface IClipFormValues{
     id: string;
-    file: Blob|null;
-    gameName: String;
+    url: string;
+    gameName: string;
     title: string;
-    description: String;
+    description: string;
 }
 
 export interface IUploadedClipValues{

@@ -1,6 +1,5 @@
-﻿import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
-import {IClip, IUploadedClipValues} from "../../infrastructure/models/clip";
-import * as fs from "fs";
+﻿import axios, { AxiosResponse} from "axios";
+import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/models/clip";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -36,5 +35,8 @@ const Requests = {
 export const ClipRequest = {
     getAllClips: (): Promise<IClip[]> => Requests.get("/clip"),
     getClip: (id: string) : Promise<IClip> => Requests.get(`/clip/${id}`),
-    uploadClip: (clip: Blob, uploadProgress: any): Promise<IUploadedClipValues> => Requests.uploadVideo("/clip/upload", clip, uploadProgress)
+    uploadClip: (clip: Blob, uploadProgress: any): Promise<IUploadedClipValues> => Requests.uploadVideo("/clip/upload", clip, uploadProgress),
+    deleteUploadedClip: (id: string) :Promise<{}> => Requests.delete(`/clip/delete/${id}`),
+    createClip: (clip: IClipFormValues) : Promise<IClip> => Requests.post("/clip", clip),
+    deleteClip: (id: string) : Promise<{}> => Requests.delete(`/clip/${id}`)
 }
