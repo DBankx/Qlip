@@ -26,38 +26,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Controllers/ClipController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Controllers/ClipController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Clip/UploadClip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/UploadClip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistance/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistance/Persistance.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/Persistance.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Support/Support.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Support/Support.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Support/Video/VideoAccessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Support/Video/VideoAccessor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/api/agent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/navigation/navigationMenu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/navigation/navigationMenu.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDescription.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipForm/SelectedClipPreview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipForm/SelectedClipPreview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,13 +61,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/node_modules/primereact/components/splitbutton/SplitButtonPanel.js" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/sidebar/sidebarNavigationModel.ts" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/clipHome/ClipHome.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" />
-        <option value="$PROJECT_DIR$/client/src/infrastructure/HelperFunctions/formatVideoTime.ts" />
-        <option value="$PROJECT_DIR$/client/src/application/stores/clipPlayerStore.ts" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipTitle.tsx" />
         <option value="$PROJECT_DIR$/client/tsconfig.json" />
         <option value="$PROJECT_DIR$/client/src/application/layout/index.css" />
@@ -103,14 +74,11 @@
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayerControls.tsx" />
         <option value="$PROJECT_DIR$/Application/Clip/CreateClip.cs" />
         <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/CreateClip.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" />
         <option value="$PROJECT_DIR$/Application/Clip/DeleteUploadedClip.cs" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
         <option value="$PROJECT_DIR$/client/src/index.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/common/gameNameOptions.ts" />
         <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/SelectedClipPreview.tsx" />
         <option value="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayer.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDescription.tsx" />
@@ -119,7 +87,6 @@
         <option value="$PROJECT_DIR$/Application/Clip/UploadClip.cs" />
         <option value="$PROJECT_DIR$/Support/Video/VideoAccessor.cs" />
         <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/api/agent.ts" />
         <option value="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" />
         <option value="$PROJECT_DIR$/Persistance/DataContext.cs" />
@@ -130,10 +97,21 @@
         <option value="$PROJECT_DIR$/Application/Auth/Register.cs" />
         <option value="$PROJECT_DIR$/Application/Auth/Login.cs" />
         <option value="$PROJECT_DIR$/Support/Security/UserAccess/IUserAccessor.cs" />
-        <option value="$PROJECT_DIR$/Support/Security/UserAccess/UserAccessor.cs" />
         <option value="$PROJECT_DIR$/Api/Startup.cs" />
         <option value="$PROJECT_DIR$/Api/Controllers/UserController.cs" />
         <option value="$PROJECT_DIR$/Application/Auth/CurrentUser.cs" />
+        <option value="$PROJECT_DIR$/Support/Security/UserAccess/UserAccessor.cs" />
+        <option value="$PROJECT_DIR$/client/src/infrastructure/models/auth.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/api/agent.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/navigation/navigationMenu.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/auth/AuthModal.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
+        <option value="$PROJECT_DIR$/client/src/application/stores/authStore.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/auth/Login.tsx" />
       </list>
     </option>
   </component>
@@ -199,7 +177,8 @@
       <updated>1601575789883</updated>
       <workItem from="1601575807050" duration="89239000" />
       <workItem from="1601876945212" duration="136731000" />
-      <workItem from="1602263468084" duration="12007000" />
+      <workItem from="1602263468084" duration="12911000" />
+      <workItem from="1602352360152" duration="9926000" />
     </task>
     <servers />
   </component>
@@ -268,9 +247,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="753" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602190396109" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602278920359">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602364343536">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602278920359" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602364343536" />
   </component>
 </project>

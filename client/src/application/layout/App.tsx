@@ -9,6 +9,7 @@ import rootStoreContext from "../stores/rootStore";
 import ClipPage from "../../features/clip/WatchingClip/ClipPage";
 import CreateClip from "../../features/clip/clipForm/CreateClip";
 import {ToastContainer} from "react-toastify";
+import AuthModal from "../../features/auth/AuthModal";
 
 const App = () => {
     
@@ -19,6 +20,7 @@ const App = () => {
         <ToastContainer position={"bottom-center"} />
       <Navbar />
       <Toolbars />
+      <AuthModal />
         {sidebarVisible && (
             <Sidebar />)}
         <div className="app-body">

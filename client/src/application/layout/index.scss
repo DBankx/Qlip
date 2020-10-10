@@ -415,3 +415,18 @@ body{
   }
 }
 
+.auth-form{
+  margin: 1em 1em 1em 1em ;
+}
+
+.auth-modal{
+  width: 30vw;
+  position: relative;
+}
+
+@media (max-width: 1150px){
+  .auth-modal{
+    width: 50vw;
+    position: relative;
+  }
+}

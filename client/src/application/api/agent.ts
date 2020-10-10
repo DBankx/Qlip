@@ -1,5 +1,6 @@
 ﻿import axios, { AxiosResponse} from "axios";
 import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/models/clip";
+import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -39,4 +40,11 @@ export const ClipRequest = {
     deleteUploadedClip: (id: string) :Promise<{}> => Requests.delete(`/clip/delete/${id}`),
     createClip: (clip: IClipFormValues) : Promise<IClip> => Requests.post("/clip", clip),
     deleteClip: (id: string) : Promise<{}> => Requests.delete(`/clip/${id}`)
+}
+
+// Auth requests
+export const Auth = {
+    register: (values: IAuthFormValues) : Promise<IUser> => Requests.post("/user/register", values),
+    login: (values: IAuthFormValues) : Promise<IUser> => Requests.post("/user/login", values),
+    getCurrentUser: () : Promise<IUser> => Requests.get("/user")
 }
