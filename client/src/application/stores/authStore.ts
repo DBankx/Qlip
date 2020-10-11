@@ -34,6 +34,19 @@ export class AuthStore{
         }
     }
     
+    @action registerUser = async (values: IAuthFormValues) => {
+        try{
+            let user = await Auth.register(values);
+            runInAction(() => {
+                this.user = user;
+            })
+            this.rootStore.commonStore.setAppLoaded();
+            this.rootStore.commonStore.setToken(user.token);
+        }catch(error){
+            throw error;
+        }
+    }
+    
     @action logout = () => {
         this.user = null;
         this.rootStore.commonStore.deleteToken();

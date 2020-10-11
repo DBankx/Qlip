@@ -248,6 +248,8 @@
           <e p="20201007141446_addedGameName.Designer.cs" t="Include" />
           <e p="20201009210236_identityMigration.cs" t="Include" />
           <e p="20201009210236_identityMigration.Designer.cs" t="Include" />
+          <e p="20201011203912_AddedCreatedAt.cs" t="Include" />
+          <e p="20201011203912_AddedCreatedAt.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

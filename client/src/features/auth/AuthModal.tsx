@@ -4,11 +4,11 @@ import rootStoreContext from "../../application/stores/rootStore";
 import {Dialog} from "primereact/dialog";
 
 const AuthModal = () => {
-    const {modal:{open, body}, closeAuthModal} = useContext(rootStoreContext).commonStore;
+    const {modal:{open, body, header}, closeAuthModal} = useContext(rootStoreContext).commonStore;
     
     return (
         <div>
-            <Dialog visible={open} className={"auth-modal"}  showHeader={false} modal={true} onHide={() => closeAuthModal()}>
+            <Dialog visible={open} header={header} className={"auth-modal"}  closable={true} modal={true} onHide={() => closeAuthModal()}>
                 {body}
             </Dialog>
         </div>

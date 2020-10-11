@@ -1,5 +1,4 @@
 ﻿import React, {useRef} from "react";
-import navigationMenuModel from "./navigationMenu";
 import {Menubar} from "primereact/menubar";
 import logo from  "../images/placeholder_logo.png"
 import {Button} from "primereact/button";
@@ -9,12 +8,115 @@ import rootStoreContext from "../../stores/rootStore";
 import Login from "../../../features/auth/Login";
 import {observer} from "mobx-react-lite";
 import {OverlayPanel} from "primereact/overlaypanel";
+import Register from "../../../features/auth/Register";
 
 const Navbar = () => {
     const {openAuthModal} = useContext(rootStoreContext).commonStore;
     const {isLoggedIn, user, logout} = useContext(rootStoreContext).authStore;
     
     const loggedInModalItemsOptions = useRef<any>(null);
+    
+    //navigation menu
+    const navigationMenuModel = [
+        {
+            label: 'Browse Qlips',
+            icon: 'pi pi-fw pi-video',
+            items: [
+                {
+                    label: 'New',
+                    icon: 'pi pi-fw pi-plus',
+                    items: [
+                        {
+                            label: 'Bookmark',
+                            icon: 'pi pi-fw pi-bookmark'
+                        },
+                        {
+                            label: 'Video',
+                            icon: 'pi pi-fw pi-video'
+                        },
+
+                    ]
+                },
+                {
+                    label: 'Delete',
+                    icon: 'pi pi-fw pi-trash'
+                },
+                {
+                    separator: true
+                },
+                {
+                    label: 'Export',
+                    icon: 'pi pi-fw pi-external-link'
+                }
+            ]
+        },
+        {
+            label: 'Game Library',
+            icon: 'pi pi-list',
+            items: [
+                {
+                    label: 'Edit',
+                    icon: 'pi pi-fw pi-pencil',
+                    items: [
+                        {
+                            label: 'Save',
+                            icon: 'pi pi-fw pi-calendar-plus'
+                        },
+                        {
+                            label: 'Delete',
+                            icon: 'pi pi-fw pi-calendar-minus'
+                        }
+                    ]
+                },
+                {
+                    label: 'Archieve',
+                    icon: 'pi pi-fw pi-calendar-times',
+                    items: [
+                        {
+                            label: 'Remove',
+                            icon: 'pi pi-fw pi-calendar-minus'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            separator: true
+        },
+        isLoggedIn ?
+            {
+                label: user?.username,
+                icon: "pi pi-user",
+                className: "hide-bg",
+                items: [
+                    {
+                        label: "View Profile",
+                        icon: "pi pi-user-edit"
+                    },
+                    {
+                        label: "Logout",
+                        icon: "pi pi-power-off",
+                        command: () => logout()
+                    }
+                ]
+            } 
+            :
+        {
+            label: "Join Qlip",
+            icon: "pi pi-user",
+            className: "hide-bg",
+            items: [
+                {
+                    label: "Register",
+                    command: () => openAuthModal(<Register />, "Join Qlip")
+                },
+                {
+                    label: "login",
+                    command: () => openAuthModal(<Login/>, "Sign In to Qlip")
+                }
+            ]
+        } 
+    ];
 
     const authButtons = () => {
         if(isLoggedIn){
@@ -38,9 +140,9 @@ const Navbar = () => {
         } else{
             return (
         <div className={"p-d-none p-d-md-inline-flex"}>
-            <Button label={"Login"} onClick={() => openAuthModal(<Login/>)}
+            <Button label={"Login"} onClick={() => openAuthModal(<Login/>, "Sign In to Qlip")}
                     className="p-button-outlined p-button-sm p-mr-3" icon={"pi pi-user"}/>
-            <Button label={"Sign up"} className={"p-button-sm"}/>
+            <Button label={"Sign up"} onClick={() => openAuthModal(<Register />, "Join Qlip")} className={"p-button-sm"}/>
         </div>
             )
         }

@@ -44,7 +44,8 @@ const Login = () => {
                 dirty
               }) => (
                 <form onSubmit={handleSubmit} className={"auth-form"}>
-                    <h2 style={{textAlign: "center", fontWeight: "normal"}}>Sign In to Qlip</h2>
+                    <h2 style={{textAlign: "center", fontWeight: "normal"}}>Welcome Back!</h2>
+                    <span style={{textAlign: "center", color: "#777777", display: "block"}}>Login to start uploading qlips</span>
                     
                     {errorMessage != null && (
                         <Messages ref={ref}  />
@@ -63,12 +64,12 @@ const Login = () => {
                     <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner" : ""} disabled={!isValid || isSubmitting || !dirty } style={{width: "100%", marginBottom: "1em", fontSize: "1.2em"}} label={"Sign In"} className={""}  />
                     
                     <div className={"p-grid"} style={{marginBottom: "1em"}}>
-                        <div className={"p-col-6"}>
+                        <div className={"p-lg-6 p-col-12 p-md-6"}>
                             <Checkbox inputId="remember" checked={checked} onChange={e => setChecked(e.checked) } />
                             <label style={{color: "#777777", marginLeft: "1em", fontSize: "0.9em"}} htmlFor="remember">Remember Me</label>
                         </div>
-                        <div className={"p-col-6"}>
-                            <span style={{color: "#81C784", textDecoration: "none", float: "right"}}>Forgot Password?</span>
+                        <div className={"p-col-12 p-lg-6 p-md-6"}>
+                            <span className={"forgot-password"}>Forgot Password?</span>
                         </div>
                     </div>
 

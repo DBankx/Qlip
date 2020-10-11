@@ -1201,87 +1201,93 @@ RoleId</ColNames>
       <Position>17</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <index id="357" parent="300" name="UserNameIndex">
+    <column id="357" parent="300" name="CreatedAt">
+      <Position>18</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0001-01-01 00:00:00.000000&apos;</DefaultExpression>
+    </column>
+    <index id="358" parent="300" name="UserNameIndex">
       <ColNames>NormalizedUserName</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="358" parent="300" name="EmailIndex">
+    <index id="359" parent="300" name="EmailIndex">
       <ColNames>NormalizedEmail</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="359" parent="300" name="PRIMARY">
+    <key id="360" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="360" parent="300" name="UserNameIndex">
+    <key id="361" parent="300" name="UserNameIndex">
       <ColNames>NormalizedUserName</ColNames>
       <UnderlyingIndexName>UserNameIndex</UnderlyingIndexName>
     </key>
-    <column id="361" parent="301" name="UserId">
+    <column id="362" parent="301" name="UserId">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="362" parent="301" name="LoginProvider">
+    <column id="363" parent="301" name="LoginProvider">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="363" parent="301" name="Name">
+    <column id="364" parent="301" name="Name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="364" parent="301" name="Value">
+    <column id="365" parent="301" name="Value">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <key id="365" parent="301" name="PRIMARY">
+    <key id="366" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>UserId
 LoginProvider
 Name</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="366" parent="301" name="FK_AspNetUserTokens_AspNetUsers_UserId">
+    <foreign-key id="367" parent="301" name="FK_AspNetUserTokens_AspNetUsers_UserId">
       <ColNames>UserId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="367" parent="302" name="Id">
+    <column id="368" parent="302" name="Id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="368" parent="302" name="Title">
+    <column id="369" parent="302" name="Title">
       <Position>2</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="369" parent="302" name="Url">
+    <column id="370" parent="302" name="Url">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="370" parent="302" name="Description">
+    <column id="371" parent="302" name="Description">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="371" parent="302" name="CreatedAt">
+    <column id="372" parent="302" name="CreatedAt">
       <Position>5</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="372" parent="302" name="Thumbnail">
+    <column id="373" parent="302" name="Thumbnail">
       <Position>6</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="373" parent="302" name="GameName">
+    <column id="374" parent="302" name="GameName">
       <Position>7</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <key id="374" parent="302" name="PRIMARY">
+    <key id="375" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>

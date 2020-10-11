@@ -459,3 +459,20 @@ body{
   border: 0 solid #4A4A4A;
   border-bottom-width: 1px;
 }
+
+.forgot-password{
+color: #81C784; 
+  text-decoration: none; 
+  float: right;
+}
+
+@media (max-width: 420px){
+  .forgot-password{
+    float: left;
+    
+  }
+  .auth-modal{
+    width: 90vw;
+    position: relative;
+  }
+}

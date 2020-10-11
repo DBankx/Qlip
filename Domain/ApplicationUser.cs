@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace Domain
 {
@@ -6,5 +7,6 @@ namespace Domain
     {
         public string GravatarProfileImage { get; set; }
         public string Gender { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
