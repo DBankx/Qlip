@@ -52,7 +52,7 @@ namespace Application.Auth
 
                 if (user == null)
                 {
-                    throw new RestException(HttpStatusCode.Unauthorized);
+                    throw new RestException(HttpStatusCode.Unauthorized, new {error = "Invalid Credentials"});
                 }
 
                 var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
@@ -63,11 +63,12 @@ namespace Application.Auth
                     {
                         Username = user.UserName,
                         GravatarProfileImage = user.GravatarProfileImage,
-                        Token = _jwtGenerator.GenerateToken(user)
+                        Token = _jwtGenerator.GenerateToken(user),
+                        Email = user.Email
                     };
                 }
 
-                throw new RestException(HttpStatusCode.Unauthorized);
+                throw new RestException(HttpStatusCode.Unauthorized, new {error = "Invalid Credentials"});
             }
         }
     }

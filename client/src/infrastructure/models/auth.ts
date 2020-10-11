@@ -10,4 +10,5 @@ export interface IUser{
     username: string;
     token: string;
     gravatarProfileImage: string;
+    email: string;
 }

@@ -1,4 +1,4 @@
-import React, {Fragment, useContext} from 'react';
+import React, {Fragment, useContext, useEffect} from 'react';
 import Navbar from "./navigation/Navbar";
 import Toolbars from "./toolbar/Toolbar";
 import {Route, Switch} from "react-router-dom";
@@ -13,7 +13,16 @@ import AuthModal from "../../features/auth/AuthModal";
 
 const App = () => {
     
-    const {sidebarVisible} = useContext(rootStoreContext).commonStore;
+    const {sidebarVisible, setAppLoaded, token} = useContext(rootStoreContext).commonStore;
+    const {getCurrentUser} = useContext(rootStoreContext).authStore;
+    
+    useEffect(() => {
+        if(token){
+            getCurrentUser().then(() => setAppLoaded())
+        } else {
+            setAppLoaded()
+        }
+    }, [getCurrentUser, setAppLoaded, token])
     
   return (
     <Fragment>

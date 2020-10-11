@@ -43,7 +43,8 @@ namespace Application.Auth
                 {
                     GravatarProfileImage = user.GravatarProfileImage,
                     Username = user.UserName,
-                    Token = _jwtGenerator.GenerateToken(user)
+                    Token = _jwtGenerator.GenerateToken(user),
+                    Email = user.Email
                 };
             }
         }

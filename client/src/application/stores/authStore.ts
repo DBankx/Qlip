@@ -33,4 +33,18 @@ export class AuthStore{
             throw error;
         }
     }
+    
+    @action logout = () => {
+        this.user = null;
+        this.rootStore.commonStore.deleteToken();
+    }
+    
+    @action getCurrentUser = async () => {
+        try{
+            var user = await Auth.getCurrentUser();
+            runInAction(() => this.user = user)
+        }catch(error){
+            throw error;
+        }
+    }
 }

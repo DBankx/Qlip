@@ -194,10 +194,6 @@ body {
   }
 }
 @media (max-width: 640px) {
-  .sidebar-void {
-    margin: 10em 1.5em 0 1.5em;
-  }
-
   .normal-container {
     margin: 10em 0.2em 0 0.2em;
   }
@@ -285,6 +281,15 @@ body {
 @media (max-width: 360px) {
   .hide-xs {
     display: none;
+  }
+}
+@media (max-width: 989px) {
+  .hide-md {
+    display: none;
+  }
+
+  .sidebar-void {
+    margin: 10em 1.5em 0 1.5em;
   }
 }
 .rc-slider-handle {
@@ -391,6 +396,25 @@ body {
     width: 50vw;
     position: relative;
   }
+}
+.avatar-section {
+  margin-right: 1em;
+}
+
+.avatar-image {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.logged-in-options li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.auth-form {
+  border: 0 solid #4A4A4A;
+  border-bottom-width: 1px;
 }
 
 /*# sourceMappingURL=index.css.map */

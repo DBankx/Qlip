@@ -62,6 +62,10 @@ const navigationMenuModel = [
                 ]
             }
         ]
+    },
+    {
+        label: "small",
+        className: "hide-bg"
     }
 ];
 export default navigationMenuModel;

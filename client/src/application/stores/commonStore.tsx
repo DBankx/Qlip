@@ -1,5 +1,5 @@
 ﻿import {RootStore} from "./rootStore";
-import {action, makeObservable, observable} from "mobx";
+import {action, makeObservable, observable, reaction} from "mobx";
 
 
 //========================================================================
@@ -12,11 +12,20 @@ export class CommonStore{
     constructor(rootStore: RootStore) {
         this.rootStore = rootStore;
         makeObservable(this);
+        
+        // reaction to the token change in state
+        reaction(() => this.token, (token) => {
+            if(token){
+                localStorage.setItem("token", token);
+            } else {
+                localStorage.removeItem("token")
+            }
+        } )
     }
     
     @observable sidebarVisible: boolean = true;
     @observable clipUploadHelpVisible: boolean = false;
-    @observable token: string | null = null;
+    @observable token: string | null = localStorage.getItem("token");
     @observable appLoaded: boolean = false;
     @observable.shallow modal : {open: boolean, body: any} = {
         open: false,
@@ -42,7 +51,6 @@ export class CommonStore{
     
     @action setToken = (token: string) => {
         this.token = token;
-        localStorage.setItem("token", token);
     }
     
     @action deleteToken = () => {
