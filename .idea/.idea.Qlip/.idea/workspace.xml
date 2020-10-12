@@ -25,23 +25,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="">
+    <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="Added the register functionality from the mobxstore and implemented a ui modal for it">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Auth/Register.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Auth/Register.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistance/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/DataContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/navigation/navigationMenu.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/stores/authStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/authStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/auth/AuthModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/auth/AuthModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/auth/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support/Support.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Support/Support.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,9 +60,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/application/layout/index.css" />
-        <option value="$PROJECT_DIR$/client/src/infrastructure/HelperFunctions/timeDifference.ts" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipOwnerDetails.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDetails.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/toolbar/Toolbar.tsx" />
         <option value="$PROJECT_DIR$/Domain/Clip.cs" />
@@ -85,12 +75,10 @@
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDescription.tsx" />
         <option value="$PROJECT_DIR$/Api/Controllers/ClipController.cs" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPage.tsx" />
-        <option value="$PROJECT_DIR$/Application/Clip/UploadClip.cs" />
         <option value="$PROJECT_DIR$/Support/Video/VideoAccessor.cs" />
         <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" />
-        <option value="$PROJECT_DIR$/Persistance/DataContext.cs" />
         <option value="$PROJECT_DIR$/Support/Security/Jwt/IJwtGenerator.cs" />
         <option value="$PROJECT_DIR$/Support/Security/Jwt/JwtGenerator.cs" />
         <option value="$PROJECT_DIR$/Support/Security/UserAccess/IUserAccessor.cs" />
@@ -109,7 +97,6 @@
         <option value="$PROJECT_DIR$/client/src/features/auth/AuthModal.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/navigation/navigationMenu.tsx" />
         <option value="$PROJECT_DIR$/client/src/index.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/navigation/navigationMenu.ts" />
         <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
         <option value="$PROJECT_DIR$/client/src/features/auth/Login.tsx" />
@@ -118,6 +105,12 @@
         <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
         <option value="$PROJECT_DIR$/Application/Auth/Register.cs" />
         <option value="$PROJECT_DIR$/client/src/features/auth/Register.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
+        <option value="$PROJECT_DIR$/Application/Clip/UploadClip.cs" />
+        <option value="$PROJECT_DIR$/Domain/Game.cs" />
+        <option value="$PROJECT_DIR$/Persistance/DataContext.cs" />
+        <option value="$PROJECT_DIR$/Api/Program.cs" />
+        <option value="$PROJECT_DIR$/Support/Games/SeedGames.cs" />
       </list>
     </option>
   </component>
@@ -137,7 +130,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="ts.external.directory.path" value="C:\Users\Asus\Desktop\c#\Qlip\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -185,8 +178,16 @@
       <workItem from="1601876945212" duration="136731000" />
       <workItem from="1602263468084" duration="12911000" />
       <workItem from="1602352360152" duration="30492000" />
-      <workItem from="1602448284340" duration="5431000" />
+      <workItem from="1602448284340" duration="16111000" />
     </task>
+    <task id="LOCAL-00001" summary="Added the register functionality from the mobxstore and implemented a ui modal for it">
+      <created>1602455509187</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602455509187</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +200,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -208,6 +215,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Added the register functionality from the mobxstore and implemented a ui modal for it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the register functionality from the mobxstore and implemented a ui modal for it" />
   </component>
   <component name="WindowStateProjectService">
     <state x="501" y="265" key="#SCSS_Lint" timestamp="1601758860153">
@@ -226,6 +235,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1602262141540" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1602455693552">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1602455693552" />
     <state x="438" y="184" width="660" height="640" key="EditFileWatcherDialog" timestamp="1601650445528">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -238,14 +251,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="567" y="113" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1601588250136" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1602176414961">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1602455693131">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602176414961" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602455693131" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1601899535116">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1601899535116" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1602455719067">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602455719067" />
     <state x="322" y="142" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601650557948">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -254,9 +271,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="753" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602190396109" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602453849123">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602455435670">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602453849123" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602455435670" />
   </component>
 </project>

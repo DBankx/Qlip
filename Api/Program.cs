@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Persistance;
+using Support.Games;
 
 namespace Api
 {
@@ -21,6 +22,7 @@ namespace Api
                 {
                     var context = services.GetRequiredService<DataContext>();
                     context.Database.Migrate();
+                    SeedGames.SeedGamesData(context);
                 }
                 catch (Exception e)
                 {
@@ -29,6 +31,8 @@ namespace Api
                 }
             }
             host.Run();
+            
+            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

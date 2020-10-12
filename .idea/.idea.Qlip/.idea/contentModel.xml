@@ -52,6 +52,7 @@
           <e p="UploadClip.cs" t="Include" />
         </e>
         <e p="Errors" t="Include" />
+        <e p="Games" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -227,6 +228,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip.cs" t="Include" />
         <e p="Domain.csproj" t="IncludeRecursive" />
+        <e p="Game.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -250,6 +252,8 @@
           <e p="20201009210236_identityMigration.Designer.cs" t="Include" />
           <e p="20201011203912_AddedCreatedAt.cs" t="Include" />
           <e p="20201011203912_AddedCreatedAt.Designer.cs" t="Include" />
+          <e p="20201012223804_AddedGamesFromRawg.cs" t="Include" />
+          <e p="20201012223804_AddedGamesFromRawg.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -264,6 +268,9 @@
       <e p="Qlip.sln" t="IncludeFlat" />
       <e p="Support" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Games" t="Include">
+          <e p="SeedGames.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
