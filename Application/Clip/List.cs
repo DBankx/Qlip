@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
@@ -13,25 +14,27 @@ namespace Application.Clip
     /// </summary>
     public class List
     {
-        public class Query : IRequest<List<Domain.Clip>>
+        public class Query : IRequest<List<ClipDto>>
         {
         }
 
 
-        public class Handler : IRequestHandler<Query, List<Domain.Clip>>
+        public class Handler : IRequestHandler<Query, List<ClipDto>>
         {
             private readonly DataContext _context;
+            private readonly IMapper _mapper;
 
-            public Handler(DataContext context)
+            public Handler(DataContext context, IMapper mapper)
             {
                 _context = context;
+                _mapper = mapper;
             }
 
-            public async Task<List<Domain.Clip>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<ClipDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var clips = await _context.Clips.ToListAsync();
 
-                return clips;
+                return _mapper.Map<List<ClipDto>>(clips);
             }
         }
     }

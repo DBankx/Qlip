@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using Api.Middlewares.Errors;
 using Application.Clip;
+using AutoMapper;
 using Domain;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -55,6 +56,7 @@ namespace Api
             // adding the database
             services.AddDbContext<DataContext>(option =>
             {
+                option.UseLazyLoadingProxies();
                 option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"));
             });
             
@@ -64,6 +66,8 @@ namespace Api
             identityBuilder.AddSignInManager<SignInManager<ApplicationUser>>();
             identityBuilder.AddEntityFrameworkStores<DataContext>();
             
+            // adding auto mapper
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
             //=================== Enabling Cors ==================
             services.AddCors(option =>

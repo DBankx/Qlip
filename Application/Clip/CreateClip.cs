@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Api.Middlewares.Errors;
 using CloudinaryDotNet;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Persistance;
 using Support.Video;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace Application.Clip
@@ -59,8 +62,18 @@ namespace Application.Clip
                     Title = request.Title,
                     Description = request.Description,
                     CreatedAt = DateTime.Now,
-                    GameName = request.GameName
                 };
+                
+                // find the game and add it to the games
+
+                var game = await _context.Games.SingleOrDefaultAsync(x => x.Name == request.GameName);
+
+                if (game == null)
+                {
+                    throw new RestException(HttpStatusCode.NotFound, new {game = "The requested game was not found"});
+                }
+
+                clip.Game = game;
 
                 _context.Clips.Add(clip);
 

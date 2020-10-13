@@ -36,13 +36,13 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Clip>>> GetAllClips()
+        public async Task<ActionResult<List<ClipDto>>> GetAllClips()
         {
             return await _mediator.Send(new List.Query());
         }
         
         [HttpGet("{id}")]
-        public async Task<ActionResult<Clip>> GetClip(string id)
+        public async Task<ActionResult<ClipDto>> GetClip(string id)
         {
             return await _mediator.Send(new Details.Query {ClipId = id});
         }
