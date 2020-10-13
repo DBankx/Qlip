@@ -10,6 +10,7 @@ import ClipPage from "../../features/clip/WatchingClip/ClipPage";
 import CreateClip from "../../features/clip/clipForm/CreateClip";
 import {ToastContainer} from "react-toastify";
 import AuthModal from "../../features/auth/AuthModal";
+import GamesHome from "../../features/game/GamesHome";
 
 const App = () => {
     
@@ -37,6 +38,7 @@ const App = () => {
                 <Route exact path={"/"} component={ClipHome} />
                 <Route exact path={`/qlip/:id`} component={ClipPage} />
                 <Route exact path={"/create"} component={CreateClip} />
+                <Route exact path={"/games"} component={GamesHome} />
             </Switch>
         </div>
     </Fragment>

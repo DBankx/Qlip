@@ -3,6 +3,7 @@ import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/
 import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
 import {toast} from "react-toastify";
+import {IGame} from "../../infrastructure/models/game";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -83,4 +84,10 @@ export const Auth = {
     register: (values: IAuthFormValues) : Promise<IUser> => Requests.post("/user/register", values),
     login: (values: IAuthFormValues) : Promise<IUser> => Requests.post("/user/login", values),
     getCurrentUser: () : Promise<IUser> => Requests.get("/user")
+}
+
+// Games requests
+export const GameRequest = {
+    getAllGames: () : Promise<IGame> => Requests.get("/games"),
+    getGame: (gameId: number) : Promise<IGame> => Requests.get(`/games/${gameId}`)
 }

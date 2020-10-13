@@ -5,8 +5,10 @@ import {Button} from "primereact/button";
 import {SplitButton} from "primereact/splitbutton";
 import {Menu} from "primereact/menu";
 import {history} from "../../../index";
+import { RouteComponentProps, withRouter } from "react-router-dom";
+import {observer} from "mobx-react-lite";
 
-const Toolbars = () => {
+const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
 
     // placeholder form state managment
     const [form, setForm] = useState("");
@@ -50,10 +52,18 @@ const Toolbars = () => {
                 console.log(form);
             } }>
                 <SplitButton label={"Create"} appendTo={document.body}  model={buttonItems} className={"p-d-none p-d-md-inline-flex p-mr-4"} icon={"pi pi-plus"} />
-                <div className="p-inputgroup">
+                {location.pathname === "/games" ? (
+                    <div className="p-inputgroup">
+                    <InputText value={form} name={"find"} onChange={(e) => setForm(e.currentTarget.value)} placeholder={"Search for games"} />
+                    <Button label="Search" icon={"pi pi-search"} className={"p-button-text"}/>
+                </div>
+                ) : (
+                    <div className="p-inputgroup">
                     <InputText value={form} name={"find"} onChange={(e) => setForm(e.currentTarget.value)} placeholder={"Search for qlips"} />
                     <Button label="Search" icon={"pi pi-search"} className={"p-button-text"}/>
                 </div>
+                )}
+                
             </form>
 
             <div>   
@@ -70,4 +80,4 @@ const Toolbars = () => {
     </Fragment>)
 }
 
-export default Toolbars;
+export default withRouter(observer(Toolbars));
