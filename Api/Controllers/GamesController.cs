@@ -20,13 +20,13 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<PagedResponse<List<Game>>>> List([FromQuery] PaginationFilter filter)
+        public async Task<ActionResult<PagedResponse<List<AllGamesDto>>>> List([FromQuery] PaginationFilter filter)
         {
             return await _mediator.Send(new List.Query{PaginationFilter = filter, Route = Request.Path.Value});
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GameReturnObject>> Details(int id)
+        public async Task<ActionResult<GameDto>> Details(int id)
         {
             return await _mediator.Send(new Details.Query {Id = id});
         }

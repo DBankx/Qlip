@@ -15,13 +15,13 @@ namespace Application.Game
 {
     public class Details
     {
-        public class Query : IRequest<GameReturnObject>
+        public class Query : IRequest<GameDto>
         {
             public int Id { get; set; }
         }
 
 
-        public class Handler : IRequestHandler<Query, GameReturnObject>
+        public class Handler : IRequestHandler<Query, GameDto>
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
@@ -32,7 +32,7 @@ namespace Application.Game
                 _mapper = mapper;
             }
 
-            public async Task<GameReturnObject> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<GameDto> Handle(Query request, CancellationToken cancellationToken)
             {
                 var game = await _context.Games.SingleOrDefaultAsync(x => x.Id == request.Id);
 
@@ -42,13 +42,11 @@ namespace Application.Game
                 }
 
                 var listOfClips = await _context.Clips.Where(x => x.Game == game).ToListAsync();
-                var clipsdata = _mapper.Map<List<ClipDto>>(listOfClips);
 
-                return new GameReturnObject
-                {
-                    Game = game,
-                    Clips = clipsdata
-                };
+                game.Clips = listOfClips;
+
+                return _mapper.Map<GameDto>(game);
+
             }
         }
     }

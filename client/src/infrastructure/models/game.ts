@@ -18,7 +18,7 @@ export interface IGame{
     rating: string;
     slug: string;
     released: string;
-    background_image: string;
+    background_Image: string;
     playtime: number;
     clips?: IClip[];
 }

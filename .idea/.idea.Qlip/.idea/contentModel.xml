@@ -56,9 +56,11 @@
         </e>
         <e p="Errors" t="Include" />
         <e p="Game" t="Include">
+          <e p="AllGamesDto.cs" t="Include" />
           <e p="Details.cs" t="Include" />
-          <e p="GameReturnObject.cs" t="Include" />
+          <e p="GameDto.cs" t="Include" />
           <e p="List.cs" t="Include" />
+          <e p="MappingProfile.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

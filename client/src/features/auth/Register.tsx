@@ -54,7 +54,7 @@ const Login = () => {
                     <div className={"p-field"} style={{marginTop: "2em"}}>
                         <InputText className={errors.email && touched.email ? "p-invalid": ""} name={"email"} style={{width: "100%"}}  value={values.email} onChange={handleChange} onBlur={handleBlur} placeholder={"Email address"} />
                         {errors.email && touched.email && (<small id="username2-help" className="p-invalid p-d-block">{errors.email}</small>)}
-                        <small className={"p-block"}>The email provided will be used to fetch a profile image from gravatar.</small>
+                        <span style={{color: "#777777", fontSize: "0.7em", textAlign: "center"}}>The email provided will be used to fetch a profile image from gravatar.</span>
                     </div>
                     
                     <div className={"p-field"}>
@@ -79,7 +79,7 @@ const Login = () => {
                     <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner" : ""} disabled={!isValid || isSubmitting || !dirty || confirmPassword !== values.password } style={{width: "100%", marginBottom: "1em", fontSize: "1.2em"}} label={"Sign In"} className={""}  />
 
                     <div style={{marginBottom: "1em"}}>
-                        <span style={{color: "#777777", fontSize: "0.8em", textAlign: "center"}}>By joining, you agree to Qlip’s Terms of Service,
+                        <span style={{color: "#777777", fontSize: "0.7em", textAlign: "center"}}>By joining, you agree to Qlip’s Terms of Service,
 as well as to receive occasional emails from us.</span>
                     </div>
 
