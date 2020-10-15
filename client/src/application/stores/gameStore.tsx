@@ -47,5 +47,12 @@ export class GameStore{
         }
     }
     
+    @action changePage = (num: number) => {
+        this.pageNumber = num;
+    }
+    
+    @action changePageSize = (num: number) => {
+        this.pageSize = num;
+    }
     
 }

@@ -19,12 +19,14 @@ const ClipHome = () => {
     }
     
     return (
-        <div className={"p-d-flex p-flex-wrap sidebar-way main-container sidebar-void"}>
+        <div className={"sidebar-way main-container sidebar-void"}>
+        <div className={"p-grid home-clip p-ai-center"}>
             {clipsData.map((clip: IClip) => (
                 <div key={clip.id}>
                 <Clip clipData={clip} />
                 </div>
             ))}
+        </div>
         </div>
     )
 }

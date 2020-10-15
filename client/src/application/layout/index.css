@@ -103,9 +103,14 @@ span {
   position: absolute;
 }
 
+@media (max-width: 768px) {
+  .home-clip {
+    justify-content: center;
+  }
+}
 .clip-box {
-  width: 20rem;
-  height: 18rem;
+  width: 19.5rem;
+  height: 16rem;
 }
 .clip-box .clip-thumbnail {
   width: 100%;

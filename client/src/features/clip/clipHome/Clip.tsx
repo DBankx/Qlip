@@ -15,7 +15,7 @@ const Clip: React.FC<IProps> = ({clipData}) => {
     
     const [duration, setDuration] = useState(0);
     
-    return <div className={"clip-box p-mr-2 p-p-2 p-mb-2"}>
+    return <div className={"clip-box p-col-12 p-lg-3 p-md-6 p-sm-6"}>
         <Link to={`/qlip/${clipData.id}`}>
         <div className={"video-thumbnail"}>
         <video src={clipData.url} onLoadedMetadata={e => setDuration(e.currentTarget.duration)}  className={"clip-thumbnail"} />
