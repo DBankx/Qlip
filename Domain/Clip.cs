@@ -11,5 +11,6 @@ namespace Domain
         public DateTime CreatedAt { get; set; }
         public int views { get; set; } = 0;
         public virtual Game Game { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

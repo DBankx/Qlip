@@ -1280,52 +1280,75 @@ Name</ColNames>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="374" parent="302" name="Thumbnail">
+    <column id="374" parent="302" name="views">
       <Position>6</Position>
-      <DataType>longtext|0s</DataType>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="375" parent="302" name="GameName">
+    <column id="375" parent="302" name="GameId">
       <Position>7</Position>
-      <DataType>longtext|0s</DataType>
+      <DataType>int|0s</DataType>
     </column>
-    <key id="376" parent="302" name="PRIMARY">
+    <column id="376" parent="302" name="ApplicationUserId">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <index id="377" parent="302" name="IX_Clips_GameId">
+      <ColNames>GameId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="378" parent="302" name="IX_Clips_ApplicationUserId">
+      <ColNames>ApplicationUserId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="379" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="377" parent="303" name="Id">
+    <foreign-key id="380" parent="302" name="FK_Clips_Games_GameId">
+      <ColNames>GameId</ColNames>
+      <RefTableName>games</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="381" parent="302" name="FK_Clips_AspNetUsers_ApplicationUserId">
+      <ColNames>ApplicationUserId</ColNames>
+      <RefTableName>aspnetusers</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="382" parent="303" name="Id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="378" parent="303" name="Slug">
+    <column id="383" parent="303" name="Slug">
       <Position>2</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="379" parent="303" name="Name">
+    <column id="384" parent="303" name="Name">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="380" parent="303" name="Released">
+    <column id="385" parent="303" name="Released">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="381" parent="303" name="Background_Image">
+    <column id="386" parent="303" name="Background_Image">
       <Position>5</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="382" parent="303" name="Rating">
+    <column id="387" parent="303" name="Rating">
       <Position>6</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>longtext|0s</DataType>
     </column>
-    <column id="383" parent="303" name="Playtime">
+    <column id="388" parent="303" name="Playtime">
       <Position>7</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="384" parent="303" name="PRIMARY">
+    <key id="389" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>

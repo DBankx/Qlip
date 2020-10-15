@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Api.Middlewares.Errors;
+using AutoMapper;
 using CloudinaryDotNet;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -11,6 +12,7 @@ using Support.Video;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Support.Security.UserAccess;
 
 namespace Application.Clip
 {
@@ -19,7 +21,7 @@ namespace Application.Clip
         /// <summary>
         /// Api command request for creating a clip
         /// </summary>
-        public class Command : IRequest<Domain.Clip>
+        public class Command : IRequest<ClipDto>
         {
             public string Id { get; set; }
             public string Title { get; set; }
@@ -37,22 +39,22 @@ namespace Application.Clip
             }
         }
 
-        public class Handler : IRequestHandler<Command, Domain.Clip>
+        public class Handler : IRequestHandler<Command, ClipDto>
         {
             private readonly DataContext _context;
             private readonly IVideoAccessor _videoAccessor;
-            private readonly IConfiguration _config;
-            public readonly Cloudinary _Cloudinary;
+            private readonly IUserAccessor _userAccessor;
+            private readonly IMapper _mapper;
 
-            public Handler(DataContext context, IVideoAccessor videoAccessor, IConfiguration config)
+            public Handler(DataContext context, IVideoAccessor videoAccessor, IUserAccessor userAccessor, IMapper mapper)
             {
                 _context = context;
                 _videoAccessor = videoAccessor;
-                _config = config;
-                _Cloudinary =  new Cloudinary(config["cloudinary"]);
+                _userAccessor = userAccessor;
+                _mapper = mapper;
             }
 
-            public async Task<Domain.Clip> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<ClipDto> Handle(Command request, CancellationToken cancellationToken)
             {
                 // create a new clip instance using the request
                 var clip = new Domain.Clip
@@ -61,11 +63,18 @@ namespace Application.Clip
                     Url = request.Url,
                     Title = request.Title,
                     Description = request.Description,
-                    CreatedAt = DateTime.Now,
+                    CreatedAt = DateTime.Now
                 };
                 
-                // find the game and add it to the games
+                // get the user
+                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUser());
+                
+                if(user == null)
+                    throw new RestException(HttpStatusCode.NotFound, new {user = "Not found"});
 
+                clip.ApplicationUser = user;
+                
+                // find the game and add it to the games
                 var game = await _context.Games.SingleOrDefaultAsync(x => x.Name == request.GameName);
 
                 if (game == null)
@@ -79,7 +88,7 @@ namespace Application.Clip
 
                 var success = await _context.SaveChangesAsync() > 0;
 
-                if (success) return clip;
+                if (success) return _mapper.Map<ClipDto>(clip);
                 throw new Exception("Problem saving changes");
             }
         }

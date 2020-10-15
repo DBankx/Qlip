@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Application.Clip
 {
@@ -11,5 +12,7 @@ namespace Application.Clip
         public DateTime CreatedAt { get; set; }
         public int views { get; set; }
         public string GameName { get; set; }
+        public string AuthorName { get; set; }
+        public string AuthorImage { get; set; }
     }
 }

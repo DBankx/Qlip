@@ -13,23 +13,23 @@
   <component name="ChangeListManager">
     <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="Added the register functionality from the mobxstore and implemented a ui modal for it">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Controllers/GamesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Controllers/GamesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Game/Details.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Game/Details.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Game/GameReturnObject.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Game/List.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Game/List.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/PaginationFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/PaginationFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Controllers/ClipController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Controllers/ClipController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Clip/ClipDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/ClipDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Clip/CreateClip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/CreateClip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Clip/List.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/List.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Clip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Clip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/stores/gameStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/gameStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/auth/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/auth/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/game/GameBanner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/game/GameBanner.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/game/GamesHome.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/game/GamesHome.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/infrastructure/models/game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/infrastructure/models/game.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipHome/Clip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipHome/Clip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/game/gameClip/Game.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/game/gameClip/Game.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/game/gameClip/GameHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/game/gameClip/GameHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,22 +60,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/features/auth/Login.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/stores/authStore.ts" />
-        <option value="$PROJECT_DIR$/Domain/ApplicationUser.cs" />
-        <option value="$PROJECT_DIR$/Application/Auth/Register.cs" />
-        <option value="$PROJECT_DIR$/Persistance/DataContext.cs" />
-        <option value="$PROJECT_DIR$/Support/Game/SeedGameData.cs" />
         <option value="$PROJECT_DIR$/Api/Program.cs" />
         <option value="$PROJECT_DIR$/Domain/ClipGame.cs" />
         <option value="$PROJECT_DIR$/Support/Support.csproj" />
-        <option value="$PROJECT_DIR$/Application/Clip/CreateClip.cs" />
-        <option value="$PROJECT_DIR$/Domain/Clip.cs" />
-        <option value="$PROJECT_DIR$/Application/Clip/List.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/Details.cs" />
-        <option value="$PROJECT_DIR$/Api/Controllers/ClipController.cs" />
-        <option value="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" />
-        <option value="$PROJECT_DIR$/Application/Clip/ClipDto.cs" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipTitle.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/toolbar/Toolbar.tsx" />
@@ -98,7 +86,6 @@
         <option value="$PROJECT_DIR$/client/src/application/stores/gameStore.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/game/GamesHome.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/game/gameClip/Game.tsx" />
         <option value="$PROJECT_DIR$/Application/Game/GameReturnObject.cs" />
         <option value="$PROJECT_DIR$/Domain/Game.cs" />
         <option value="$PROJECT_DIR$/Application/Game/GameDto.cs" />
@@ -108,9 +95,22 @@
         <option value="$PROJECT_DIR$/Application/Game/MappingProfile.cs" />
         <option value="$PROJECT_DIR$/Application/Game/List.cs" />
         <option value="$PROJECT_DIR$/Api/Controllers/GamesController.cs" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
         <option value="$PROJECT_DIR$/client/src/index.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/game/gameClip/Game.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/game/gameClip/GameHeader.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/game/gameClip/GameClipContents.tsx" />
+        <option value="$PROJECT_DIR$/Domain/Clip.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/ClipUserDto.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/ffe69e49-4575-4778-8394-b40ff2c138d9/console_1.sql" />
+        <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" />
+        <option value="$PROJECT_DIR$/Api/Controllers/ClipController.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/List.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/CreateClip.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/ClipDto.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" />
+        <option value="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
+        <option value="$PROJECT_DIR$/client/src/features/clip/clipHome/Clip.tsx" />
       </list>
     </option>
   </component>
@@ -130,7 +130,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="C:\Users\Asus\Desktop\c#\Qlip\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -231,10 +231,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="567" y="113" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1601588250136" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1602704135095">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1602713856632">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602704135095" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602713856632" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1601899535116">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -247,9 +247,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="753" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602190396109" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602712812629">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602773983487">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602712812629" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602773983487" />
   </component>
 </project>

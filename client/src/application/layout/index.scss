@@ -184,7 +184,7 @@ span{
 }
 
 .main-sidebar{ 
-  margin-top: 8.5em;
+  margin-top: 9.4em;
   border-radius: 0;
   height: 81vh;
   overflow-y: scroll;
@@ -308,6 +308,10 @@ span{
 
 .slider-volume .p-slider .p-slider-range{
   background: #fff;
+}
+
+.text-sub{
+  font-size: 1.2rem;
 }
 
 @media(max-width: 640px){
@@ -586,4 +590,15 @@ color: #81C784;
 .floater{
   display: flex;
   align-items: center;
+}
+
+.clip-author-image{
+  width: 40px;
+  border-radius: 50%;
+}
+
+.tw-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

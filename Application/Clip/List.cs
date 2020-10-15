@@ -34,7 +34,7 @@ namespace Application.Clip
             {
                 var clips = await _context.Clips.ToListAsync();
 
-                return _mapper.Map<List<ClipDto>>(clips);
+                return _mapper.Map<List<Domain.Clip>, List<ClipDto>>(clips);
             }
         }
     }

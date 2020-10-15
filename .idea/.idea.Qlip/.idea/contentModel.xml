@@ -44,6 +44,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip" t="Include">
           <e p="ClipDto.cs" t="Include" />
+          <e p="ClipUserDto.cs" t="Include" />
           <e p="CreateClip.cs" t="Include" />
           <e p="DeleteClip.cs" t="Include" />
           <e p="DeleteUploadedClip.cs" t="Include" />
@@ -274,6 +275,8 @@
           <e p="20201013163649_addedGameToClip.Designer.cs" t="Include" />
           <e p="20201013164305_removedGameName.cs" t="Include" />
           <e p="20201013164305_removedGameName.Designer.cs" t="Include" />
+          <e p="20201015065105_AddedUserToClip.cs" t="Include" />
+          <e p="20201015065105_AddedUserToClip.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
