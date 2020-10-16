@@ -1,4 +1,5 @@
-﻿const gameNameOptions = [
+﻿
+const gameNameOptions = [
     { name: 'Fortnite', code: 'FN' },
     { name: 'God of War', code: 'GW' },
     { name: 'Lookman', code: 'LK' },

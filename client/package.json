@@ -22,11 +22,9 @@
     "primeicons": "^4.0.0",
     "primereact": "^5.0.0",
     "quill": "^1.3.7",
-    "rc-slider": "^9.5.1",
     "react": "^16.13.1",
     "react-device-detect": "^1.14.0",
     "react-dom": "^16.13.1",
-    "react-player": "^2.6.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-toastify": "^6.0.9",
@@ -35,6 +33,7 @@
     "screenfull": "^5.0.2",
     "typescript": "^3.7.5",
     "uikit-react": "^3.0.20",
+    "video-react": "^0.14.1",
     "yup": "^0.29.3"
   },
   "scripts": {
