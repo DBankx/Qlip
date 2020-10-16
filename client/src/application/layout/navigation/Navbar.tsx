@@ -9,6 +9,7 @@ import Login from "../../../features/auth/Login";
 import {observer} from "mobx-react-lite";
 import {OverlayPanel} from "primereact/overlaypanel";
 import Register from "../../../features/auth/Register";
+import {history} from "../../../index";
 
 const Navbar = () => {
     const {openAuthModal} = useContext(rootStoreContext).commonStore;
@@ -55,18 +56,9 @@ const Navbar = () => {
             icon: 'pi pi-list',
             items: [
                 {
-                    label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
-                    items: [
-                        {
-                            label: 'Save',
-                            icon: 'pi pi-fw pi-calendar-plus'
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-calendar-minus'
-                        }
-                    ]
+                    label: 'View games',
+                    icon: 'pi pi-fw pi-sitemap',
+                    command: () => history.push("/games")
                 },
                 {
                     label: 'Archieve',

@@ -21,9 +21,7 @@ const ClipForm = ( ) => {
     // yup validation schema 
     const qlipValidationschema = yup.object().shape({
         title: yup.string().required("Required").min(3, "Qlip title is too short!").max(80, "Qlip title too long!"),
-        description: yup.string().notRequired().max(5000, "Qlip description is too long").min(4, "Qlip description is too short"),
-        id: yup.string().required("Required"),
-        file: yup.string().required("Required")
+        description: yup.string().notRequired().max(5000, "Qlip description is too long").min(4, "Qlip description is too short")
     });
     
     //clip help footer 
@@ -147,7 +145,7 @@ const ClipForm = ( ) => {
                             </div>
                         
                         <div style={{float: "left", marginTop: "1em"}}>
-                        <Button label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} disabled={!isValid || !dirty || isSubmitting }  />
+                        <Button label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" }  />
                         <Button type={"button"} label={"Cancel"} onClick={() => history.push("/")} icon={"pi pi-times"} className={"p-button-danger"} style={{backgroundColor: "#D9381E", color: "#fff", borderColor: "#D9381E", marginLeft: "2em"}} />
                         </div>
                     </form>

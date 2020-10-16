@@ -1,4 +1,13 @@
-﻿$main-color: #81C784;
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+:root{
+  --font-family: 'Inter', sans-serif; 
+}
+
+html{
+  font-family: "Times New Roman", Serif;
+}
+
+$main-color: #81C784;
 
 *{
   margin: 0;
@@ -9,8 +18,12 @@
 body{
   background-color: #181818;
   color: #fff;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+}
+
+#root{
+  font-family: "Inter", sans-serif;
 }
 
 .p-menubar{
@@ -19,6 +32,7 @@ body{
   top: 0;
   width: 100%;
   z-index: 400;
+  font-family: "Inter", sans-serif;
 }
 
 .app-body{
@@ -28,6 +42,15 @@ body{
 
 .p-menu{
   z-index: 51 !important;
+  font-family: "Inter", sans-serif;
+}
+
+div{
+  font-family: "Inter", sans-serif;
+}
+
+span{
+  font-family: "Inter", sans-serif;
 }
 
 .p-toolbar{
@@ -38,8 +61,16 @@ body{
   display: block;
   overflow: visible;
   z-index: 50;
+  font-family: "Inter", sans-serif;
 }
 
+.p-card{
+  font-family: "Inter", sans-serif;
+}
+
+.p-button{
+  font-family: "Inter", sans-serif;
+}
 
 @media screen and (max-width: 960px){
  .p-menubar .p-menubar-button {
@@ -82,9 +113,15 @@ body{
   position: absolute;
 }
 
+@media (max-width: 768px) {
+  .home-clip{
+    justify-content: center;
+  }
+}
+
 .clip-box{
-  width: 20rem;
-  height: 18rem;
+  width: 19.5rem;
+  height: 16rem;
   
   .clip-thumbnail{
     width: 100%;
@@ -153,7 +190,7 @@ body{
 }
 
 .main-sidebar{ 
-  margin-top: 8.5em;
+  margin-top: 9.4em;
   border-radius: 0;
   height: 81vh;
   overflow-y: scroll;
@@ -277,6 +314,10 @@ body{
 
 .slider-volume .p-slider .p-slider-range{
   background: #fff;
+}
+
+.text-sub{
+  font-size: 1.2rem;
 }
 
 @media(max-width: 640px){
@@ -438,6 +479,10 @@ body{
   }
 }
 
+.p-menu{
+  font-size: 0.9em;
+}
+
 .avatar-section{
   margin-right: 1em;
 }
@@ -475,4 +520,91 @@ color: #81C784;
     width: 90vw;
     position: relative;
   }
+}
+
+.game{
+  position: relative;
+}
+
+
+.border-bottom{
+  border: 0 solid #383838;
+  padding-bottom: 0.5em;
+  border-bottom-width: 1px;
+}
+
+.gamelink{
+  color: #fff;
+  margin-top: 1em;
+  text-decoration: none;
+  &:hover{
+    color: $main-color;
+  }
+}
+
+
+.game{
+  
+  img{
+    width: 100%;
+    height: 200px;
+    position: relative;
+  }
+  &:hover{
+    .add-button{
+      display: initial;
+    }
+    .rating{
+      opacity: 1;
+    }
+    transform: scale(1.1);
+    transition: 1s ease;
+  }
+}
+
+.add-button{
+  position: absolute;
+  top: 160px;
+  right: 5px;
+  color: #383838;
+  opacity: 0.8;
+  display: none;
+}
+
+
+.button-opt{
+  font-size: 0.7em;
+}
+
+.rating{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: #383838;
+  font-size: 0.7em;
+  padding: 0.5em;
+  border-radius: 10px;
+  opacity: 0.6;
+}
+
+.tw-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.floater{
+  display: flex;
+  align-items: center;
+}
+
+.clip-author-image{
+  width: 40px;
+  border-radius: 50%;
+}
+
+.tw-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

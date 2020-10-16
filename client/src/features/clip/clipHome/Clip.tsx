@@ -2,6 +2,10 @@
 import {IClip} from "../../../infrastructure/models/clip";
 import playButton from "../../../application/layout/images/play.png";
 import {Link} from "react-router-dom";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 
 interface IProps{
     clipData: IClip
@@ -11,7 +15,7 @@ const Clip: React.FC<IProps> = ({clipData}) => {
     
     const [duration, setDuration] = useState(0);
     
-    return <div className={"clip-box p-mr-2 p-p-2 p-mb-2"}>
+    return <div className={"clip-box p-col-12 p-lg-3 p-md-6 p-sm-6"}>
         <Link to={`/qlip/${clipData.id}`}>
         <div className={"video-thumbnail"}>
         <video src={clipData.url} onLoadedMetadata={e => setDuration(e.currentTarget.duration)}  className={"clip-thumbnail"} />
@@ -23,8 +27,20 @@ const Clip: React.FC<IProps> = ({clipData}) => {
         </div>
         </div>
         </Link>
-        <div className={"clip-content"}>
-        <Link to={`/qlip/${clipData.id}`}>{clipData.title}</Link>
+        <div className={"clip-content p-grid"}>
+            <div className={"p-col-2"}>
+                <img className={"clip-author-image"} src={clipData.authorImage} alt={"author-avatar"} />
+            </div>
+            <div className={"p-col-10"}>
+                <Link to={`/qlip/${clipData.id}`} className={"tw-ellipsis"} style={{fontSize: "0.9em", fontWeight: 500}}>{clipData.title}</Link>
+                <Link to={"/"} style={{color: "#777777", display: "block", fontSize: "0.85em"}}>{clipData.authorName}</Link>
+                <div className={"p-d-flex"} style={{color: "#777777", fontSize: "0.8em"}}>
+                    <span>{clipData.views} Views</span>
+                    <span style={{margin: "0 0.4em"}}>•</span>
+                    <span>{dayjs(clipData.createdAt).fromNow()}</span>
+                </div>
+            </div>
+        
         </div>
     </div>
 }

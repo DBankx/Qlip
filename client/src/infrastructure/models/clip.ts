@@ -6,6 +6,9 @@
     gameName: string;
     title: string;
     description: string;
+    authorName: string;
+    authorImage: string;
+    views: number;
 }
 
 export interface IClipFormValues{

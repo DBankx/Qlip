@@ -9,7 +9,7 @@ interface IProps{
 const ClipTitle: React.FC<IProps> = ({clip}) => {
     return (
         <div style={{marginTop: "0.5em"}}>
-            <span className={"game-tag"}>#Fortnite</span>
+            <span className={"game-tag"}>#{clip.gameName ? clip.gameName : "fortnite"}</span>
             <h4>{clip.title}</h4>
         </div>
     )

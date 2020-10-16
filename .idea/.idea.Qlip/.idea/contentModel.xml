@@ -14,6 +14,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="ClipController.cs" t="Include" />
+          <e p="GamesController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
         </e>
         <e p="Middlewares" t="Include">
@@ -42,16 +43,26 @@
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip" t="Include">
+          <e p="ClipDto.cs" t="Include" />
+          <e p="ClipUserDto.cs" t="Include" />
           <e p="CreateClip.cs" t="Include" />
           <e p="DeleteClip.cs" t="Include" />
           <e p="DeleteUploadedClip.cs" t="Include" />
           <e p="Details.cs" t="Include" />
           <e p="EditClip.cs" t="Include" />
           <e p="List.cs" t="Include" />
+          <e p="MappingProfile.cs" t="Include" />
           <e p="RestException.cs" t="Include" />
           <e p="UploadClip.cs" t="Include" />
         </e>
         <e p="Errors" t="Include" />
+        <e p="Game" t="Include">
+          <e p="AllGamesDto.cs" t="Include" />
+          <e p="Details.cs" t="Include" />
+          <e p="GameDto.cs" t="Include" />
+          <e p="List.cs" t="Include" />
+          <e p="MappingProfile.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -227,6 +238,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip.cs" t="Include" />
         <e p="Domain.csproj" t="IncludeRecursive" />
+        <e p="Game.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -234,6 +246,7 @@
             </e>
           </e>
         </e>
+        <e p="PaginationFilter.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Persistance" t="IncludeRecursive">
@@ -248,8 +261,22 @@
           <e p="20201007141446_addedGameName.Designer.cs" t="Include" />
           <e p="20201009210236_identityMigration.cs" t="Include" />
           <e p="20201009210236_identityMigration.Designer.cs" t="Include" />
-          <e p="20201011203912_AddedCreatedAt.cs" t="Include" />
-          <e p="20201011203912_AddedCreatedAt.Designer.cs" t="Include" />
+          <e p="20201013144118_reAddedGamesTable.cs" t="Include" />
+          <e p="20201013144118_reAddedGamesTable.Designer.cs" t="Include" />
+          <e p="20201013155934_addedGamesData.cs" t="Include" />
+          <e p="20201013155934_addedGamesData.Designer.cs" t="Include" />
+          <e p="20201013160159_changedRatingsToString.cs" t="Include" />
+          <e p="20201013160159_changedRatingsToString.Designer.cs" t="Include" />
+          <e p="20201013161559_addedViews.cs" t="Include" />
+          <e p="20201013161559_addedViews.Designer.cs" t="Include" />
+          <e p="20201013161715_addedViewsTo0.cs" t="Include" />
+          <e p="20201013161715_addedViewsTo0.Designer.cs" t="Include" />
+          <e p="20201013163649_addedGameToClip.cs" t="Include" />
+          <e p="20201013163649_addedGameToClip.Designer.cs" t="Include" />
+          <e p="20201013164305_removedGameName.cs" t="Include" />
+          <e p="20201013164305_removedGameName.Designer.cs" t="Include" />
+          <e p="20201015065105_AddedUserToClip.cs" t="Include" />
+          <e p="20201015065105_AddedUserToClip.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -264,6 +291,14 @@
       <e p="Qlip.sln" t="IncludeFlat" />
       <e p="Support" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Game" t="Include">
+          <e p="SeedGameData.cs" t="Include" />
+        </e>
+        <e p="General" t="Include">
+          <e p="PagedResponse.cs" t="Include" />
+          <e p="PaginationHelper.cs" t="Include" />
+          <e p="Response.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -280,6 +315,10 @@
             <e p="IUserAccessor.cs" t="Include" />
             <e p="UserAccessor.cs" t="Include" />
           </e>
+        </e>
+        <e p="Services" t="Include">
+          <e p="IUriService.cs" t="Include" />
+          <e p="UriService.cs" t="Include" />
         </e>
         <e p="Support.csproj" t="IncludeRecursive" />
         <e p="Video" t="Include">

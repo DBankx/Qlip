@@ -2,12 +2,14 @@ using System;
 using System.Text;
 using Api.Middlewares.Errors;
 using Application.Clip;
+using AutoMapper;
 using Domain;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -20,6 +22,7 @@ using MySql.Data.MySqlClient;
 using Persistance;
 using Support.Security.Jwt;
 using Support.Security.UserAccess;
+using Support.Services;
 using Support.Video;
 
 namespace Api
@@ -55,6 +58,7 @@ namespace Api
             // adding the database
             services.AddDbContext<DataContext>(option =>
             {
+                option.UseLazyLoadingProxies();
                 option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"));
             });
             
@@ -64,6 +68,18 @@ namespace Api
             identityBuilder.AddSignInManager<SignInManager<ApplicationUser>>();
             identityBuilder.AddEntityFrameworkStores<DataContext>();
             
+            // adding auto mapper
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
+            
+            //================== Configuring service to get the base url ============
+            services.AddHttpContextAccessor();
+            services.AddSingleton<IUriService>(opt =>
+            {
+                var accessor = opt.GetRequiredService<IHttpContextAccessor>();
+                var request = accessor.HttpContext.Request;
+                var uri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
+                return new UriService(uri);
+            });
 
             //=================== Enabling Cors ==================
             services.AddCors(option =>
