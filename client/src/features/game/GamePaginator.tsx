@@ -4,7 +4,7 @@ import {Paginator} from "primereact/paginator";
 import rootStoreContext from "../../application/stores/rootStore";
 
 const GamePaginator = () => {
-    const {games, pageNumber, pageSize, changePage, changePageSize} = useContext(rootStoreContext).gameStore;
+    const {games, pageSize, changePage, changePageSize} = useContext(rootStoreContext).gameStore;
     const [number, setNumber] = useState(1);
     return (
         <div>

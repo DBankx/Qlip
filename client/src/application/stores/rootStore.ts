@@ -2,7 +2,6 @@
 import {configure} from "mobx";
 import {ClipStore} from "./clipStore";
 import {CommonStore} from "./commonStore";
-import {ClipPlayerStore} from "./clipPlayerStore";
 import {AuthStore} from "./authStore";
 import {GameStore} from "../../application/stores/gameStore";
 
@@ -17,13 +16,11 @@ configure({enforceActions: "always"});
 export class RootStore{
     clipStore: ClipStore;
     commonStore: CommonStore;
-    clipPlayerStore: ClipPlayerStore
     authStore: AuthStore
     gameStore: GameStore
     constructor(){
         this.clipStore = new ClipStore(this);
         this.commonStore = new CommonStore(this);
-        this.clipPlayerStore = new ClipPlayerStore(this);
         this.authStore = new AuthStore(this);
         this.gameStore = new GameStore(this);
     }

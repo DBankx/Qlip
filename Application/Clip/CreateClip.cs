@@ -75,7 +75,7 @@ namespace Application.Clip
                 clip.ApplicationUser = user;
                 
                 // find the game and add it to the games
-                var game = await _context.Games.SingleOrDefaultAsync(x => x.Name == request.GameName);
+                var game = await _context.Games.SingleOrDefaultAsync(x => x.Name.Equals(request.GameName, StringComparison.OrdinalIgnoreCase));
 
                 if (game == null)
                 {

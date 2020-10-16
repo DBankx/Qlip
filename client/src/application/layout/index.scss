@@ -1,13 +1,17 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+$main-color: #81C784;
+
 :root{
-  --font-family: 'Inter', sans-serif; 
+  --font-family: 'Inter', sans-serif;
+  --plyr-color-main: #81C784;
+  --plyr-control-icon-size: 15px;
 }
 
 html{
   font-family: "Times New Roman", Serif;
 }
 
-$main-color: #81C784;
+
 
 *{
   margin: 0;
@@ -226,7 +230,7 @@ span{
 
 
 .normal-container{
-  margin: 10em 4em 0 4em;
+  margin: 9em 4em 0 4em;
 }
 
 .clip-detail{
@@ -608,3 +612,4 @@ color: #81C784;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
