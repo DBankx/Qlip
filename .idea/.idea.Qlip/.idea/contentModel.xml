@@ -13,6 +13,7 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="ChannelController.cs" t="Include" />
           <e p="ClipController.cs" t="Include" />
           <e p="GamesController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
@@ -42,6 +43,11 @@
           <e p="UserReturnObject.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Channel" t="Include">
+          <e p="Channel.cs" t="Include" />
+          <e p="Details.cs" t="Include" />
+          <e p="UpdateChannel.cs" t="Include" />
+        </e>
         <e p="Clip" t="Include">
           <e p="ClipDto.cs" t="Include" />
           <e p="ClipUserDto.cs" t="Include" />
@@ -270,6 +276,10 @@
           <e p="20201013164305_removedGameName.Designer.cs" t="Include" />
           <e p="20201015065105_AddedUserToClip.cs" t="Include" />
           <e p="20201015065105_AddedUserToClip.Designer.cs" t="Include" />
+          <e p="20201017100525_channelMigration.cs" t="Include" />
+          <e p="20201017100525_channelMigration.Designer.cs" t="Include" />
+          <e p="20201017102402_channelMigration1.cs" t="Include" />
+          <e p="20201017102402_channelMigration1.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

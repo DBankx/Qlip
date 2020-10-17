@@ -2,7 +2,7 @@
 
 namespace Application.Game
 {
-    public class MappingProfile : Profile
+    public class MappingProfile : AutoMapper.Profile
     {
         public MappingProfile()
         {

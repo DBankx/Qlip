@@ -1208,147 +1208,167 @@ RoleId</ColNames>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0001-01-01 00:00:00.000000&apos;</DefaultExpression>
     </column>
-    <index id="359" parent="300" name="UserNameIndex">
+    <column id="359" parent="300" name="Bio">
+      <Position>19</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <column id="360" parent="300" name="Instagram">
+      <Position>20</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <column id="361" parent="300" name="Twitch">
+      <Position>21</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <column id="362" parent="300" name="Twitter">
+      <Position>22</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <column id="363" parent="300" name="Youtube">
+      <Position>23</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <index id="364" parent="300" name="UserNameIndex">
       <ColNames>NormalizedUserName</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="360" parent="300" name="EmailIndex">
+    <index id="365" parent="300" name="EmailIndex">
       <ColNames>NormalizedEmail</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="361" parent="300" name="PRIMARY">
+    <key id="366" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="362" parent="300" name="UserNameIndex">
+    <key id="367" parent="300" name="UserNameIndex">
       <ColNames>NormalizedUserName</ColNames>
       <UnderlyingIndexName>UserNameIndex</UnderlyingIndexName>
     </key>
-    <column id="363" parent="301" name="UserId">
+    <column id="368" parent="301" name="UserId">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="364" parent="301" name="LoginProvider">
+    <column id="369" parent="301" name="LoginProvider">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="365" parent="301" name="Name">
+    <column id="370" parent="301" name="Name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="366" parent="301" name="Value">
+    <column id="371" parent="301" name="Value">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <key id="367" parent="301" name="PRIMARY">
+    <key id="372" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>UserId
 LoginProvider
 Name</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="368" parent="301" name="FK_AspNetUserTokens_AspNetUsers_UserId">
+    <foreign-key id="373" parent="301" name="FK_AspNetUserTokens_AspNetUsers_UserId">
       <ColNames>UserId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="369" parent="302" name="Id">
+    <column id="374" parent="302" name="Id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="370" parent="302" name="Title">
+    <column id="375" parent="302" name="Title">
       <Position>2</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="371" parent="302" name="Url">
+    <column id="376" parent="302" name="Url">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="372" parent="302" name="Description">
+    <column id="377" parent="302" name="Description">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="373" parent="302" name="CreatedAt">
+    <column id="378" parent="302" name="CreatedAt">
       <Position>5</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="374" parent="302" name="views">
+    <column id="379" parent="302" name="views">
       <Position>6</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="375" parent="302" name="GameId">
+    <column id="380" parent="302" name="GameId">
       <Position>7</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="376" parent="302" name="ApplicationUserId">
+    <column id="381" parent="302" name="ApplicationUserId">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <index id="377" parent="302" name="IX_Clips_GameId">
+    <index id="382" parent="302" name="IX_Clips_GameId">
       <ColNames>GameId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="378" parent="302" name="IX_Clips_ApplicationUserId">
+    <index id="383" parent="302" name="IX_Clips_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="379" parent="302" name="PRIMARY">
+    <key id="384" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="380" parent="302" name="FK_Clips_Games_GameId">
+    <foreign-key id="385" parent="302" name="FK_Clips_Games_GameId">
       <ColNames>GameId</ColNames>
       <RefTableName>games</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <foreign-key id="381" parent="302" name="FK_Clips_AspNetUsers_ApplicationUserId">
+    <foreign-key id="386" parent="302" name="FK_Clips_AspNetUsers_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <column id="382" parent="303" name="Id">
+    <column id="387" parent="303" name="Id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="383" parent="303" name="Slug">
+    <column id="388" parent="303" name="Slug">
       <Position>2</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="384" parent="303" name="Name">
+    <column id="389" parent="303" name="Name">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="385" parent="303" name="Released">
+    <column id="390" parent="303" name="Released">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="386" parent="303" name="Background_Image">
+    <column id="391" parent="303" name="Background_Image">
       <Position>5</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="387" parent="303" name="Rating">
+    <column id="392" parent="303" name="Rating">
       <Position>6</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="388" parent="303" name="Playtime">
+    <column id="393" parent="303" name="Playtime">
       <Position>7</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="389" parent="303" name="PRIMARY">
+    <key id="394" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>

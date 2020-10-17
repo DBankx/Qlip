@@ -4,14 +4,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using Api.Middlewares.Errors;
 using AutoMapper;
-using CloudinaryDotNet;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Persistance;
 using Support.Video;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Support.Security.UserAccess;
 
 namespace Application.Clip
@@ -83,8 +80,10 @@ namespace Application.Clip
                 }
 
                 clip.Game = game;
-
+                
                 _context.Clips.Add(clip);
+                
+                user.Clips.Add(clip);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

@@ -69,19 +69,20 @@ namespace Application.Auth
                     GravatarProfileImage = GravatarController.GetImageUrl(request.Email),
                     CreatedAt = DateTime.Now
                 };
-                
 
                 var result = await _userManager.CreateAsync(user, request.Password);
 
+                var success = await _context.SaveChangesAsync() > 0;
+
                 if (result.Succeeded)
                 {
-                    return new UserReturnObject
-                    {
-                        GravatarProfileImage = user.GravatarProfileImage,
-                        Username = user.UserName,
-                        Token = _jwtGenerator.GenerateToken(user),
-                        Email = user.Email
-                    };
+                        return new UserReturnObject
+                        {
+                            GravatarProfileImage = user.GravatarProfileImage,
+                            Username = user.UserName,
+                            Token = _jwtGenerator.GenerateToken(user),
+                            Email = user.Email
+                        };
                 }
 
                 throw new Exception("Problem saving changes");
