@@ -4,6 +4,7 @@ import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
 import {toast} from "react-toastify";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
+import {IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -90,4 +91,10 @@ export const Auth = {
 export const GameRequest = {
     getAllGames: (pageNumber: number, pageSize: number) : Promise<IPaginatedGameResponse> => Requests.get(`/games?pageNumber=${pageNumber}&pageSize=${pageSize}`),
     getGame: (gameId: number) : Promise<IGame> => Requests.get(`/games/${gameId}`)
+}
+
+// Channel Requests
+export const ChannelRequest = {
+    updateChannel: (values: IChannelFormValues) : Promise<{}> => Requests.put("/channel", values),
+    getChannel: (username: string): Promise<IChannel> => Requests.get(`/channel/${username}`)
 }

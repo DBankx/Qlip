@@ -12,6 +12,7 @@ import {ToastContainer} from "react-toastify";
 import AuthModal from "../../features/auth/AuthModal";
 import GamesHome from "../../features/game/GamesHome";
 import Game from "../../features/game/gameClip/Game";
+import Channel from '../../features/channel/Channel';
 
 const App = () => {
     
@@ -41,6 +42,7 @@ const App = () => {
                 <Route exact path={"/create"} component={CreateClip} />
                 <Route exact path={"/games"} component={GamesHome} />
                 <Route exact path={"/games/:id"} component={Game} />
+                <Route exact path={"/channel/:username"} component={Channel} />
             </Switch>
         </div>
     </Fragment>

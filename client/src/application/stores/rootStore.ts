@@ -4,7 +4,7 @@ import {ClipStore} from "./clipStore";
 import {CommonStore} from "./commonStore";
 import {AuthStore} from "./authStore";
 import {GameStore} from "../../application/stores/gameStore";
-
+import {ChannelStore} from "./channelStore";
 //========================================================================
 //============= Store for controlling all stores in the app ================
 //========================================================================
@@ -18,11 +18,13 @@ export class RootStore{
     commonStore: CommonStore;
     authStore: AuthStore
     gameStore: GameStore
+    channelStore: ChannelStore
     constructor(){
         this.clipStore = new ClipStore(this);
         this.commonStore = new CommonStore(this);
         this.authStore = new AuthStore(this);
         this.gameStore = new GameStore(this);
+        this.channelStore = new ChannelStore(this);
     }
 }
 

@@ -12,16 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="Added the register functionality from the mobxstore and implemented a ui modal for it">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Auth/Register.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Auth/Register.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Clip/CreateClip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/CreateClip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Game/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Game/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/api/agent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,17 +51,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/Game/Details.cs" />
-        <option value="$PROJECT_DIR$/Application/Game/AllGamesDto.cs" />
-        <option value="$PROJECT_DIR$/Application/Game/List.cs" />
-        <option value="$PROJECT_DIR$/Api/Controllers/GamesController.cs" />
-        <option value="$PROJECT_DIR$/client/src/features/game/gameClip/Game.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/game/gameClip/GameHeader.tsx" />
-        <option value="$PROJECT_DIR$/Application/Clip/ClipUserDto.cs" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/ffe69e49-4575-4778-8394-b40ff2c138d9/console_1.sql" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" />
-        <option value="$PROJECT_DIR$/Application/Clip/List.cs" />
-        <option value="$PROJECT_DIR$/Application/Clip/ClipDto.cs" />
         <option value="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" />
         <option value="$PROJECT_DIR$/Api/Startup.cs" />
         <option value="$PROJECT_DIR$/Api/Controllers/ClipController.cs" />
@@ -75,12 +63,9 @@
         <option value="$PROJECT_DIR$/client/src/features/game/GamesHome.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/common/AvatarClip.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayerControls.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
         <option value="$PROJECT_DIR$/client/public/index.html" />
         <option value="$PROJECT_DIR$/client/src/index.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPage.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
         <option value="$PROJECT_DIR$/client/src/application/common/gameNameOptions.ts" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayer.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/game/GamePaginator.tsx" />
@@ -96,13 +81,27 @@
         <option value="$PROJECT_DIR$/Domain/Channel.cs" />
         <option value="$PROJECT_DIR$/Persistance/DataContext.cs" />
         <option value="$PROJECT_DIR$/Application/Auth/Register.cs" />
-        <option value="$PROJECT_DIR$/Domain/ApplicationUser.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/CreateClip.cs" />
         <option value="$PROJECT_DIR$/Application/Channel/UpdateChannel.cs" />
         <option value="$PROJECT_DIR$/Persistance/Migrations/20201017100525_channelMigration.cs" />
         <option value="$PROJECT_DIR$/Api/Controllers/ChannelController.cs" />
         <option value="$PROJECT_DIR$/Application/Channel/Channel.cs" />
         <option value="$PROJECT_DIR$/Application/Channel/Details.cs" />
+        <option value="$PROJECT_DIR$/Domain/ApplicationUser.cs" />
+        <option value="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/api/agent.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
+        <option value="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/stores/channelStore.tsx" />
+        <option value="$USER_HOME$/.ideavimrc" />
+        <option value="$PROJECT_DIR$/client/src/features/channel/ChannelHeader.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
+        <option value="$PROJECT_DIR$/client/src/features/channel/Channel.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/channel/ChannelViews.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/channel/homeTab/ChannelHomeView.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/channel/ChannelClip.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/channel/homeTab/RecentClips.tsx" />
       </list>
     </option>
   </component>
@@ -122,7 +121,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="C:\Users\Asus\Desktop\c#\Qlip\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -172,7 +171,12 @@
       <workItem from="1602352360152" duration="30492000" />
       <workItem from="1602448284340" duration="5431000" />
       <workItem from="1602839147924" duration="22318000" />
-      <workItem from="1602930746577" duration="1638000" />
+      <workItem from="1602930746577" duration="2638000" />
+      <workItem from="1602947529417" duration="3720000" />
+      <workItem from="1602951349881" duration="1193000" />
+      <workItem from="1602952611891" duration="11305000" />
+      <workItem from="1603007864615" duration="1305000" />
+      <workItem from="1603009683677" duration="5168000" />
     </task>
     <servers />
   </component>
@@ -201,14 +205,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="501" y="265" key="#SCSS_Lint/0.0.1536.824@0.0.1536.824" timestamp="1601758860153" />
+    <state x="647" y="277" width="474" height="269" key="#Vim_Emulation" timestamp="1602951687214">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="647" y="277" width="474" height="269" key="#Vim_Emulation/0.0.1536.824@0.0.1536.824" timestamp="1602951687214" />
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601576545157">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1601576545157" />
-    <state x="527" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601928131288">
+    <state x="527" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602948126030">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="527" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1601928131288" />
+    <state x="527" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1602948126030" />
     <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602262141540">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -217,6 +225,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="438" y="184" width="660" height="640" key="EditFileWatcherDialog/0.0.1536.824@0.0.1536.824" timestamp="1601650445528" />
+    <state width="1493" height="198" key="GridCell.Tab.0.bottom" timestamp="1602952519324">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="198" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602952519324" />
+    <state width="1493" height="198" key="GridCell.Tab.0.center" timestamp="1602952519324">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="198" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602952519324" />
+    <state width="1493" height="198" key="GridCell.Tab.0.left" timestamp="1602952519323">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="198" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602952519323" />
+    <state width="1493" height="198" key="GridCell.Tab.0.right" timestamp="1602952519324">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="198" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602952519324" />
     <state x="689" y="144" key="Rider.ProjectTemplateDialog.Size" timestamp="1601591531731">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -225,10 +249,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="567" y="113" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1601588250136" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1602713856632">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1602951619636">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602713856632" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602951619636" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1601899535116">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -245,13 +269,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="322" y="142" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1602704095738" />
-    <state x="753" y="189" key="run.anything.popup" timestamp="1602190396109">
+    <state x="753" y="189" key="run.anything.popup" timestamp="1602950340486">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="753" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602190396109" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602873127737">
+    <state x="753" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602950340486" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602963724172">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602873127737" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602963724172" />
   </component>
 </project>
