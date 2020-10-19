@@ -15,6 +15,6 @@ namespace Domain
         public string Youtube { get; set; }
         public string Twitch { get; set; }
         public virtual ICollection<Domain.Clip> Clips { get; set; }
-        
+        public virtual ICollection<Game> LikedGames { get; set; }
     }
 }

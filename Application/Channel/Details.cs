@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Api.Middlewares.Errors;
 using Application.Clip;
+using Application.Game;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -49,7 +50,8 @@ namespace Application.Channel
                     Youtube = user.Youtube,
                     Username = user.UserName,
                     Clips = _mapper.Map<List<ClipDto>>(user.Clips),
-                    OverallViews = user.Clips.Sum(x => x.views)
+                    OverallViews = user.Clips.Sum(x => x.views),
+                    LikedGames = _mapper.Map<List<AllGamesDto>>(user.LikedGames)
                 };
                 
             }

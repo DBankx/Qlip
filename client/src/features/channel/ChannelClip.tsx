@@ -12,7 +12,7 @@ interface IProps{
 const ChannelClip: React.FC<IProps> = ({clip}) => {
     const [duration, setDuration] = useState(0);
     return (
-        <div>
+        <div className={"p-mb-5"}>
             <Link to={`/qlip/${clip.id}`}>
                 <div className={"channel-thumbnail p-mr-3"}>
                     <video src={clip.url} onLoadedMetadata={e => setDuration(e.currentTarget.duration)}  className={"clip-channel-thumbnail"} />

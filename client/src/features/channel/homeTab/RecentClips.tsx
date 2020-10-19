@@ -13,8 +13,8 @@ interface IProps{
 }
 
 const RecentClips: React.FC<IProps> = ({channelClips}) => {
-const isMobile = useMediaQuery({query: "(max-width: 500px)"});
-    const isMobileSmaller = useMediaQuery({query: "(max-width: 500px)"});
+const isMobile = useMediaQuery({query: "(max-width: 600px)"});
+    const isMobileBigger = useMediaQuery({query: "(max-width: 668px)"});
     const sliderSettings = {
         dots: true,
         infinite: false,
@@ -23,7 +23,7 @@ const isMobile = useMediaQuery({query: "(max-width: 500px)"});
         slidesToScroll: 1,
         centerMode: true,
         arrows: false,
-        centerPadding: "10px"
+        centerPadding: "15px"
     }
     return (
         <div>

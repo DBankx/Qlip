@@ -7,19 +7,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
-    <expand />
-    <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:channel" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="Added the register functionality from the mobxstore and implemented a ui modal for it">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Controllers/GamesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Controllers/GamesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Channel/Channel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Channel/Channel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Channel/Details.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Channel/Details.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/features/channel/ChannelClip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/channel/ChannelClip.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/features/channel/homeTab/RecentClips.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/channel/homeTab/RecentClips.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/features/clip/clipHome/ClipHome.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/game/gameClip/GameClipContents.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/stores/gameStore.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/game/GamesHome.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/common/AvatarClip.tsx" />
@@ -78,9 +88,6 @@
         <option value="$PROJECT_DIR$/Application/Channel/UpdateChannel.cs" />
         <option value="$PROJECT_DIR$/Persistance/Migrations/20201017100525_channelMigration.cs" />
         <option value="$PROJECT_DIR$/Api/Controllers/ChannelController.cs" />
-        <option value="$PROJECT_DIR$/Application/Channel/Channel.cs" />
-        <option value="$PROJECT_DIR$/Application/Channel/Details.cs" />
-        <option value="$PROJECT_DIR$/Domain/ApplicationUser.cs" />
         <option value="$PROJECT_DIR$/client/src/application/stores/rootStore.ts" />
         <option value="$PROJECT_DIR$/client/src/application/api/agent.ts" />
         <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
@@ -101,6 +108,11 @@
         <option value="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/homeTab/RecentClips.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/ChannelClip.tsx" />
+        <option value="$PROJECT_DIR$/Domain/ApplicationUser.cs" />
+        <option value="$PROJECT_DIR$/Application/Game/LikeGame.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/Channel.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/Details.cs" />
+        <option value="$PROJECT_DIR$/Api/Controllers/GamesController.cs" />
       </list>
     </option>
   </component>
@@ -175,7 +187,7 @@
       <workItem from="1602951349881" duration="1193000" />
       <workItem from="1602952611891" duration="11305000" />
       <workItem from="1603007864615" duration="1305000" />
-      <workItem from="1603009683677" duration="25580000" />
+      <workItem from="1603009683677" duration="29010000" />
     </task>
     <servers />
   </component>
@@ -189,7 +201,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="channel" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

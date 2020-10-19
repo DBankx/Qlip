@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Application.Clip;
+using Application.Game;
 
 namespace Application.Channel
 {
@@ -16,5 +17,6 @@ namespace Application.Channel
         public ICollection<ClipDto> Clips { get; set; }
         public int OverallViews { get; set; }
         public string Username { get; set; }
+        public ICollection<AllGamesDto> LikedGames { get; set; }
     }
 }
