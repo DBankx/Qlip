@@ -66,9 +66,11 @@
           <e p="AllGamesDto.cs" t="Include" />
           <e p="Details.cs" t="Include" />
           <e p="GameDto.cs" t="Include" />
+          <e p="LikedResolver.cs" t="Include" />
           <e p="LikeGame.cs" t="Include" />
           <e p="List.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
+          <e p="UnlikeGame.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

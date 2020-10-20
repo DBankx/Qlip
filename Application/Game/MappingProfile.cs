@@ -7,7 +7,7 @@ namespace Application.Game
         public MappingProfile()
         {
             CreateMap<Domain.Game, GameDto>();
-            CreateMap<Domain.Game, AllGamesDto>();
+            CreateMap<Domain.Game, AllGamesDto>().ForMember(x => x.IsLiked, opt => opt.MapFrom<LikedResolver>());
         }
     }
 }

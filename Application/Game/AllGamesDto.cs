@@ -9,5 +9,6 @@
         public string Background_Image { get; set; }
         public string Rating { get; set; }
         public int Playtime { get; set; }
+        public bool IsLiked { get; set; }
     }
 }

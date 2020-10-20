@@ -36,5 +36,11 @@ namespace Api.Controllers
         {
             return await _mediator.Send(new LikeGame.Command {GameId = gameId});
         }
+
+        [HttpPut("{gameId}/unlike")]
+        public async Task<ActionResult<Unit>> UnlikeGame(int gameId)
+        {
+            return await _mediator.Send(new UnlikeGame.Command {GameId = gameId});
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿import { IClip } from "./clip";
+import {IGame} from "./game";
 
 export interface IChannel{
     gravatarProfileImage: string;
@@ -12,6 +13,7 @@ export interface IChannel{
     username: string;
     overallViews: number;
     isUser: boolean;
+    likedGames: IGame[];
 }
 
 export interface IChannelFormValues{

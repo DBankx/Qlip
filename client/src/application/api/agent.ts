@@ -61,7 +61,7 @@ const Requests = {
     get: (url: string) => axios.get(url).then(sleep(1000)).then(ResponseBody),
     post:(url: string, body: {}, config? :{} ) => axios.post(url, body, config).then(sleep(1000)).then(ResponseBody),
     delete:(url: string) => axios.delete(url).then(sleep(1000)).then(ResponseBody),
-    put:(url: string, body:{}, config?:{}) => axios.put(url, body, config).then(sleep(1000)).then(ResponseBody),
+    put:(url: string, body?:{}, config?:{}) => axios.put(url, body, config).then(sleep(1000)).then(ResponseBody),
     uploadVideo: (url: string, file: Blob, onUploadProgress: ((progressEvent: ProgressEvent<EventTarget>) => void)) => {
         let formData: FormData = new FormData();
         formData.append("VideoFile", file);
@@ -90,7 +90,9 @@ export const Auth = {
 // Games requests
 export const GameRequest = {
     getAllGames: (pageNumber: number, pageSize: number) : Promise<IPaginatedGameResponse> => Requests.get(`/games?pageNumber=${pageNumber}&pageSize=${pageSize}`),
-    getGame: (gameId: number) : Promise<IGame> => Requests.get(`/games/${gameId}`)
+    getGame: (gameId: number) : Promise<IGame> => Requests.get(`/games/${gameId}`),
+    likeGame: (gameId: number) : Promise<{}> => Requests.put(`/games/${gameId}`),
+    unlikeGame: (gameId: number) : Promise<{}> => Requests.put(`/games/${gameId}/unlike`)
 }
 
 // Channel Requests

@@ -2,6 +2,7 @@
 import {observer} from "mobx-react-lite";
 import RecentClips from "./RecentClips";
 import { IChannel } from "../../../infrastructure/models/channel";
+import TopLikeGames from  "./TopLikedGames";
 
 interface IProps{
     channel: IChannel
@@ -10,7 +11,9 @@ interface IProps{
 const ChannelHomeView: React.FC<IProps> = ({channel}) => {
     return (
         <div>
-           <RecentClips channelClips={channel.clips} /> 
+           <RecentClips channel={channel} />
+           <hr className={"divider p-mt-3 p-mb-3"} />
+           <TopLikeGames channel={channel}/>
         </div>
     )
 }

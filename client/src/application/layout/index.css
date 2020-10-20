@@ -484,6 +484,10 @@ span {
   position: relative;
 }
 
+.channel-game {
+  position: relative;
+}
+
 .border-bottom {
   border: 0 solid #383838;
   padding-bottom: 0.5em;
@@ -515,6 +519,18 @@ span {
   opacity: 1;
 }
 
+.channel-game img {
+  width: 100%;
+  height: 150px;
+  position: relative;
+}
+.channel-game:hover .add-button {
+  display: initial;
+}
+.channel-game:hover .rating {
+  opacity: 1;
+}
+
 .add-button {
   position: absolute;
   top: 160px;
@@ -537,6 +553,16 @@ span {
   padding: 0.5em;
   border-radius: 10px;
   opacity: 0.6;
+}
+
+.view-game-icon {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  font-size: 2em;
+  right: 45%;
+  color: #fff;
+  width: 100%;
 }
 
 .tw-ellipsis {
