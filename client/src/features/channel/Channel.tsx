@@ -8,9 +8,11 @@ import ChannelViews from "./ChannelViews";
 
 const Channel: React.FC<RouteComponentProps<{username: string}>> = ({match}) => {
     const {loadChannel, loadingChannel, channel} = useContext(rootStoreContext).channelStore;
+    const {showSidebar} = useContext(rootStoreContext).commonStore;
     useEffect(() => {
-        loadChannel(match.params.username)
-    }, [match.params.username, loadChannel])
+        showSidebar();
+        loadChannel(match.params.username);
+    }, [match.params.username, loadChannel, showSidebar])
     
     if(loadingChannel || channel === null) return <Spinner />
     

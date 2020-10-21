@@ -2,7 +2,7 @@
     id: string;
     url: string;
     thumbnail?: string;
-    createdAt?: Date;
+    createdAt: Date;
     gameName: string;
     title: string;
     description: string;

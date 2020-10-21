@@ -36,15 +36,15 @@ const isMobile = useMediaQuery({query: "(max-width: 600px)"});
                 {channel.clips.length > 0 ? (isMobile ? (
                     <div style={{width: "100%"}}>
                     <Slider {...sliderSettings}>
-                        {channel.clips.slice(0, 5).map((clip: IClip) => (
+                        {channel.clips.slice(0, 4).map((clip: IClip) => (
                             <div key={clip.id}>
                         <ChannelClip clip={clip} />
                             </div>
                         ))} 
                     </Slider>
                     </div>
-                ) :  (channel.clips.slice(0, 5).map((clip: IClip) => (
-                    <div key={clip.id}>
+                ) :  (channel.clips.slice(0, 4).map((clip: IClip) => (
+                        <div key={clip.id} className={"p-col-12 p-lg-3 p-md-5 p-sm-6"}>
                         <ChannelClip clip={clip} />
                     </div>
                 )))) :  <span>{channel.isUser ? "You have not uploaded any qlips recently": <span>{channel.username} has not uploaded any qlips recently</span>}</span>}

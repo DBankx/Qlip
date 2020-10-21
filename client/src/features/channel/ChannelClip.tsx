@@ -15,7 +15,7 @@ const ChannelClip: React.FC<IProps> = ({clip}) => {
         <div className={"p-mb-5"}>
             <Link to={`/qlip/${clip.id}`}>
                 <div className={"channel-thumbnail p-mr-3"}>
-                    <video src={clip.url} onLoadedMetadata={e => setDuration(e.currentTarget.duration)}  className={"clip-channel-thumbnail"} />
+                    <video src={clip.url} style={{width: "100%"}} onLoadedMetadata={e => setDuration(e.currentTarget.duration)}  className={"clip-channel-thumbnail"} />
                     <div className={"clip-duration"}>{duration.toFixed(2) + "S"}</div>
                     <div className={"channel-overlay"}>
                         <div className={"content"}>
@@ -24,7 +24,7 @@ const ChannelClip: React.FC<IProps> = ({clip}) => {
                     </div>
                 </div>
             </Link>
-            <Link to={`/qlip/${clip.id}`} className={"tw-ellipsis"} style={{fontSize: "0.9em", fontWeight: 500, textDecoration: "none", color: "#fff"}}>{clip.title}</Link>
+            <Link to={`/qlip/${clip.id}`} className={"truncate"} style={{fontSize: "0.9em", fontWeight: 500, textDecoration: "none", color: "#fff"}}>{clip.title}</Link>
             <div className={"p-d-flex clip-content"} style={{color: "#777777", fontSize: "0.8em"}}>
                 <span>{clip.views} Views</span>
                 <span style={{margin: "0 0.4em"}}>•</span>

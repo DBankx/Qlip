@@ -34,13 +34,13 @@ const TopLikeGames: React.FC<IProps> = ({channel}) => {
                 {channel.likedGames.length > 0 ? (isMobile ? (
                     <div style={{width: "100%"}}>
                         <Slider {...sliderSettings}>
-                            {channel.likedGames.slice(0, 5).map((game: IGame) => (
+                            {channel.likedGames.slice(0, 4).map((game: IGame) => (
                                 <ChannelGame game={game} /> 
                             ))}
                         </Slider>
                     </div>
-                ) :  (channel.likedGames.slice(0, 5).map((game: IGame) => (
-                    <div key={game.id} className={"p-col-12 p-md-3 p-lg-3 p-sm-6"}>
+                ) :  (channel.likedGames.slice(0, 4).map((game: IGame) => (
+                    <div key={game.id} className={"p-col-12 p-md-4 p-lg-3 p-sm-6"}>
                     <ChannelGame game={game} />
                     </div>
                 )))) : channel.isUser ? <span>You havent liked any games recently</span> : <span>{channel.username} havent liked any games recently</span>} 

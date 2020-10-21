@@ -494,9 +494,14 @@ span {
   border-bottom-width: 1px;
 }
 
+.like-game-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .gamelink {
   color: #fff;
-  margin-top: 1em;
   text-decoration: none;
 }
 .gamelink:hover {
@@ -565,10 +570,12 @@ span {
   width: 100%;
 }
 
-.tw-ellipsis {
-  overflow: hidden;
+.truncate {
   text-overflow: ellipsis;
+  overflow: hidden;
   white-space: nowrap;
+  width: 100%;
+  display: block;
 }
 
 .floater {
@@ -579,12 +586,6 @@ span {
 .clip-author-image {
   width: 40px;
   border-radius: 50%;
-}
-
-.tw-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .container-in-container {

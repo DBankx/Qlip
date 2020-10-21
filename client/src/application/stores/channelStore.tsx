@@ -2,6 +2,7 @@
 import {action, makeObservable, observable, runInAction} from "mobx";
 import { IChannel } from "../../infrastructure/models/channel";
 import {ChannelRequest} from "../api/agent";
+import {IClip} from "../../infrastructure/models/clip";
 
 export class ChannelStore{
     rootStore: RootStore
@@ -12,6 +13,7 @@ export class ChannelStore{
     
     @observable channel : IChannel | null = null;
     @observable loadingChannel : boolean = false;
+    @observable loadingFilter: boolean = false;
     
     
     @action loadChannel = async (username: string) => {
@@ -32,6 +34,39 @@ export class ChannelStore{
             throw error;
         }
     }
+   
+    @action sortChannelClipsByMostPopular = () => {
+        this.loadingFilter = true;
+        if(this.channel!.clips.length > 0){
+            this.channel!.clips.sort((a: IClip, b: IClip) => {
+                return b.views - a.views;
+            })
+        }
+        this.loadingFilter = false;
+    }
     
+    @action sortChannelClipsByDate = (predicate: string) => {
+        this.loadingFilter = true;
+        switch(predicate){
+            case "NEWEST":
+                this.channel!.clips.sort((a: IClip, b:IClip) => {
+                    var oldDate = new Date(a.createdAt);
+                    var newDate = new Date(b.createdAt);
+                    return newDate.getTime() - oldDate.getTime();
+                });
+                break;
+            case "OLDEST":
+                this.channel!.clips.sort((a: IClip, b:IClip) => {
+                    var oldDate = new Date(a.createdAt);
+                    var newDate = new Date(b.createdAt);
+                    return oldDate.getTime() - newDate.getTime();
+                });
+                break;
+            default:
+                return this.channel!.clips;
+        }
+            
+        this.loadingFilter = false;
+    }
     
 }

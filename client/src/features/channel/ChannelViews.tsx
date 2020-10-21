@@ -3,6 +3,7 @@ import {observer} from "mobx-react-lite";
 import {TabPanel, TabView} from "primereact/tabview";
 import ChannelHomeView from "./homeTab/ChannelHomeView";
 import { IChannel } from "../../infrastructure/models/channel";
+import ClipsTab from "./clipsTab/ClipsTab";
 
 interface IProps{
     channel: IChannel
@@ -17,9 +18,9 @@ const ChannelViews: React.FC<IProps> = ({channel}) => {
                    <ChannelHomeView channel={channel} />
                </div>
            </TabPanel>
-           <TabPanel header={<div><p className={"hide-sm"}>Clips</p><i className={"pi pi-video hide-bg"}/></div>}>
+           <TabPanel header={<div><p className={"hide-sm"}>Qlips</p><i className={"pi pi-video hide-bg"}/></div>}>
                <div>
-                   hey
+                  <ClipsTab clips={channel.clips} /> 
                </div>
            </TabPanel>
            <TabPanel header={<div><p className={"hide-sm"}>About</p><i className={"pi pi-info hide-bg"}/></div>} >
