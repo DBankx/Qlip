@@ -22,22 +22,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="Added a clip view in the channels page, and added filter functions to sort the clips">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Controllers/ClipController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Controllers/ClipController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Clip/ClipDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/ClipDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Clip/Details.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/Details.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Clip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Clip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistance/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/toolbar/Toolbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/toolbar/Toolbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/channel/ChannelHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/channel/ChannelHeader.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="added like and dislike functionality and endpoint" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +178,7 @@
       <workItem from="1602952611891" duration="11305000" />
       <workItem from="1603007864615" duration="1305000" />
       <workItem from="1603009683677" duration="46344000" />
-      <workItem from="1603263110151" duration="24909000" />
+      <workItem from="1603263110151" duration="25228000" />
     </task>
     <task id="LOCAL-00001" summary="Added an endpoint for a user to like a game and updated channel model">
       <created>1603145518945</created>
@@ -209,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603317678966</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added like and dislike functionality and endpoint">
+      <created>1603410497660</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603410497660</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +242,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Added an endpoint for a user to like a game and updated channel model" />
     <MESSAGE value="Added a clip view in the channels page, and added filter functions to sort the clips" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a clip view in the channels page, and added filter functions to sort the clips" />
+    <MESSAGE value="added like and dislike functionality and endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="added like and dislike functionality and endpoint" />
   </component>
   <component name="WindowStateProjectService">
     <state x="501" y="265" key="#SCSS_Lint" timestamp="1601758860153">
@@ -309,10 +302,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1601899535116" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603317689175">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603410505635">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603317689175" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603410505635" />
     <state x="659" y="299" width="312" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602928533159">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
