@@ -719,5 +719,10 @@ color: #81C784;
   -webkit-filter: blur(1px);
 }
 
-
+.p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button{
+  color: #fff;
+  background: none;
+  border: 1px solid #4A4A4A;
+  font-size: 0.9em;
+}
 

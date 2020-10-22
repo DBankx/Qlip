@@ -4,6 +4,7 @@ import {TabPanel, TabView} from "primereact/tabview";
 import ChannelHomeView from "./homeTab/ChannelHomeView";
 import { IChannel } from "../../infrastructure/models/channel";
 import ClipsTab from "./clipsTab/ClipsTab";
+import AboutTab from "./aboutTab/AboutTab";
 
 interface IProps{
     channel: IChannel
@@ -12,7 +13,7 @@ interface IProps{
 const ChannelViews: React.FC<IProps> = ({channel}) => {
     return (
         <div style={{marginTop: "1.4em"}}>
-       <TabView >
+       <TabView activeIndex={2} >
            <TabPanel header={<div><p className={"hide-sm"}>home</p><i className={"pi pi-home hide-bg"}/></div>}>
                <div>
                    <ChannelHomeView channel={channel} />
@@ -25,7 +26,7 @@ const ChannelViews: React.FC<IProps> = ({channel}) => {
            </TabPanel>
            <TabPanel header={<div><p className={"hide-sm"}>About</p><i className={"pi pi-info hide-bg"}/></div>} >
            <div>
-               hey
+              <AboutTab channel={channel} /> 
            </div>
        </TabPanel>
            <TabPanel header={<div><p className={"hide-sm"}>Liked Clips</p><i className={"pi pi-thumbs-up hide-bg"}/></div>}>
