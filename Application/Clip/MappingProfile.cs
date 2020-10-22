@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using Domain;
+using Profile = AutoMapper.Profile;
 
 namespace Application.Clip
 {
-    public class MappingProfile : Profile
+    public class MappingProfile : AutoMapper.Profile
     {
         public MappingProfile()
         {

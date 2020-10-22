@@ -530,6 +530,10 @@ color: #81C784;
   position: relative;
 }
 
+.channel-game{
+  position: relative;
+}
+
 
 .border-bottom{
   border: 0 solid #383838;
@@ -537,9 +541,14 @@ color: #81C784;
   border-bottom-width: 1px;
 }
 
+.like-game-button{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .gamelink{
   color: #fff;
-  margin-top: 1em;
   text-decoration: none;
   &:hover{
     color: $main-color;
@@ -563,6 +572,23 @@ color: #81C784;
     }
     transform: scale(1.1);
     transition: 1s ease;
+  }
+}
+
+.channel-game{
+
+  img{
+    width: 100%;
+    height: 150px;
+    position: relative;
+  }
+  &:hover{
+    .add-button{
+      display: initial;
+    }
+    .rating{
+      opacity: 1;
+    }
   }
 }
 
@@ -591,10 +617,22 @@ color: #81C784;
   opacity: 0.6;
 }
 
-.tw-ellipsis {
-  overflow: hidden;
+.view-game-icon{
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  font-size: 2em;
+  right: 45%;
+  color: #fff;
+  width: 100%;
+}
+
+.truncate{
   text-overflow: ellipsis;
+  overflow: hidden;
   white-space: nowrap;
+  width: 100%;
+  display: block;
 }
 
 .floater{
@@ -607,9 +645,84 @@ color: #81C784;
   border-radius: 50%;
 }
 
-.tw-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.container-in-container{
+   margin: 0 2em;
+}
+
+@media(max-width: 400px) {
+  .container-in-container{
+    margin: 0;
+  }
+}
+
+@media(max-width: 988px) and (min-width: 640px){
+  .hide-tab{
+    display: none;
+  }
+}
+.p-tabview .p-tabview-nav li {
+  background: none;
+  text-align: center;
+}
+.p-tabview .p-tabview-nav li .p-tabview-nav-link{
+  background: none;
+}
+@media(max-width: 600px){
+  .p-tabview .p-tabview-nav li{
+    width: 20%;
+    text-align: center;
+  }
+}
+
+.p-tabview-title{
+  margin: 0 auto;
+}
+
+.channel-thumbnail{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  video{
+    width: 250px;
+    position: relative;
+  }
+}
+
+.channel-overlay{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.5s ease;
+  height: 100%;
+  width: 100%;
+}
+
+.channel-overlay .content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.channel-overlay .content img {
+  width: 40px;
+}
+
+.channel-thumbnail:hover .channel-overlay {
+  opacity: 1;
+}
+.channel-thumbnail:hover .clip-channel-thumbnail{
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
+.p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button{
+  color: #fff;
+  background: none;
+  border: 1px solid #4A4A4A;
+  font-size: 0.9em;
 }
 

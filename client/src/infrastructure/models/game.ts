@@ -21,4 +21,5 @@ export interface IGame{
     background_Image: string;
     playtime: number;
     clips?: IClip[];
+    isLiked?: boolean;
 }

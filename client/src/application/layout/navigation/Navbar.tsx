@@ -14,7 +14,6 @@ import {history} from "../../../index";
 const Navbar = () => {
     const {openAuthModal} = useContext(rootStoreContext).commonStore;
     const {isLoggedIn, user, logout} = useContext(rootStoreContext).authStore;
-    
     const loggedInModalItemsOptions = useRef<any>(null);
     
     //navigation menu
@@ -83,7 +82,8 @@ const Navbar = () => {
                 items: [
                     {
                         label: "View Profile",
-                        icon: "pi pi-user-edit"
+                        icon: "pi pi-user-edit",
+                        command: () => history.push(`/channel/${user?.username}`)
                     },
                     {
                         label: "Logout",
@@ -117,9 +117,9 @@ const Navbar = () => {
                         <div className={"p-d-flex p-flex-wrap p-jc-between p-ai-center"}>
                             <div onClick={(event) => loggedInModalItemsOptions.current.toggle(event)} style={{marginRight: "0.5em"}}>
                                 <span  style={{fontSize: "0.9em"}}>{user?.username} <i className="pi pi-chevron-down" style={{float: "right", fontSize: "0.9em", color: "#777777", marginTop: "0.5em"}} /></span>
-                                <OverlayPanel ref={loggedInModalItemsOptions} >
+                                <OverlayPanel appendTo={document.body} ref={loggedInModalItemsOptions} >
                                     <div className={"logged-in-options"}>
-                                            <li><Button icon={"pi pi-user"} label={"View Profile"} className={"p-button-sm p-button-text p-button-plain"} style={{width: "100%"}} /></li>
+                                            <li><Button icon={"pi pi-user"} label={"Your Channel"} className={"p-button-sm p-button-text p-button-plain"} style={{width: "100%"}}onClick={() => history.push(`/channel/${user!.username}`)} /></li>
                                             <li><Button icon={"pi pi-power-off"} label={"Logout"} className={"p-button-sm p-button-text p-button-plain"}  style={{width: "100%"}} onClick={() => logout()} /></li>
                                     </div>
                                 </OverlayPanel>
