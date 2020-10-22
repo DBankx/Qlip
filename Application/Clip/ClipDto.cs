@@ -14,5 +14,7 @@ namespace Application.Clip
         public string GameName { get; set; }
         public string AuthorName { get; set; }
         public string AuthorImage { get; set; }
+        public int Likes { get; set; }
+        public int Dislikes { get; set; }
     }
 }

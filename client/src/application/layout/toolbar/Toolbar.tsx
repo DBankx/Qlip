@@ -17,7 +17,7 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
     const buttonItems = [
         {
             label: 'Create Qlip',
-            icon: 'pi pi-video',
+            icon: 'fas fa-film',
             command: () => history.push("/create")
         },
         {
@@ -67,7 +67,7 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
             </form>
 
             <div>   
-                <Menu model={moreMenuItems} popup ref={ref} id="popup_menu" />
+                <Menu model={moreMenuItems} popup ref={ref} id="popup_menu" appendTo={document.body} />
             <Button label="More" icon="pi pi-ellipsis-v" className="p-button-text p-button-plain p-d-none p-d-md-inline-flex" onClick={(event) => ref.current!.toggle(event)} aria-controls="popup_menu" aria-haspopup />
             </div>
         </Fragment>

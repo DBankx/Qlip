@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Api.Middlewares.Errors;
@@ -42,6 +43,7 @@ namespace Application.Clip
 
                 // increment the views everytime this endpoint is reached
                 clip.views++;
+                
 
                 await _context.SaveChangesAsync();
 

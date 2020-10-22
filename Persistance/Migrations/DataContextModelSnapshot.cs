@@ -119,6 +119,9 @@ namespace Persistance.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("Dislikes")
+                        .HasColumnType("int");
+
                     b.Property<int?>("GameId")
                         .HasColumnType("int");
 
@@ -172,6 +175,21 @@ namespace Persistance.Migrations
                     b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("Domain.UserClip", b =>
+                {
+                    b.Property<string>("ClipId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.HasKey("ClipId", "ApplicationUserId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("UserClips");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -318,6 +336,21 @@ namespace Persistance.Migrations
                     b.HasOne("Domain.ApplicationUser", null)
                         .WithMany("LikedGames")
                         .HasForeignKey("ApplicationUserId");
+                });
+
+            modelBuilder.Entity("Domain.UserClip", b =>
+                {
+                    b.HasOne("Domain.ApplicationUser", "ApplicationUser")
+                        .WithMany("UserClips")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Clip", "Clip")
+                        .WithMany("UserClips")
+                        .HasForeignKey("ClipId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
