@@ -8,6 +8,10 @@ using Support.General;
 
 namespace Api.Controllers
 {
+     /// <summary>
+        /// Api endpoints for game features
+        /// endpoint: http://localhost:5000/api/game
+        /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class GamesController : ControllerBase
