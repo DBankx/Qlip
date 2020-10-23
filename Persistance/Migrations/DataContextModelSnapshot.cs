@@ -119,9 +119,6 @@ namespace Persistance.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("Dislikes")
-                        .HasColumnType("int");
-
                     b.Property<int?>("GameId")
                         .HasColumnType("int");
 
@@ -141,6 +138,21 @@ namespace Persistance.Migrations
                     b.HasIndex("GameId");
 
                     b.ToTable("Clips");
+                });
+
+            modelBuilder.Entity("Domain.DislikeUserClip", b =>
+                {
+                    b.Property<string>("ClipId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.HasKey("ClipId", "ApplicationUserId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("DislikeUserClips");
                 });
 
             modelBuilder.Entity("Domain.Game", b =>
@@ -329,6 +341,21 @@ namespace Persistance.Migrations
                     b.HasOne("Domain.Game", "Game")
                         .WithMany("Clips")
                         .HasForeignKey("GameId");
+                });
+
+            modelBuilder.Entity("Domain.DislikeUserClip", b =>
+                {
+                    b.HasOne("Domain.ApplicationUser", "ApplicationUser")
+                        .WithMany("DislikeUserClips")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Clip", "Clip")
+                        .WithMany("DislikeUserClips")
+                        .HasForeignKey("ClipId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Game", b =>

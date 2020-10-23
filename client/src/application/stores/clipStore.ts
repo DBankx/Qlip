@@ -156,4 +156,38 @@ export class ClipStore{
             toast.error("Error deleting Qlip!");
         }
     }
+    
+    @action likeClip = async (clipId: string) => {
+        try{
+            await ClipRequest.likeClip(clipId);
+            runInAction(() => {
+                this.clip!.likes++
+                if(this.clip!.isDisliked){
+                    this.clip!.dislikes--
+                }
+                this.clip!.isLiked = true;
+                this.clip!.isDisliked = false;
+            })
+        }catch(error){
+            toast.error("An error occurred")
+            throw error;
+        }
+    }
+    
+    @action dislikeClip = async (clipId: string) => {
+        try{
+            await ClipRequest.dislikeClip(clipId);
+            runInAction(() => {
+                this.clip!.dislikes++
+                if(this.clip!.isLiked){
+                    this.clip!.likes--;
+                }
+                this.clip!.isDisliked = true;
+                this.clip!.isLiked = false;
+            })
+        }catch(error){
+            toast.error("An error occurred");
+            throw error;
+        }
+    }
 }

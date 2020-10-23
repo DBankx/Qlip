@@ -14,6 +14,8 @@ namespace Persistance
         public DbSet<Clip> Clips { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<UserClip> UserClips { get; set; }
+        public DbSet<DislikeUserClip> DislikeUserClips{ get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -23,6 +25,14 @@ namespace Persistance
                 .HasForeignKey(au => au.ApplicationUserId);
 
             modelBuilder.Entity<UserClip>().HasOne(c => c.Clip).WithMany(uc => uc.UserClips)
+                .HasForeignKey(c => c.ClipId);
+
+            modelBuilder.Entity<DislikeUserClip>().HasKey(duc => new {duc.ClipId, duc.ApplicationUserId});
+
+            modelBuilder.Entity<DislikeUserClip>().HasOne(au => au.ApplicationUser).WithMany(au => au.DislikeUserClips)
+                .HasForeignKey(au => au.ApplicationUserId);
+
+            modelBuilder.Entity<DislikeUserClip>().HasOne(c => c.Clip).WithMany(c => c.DislikeUserClips)
                 .HasForeignKey(c => c.ClipId);
         }
     }

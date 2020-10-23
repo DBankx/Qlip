@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Api.Middlewares.Errors;
+using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
@@ -44,13 +45,27 @@ namespace Application.Clip
                 var like = await _context.UserClips.SingleOrDefaultAsync(x =>
                     x.ApplicationUserId == user.Id && x.ClipId == clip.Id);
 
-                if (like == null)
+                if (like != null)
                 {
-                    throw new RestException(HttpStatusCode.BadRequest, new {clip = "You havent liked the clip yet"});
+                    _context.UserClips.Remove(like);
+                }
+                
+                var dislike =
+                    await _context.DislikeUserClips.SingleOrDefaultAsync(x =>
+                        x.ApplicationUserId == user.Id && x.ClipId == clip.Id);
+
+                if (dislike != null)
+                {
+                    throw new RestException(HttpStatusCode.BadRequest, new {clip = "You already dislike this clip"});
                 }
 
-                _context.UserClips.Remove(like);
-                clip.Dislikes++;
+                dislike = new DislikeUserClip
+                {
+                    ApplicationUser = user,
+                    Clip = clip
+                };
+
+                _context.DislikeUserClips.Add(dislike);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

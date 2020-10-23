@@ -49,6 +49,7 @@
           <e p="UpdateChannel.cs" t="Include" />
         </e>
         <e p="Clip" t="Include">
+          <e p="ClipDislikeReslover.cs" t="Include" />
           <e p="ClipDto.cs" t="Include" />
           <e p="ClipLikeResolver.cs" t="Include" />
           <e p="ClipUserDto.cs" t="Include" />
@@ -58,6 +59,8 @@
           <e p="Details.cs" t="Include" />
           <e p="DislikeClip.cs" t="Include" />
           <e p="EditClip.cs" t="Include" />
+          <e p="IsDislikedValueResolver.cs" t="Include" />
+          <e p="IsLikedValueResolver.cs" t="Include" />
           <e p="LikeClip.cs" t="Include" />
           <e p="List.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
@@ -242,6 +245,7 @@
         <e p="ApplicationUser.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip.cs" t="Include" />
+        <e p="DislikeUserClip.cs" t="Include" />
         <e p="Domain.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -295,6 +299,8 @@
           <e p="20201022233314_addedDislike.Designer.cs" t="Include" />
           <e p="20201022233415_addedDislikeTo0.cs" t="Include" />
           <e p="20201022233415_addedDislikeTo0.Designer.cs" t="Include" />
+          <e p="20201023212441_addedMainDislikeTable.cs" t="Include" />
+          <e p="20201023212441_addedMainDislikeTable.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

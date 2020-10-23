@@ -48,6 +48,15 @@ namespace Application.Clip
                 if(likedClip != null)
                     throw new RestException(HttpStatusCode.BadRequest, new {clip = "You already liked this clip"});
 
+                var dislike =
+                    await _context.DislikeUserClips.SingleOrDefaultAsync(x =>
+                        x.ApplicationUserId == user.Id && x.ClipId == clip.Id);
+
+                if (dislike != null)
+                {
+                    _context.Remove(dislike);
+                }
+
                 var uc = new UserClip
                 {
                     ApplicationUser = user,

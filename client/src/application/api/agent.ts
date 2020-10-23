@@ -59,7 +59,7 @@ const sleep = (ms: number) => (response: AxiosResponse) =>
 // creating the template requests
 const Requests = {
     get: (url: string) => axios.get(url).then(sleep(1000)).then(ResponseBody),
-    post:(url: string, body: {}, config? :{} ) => axios.post(url, body, config).then(sleep(1000)).then(ResponseBody),
+    post:(url: string, body?: {}, config? :{} ) => axios.post(url, body, config).then(sleep(1000)).then(ResponseBody),
     delete:(url: string) => axios.delete(url).then(sleep(1000)).then(ResponseBody),
     put:(url: string, body?:{}, config?:{}) => axios.put(url, body, config).then(sleep(1000)).then(ResponseBody),
     uploadVideo: (url: string, file: Blob, onUploadProgress: ((progressEvent: ProgressEvent<EventTarget>) => void)) => {
@@ -77,7 +77,9 @@ export const ClipRequest = {
     uploadClip: (clip: Blob, uploadProgress: any): Promise<IUploadedClipValues> => Requests.uploadVideo("/clip/upload", clip, uploadProgress),
     deleteUploadedClip: (id: string) :Promise<{}> => Requests.delete(`/clip/delete/${id}`),
     createClip: (clip: IClipFormValues) : Promise<IClip> => Requests.post("/clip", clip),
-    deleteClip: (id: string) : Promise<{}> => Requests.delete(`/clip/${id}`)
+    deleteClip: (id: string) : Promise<{}> => Requests.delete(`/clip/${id}`),
+    likeClip: (clipId: string): Promise<{}> => Requests.post(`clip/like/${clipId}`),
+    dislikeClip: (clipId: string): Promise<{}> => Requests.post(`clip/dislike/${clipId}`)
 }
 
 // Auth requests

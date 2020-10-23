@@ -14,6 +14,6 @@ namespace Domain
         public virtual Game Game { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual ICollection<UserClip> UserClips { get; set; }
-        public int Dislikes { get; set; } = 0;
+        public virtual ICollection<DislikeUserClip> DislikeUserClips { get; set; }
     }
 }

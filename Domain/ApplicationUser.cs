@@ -17,5 +17,6 @@ namespace Domain
         public virtual ICollection<Domain.Clip> Clips { get; set; }
         public virtual ICollection<Game> LikedGames { get; set; }
         public virtual ICollection<UserClip> UserClips { get; set; }
+        public virtual ICollection<DislikeUserClip> DislikeUserClips { get; set; }
     }
 }

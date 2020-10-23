@@ -9,6 +9,10 @@
     authorName: string;
     authorImage: string;
     views: number;
+    likes: number;
+    dislikes: number;
+    isLiked: boolean;
+    isDisliked: boolean;
 }
 
 export interface IClipFormValues{
