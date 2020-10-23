@@ -46,10 +46,9 @@ const ChannelHeader: React.FC<IProps> = ({channel}) => {
                   </div>
               </div>
           </div>
-         
           <div className={"p-grid p-ai-center hide-sm channel-triggers"}>
               {!channel.isUser && (<Button label={"subscribe"} icon={"pi pi-user-plus"} />)}
-              {channel.isUser && (<SplitButton className={"p-ml-3 p-button-outlined"} label={"Manage Channel"} icon={"pi pi-user-plus"} model={userChannelButtonOptions} />)}
+              {channel.isUser && (<SplitButton className={"p-ml-3 p-button-outlined"} label={"Manage Channel"} icon={"fas fa-edit"} model={userChannelButtonOptions} />)}
               <div className={"p-ml-3"}>
               <Button icon={"pi pi-ellipsis-v"} onClick={(event) => optionsRef.current.toggle(event)} className={"p-button-sm p-button-text"} aria-controls="popup_menu" aria-haspopup/>
               <Menu popup={true} id={"popup_menu"} ref={optionsRef} model={optionsModel} />

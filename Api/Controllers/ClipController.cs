@@ -72,6 +72,19 @@ namespace Api.Controllers
         {
             return await _mediator.Send(new DeleteUploadedClip.Command{PublicId = id});
         }
-        
+
+        [Authorize]
+        [HttpPost("like/{clipId}")]
+        public async Task<ActionResult<Unit>> LikeClip(string clipId)
+        {
+            return await _mediator.Send(new LikeClip.Command {ClipId = clipId});
+        }
+
+        [Authorize]
+        [HttpPost("dislike/{clipId}")]
+        public async Task<ActionResult<Unit>> DislikeClip(string clipId)
+        {
+            return await _mediator.Send(new DislikeClip.Command {ClipId = clipId});
+        }
     }
 }

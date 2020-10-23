@@ -52,11 +52,11 @@ const Navbar = () => {
         },
         {
             label: 'Game Library',
-            icon: 'pi pi-list',
+            icon: 'fas fa-layer-group',
             items: [
                 {
                     label: 'View games',
-                    icon: 'pi pi-fw pi-sitemap',
+                    icon: 'fas fa-gamepad',
                     command: () => history.push("/games")
                 },
                 {

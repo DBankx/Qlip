@@ -50,12 +50,15 @@
         </e>
         <e p="Clip" t="Include">
           <e p="ClipDto.cs" t="Include" />
+          <e p="ClipLikeResolver.cs" t="Include" />
           <e p="ClipUserDto.cs" t="Include" />
           <e p="CreateClip.cs" t="Include" />
           <e p="DeleteClip.cs" t="Include" />
           <e p="DeleteUploadedClip.cs" t="Include" />
           <e p="Details.cs" t="Include" />
+          <e p="DislikeClip.cs" t="Include" />
           <e p="EditClip.cs" t="Include" />
+          <e p="LikeClip.cs" t="Include" />
           <e p="List.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
           <e p="RestException.cs" t="Include" />
@@ -249,6 +252,7 @@
           </e>
         </e>
         <e p="PaginationFilter.cs" t="Include" />
+        <e p="UserClip.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Persistance" t="IncludeRecursive">
@@ -285,6 +289,12 @@
           <e p="20201017102402_channelMigration1.Designer.cs" t="Include" />
           <e p="20201019215145_addedLikedGames.cs" t="Include" />
           <e p="20201019215145_addedLikedGames.Designer.cs" t="Include" />
+          <e p="20201022224928_addedUserClip.cs" t="Include" />
+          <e p="20201022224928_addedUserClip.Designer.cs" t="Include" />
+          <e p="20201022233314_addedDislike.cs" t="Include" />
+          <e p="20201022233314_addedDislike.Designer.cs" t="Include" />
+          <e p="20201022233415_addedDislikeTo0.cs" t="Include" />
+          <e p="20201022233415_addedDislikeTo0.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
