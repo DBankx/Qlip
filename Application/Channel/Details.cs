@@ -39,6 +39,19 @@ namespace Application.Channel
                 if(user == null)
                     throw new RestException(HttpStatusCode.NotFound, new {user = "Not found"});
 
+                var queryable = _context.UserClips.AsQueryable();
+
+                var likedClipsId = new List<Domain.UserClip>();
+
+                var clips = new List<Domain.Clip>();
+
+                likedClipsId = await queryable.Where(x => x.ApplicationUserId == user.Id).ToListAsync();
+
+                foreach (var clip in likedClipsId)
+                {
+                    clips.Add(await _context.Clips.SingleOrDefaultAsync(x => x.Id == clip.ClipId));
+                }
+                
                 return new Channel
                 {
                     Bio = user.Bio,
@@ -51,7 +64,8 @@ namespace Application.Channel
                     Username = user.UserName,
                     Clips = _mapper.Map<List<ClipDto>>(user.Clips),
                     OverallViews = user.Clips.Sum(x => x.views),
-                    LikedGames = _mapper.Map<List<AllGamesDto>>(user.LikedGames)
+                    LikedGames = _mapper.Map<List<AllGamesDto>>(user.LikedGames),
+                    LikedClips = _mapper.Map<List<ClipDto>>(clips)
                 };
                 
             }

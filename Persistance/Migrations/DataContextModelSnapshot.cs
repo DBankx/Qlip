@@ -204,6 +204,21 @@ namespace Persistance.Migrations
                     b.ToTable("UserClips");
                 });
 
+            modelBuilder.Entity("Domain.UserFollowings", b =>
+                {
+                    b.Property<string>("ObserverId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<string>("TargetId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.HasKey("ObserverId", "TargetId");
+
+                    b.HasIndex("TargetId");
+
+                    b.ToTable("Followings");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -376,6 +391,21 @@ namespace Persistance.Migrations
                     b.HasOne("Domain.Clip", "Clip")
                         .WithMany("UserClips")
                         .HasForeignKey("ClipId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.UserFollowings", b =>
+                {
+                    b.HasOne("Domain.ApplicationUser", "Observer")
+                        .WithMany("Followings")
+                        .HasForeignKey("ObserverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.ApplicationUser", "Target")
+                        .WithMany("Followers")
+                        .HasForeignKey("TargetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

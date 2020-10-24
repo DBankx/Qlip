@@ -18,5 +18,6 @@ namespace Application.Channel
         public int OverallViews { get; set; }
         public string Username { get; set; }
         public ICollection<AllGamesDto> LikedGames { get; set; }
+        public ICollection<ClipDto> LikedClips { get; set; }
     }
 }

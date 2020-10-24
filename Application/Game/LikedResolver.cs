@@ -24,6 +24,10 @@ namespace Application.Game
         {
             var currentUser =
                 _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUser()).Result;
+            if (currentUser == null)
+            {
+                return false;
+            }
             if (currentUser.LikedGames.Any(x => x.Id == source.Id))
             {
                 return true;

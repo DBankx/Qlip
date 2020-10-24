@@ -13,7 +13,7 @@ const AboutSection : React.FC<IProps> = ({channel}) => {
             <h3>About {channel.isUser ? "You" : channel.username}</h3>
             <div style={{marginTop: "0.5em", height: "auto"}}>
             <span className={"text-sm"} style={{color: "#777777", fontSize: "0.8em"}}>Bio</span>
-              <span style={{fontSize: "0.9em", display: "block", marginTop: "1em"}}>{parse(channel.bio)}</span>
+                <span style={{fontSize: "0.9em", display: "block", marginTop: "1em"}}>{channel.bio !== null ? parse(channel.bio) : <span>{channel.username} has no bio yet.</span>}</span>
               <div style={{marginTop: "1em"}}>
                   <span style={{marginTop: "1em", fontSize: "0.8em", color: "#777777", display: "block"}}>Social Links</span>
                   <div className={"p-d-flex p-ai-center p-mt-3"}>
