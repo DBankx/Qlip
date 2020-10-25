@@ -15,6 +15,8 @@ export interface IChannel{
     isUser: boolean;
     likedGames: IGame[];
     likedClips: IClip[];
+    subsrciberCount: number;
+    subscribedToUser: boolean;
 }
 
 export interface IChannelFormValues{

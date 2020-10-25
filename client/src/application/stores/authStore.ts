@@ -29,6 +29,7 @@ export class AuthStore{
            })
             this.rootStore.commonStore.setAppLoaded();
            this.rootStore.commonStore.setToken(user.token);
+           window.location.reload();
         }catch(error){
             throw error;
         }
@@ -50,6 +51,7 @@ export class AuthStore{
     @action logout = () => {
         this.user = null;
         this.rootStore.commonStore.deleteToken();
+        window.location.reload();
     }
     
     @action getCurrentUser = async () => {

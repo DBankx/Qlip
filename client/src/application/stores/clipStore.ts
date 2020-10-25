@@ -57,11 +57,17 @@ export class ClipStore{
             let clip = this.clipRegistry.get(id);
             if(clip != null){
                 this.clip = clip;
+                if(this.rootStore.authStore.user?.username === this.clip.authorName){
+                    this.clip.isUser = true;
+                }
                 this.loadingInitial = false;
             } else {
                 let clipFromApi = await ClipRequest.getClip(id);
                 runInAction(() => {
                     this.clip = clipFromApi;
+                    if(this.rootStore.authStore.user?.username === this.clip.authorName){
+                        this.clip.isUser = true;
+                    }
                     this.loadingInitial = false;
                 })
             }

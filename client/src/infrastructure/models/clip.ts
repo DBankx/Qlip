@@ -13,6 +13,9 @@
     dislikes: number;
     isLiked: boolean;
     isDisliked: boolean;
+    authorSubscriberCount: number;
+    subscribedToAuthor: boolean;
+    isUser: boolean;
 }
 
 export interface IClipFormValues{

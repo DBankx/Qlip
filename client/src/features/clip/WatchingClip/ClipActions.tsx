@@ -7,7 +7,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import {Menu} from "primereact/menu";
 import rootStoreContext from "../../../application/stores/rootStore";
 import {history} from "../../../index";
-import {useMediaQuery} from "react-responsive";
 
 interface IProps{
     clip: IClip
@@ -20,8 +19,6 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
     
     const {deleteClip, deletingClip, likeClip, dislikeClip} = useContext(rootStoreContext).clipStore;
     const {isLoggedIn} = useContext(rootStoreContext).authStore;
-    
-    const isMobile = useMediaQuery({query: "(max-width: 600px)"});
     
     const optionsRef = useRef<any>(null);
     

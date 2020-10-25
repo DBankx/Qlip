@@ -65,7 +65,7 @@ export class GameStore{
             await GameRequest.likeGame(gameId);
            runInAction(() => {
                if(this.games !== null){
-                   let game = this.games.data.find(x => x.id == gameId);
+                   let game = this.games.data.find(x => x.id === gameId);
                    game!.isLiked = true;
                }
                this.likingGame = false;
@@ -85,7 +85,7 @@ export class GameStore{
         try {
             await GameRequest.unlikeGame(gameId);
             runInAction(() => {
-                    let game = this.games!.data.find(x => x.id == gameId);
+                    let game = this.games!.data.find(x => x.id === gameId);
                     game!.isLiked = false;
                     this.likingGame = false;
             })

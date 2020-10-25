@@ -14,7 +14,7 @@ interface IProps{
 const ClipDetails: React.FC<IProps> = ({clip}) => {
     return (
         <div style={{width: "100%"}}>
-            <ClipOwnerDetails />
+            <ClipOwnerDetails clip={clip} />
             <hr className={"divider"} />
             <ClipPlayer clip={clip} />
             <ClipTitle clip={clip} />

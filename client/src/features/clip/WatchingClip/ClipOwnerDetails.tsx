@@ -1,13 +1,28 @@
-﻿import React from "react";
+﻿import React, {useContext} from "react";
 import {observer} from "mobx-react-lite";
 import AvatarClip from "../../../application/common/AvatarClip";
 import {Button} from "primereact/button";
+import { IClip } from "../../../infrastructure/models/clip";
+import rootStoreContext from "../../../application/stores/rootStore";
 
-const ClipOwnerDetails = () => {
+interface IProps{
+    clip: IClip
+}
+
+const ClipOwnerDetails : React.FC<IProps> = ({clip}) => {
+    const {subscribing, SubscribeToUser, UnSubscribeToUser} = useContext(rootStoreContext).subscriptionStore;
+    const {isLoggedIn} = useContext(rootStoreContext).authStore;
+    const subscribedStyle = {
+    color: "#777777",
+    borderColor: "#777777",
+    background: "none",
+    fontWeight: 600    
+    }
+    
     return (
         <div className={"p-d-flex p-flex-wrap p-jc-between p-ai-center"}>
             <AvatarClip />
-            <Button label={"Subscribe"} className={"p-button-sm"} icon={"pi pi-plus"} />
+            {!isLoggedIn ? <Button label={"Subscribe"} icon={"pi pi-plus"} tooltip={"Login to subscribe"} tooltipOptions={{position: "bottom"}} /> : clip.isUser ? (<Button label={"Edit"} icon={"pi pi-pencil"} />) : (<Button label={clip.subscribedToAuthor ? "Subscribed" : "Subscribe" } className={"p-button-sm"} onClick={clip.subscribedToAuthor ? () => UnSubscribeToUser(clip.authorName) : () => SubscribeToUser(clip.authorName) } icon={subscribing ? "pi pi-spin pi-spinner" :clip.subscribedToAuthor ? "pi pi-check" : "pi pi-plus"} style={clip.subscribedToAuthor ? subscribedStyle : {}} />)} 
         </div>
     )
 }

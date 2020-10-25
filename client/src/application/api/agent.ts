@@ -102,3 +102,9 @@ export const ChannelRequest = {
     updateChannel: (values: IChannelFormValues) : Promise<{}> => Requests.put("/channel", values),
     getChannel: (username: string): Promise<IChannel> => Requests.get(`/channel/${username}`)
 }
+
+// subsrciption requests
+export const SubscriptionRequest = {
+    subscribeToUser: (username: string) : Promise<{}> => Requests.post(`/subscription/${username}/subscribe`),
+    unSubscribe: (username: string) : Promise<{}> => Requests.post(`/subscription/${username}/unSubscribe`) 
+}

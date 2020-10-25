@@ -5,6 +5,7 @@ import {CommonStore} from "./commonStore";
 import {AuthStore} from "./authStore";
 import {GameStore} from "../../application/stores/gameStore";
 import {ChannelStore} from "./channelStore";
+import {SubscriptionStore} from "./subscriptionStore";
 //========================================================================
 //============= Store for controlling all stores in the app ================
 //========================================================================
@@ -16,15 +17,17 @@ configure({enforceActions: "always"});
 export class RootStore{
     clipStore: ClipStore;
     commonStore: CommonStore;
-    authStore: AuthStore
-    gameStore: GameStore
-    channelStore: ChannelStore
+    authStore: AuthStore;
+    gameStore: GameStore;
+    channelStore: ChannelStore;
+    subscriptionStore: SubscriptionStore
     constructor(){
         this.clipStore = new ClipStore(this);
         this.commonStore = new CommonStore(this);
         this.authStore = new AuthStore(this);
         this.gameStore = new GameStore(this);
         this.channelStore = new ChannelStore(this);
+        this.subscriptionStore = new SubscriptionStore(this);
     }
 }
 
