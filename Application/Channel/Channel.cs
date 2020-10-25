@@ -19,5 +19,7 @@ namespace Application.Channel
         public string Username { get; set; }
         public ICollection<AllGamesDto> LikedGames { get; set; }
         public ICollection<ClipDto> LikedClips { get; set; }
+        public int SubsrciberCount { get; set; }
+        public bool SubscribedToUser { get; set; }
     }
 }

@@ -60,6 +60,7 @@ namespace Api
             {
                 option.UseLazyLoadingProxies();
                 option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"));
+                option.EnableSensitiveDataLogging();
             });
             
             //============ Adding identity options =====================

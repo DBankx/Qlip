@@ -10,6 +10,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
+using Support.Security.UserAccess;
 
 namespace Application.Channel
 {
@@ -25,16 +26,21 @@ namespace Application.Channel
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
+            private readonly IUserAccessor _userAccessor;
 
-            public Handler(DataContext context, IMapper mapper)
+            public Handler(DataContext context, IMapper mapper, IUserAccessor userAccessor)
             {
                 _context = context;
                 _mapper = mapper;
+                _userAccessor = userAccessor;
             }
 
             public async Task<Channel> Handle(Query request, CancellationToken cancellationToken)
             {
                 var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == request.Username);
+                var loggedInUser =
+                    await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUser());
+                
                 
                 if(user == null)
                     throw new RestException(HttpStatusCode.NotFound, new {user = "Not found"});
@@ -51,8 +57,9 @@ namespace Application.Channel
                 {
                     clips.Add(await _context.Clips.SingleOrDefaultAsync(x => x.Id == clip.ClipId));
                 }
-                
-                return new Channel
+
+               
+                var channel =  new Channel
                 {
                     Bio = user.Bio,
                     CreatedAt = user.CreatedAt,
@@ -65,9 +72,21 @@ namespace Application.Channel
                     Clips = _mapper.Map<List<ClipDto>>(user.Clips),
                     OverallViews = user.Clips.Sum(x => x.views),
                     LikedGames = _mapper.Map<List<AllGamesDto>>(user.LikedGames),
-                    LikedClips = _mapper.Map<List<ClipDto>>(clips)
+                    LikedClips = _mapper.Map<List<ClipDto>>(clips),
+                    SubsrciberCount = user.Followers.Count()
                 };
-                
+
+                if (loggedInUser != null)
+                {
+                    var following = _context.Followings.Any(x =>
+                            x.ObserverId == loggedInUser.Id && x.TargetId == user.Id);
+                    channel.SubscribedToUser = following;
+                }
+                else
+                {
+                    channel.SubscribedToUser = false;
+                }
+                return channel;
             }
         }
     }

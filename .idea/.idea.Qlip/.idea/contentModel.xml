@@ -46,14 +46,15 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Channel" t="Include">
           <e p="Channel.cs" t="Include" />
+          <e p="ChannelFollowDto.cs" t="Include" />
           <e p="Details.cs" t="Include" />
+          <e p="MappingProfile.cs" t="Include" />
           <e p="UpdateChannel.cs" t="Include" />
         </e>
         <e p="Clip" t="Include">
           <e p="ClipDislikeReslover.cs" t="Include" />
           <e p="ClipDto.cs" t="Include" />
           <e p="ClipLikeResolver.cs" t="Include" />
-          <e p="ClipUserDto.cs" t="Include" />
           <e p="CreateClip.cs" t="Include" />
           <e p="DeleteClip.cs" t="Include" />
           <e p="DeleteUploadedClip.cs" t="Include" />
@@ -62,15 +63,18 @@
           <e p="EditClip.cs" t="Include" />
           <e p="IsDislikedValueResolver.cs" t="Include" />
           <e p="IsLikedValueResolver.cs" t="Include" />
+          <e p="IsSubscribedResolver.cs" t="Include" />
           <e p="LikeClip.cs" t="Include" />
           <e p="List.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
           <e p="RestException.cs" t="Include" />
+          <e p="SubscriberCountValueResolver.cs" t="Include" />
           <e p="UploadClip.cs" t="Include" />
         </e>
         <e p="Errors" t="Include" />
         <e p="Follows" t="Include">
           <e p="FollowUser.cs" t="Include" />
+          <e p="List.cs" t="Include" />
           <e p="UnSubscribe.cs" t="Include" />
         </e>
         <e p="Game" t="Include">

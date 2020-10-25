@@ -22,20 +22,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="Added new values to the clipdto to check if a user has liked a clip or disliked a clip, also started work on the ui aspect of the like and dislike functionality">
+    <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="added subscription features to a user and channel">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/dataSources/ffe69e49-4575-4778-8394-b40ff2c138d9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Channel/Channel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Channel/Channel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Channel/Details.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Channel/Details.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Game/LikedResolver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Game/LikedResolver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistance/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/channel/ChannelViews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/channel/ChannelViews.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/channel/aboutTab/AboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/channel/aboutTab/AboutSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Clip/ClipDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/ClipDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Clip/ClipUserDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +61,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/application/stores/gameStore.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/channel/ChannelGame.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/channel/homeTab/TopLikedGames.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/channel/Channel.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/clipHome/Clip.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/game/GameBanner.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/channel/ChannelClip.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/homeTab/RecentClips.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/stores/channelStore.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/clipsTab/ClipsTab.tsx" />
@@ -95,17 +83,13 @@
         <option value="$PROJECT_DIR$/Application/Clip/LikeClip.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/ClipDislikeReslover.cs" />
         <option value="$PROJECT_DIR$/client/src/application/api/agent.ts" />
-        <option value="$PROJECT_DIR$/Application/Clip/ClipDto.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/IsLikedValueResolver.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/IsDislikedValueResolver.cs" />
-        <option value="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" />
         <option value="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" />
         <option value="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/aboutTab/AboutSection.tsx" />
-        <option value="$PROJECT_DIR$/Application/Channel/Channel.cs" />
         <option value="$PROJECT_DIR$/Application/Game/LikedResolver.cs" />
-        <option value="$PROJECT_DIR$/Application/Channel/Details.cs" />
         <option value="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" />
         <option value="$PROJECT_DIR$/client/src/features/channel/likedClipsTab/LikedClipsTab.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/ChannelViews.tsx" />
@@ -115,8 +99,19 @@
         <option value="$PROJECT_DIR$/Application/Follows/FollowUser.cs" />
         <option value="$PROJECT_DIR$/Api/Controllers/FollowController.cs" />
         <option value="$PROJECT_DIR$/Api/Controllers/SubscribeController.cs" />
-        <option value="$PROJECT_DIR$/Api/Controllers/SubscriptionController.cs" />
         <option value="$PROJECT_DIR$/Application/Follows/UnSubscribe.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/ClipUserDto.cs" />
+        <option value="$PROJECT_DIR$/Application/Follows/List.cs" />
+        <option value="$PROJECT_DIR$/Api/Controllers/SubscriptionController.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/ChannelFollowDto.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/ClipDto.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/Channel.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/IsSubscribedResolver.cs" />
+        <option value="$PROJECT_DIR$/Api/Startup.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/SubscriberCountValueResolver.cs" />
+        <option value="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/MappingProfile.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/Details.cs" />
       </list>
     </option>
   </component>
@@ -194,7 +189,7 @@
       <workItem from="1603009683677" duration="46344000" />
       <workItem from="1603263110151" duration="26003000" />
       <workItem from="1603487755225" duration="7617000" />
-      <workItem from="1603543815952" duration="7738000" />
+      <workItem from="1603543815952" duration="15419000" />
     </task>
     <task id="LOCAL-00001" summary="Added an endpoint for a user to like a game and updated channel model">
       <created>1603145518945</created>
@@ -231,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603492183154</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added subscription features to a user and channel">
+      <created>1603553977482</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603553977482</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +278,8 @@
     <MESSAGE value="added like and dislike functionality and endpoint" />
     <MESSAGE value="added unrevisioned files" />
     <MESSAGE value="Added new values to the clipdto to check if a user has liked a clip or disliked a clip, also started work on the ui aspect of the like and dislike functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new values to the clipdto to check if a user has liked a clip or disliked a clip, also started work on the ui aspect of the like and dislike functionality" />
+    <MESSAGE value="added subscription features to a user and channel" />
+    <option name="LAST_COMMIT_MESSAGE" value="added subscription features to a user and channel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="501" y="265" key="#SCSS_Lint" timestamp="1601758860153">
@@ -335,10 +338,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1601899535116" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603492195578">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603553985854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603492195578" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603553985854" />
     <state x="659" y="299" width="312" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1602928533159">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

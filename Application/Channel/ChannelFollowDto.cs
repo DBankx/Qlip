@@ -1,8 +1,9 @@
-﻿namespace Application.Clip
+﻿namespace Application.Channel
 {
-    public class ClipUserDto
+    public class ChannelFollowDto
     {
         public string GravatarProfileImage { get; set; }
+        public int SubscriberCount { get; set; }
         public string Username { get; set; }
     }
 }
