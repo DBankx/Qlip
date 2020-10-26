@@ -2,6 +2,7 @@
 import {action, makeObservable, observable, runInAction} from "mobx";
 import { toast } from "react-toastify";
 import {SubscriptionRequest} from "../api/agent";
+import {IChannelUser} from "../../infrastructure/models/channel";
 
 export class SubscriptionStore{
     rootStore: RootStore;
@@ -11,6 +12,8 @@ export class SubscriptionStore{
     }
     
     @observable subscribing: boolean = false;
+    @observable loadingSubscriptions : boolean = false;
+    @observable follows: IChannelUser[] | null = null;
     
     @action SubscribeToUser = async (username: string) => {
         this.subscribing = true;
@@ -58,5 +61,19 @@ export class SubscriptionStore{
             throw error;
         }
     }
-    
+   
+    @action getFollows = async (username: string, predicate: string) => {
+        this.loadingSubscriptions = true;
+        try{
+            var follows = await SubscriptionRequest.getFollows(username, predicate);
+            runInAction(() => {
+               this.follows = follows; 
+                this.loadingSubscriptions = false;
+            })
+        }catch(error){
+            runInAction(() => this.loadingSubscriptions = false);
+            toast.error("Error occurred");
+            throw error;
+        }
+    }
 }

@@ -6,6 +6,7 @@ import { IChannel } from "../../infrastructure/models/channel";
 import ClipsTab from "./clipsTab/ClipsTab";
 import AboutTab from "./aboutTab/AboutTab";
 import LikedClipsTab from "./likedClipsTab/LikedClipsTab";
+import ChannelsTab from "./channelsTab/ChannelsTab"; 
 
 interface IProps{
     channel: IChannel
@@ -37,7 +38,7 @@ const ChannelViews: React.FC<IProps> = ({channel}) => {
            </TabPanel>
            <TabPanel header={<div style={{display: "flex"}}><p className={"hide-sm"}>Channels</p><i className={"pi pi-user-plus hide-bg"}/></div>}>
                <div>
-                hey
+               <ChannelsTab channel={channel} /> 
                </div>
            </TabPanel>
        </TabView>

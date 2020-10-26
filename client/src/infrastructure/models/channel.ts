@@ -19,6 +19,12 @@ export interface IChannel{
     subscribedToUser: boolean;
 }
 
+export interface IChannelUser{
+    gravatarProfileImage: string;
+    subscriberCount: number;
+    username: string;
+}
+
 export interface IChannelFormValues{
     bio?: string;
     twitter?: string;

@@ -4,7 +4,7 @@ import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
 import {toast} from "react-toastify";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
-import {IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
+import {IChannelUser, IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -106,5 +106,6 @@ export const ChannelRequest = {
 // subsrciption requests
 export const SubscriptionRequest = {
     subscribeToUser: (username: string) : Promise<{}> => Requests.post(`/subscription/${username}/subscribe`),
-    unSubscribe: (username: string) : Promise<{}> => Requests.post(`/subscription/${username}/unSubscribe`) 
+    unSubscribe: (username: string) : Promise<{}> => Requests.post(`/subscription/${username}/unSubscribe`),
+    getFollows: (username: string, predicate: string): Promise<IChannelUser[]> => Requests.get(`/subscription/${username}/${predicate}`)
 }

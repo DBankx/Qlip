@@ -4,7 +4,7 @@ import {sidebarNavigationModel} from "./sidebarNavigationModel";
 
 const Sidebar = () => {
     return (
-            <Menu appendTo={document.body} style={{position: "fixed"}}  className={"main-sidebar p-d-none p-d-md-none p-d-lg-inline-flex"} model={sidebarNavigationModel} />
+            <Menu appendTo={document.body} style={{position: "fixed"}}  className={"main-sidebar p-d-none p-d-md-none  p-d-xl-inline-flex"} model={sidebarNavigationModel} />
     )
 }
 

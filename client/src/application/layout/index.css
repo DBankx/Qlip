@@ -335,6 +335,15 @@ span {
     margin: 10em 1.5em 0 1.5em;
   }
 }
+@media (min-width: 989px) and (max-width: 1200px) {
+  .hide-bg-md {
+    display: none;
+  }
+
+  .sidebar-void {
+    margin: 10em 1.5em 0 1.5em;
+  }
+}
 .rc-slider-handle {
   border: 2px solid #81C784 !important;
   background-color: #383838 !important;
