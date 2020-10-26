@@ -7,7 +7,9 @@ namespace Application.Channel
     {
         public MappingProfile()
         {
-            CreateMap<ApplicationUser, ChannelFollowDto>();
+            CreateMap<ApplicationUser, ChannelFollowDto>()
+                .ForMember(x => x.SubscribedToChannel, opt => opt.MapFrom<IsSubscribedValueResolver>())
+                .ForMember(x => x.SubscriberCount, opt => opt.MapFrom<ChannelSubscriberCountResolver>());
         }
     }
 }

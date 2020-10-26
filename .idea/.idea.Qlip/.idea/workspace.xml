@@ -23,15 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="added subscription features to a user and channel">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/stores/subscriptionStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/subscriptionStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/channel/ChannelViews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/channel/ChannelViews.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Channel/ChannelFollowDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Channel/ChannelFollowDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Channel/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Channel/MappingProfile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,8 +57,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Domain/Clip.cs" />
-        <option value="$PROJECT_DIR$/Application/Clip/DislikeClip.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/LikeClip.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/ClipDislikeReslover.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/IsLikedValueResolver.cs" />
@@ -81,14 +74,12 @@
         <option value="$PROJECT_DIR$/Application/Clip/ClipUserDto.cs" />
         <option value="$PROJECT_DIR$/Application/Follows/List.cs" />
         <option value="$PROJECT_DIR$/Api/Controllers/SubscriptionController.cs" />
-        <option value="$PROJECT_DIR$/Application/Channel/ChannelFollowDto.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/ClipDto.cs" />
         <option value="$PROJECT_DIR$/Application/Channel/Channel.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/IsSubscribedResolver.cs" />
         <option value="$PROJECT_DIR$/Api/Startup.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/SubscriberCountValueResolver.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/MappingProfile.cs" />
-        <option value="$PROJECT_DIR$/Application/Channel/MappingProfile.cs" />
         <option value="$PROJECT_DIR$/Application/Channel/Details.cs" />
         <option value="$PROJECT_DIR$/client/src/features/channel/homeTab/TopLikedGames.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" />
@@ -113,6 +104,10 @@
         <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
         <option value="$PROJECT_DIR$/client/src/features/channel/channelsTab/ChannelsTab.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/channelsTab/ChannelUser.tsx" />
+        <option value="$PROJECT_DIR$/Application/Channel/IsSubscribedValueResolver.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/ChannelFollowDto.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/ChannelSubscriberCountResolver.cs" />
+        <option value="$PROJECT_DIR$/Application/Channel/MappingProfile.cs" />
       </list>
     </option>
   </component>
@@ -190,7 +185,8 @@
       <workItem from="1603009683677" duration="46344000" />
       <workItem from="1603263110151" duration="26003000" />
       <workItem from="1603487755225" duration="7617000" />
-      <workItem from="1603543815952" duration="32875000" />
+      <workItem from="1603543815952" duration="33536000" />
+      <workItem from="1603722134809" duration="1411000" />
     </task>
     <task id="LOCAL-00001" summary="Added an endpoint for a user to like a game and updated channel model">
       <created>1603145518945</created>
@@ -363,9 +359,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="753" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602950340486" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603711162224">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603722226758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603711162224" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603722226758" />
   </component>
 </project>

@@ -47,7 +47,9 @@
         <e p="Channel" t="Include">
           <e p="Channel.cs" t="Include" />
           <e p="ChannelFollowDto.cs" t="Include" />
+          <e p="ChannelSubscriberCountResolver.cs" t="Include" />
           <e p="Details.cs" t="Include" />
+          <e p="IsSubscribedValueResolver.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
           <e p="UpdateChannel.cs" t="Include" />
         </e>
