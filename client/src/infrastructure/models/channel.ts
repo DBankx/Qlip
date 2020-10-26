@@ -23,6 +23,7 @@ export interface IChannelUser{
     gravatarProfileImage: string;
     subscriberCount: number;
     username: string;
+    subscribedToChannel: boolean;
 }
 
 export interface IChannelFormValues{

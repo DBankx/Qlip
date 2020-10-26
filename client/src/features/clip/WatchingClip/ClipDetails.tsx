@@ -6,6 +6,7 @@ import {IClip} from "../../../infrastructure/models/clip";
 import ClipTitle from "./ClipTitle";
 import ClipAction from "./ClipActions";
 import ClipDescription from "./ClipDescription";
+import CommentSection from "./CommentSection"; 
 
 interface IProps{
     clip: IClip
@@ -20,6 +21,8 @@ const ClipDetails: React.FC<IProps> = ({clip}) => {
             <ClipTitle clip={clip} />
             <ClipAction clip={clip} />
             <ClipDescription clip={clip} />
+            <hr className={"divider p-mt-3 p-mb-3"} />
+            <CommentSection />
         </div>
     )
 }

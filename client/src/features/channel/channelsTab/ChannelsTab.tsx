@@ -14,18 +14,18 @@ const ChannelsTab : React.FC<IProps> = ({channel}) => {
     const {loadingSubscriptions, getFollows, follows} = useContext(rootStoreContext).subscriptionStore;
     useEffect(() => {
         getFollows(channel.username, "following");
-    }, [channel.username]);
+    }, [channel.username, getFollows]);
     if(loadingSubscriptions && follows === null) return <Spinner />
     return (
         <Fragment>
             <span>Subscriptions</span>
             <hr className={"divider p-mt-2 p-mb-2"} />
             <div className={"p-grid p-ai-center"}>
-                {follows && follows!.map((user) => (
+                {follows && follows.length > 0 ? follows!.map((user) => (
                     <div key={user.username} className={"p-col-6 p-sm-4 p-lg-2 p-md-3"}>
                         <ChannelUser channelUser={user} channel={channel} />
                     </div>
-                ))}
+                )) : <span>{channel.isUser ? "You" : channel.username} has no subscriptions</span>}
             </div>
         </Fragment>
     )
