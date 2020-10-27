@@ -22,7 +22,7 @@ const ClipDetails: React.FC<IProps> = ({clip}) => {
             <ClipAction clip={clip} />
             <ClipDescription clip={clip} />
             <hr className={"divider p-mt-3 p-mb-3"} />
-            <CommentSection />
+            <CommentSection clip={clip} />
         </div>
     )
 }

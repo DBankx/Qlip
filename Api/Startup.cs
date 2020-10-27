@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Threading.Tasks;
 using Api.Middlewares.Errors;
 using Application.Clip;
 using AutoMapper;
@@ -87,7 +88,7 @@ namespace Api
             {
                 option.AddDefaultPolicy(builder =>
                 {
-                    builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+                    builder.AllowAnyHeader().WithOrigins("http://localhost:3000").AllowAnyMethod().AllowCredentials();
                 });
             });
             
@@ -102,7 +103,27 @@ namespace Api
                     ValidateIssuerSigningKey = true,
                     ValidateAudience = false
                 };
+                
+                // send the token to signalR
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var accessToken = context.Request.Query["access_token"];
+                        // get the path
+                        var path = context.HttpContext.Request.Path;
+                        if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/comment"))
+                        {
+                            context.Token = accessToken;
+                        }
+
+                        return Task.CompletedTask;
+                    }
+                };
             });
+            
+            //================ Signal R =====================
+            services.AddSignalR();
 
             services.Configure<IISServerOptions>(options =>
             {
@@ -146,7 +167,11 @@ namespace Api
             
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapHub<CommentHub>("/comment");
+            });
         }
     }
 }

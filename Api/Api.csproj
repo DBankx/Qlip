@@ -28,4 +28,7 @@
     <ProjectReference Include="..\Support\Support.csproj" />
     <ProjectReference Include="..\Application\Application.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SignalR" />
+  </ItemGroup>
 </Project>

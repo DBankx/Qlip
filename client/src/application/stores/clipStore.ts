@@ -3,6 +3,7 @@ import {action, computed, makeObservable, observable, runInAction} from "mobx";
 import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/models/clip";
 import {ClipRequest} from "../api/agent";
 import {toast} from "react-toastify";
+import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 
 //========================================================================
 //============= Store for clip states in the app ================
@@ -26,11 +27,49 @@ export class ClipStore{
     @observable selectedClip: string | null = null;
     @observable selectedClipBlob: any = null;
     @observable deletingClip: boolean = false;
+    @observable.ref hubConnection: HubConnection | null = null;
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
     }
     
+    // build hub connection
+    @action startConnection = async(clipId: string) => {
+        this.hubConnection = new HubConnectionBuilder().withUrl("http://localhost:5000/comment", {
+            accessTokenFactory: () => this.rootStore.commonStore.token!
+        }).configureLogging(LogLevel.Information).build();
+        
+        // start the hub connection
+        this.hubConnection.start().then(() => console.log(this.hubConnection!.state)).then(() => {
+            console.log("Attempting to join qlip");
+            this.hubConnection!.invoke("AddToGroup", clipId);
+        }).catch(error => console.log("Error establishing connection", error));
+        
+        this.hubConnection.on("RecieveComment", comment => {
+            runInAction(() => {
+                this.clip!.comments.push(comment);
+            })
+        })
+        
+        this.hubConnection.on("Send", message => {
+            toast.info(message);
+        })
+    }
+
+    @action stopHubConnection = () => {
+        this.hubConnection!.invoke("RemoveFromGroup", this.clip!.id).then(() =>
+            this.hubConnection!.stop()).then(() => console.log("Connection stopped")).catch((err) => console.log(err))
+    }
+
+    @action addComment = async (values: any) => {
+        values.clipId = this.clip!.id;
+        try{
+            await this.hubConnection!.invoke("SendComment", values);
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     //========= load all clips ===============
     @action loadAllClips = async () => {
         this.loadingInitial = true;

@@ -12,6 +12,7 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CommentHub.cs" t="Include" />
         <e p="Controllers" t="Include">
           <e p="ChannelController.cs" t="Include" />
           <e p="ClipController.cs" t="Include" />
@@ -33,6 +34,7 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="SignalR" t="Include" />
         <e p="Startup.cs" t="Include" />
       </e>
       <e p="Application" t="IncludeRecursive">
@@ -73,6 +75,11 @@
           <e p="SubscriberCountValueResolver.cs" t="Include" />
           <e p="UploadClip.cs" t="Include" />
         </e>
+        <e p="comment" t="Include">
+          <e p="Add.cs" t="Include" />
+          <e p="CommentDto.cs" t="Include" />
+          <e p="MappingProfile.cs" t="Include" />
+        </e>
         <e p="Errors" t="Include" />
         <e p="Follows" t="Include">
           <e p="FollowUser.cs" t="Include" />
@@ -106,6 +113,7 @@
       <e p="client\node_modules\@jest\test-result" t="IncludeRecursive" />
       <e p="client\node_modules\@jest\transform" t="IncludeRecursive" />
       <e p="client\node_modules\@jest\types" t="IncludeRecursive" />
+      <e p="client\node_modules\@microsoft\SignalR" t="IncludeRecursive" />
       <e p="client\node_modules\@testing-library\jest-dom" t="IncludeRecursive" />
       <e p="client\node_modules\@testing-library\react" t="IncludeRecursive" />
       <e p="client\node_modules\@testing-library\user-event" t="IncludeRecursive" />
@@ -113,6 +121,7 @@
         <e p="babel__generator" t="IncludeRecursive" />
         <e p="babel__template" t="IncludeRecursive" />
         <e p="babel__traverse" t="IncludeRecursive" />
+        <e p="clipboard" t="IncludeRecursive" />
         <e p="domhandler" t="IncludeRecursive" />
         <e p="domutils" t="IncludeRecursive" />
         <e p="history" t="IncludeRecursive" />
@@ -141,6 +150,7 @@
       <e p="client\node_modules\chalk" t="IncludeRecursive" />
       <e p="client\node_modules\classnames" t="IncludeRecursive" />
       <e p="client\node_modules\clean-stack" t="IncludeRecursive" />
+      <e p="client\node_modules\clipboard" t="IncludeRecursive" />
       <e p="client\node_modules\csstype" t="IncludeRecursive" />
       <e p="client\node_modules\del" t="IncludeRecursive" />
       <e p="client\node_modules\diff-sequences" t="IncludeRecursive" />
@@ -180,7 +190,6 @@
       <e p="client\node_modules\primereact" t="IncludeRecursive" />
       <e p="client\node_modules\quill" t="IncludeRecursive" />
       <e p="client\node_modules\react" t="IncludeRecursive" />
-      <e p="client\node_modules\react-device-detect" t="IncludeRecursive" />
       <e p="client\node_modules\react-dom" t="IncludeRecursive" />
       <e p="client\node_modules\react-router-dom" t="IncludeRecursive" />
       <e p="client\node_modules\react-scripts" t="IncludeRecursive" />
@@ -256,6 +265,7 @@
         <e p="ApplicationUser.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Clip.cs" t="Include" />
+        <e p="Comment.cs" t="Include" />
         <e p="DislikeUserClip.cs" t="Include" />
         <e p="Domain.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
@@ -315,6 +325,8 @@
           <e p="20201023212441_addedMainDislikeTable.Designer.cs" t="Include" />
           <e p="20201024150839_AddedFollowingsTable.cs" t="Include" />
           <e p="20201024150839_AddedFollowingsTable.Designer.cs" t="Include" />
+          <e p="20201027114316_AddedComment.cs" t="Include" />
+          <e p="20201027114316_AddedComment.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

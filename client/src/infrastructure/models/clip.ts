@@ -16,6 +16,15 @@
     authorSubscriberCount: number;
     subscribedToAuthor: boolean;
     isUser: boolean;
+    comments: IComment[];
+}
+
+export interface IComment{
+    username: string;
+    id: string;
+    gravatarProfileImage: string;
+    text: string;
+    postedAt: string;
 }
 
 export interface IClipFormValues{

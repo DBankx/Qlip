@@ -16,6 +16,7 @@ namespace Persistance
         public DbSet<UserClip> UserClips { get; set; }
         public DbSet<DislikeUserClip> DislikeUserClips{ get; set; }
         public DbSet<UserFollowings> Followings { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
