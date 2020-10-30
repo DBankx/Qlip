@@ -5,11 +5,12 @@ import userPlaceholder from "../../application/layout/images/placeholder_user.pn
 import {InputTextarea} from "primereact/inputtextarea";
 import {Button} from "primereact/button";
 import {Formik} from "formik";
-import {InputText} from "primereact/inputtext";
 import * as yup from "yup";
+import {values} from "mobx";
 
 const CommentInput = () => {
     const {user, isLoggedIn} = useContext(rootStoreContext).authStore;
+    const {addComment, clip} = useContext(rootStoreContext).clipStore;
     const commentValidationSchema = yup.object().shape({
         text: yup.string().required("Please add some text")
     })
@@ -20,8 +21,7 @@ const CommentInput = () => {
             </div>
             <div className={"p-col-10 p-md-11 p-sm-11 p-lg-11"}>
             <Formik validationSchema={commentValidationSchema} initialValues={{text: ""}} onSubmit={(values: any, action) => {
-                console.log(values);
-                action.setSubmitting(false);
+                addComment(values).then(() => action.setSubmitting(false)).then(() => action.resetForm());
             }}>
                 {({handleSubmit, 
                       values, 
@@ -32,11 +32,12 @@ const CommentInput = () => {
                     isValid,
                     setSubmitting,
                     isSubmitting,
-                    handleReset
+                    handleReset,
+                    resetForm
                   }) => (
                     <form onSubmit={handleSubmit}>
                     <InputTextarea value={values.text} name={"text"} onBlur={handleBlur} onChange={handleChange} disabled={!isLoggedIn || isSubmitting} rows={4}  className={`${errors.text && touched.text && "p-invalid"} p-d-block`}  tooltip={!isLoggedIn ? "Login to leave a comment" : "Leave a comment"} autoResize style={{width: "100%"}} placeholder={"Leave a comment"}/>
-                    <div style={{float: "right"}}>
+                    <div style={{float: "right", marginTop: "0.3em"}}>
                     <Button type={"button"} label={"CANCEL"} className={"p-button-sm p-button-text p-button-plain"} />
                     <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner": ""} label={"COMMENT"} disabled={!isValid || isSubmitting} className={"p-button-sm"} />
                     </div>         

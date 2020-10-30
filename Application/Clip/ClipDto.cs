@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Application.Comment;
 
 namespace Application.Clip
 {
@@ -20,5 +22,6 @@ namespace Application.Clip
         public int Dislikes { get; set; }
         public bool IsLiked { get; set; }
         public bool IsDisliked { get; set; }
+        public ICollection<CommentDto> Comments { get; set; }
     }
 }

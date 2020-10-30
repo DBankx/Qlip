@@ -177,6 +177,7 @@ export class ClipStore{
         try{
             const newClip = await ClipRequest.createClip(clip);
             runInAction(() => {
+                newClip.comments = [];
                 this.clip = newClip;
                 this.clipRegistry.set(newClip.id, newClip);
             });

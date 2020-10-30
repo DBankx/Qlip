@@ -15,5 +15,6 @@ namespace Domain
         public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual ICollection<UserClip> UserClips { get; set; }
         public virtual ICollection<DislikeUserClip> DislikeUserClips { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

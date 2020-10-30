@@ -3,7 +3,7 @@ import {observer} from "mobx-react-lite";
 import Comment from "../../comment/Comment";
 import {SplitButton} from "primereact/splitbutton";
 import CommentInput from "../../comment/CommentInput";
-import {IClip} from "../../../infrastructure/models/clip";
+import {IClip, IComment} from "../../../infrastructure/models/clip";
 import rootStoreContext from "../../../application/stores/rootStore";
 
 interface IProps{
@@ -11,6 +11,14 @@ interface IProps{
 }
 
 const CommentSection : React.FC<IProps> = ({clip}) => {
+    const channelSortOptions = [
+        {
+            label: "Newest comment"
+        },
+        {
+            label: "Oldest comment"
+        }
+    ]
     const {startConnection, stopHubConnection} = useContext(rootStoreContext).clipStore;
     useEffect(() => {
         startConnection(clip.id);
@@ -22,10 +30,14 @@ const CommentSection : React.FC<IProps> = ({clip}) => {
         <div className={"comment-box"}>
             <div className={"p-d-flex p-ai-center p-jc-between"}>
                 <span>1263 Comments</span>
-                <SplitButton label={"SORT BY"} icon={"pi pi-filter"} className={"p-button-sm p-button-secondary"}  />
+                <SplitButton label={"SORT BY"} icon={"pi pi-filter"} className={"p-button-sm p-button-secondary"} model={channelSortOptions}  />
             </div>
             <CommentInput />
-            <Comment />
+            {clip && clip.comments && clip.comments.map((comment: IComment) => (
+                <div key={comment.id}>
+                    <Comment comment={comment} />
+                </div>
+            ))}
         </div>
     )
 }
