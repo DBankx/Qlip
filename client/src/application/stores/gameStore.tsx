@@ -2,7 +2,6 @@
 import {action, makeObservable, observable, runInAction} from "mobx";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
 import {GameRequest} from "../../application/api/agent";
-import {toast} from "react-toastify";
 import {SyntheticEvent} from "react";
 
 export class GameStore{
@@ -30,7 +29,7 @@ export class GameStore{
             })
         }catch(error){
             runInAction(() => this.loadingGames = false);
-            toast.error("Problem loading games");
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Cannot load games");
             throw error;
         }
     }
@@ -45,7 +44,7 @@ export class GameStore{
             })
         }catch(error){
             runInAction(() => this.loadingGames = false);
-            toast.error("Problem loading game");
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Cannot load game");
             throw error;
         }
     }
@@ -73,7 +72,8 @@ export class GameStore{
         }catch(error){
             runInAction(() => this.likingGame = false);
             if(error.status === 400){
-                toast.warn("You already like this game!")
+
+                this.rootStore.commonStore.showAlert("warn", "Warning", "You already liked this game");
             }
             throw error;
         }
@@ -92,7 +92,7 @@ export class GameStore{
         }catch(error){
             runInAction(() => this.likingGame = false);
             if(error.status === 400){
-                toast.warn("you already unliked this game");
+                this.rootStore.commonStore.showAlert("warn", "Warning", "You already unliked this game");
             }
             console.log(error);
         }

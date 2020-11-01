@@ -2,9 +2,10 @@
 import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/models/clip";
 import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
-import {toast} from "react-toastify";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
 import {IChannelUser, IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
+import {CommonStore} from "../stores/commonStore";
+import {RootStore} from "../stores/rootStore";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -19,10 +20,11 @@ axios.interceptors.request.use((config: AxiosRequestConfig) => {
     return Promise.reject(error);
 })
 
+
 axios.interceptors.response.use(undefined, (error) => {
     //checks for network error by checking the message and if there is no response object
     if (error.message === 'Network Error' && !error.response) {
-        toast.error('Network Error - Check your connection');
+        // r.commonStore.showAlert("error", "Network error", "Check your connection");
     }
     //redirect to notfound page for bad guids
     if (error.response.status === 404) {
@@ -38,7 +40,7 @@ axios.interceptors.response.use(undefined, (error) => {
     }
     //send a toast notification if any response is a 500 status code
     if (error.response.status === 500) {
-        toast.error('Server error - Try reloading the page');
+        // r.commonStore.showAlert("error", "Server error", "Try reloading the page");
     }
     throw error.response; 
 })
@@ -79,7 +81,8 @@ export const ClipRequest = {
     createClip: (clip: IClipFormValues) : Promise<IClip> => Requests.post("/clip", clip),
     deleteClip: (id: string) : Promise<{}> => Requests.delete(`/clip/${id}`),
     likeClip: (clipId: string): Promise<{}> => Requests.post(`clip/like/${clipId}`),
-    dislikeClip: (clipId: string): Promise<{}> => Requests.post(`clip/dislike/${clipId}`)
+    dislikeClip: (clipId: string): Promise<{}> => Requests.post(`clip/dislike/${clipId}`),
+    updateClip: (clip: IClipFormValues): Promise<IClip> => Requests.put(`clip/${clip.id}`, clip)
 }
 
 // Auth requests

@@ -26,7 +26,7 @@ namespace Application.Clip
 
             public async Task<VideoUploadResult> Handle(Command request, CancellationToken cancellationToken)
             {
-                var videoUploadResult = _videoAccessor.UploadClip(request.VideoFile);
+                var videoUploadResult = await _videoAccessor.UploadClip(request.VideoFile);
 
                 return videoUploadResult;
                 

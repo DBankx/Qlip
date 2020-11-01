@@ -19,7 +19,7 @@ const SelectedClipPreview = () => {
                 <div className="p-m-0">
                     <div className={"video-details"}>
                         <span style={{fontSize: "0.8em", color: "#D4DBDB"}}>Upload link </span>
-                        <span style={{display: "block", width:"100%"}}>{uploadedClip ? <a style={{color: "#2196F3", textDecoration: "none"}} href={uploadedClip.url} target={"_blank"} rel={"noopener noreferrer"}>{`${uploadedClip.url.substring(0, 45)}...`}</a> :uploadingClip ? <p style={{color: "#81C784", fontSize: "0.9em"}}>uploading...</p> :   <p style={{color: "#D9381E", fontSize: "0.9em"}}>*Qlip has not been uploaded yet</p>}</span>
+                        <span style={{display: "block", width:"100%"}}>{uploadedClip ? <a style={{color: "#2196F3", textDecoration: "none"}} className={"truncate"} href={uploadedClip.url} target={"_blank"} rel={"noopener noreferrer"}>{uploadedClip.url}</a> :uploadingClip ? <p style={{color: "#81C784", fontSize: "0.9em"}}>uploading...</p> :   <p style={{color: "#D9381E", fontSize: "0.9em"}}>*Qlip has not been uploaded yet</p>}</span>
                     </div>
                     
                     <div className={"video-details"} style={{marginTop: "1em"}}>

@@ -8,11 +8,12 @@ import Sidebar from "./sidebar/Sidebar";
 import rootStoreContext from "../stores/rootStore";
 import ClipPage from "../../features/clip/WatchingClip/ClipPage";
 import CreateClip from "../../features/clip/clipForm/CreateClip";
-import {ToastContainer} from "react-toastify";
 import AuthModal from "../../features/auth/AuthModal";
 import GamesHome from "../../features/game/GamesHome";
 import Game from "../../features/game/gameClip/Game";
 import Channel from '../../features/channel/Channel';
+import ClipEditForm from "../../features/clip/clipEditForm/ClipEditForm";
+import Alert from "../layout/Alert"; 
 
 const App = () => {
     
@@ -29,9 +30,9 @@ const App = () => {
     
   return (
     <Fragment>
-        <ToastContainer position={"bottom-center"} />
       <Navbar />
       <Toolbars />
+        <Alert />
       <AuthModal />
         {sidebarVisible && (
             <Sidebar />)}
@@ -43,6 +44,7 @@ const App = () => {
                 <Route exact path={"/games"} component={GamesHome} />
                 <Route exact path={"/games/:id"} component={Game} />
                 <Route exact path={"/channel/:username"} component={Channel} />
+                <Route exact path={"/manage/:id"} component={ClipEditForm} />
             </Switch>
         </div>
     </Fragment>

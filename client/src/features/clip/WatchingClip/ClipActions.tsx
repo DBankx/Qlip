@@ -8,7 +8,6 @@ import {Menu} from "primereact/menu";
 import rootStoreContext from "../../../application/stores/rootStore";
 import {history} from "../../../index";
 import Clipboard from "clipboard";
-import {toast} from "react-toastify";
 import {useMediaQuery} from "react-responsive";
 
 interface IProps{
@@ -22,6 +21,7 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
     
     const {deleteClip, deletingClip, likeClip, dislikeClip} = useContext(rootStoreContext).clipStore;
     const {isLoggedIn} = useContext(rootStoreContext).authStore;
+    const {showAlert} = useContext(rootStoreContext).commonStore;
     const isMobile = useMediaQuery({query: "(max-width: 400px)"});
     // copy the link of the clip to the keyboard
     var url = document.location.href;
@@ -36,7 +36,7 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
     const optionsModel = [
                 {
                     label: 'Report',
-                    icon: 'far fa-flag'
+                    icon: 'far fa-flag',
                 },
                 {
                     label: 'Delete',
@@ -47,15 +47,16 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
         label: 'SHARE',
             icon: "fas fa-share",
             className: "share-btn hide-bg",
-            command: () => toast.info("Url copied to clipboard!")
+            command: () => showAlert("info", "Copied", "Url copied to clipboard!")
         }
     ];
-  
+    
+    
     return (
         <Fragment>
             <div className={"p-grid p-ai-center p-justify-between small-lines"}>
                 {/*clip details*/}
-                <div className={"p-col-3 p-md-6 p-lg-5 p-xl-3 p-sm-2"}>
+                <div className={"p-col-3 p-md-6 p-lg-5 p-xl-5 p-sm-2"}>
                     <div style={{float: "left"}}>
                           <span className={"clip-detail-line"} >
                               {clip.views} Views 
@@ -74,7 +75,7 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
                        <Button icon={"pi pi-ellipsis-v"} className={"p-button-sm p-button-text"} onClick={(e) => optionsRef.current.toggle(e)} />
                        <Menu model={optionsModel} ref={optionsRef} popup />
                        
-                       {!isMobile && <Button label={"SHARE"} icon={"fas fa-share"} className={"share-btn p-button-sm p-button-text"} onClick={() => toast.info("Url copied to clipbaord!")} />}
+                       {!isMobile && <Button label={"SHARE"} icon={"fas fa-share"} className={"share-btn p-button-sm p-button-text"} onClick={() => showAlert("info", "Copied", "Url copied to clipboard!")} />}
                        
                    </div> 
             </div>

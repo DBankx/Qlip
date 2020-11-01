@@ -29,8 +29,8 @@ export interface IComment{
 
 export interface IClipFormValues{
     id: string;
-    url: string;
-    gameName: string;
+    url?: string;
+    gameName?: string;
     title: string;
     description: string;
 }

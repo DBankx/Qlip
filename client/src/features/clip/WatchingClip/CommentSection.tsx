@@ -19,13 +19,13 @@ const CommentSection : React.FC<IProps> = ({clip}) => {
             label: "Oldest comment"
         }
     ]
-    const {startConnection, stopHubConnection} = useContext(rootStoreContext).clipStore;
+    const {startConn, stopHubConnection} = useContext(rootStoreContext).clipStore;
     useEffect(() => {
-        startConnection(clip.id);
+        startConn(clip.id);
         return () => {
             stopHubConnection();
         }
-    }, [startConnection, stopHubConnection, clip])
+    }, [startConn, stopHubConnection, clip])
     return (
         <div className={"comment-box"}>
             <div className={"p-d-flex p-ai-center p-jc-between"}>

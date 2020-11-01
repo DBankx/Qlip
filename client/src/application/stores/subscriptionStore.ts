@@ -1,6 +1,5 @@
 ﻿import { RootStore } from "./rootStore";
 import {action, makeObservable, observable, runInAction} from "mobx";
-import { toast } from "react-toastify";
 import {SubscriptionRequest} from "../api/agent";
 import {IChannelUser} from "../../infrastructure/models/channel";
 
@@ -39,11 +38,11 @@ export class SubscriptionStore{
                     this.rootStore.channelStore.channel.subsrciberCount++;
                 }
                 this.subscribing = false;
-                toast.info(`You have subscribed to ${username}`)
+                this.rootStore.commonStore.showAlert("info", "Subscription", `You have subscribed to ${username}`); 
             })
         }catch(error){
             runInAction(() => this.subscribing = false);
-            toast.error(error.data.errors.following);
+            this.rootStore.commonStore.showAlert("error", "Subscription Error", error.data.errors.following); 
             throw error;
         }
     }
@@ -71,11 +70,11 @@ export class SubscriptionStore{
                     this.rootStore.channelStore.channel.subsrciberCount--;
                 }
                 this.subscribing = false;
-                toast.info(`You have unsubscribed to ${username}`);
+                this.rootStore.commonStore.showAlert("info", "Subscription", `You have unsubscribed to ${username}`);
             })
         }catch(error){
             runInAction(() => this.subscribing = false);
-            toast.error(error.data.errors.following);
+            this.rootStore.commonStore.showAlert("error", "Subscription Error", error.data.errors.following);
             throw error;
         }
     }
@@ -90,7 +89,7 @@ export class SubscriptionStore{
             })
         }catch(error){
             runInAction(() => this.loadingSubscriptions = false);
-            toast.error("Error occurred");
+            this.rootStore.commonStore.showAlert("error", "Error", "Operation unsuccessful!");
             throw error;
         }
     }
@@ -112,7 +111,7 @@ export class SubscriptionStore{
                         }
                     }
                     this.subscribingToChannel = false;
-                    toast.info(`You have subscribed to ${username}`)
+                       this.rootStore.commonStore.showAlert("info", "Subscription", `You have subscribed to ${username}`);
                    });
                    break;
                 case "unsubscribing":
@@ -130,13 +129,13 @@ export class SubscriptionStore{
                             }
                         }
                         this.subscribingToChannel = false;
-                        toast.info(`You have unsubscribed to ${username}`);
+                        this.rootStore.commonStore.showAlert("info", "Subscription", `You have unsubscribed to ${username}`);
                     });
                     break; 
             }
         } catch(error){
             runInAction(() => this.subscribingToChannel = false);
-            toast.error(`Error occured while ${predicate} ${username}`);
+            this.rootStore.commonStore.showAlert("error", "Subscription", `Error occured while ${predicate} ${username}`);
             throw error;
         }
     }

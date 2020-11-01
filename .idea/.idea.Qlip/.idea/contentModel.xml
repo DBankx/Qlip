@@ -183,7 +183,6 @@
       <e p="client\node_modules\mobx-react-lite" t="IncludeRecursive" />
       <e p="client\node_modules\p-map" t="IncludeRecursive" />
       <e p="client\node_modules\pirates" t="IncludeRecursive" />
-      <e p="client\node_modules\postcss" t="IncludeRecursive" />
       <e p="client\node_modules\pretty-format" t="IncludeRecursive" />
       <e p="client\node_modules\primeflex" t="IncludeRecursive" />
       <e p="client\node_modules\primeicons" t="IncludeRecursive" />
@@ -193,7 +192,6 @@
       <e p="client\node_modules\react-dom" t="IncludeRecursive" />
       <e p="client\node_modules\react-router-dom" t="IncludeRecursive" />
       <e p="client\node_modules\react-scripts" t="IncludeRecursive" />
-      <e p="client\node_modules\react-toastify" t="IncludeRecursive" />
       <e p="client\node_modules\react-transition-group" t="IncludeRecursive" />
       <e p="client\node_modules\sass" t="IncludeRecursive" />
       <e p="client\node_modules\screenfull" t="IncludeRecursive" />

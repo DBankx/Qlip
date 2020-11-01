@@ -9,14 +9,13 @@ import rootStoreContext from "../../../application/stores/rootStore";
 import {observer} from "mobx-react-lite";
 import {Dialog} from "primereact/dialog";
 import {Button} from "primereact/button";
-import {toast} from "react-toastify";
 import {Dropdown} from "primereact/dropdown";
 import gameNameOptions from "../../../application/common/gameNameOptions";
 import {history} from "../../../index";
 
 const ClipForm = ( ) => {
     const {uploadingClip, uploadedClip, uploadClip, selectClip, selectClipBlob, deleteUploadedClip, removeSelectedClip, createClip, clip} = useContext(rootStoreContext).clipStore;
-    const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper} = useContext(rootStoreContext).commonStore;
+    const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
     
     // yup validation schema 
     const qlipValidationschema = yup.object().shape({
@@ -35,7 +34,7 @@ const ClipForm = ( ) => {
     
     return(
         <div>
-            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: ""  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => clip && clip.id === uploadedClip?.publicId && history.push(`/qlip/${clip.id}`))} >
+            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: ""  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
                 {({handleSubmit,
                       errors,
                       touched,
@@ -85,6 +84,7 @@ const ClipForm = ( ) => {
                                     <li>Qlips only allow videos below the 1 minute mark</li>
                                     <li>Your video is automatically cut down to 1 minute in the uploading process</li>
                                     <li>Please select only one video to upload</li>
+                                <li>Only mp4 formats are allowed</li>
                                 <b style={{marginTop: "1em"}}>How to upload a clip</b>
                                 <li>choose a file from your device by clicking "select"</li>
                                 <li>view the preview card to make sure the video is in order</li>
@@ -97,15 +97,20 @@ const ClipForm = ( ) => {
                             {uploadingClip && (
                                 <h3 style={{color: "#81C784", fontWeight: "normal"}}>Uploading Qlip -- PLEASE WAIT</h3>
                             )}
-                            <FileUpload name="file" customUpload={true} disabled={uploadingClip} uploadHandler={(e) => {
+                            <FileUpload name="file" customUpload={true} disabled={uploadingClip} 
+                                        emptyTemplate={() => <div style={{textAlign: "center"}} className={"p-m-0"}>
+                                <i className={"far fa-file-video fa-6x"}/>
+                                <p className={"p-mt-2"}>Drag and drop files here to upload!</p>
+                            </div>} 
+                                        uploadHandler={(e) => {
                                 if(uploadedClip){
-                                    toast.error("Qlip has already been uploaded!")
+                                    showAlert("error", "Upload", "Qlip has already been uploaded");
                                 } else {
                                 uploadClip(e.files[0]);
-                                toast.info("Uploading clip...Please wait")
+                                    showAlert("info", "Uploading", "Please wait");
                                 }
                             }
-                            }   accept="video/*" maxFileSize={200000000} chooseLabel={"Select"} onError={(e) => toast.error("Error selecting file")} onSelect={(e) => {
+                            }   accept="video/mp4" maxFileSize={200000000} chooseLabel={"Select"} onError={(e) => showAlert("error", "Error occurred", "Error selecting files")} onSelect={(e) => {
                                 const reader = new FileReader();
                                 reader.onload = () => {
                                     if(reader.readyState === 2){
@@ -117,16 +122,16 @@ const ClipForm = ( ) => {
                                 selectClipBlob(e.files[0]);
                             }} onClear={() => {
                                 if(uploadedClip){
-                                    deleteUploadedClip().then(() => (toast.info("Deleting uploaded clip")));
+                                    deleteUploadedClip().then(() => (showAlert("info", "Deleting", "Deleting uploaded qlip")));
                                 }
                                 removeSelectedClip();
                             }} onRemove={(e) => {
                                 removeSelectedClip();
                                 if(e.file){
-                                    toast.info("Removed File")
+                                    showAlert("info", "", "Removed file")
                                 }
                                 if(uploadedClip){
-                                    deleteUploadedClip().then(() => (toast.info("Deleting uploaded clip")));
+                                    deleteUploadedClip().then(() => showAlert("info", "Deleting", "Deleting uploaded qlip"));
                                 }
                             }} />
                         </div>
@@ -146,7 +151,7 @@ const ClipForm = ( ) => {
                         
                         <div style={{float: "left", marginTop: "1em"}}>
                         <Button label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" }  />
-                        <Button type={"button"} label={"Cancel"} onClick={() => history.push("/")} icon={"pi pi-times"} className={"p-button-danger"} style={{backgroundColor: "#D9381E", color: "#fff", borderColor: "#D9381E", marginLeft: "2em"}} />
+                        <Button type={"button"} label={"Cancel"} onClick={() => history.push("/")} icon={"pi pi-times"} className={"p-button-danger p-button-text"} style={{backgroundColor: "#D9381E", color: "#fff", borderColor: "#D9381E", marginLeft: "2em"}} />
                         </div>
                     </form>
                 )}

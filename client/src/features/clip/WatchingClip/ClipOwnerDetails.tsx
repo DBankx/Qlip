@@ -4,6 +4,7 @@ import AvatarClip from "../../../application/common/AvatarClip";
 import {Button} from "primereact/button";
 import { IClip } from "../../../infrastructure/models/clip";
 import rootStoreContext from "../../../application/stores/rootStore";
+import {history} from "../../../index"; 
 
 interface IProps{
     clip: IClip
@@ -22,7 +23,7 @@ const ClipOwnerDetails : React.FC<IProps> = ({clip}) => {
     return (
         <div className={"p-d-flex p-flex-wrap p-jc-between p-ai-center"}>
             <AvatarClip />
-            {!isLoggedIn ? <Button label={"Subscribe"} icon={"pi pi-plus"} tooltip={"Login to subscribe"} tooltipOptions={{position: "bottom"}} /> : clip.isUser ? (<Button label={"Edit"} icon={"pi pi-pencil"} />) : (<Button label={clip.subscribedToAuthor ? "Subscribed" : "Subscribe" } className={"p-button-sm"} onClick={clip.subscribedToAuthor ? () => UnSubscribeToUser(clip.authorName) : () => SubscribeToUser(clip.authorName) } icon={subscribing ? "pi pi-spin pi-spinner" :clip.subscribedToAuthor ? "pi pi-check" : "pi pi-plus"} style={clip.subscribedToAuthor ? subscribedStyle : {}} />)} 
+            {!isLoggedIn ? <Button label={"Subscribe"} icon={"pi pi-plus"} tooltip={"Login to subscribe"} tooltipOptions={{position: "bottom"}} /> : clip.isUser ? (<Button label={"Edit"} icon={"pi pi-pencil"} onClick={() => history.push(`/manage/${clip.id}`)} />) : (<Button label={clip.subscribedToAuthor ? "Subscribed" : "Subscribe" } className={"p-button-sm"} onClick={clip.subscribedToAuthor ? () => UnSubscribeToUser(clip.authorName) : () => SubscribeToUser(clip.authorName) } icon={subscribing ? "pi pi-spin pi-spinner" :clip.subscribedToAuthor ? "pi pi-check" : "pi pi-plus"} style={clip.subscribedToAuthor ? subscribedStyle : {}} />)} 
         </div>
     )
 }

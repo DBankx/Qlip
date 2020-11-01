@@ -33,6 +33,14 @@ export class CommonStore {
         body: null,
         header: ""
     }
+    @observable.shallow alertOptions : {severity: any, summary: string, detail: string, life: number} = {
+        severity: undefined,
+        summary: "",
+        detail: "",
+        life: 3000
+    };
+    
+    @observable alertVisible: boolean = false;
 
     @action showClipUploadHelper = () => {
         this.clipUploadHelpVisible = true;
@@ -73,5 +81,24 @@ export class CommonStore {
         this.modal.open = false;
         this.modal.body = null;
     }
+
+    @action removeAlert = () => {
+        this.alertVisible = false;
+        this.alertOptions.detail = "";
+        this.alertOptions.summary = "";
+        this.alertOptions.severity = undefined;
+    }
+    
+    @action showAlert = (severity: string, summary: string, detail: string) => {
+        this.alertOptions.detail = detail;
+        this.alertOptions.summary = summary;
+        this.alertOptions.severity = severity;
+        this.alertVisible = true;
+        setTimeout(() => {
+            this.removeAlert();
+        }, 3000)
+    }
+   
+   
 }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
@@ -16,7 +17,7 @@ namespace Support.Video
             _cloudinary = new Cloudinary(config["cloudinary"]);
         }
         
-        public VideoUploadResult UploadClip(IFormFile videoFile)
+        public async Task<VideoUploadResult> UploadClip(IFormFile videoFile)
         {
             var uploadResult = new CloudinaryDotNet.Actions.VideoUploadResult();
             if (videoFile.Length > 0)
@@ -24,13 +25,13 @@ namespace Support.Video
                 // create a new file stream to upload the video to cloudinary
                 using (var filestream = videoFile.OpenReadStream())
                 {
-                var uploadParams = new VideoUploadParams
+                 var uploadParams = new VideoUploadParams
                 {
                     File = new FileDescription(videoFile.FileName, filestream),
                     Transformation = new Transformation().StartOffset("0").EndOffset("60").Crop("fill")
 
                 };
-                uploadResult = _cloudinary.Upload(uploadParams);
+                uploadResult = await _cloudinary.UploadAsync(uploadParams);
                 
                 }
             }

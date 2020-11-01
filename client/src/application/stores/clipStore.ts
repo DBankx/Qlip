@@ -2,8 +2,7 @@
 import {action, computed, makeObservable, observable, runInAction} from "mobx";
 import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/models/clip";
 import {ClipRequest} from "../api/agent";
-import {toast} from "react-toastify";
-import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
+import {HubConnection, HubConnectionBuilder, HubConnectionState, LogLevel} from "@microsoft/signalr";
 
 //========================================================================
 //============= Store for clip states in the app ================
@@ -37,12 +36,11 @@ export class ClipStore{
     @action startConnection = async(clipId: string) => {
         this.hubConnection = new HubConnectionBuilder().withUrl("http://localhost:5000/comment", {
             accessTokenFactory: () => this.rootStore.commonStore.token!
-        }).configureLogging(LogLevel.Information).build();
+        }).configureLogging(LogLevel.Information).withAutomaticReconnect().build();
         
-        // start the hub connection
         this.hubConnection.start().then(() => console.log(this.hubConnection!.state)).then(() => {
             console.log("Attempting to join qlip");
-            this.hubConnection!.invoke("AddToGroup", clipId);
+            this.hubConnection && this.hubConnection.invoke("AddToGroup", clipId);
         }).catch(error => console.log("Error establishing connection", error));
         
         this.hubConnection.on("RecieveComment", comment => {
@@ -50,10 +48,29 @@ export class ClipStore{
                 this.clip!.comments.push(comment);
             })
         })
+      
+    }
+    
+    @action startConn = async (clipId: string) => {
+        this.hubConnection = new HubConnectionBuilder().withUrl("http://localhost:5000/comment", {
+            accessTokenFactory: () => this.rootStore.commonStore.token!
+        }).withAutomaticReconnect().configureLogging(LogLevel.Information).build();
         
-        this.hubConnection.on("Send", message => {
-            toast.info(message);
+        try {
+            await this.hubConnection.start();
+            console.log(this.hubConnection.state);
+            await this.hubConnection.invoke("AddToGroup", clipId).catch((err) => console.log(err.toString()))
+        }catch(error){
+            console.log("ther was an error", error);
+            this.rootStore.commonStore.showAlert("error", "Error establishing connection", "Please refresh");
+        }
+
+        this.hubConnection.on("RecieveComment", comment => {
+            runInAction(() => {
+                this.clip!.comments.push(comment);
+            })
         })
+        
     }
 
     @action stopHubConnection = () => {
@@ -130,12 +147,13 @@ export class ClipStore{
                 this.uploadedClip = clip;
                 this.uploadingClip = false;
             })
-            toast.success("Qlip uploaded succesfully!")
+            this.rootStore.commonStore.showAlert("success", "Success", "Qlip uploaded sucessfully!");
         }catch(error){
             runInAction(() => {
                 this.uploadingClip = false;
             })
-            toast.error("Error occured while uploading!")
+
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");
         }
     }
     
@@ -181,9 +199,23 @@ export class ClipStore{
                 this.clip = newClip;
                 this.clipRegistry.set(newClip.id, newClip);
             });
-            toast.success("Qlip created successfully!")
+            this.rootStore.commonStore.showAlert("success", "", "Qlip created succesfully!");
         }catch(error){
-            toast.error("Error occured creating qlip!")
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");
+        }
+    }
+   
+    @action updateClip = async (values: IClipFormValues) => {
+        try{
+            var clip = await ClipRequest.updateClip(values);
+            runInAction(() => {
+                this.clip = clip;
+                this.clipRegistry.set(clip.id, clip);
+            })
+            this.rootStore.commonStore.showAlert("success", "", "Qlip updated sucessfully!");
+        }catch(error){
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");
+            throw error;
         }
     }
     
@@ -195,11 +227,11 @@ export class ClipStore{
                 this.clip = null;
                 this.clipRegistry.delete(id);
                 this.deletingClip = false;
-                toast.success("Qlip succesfully deleted!");
+                this.rootStore.commonStore.showAlert("success", "Deleted", "Qlip deleted sucessfully!");
             })
         }catch(error){
             runInAction(() => this.deletingClip = false);
-            toast.error("Error deleting Qlip!");
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");
         }
     }
     
@@ -215,7 +247,7 @@ export class ClipStore{
                 this.clip!.isDisliked = false;
             })
         }catch(error){
-            toast.error("An error occurred")
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");
             throw error;
         }
     }
@@ -232,7 +264,7 @@ export class ClipStore{
                 this.clip!.isLiked = false;
             })
         }catch(error){
-            toast.error("An error occurred");
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");
             throw error;
         }
     }
