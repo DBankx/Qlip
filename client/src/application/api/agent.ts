@@ -20,11 +20,22 @@ axios.interceptors.request.use((config: AxiosRequestConfig) => {
     return Promise.reject(error);
 })
 
+export const alertOptionsfunc = {
+    severity: undefined,
+    summary: "",
+    detail: ""
+}
+
+function setAlert(severity: any, summary: string, detail: string){
+    alertOptionsfunc.severity = severity;
+        alertOptionsfunc.summary = summary;
+        alertOptionsfunc.detail = detail;
+}
 
 axios.interceptors.response.use(undefined, (error) => {
     //checks for network error by checking the message and if there is no response object
     if (error.message === 'Network Error' && !error.response) {
-        // r.commonStore.showAlert("error", "Network error", "Check your connection");
+        setAlert("error", "Network error", "Check your connection");
     }
     //redirect to notfound page for bad guids
     if (error.response.status === 404) {
@@ -41,6 +52,7 @@ axios.interceptors.response.use(undefined, (error) => {
     //send a toast notification if any response is a 500 status code
     if (error.response.status === 500) {
         // r.commonStore.showAlert("error", "Server error", "Try reloading the page");
+        setAlert("error", "Server error", "Try refreshing the page");
     }
     throw error.response; 
 })

@@ -735,3 +735,14 @@ color: #81C784;
   border: none;
   font-size: 0.8em;
 }
+
+.inner-container{
+  padding-left: 6em;
+  padding-right: 6em;
+}
+
+@media (max-width: 400px) {
+  .inner-container{
+    padding: 0;
+  }
+}

@@ -52,24 +52,8 @@ const Navbar = () => {
         },
         {
             label: 'Game Library',
-            icon: 'fas fa-layer-group',
-            items: [
-                {
-                    label: 'View games',
-                    icon: 'fas fa-gamepad',
-                    command: () => history.push("/games")
-                },
-                {
-                    label: 'Archieve',
-                    icon: 'pi pi-fw pi-calendar-times',
-                    items: [
-                        {
-                            label: 'Remove',
-                            icon: 'pi pi-fw pi-calendar-minus'
-                        }
-                    ]
-                }
-            ]
+            icon: 'fas fa-gamepad',
+            command: () => history.push("/games")
         },
         {
             separator: true

@@ -1,46 +1,65 @@
-﻿import React, {FormEvent, Fragment, useRef, useState} from "react";
+﻿import React, {FormEvent, Fragment, useContext, useRef, useState} from "react";
 import {Toolbar} from "primereact/toolbar"
 import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
-import {SplitButton} from "primereact/splitbutton";
 import {Menu} from "primereact/menu";
 import {history} from "../../../index";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import {observer} from "mobx-react-lite";
+import rootStoreContext from "../../stores/rootStore";
+import Register from "../../../features/auth/Register";
+import Login from "../../../features/auth/Login";
 
 const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
-
+    const {isLoggedIn, user, logout} = useContext(rootStoreContext).authStore;
+    const {openAuthModal} = useContext(rootStoreContext).commonStore;
     // placeholder form state managment
     const [form, setForm] = useState("");
-    
-    // placeholder button values
-    const buttonItems = [
-        {
-            label: 'Create Qlip',
-            icon: 'fas fa-film',
-            command: () => history.push("/create")
-        },
-        {
-            label: 'Delete',
-            icon: 'pi pi-times'
-        }
-    ]
-    
+
     // placeholder for more menu items
     const moreMenuItems =  [
         {
-            label: 'Options',
+            label: "User",
+           items:[
+               {
+                   label: "Your channel",
+                   icon: "pi pi-user",
+                   command: isLoggedIn && user ? () => history.push(`/channel/${user.username}`) : () => openAuthModal(<Login />, "Sign in to qlip")
+               },
+               {
+                   label: isLoggedIn && user ? "Account settings" : "Create Account",
+                   icon: "pi pi-user-plus",
+                   command: isLoggedIn && user ? () => alert("logged in")  : () => openAuthModal(<Register />, "Join Qlip")
+               },
+               {
+                   label: "Sign out",
+                   icon: "pi pi-sign-out",
+                   command: isLoggedIn && user ? () => logout() : () => alert("You have not logged in")
+               }
+           ] 
+        },
+        {
+            label: "Settings & others",
             items: [
                 {
-                    label: 'Update',
-                    icon: 'pi pi-refresh'
+                    label: "Settings",
+                    icon: "pi pi-cog",
+                    command: () => history.push("/settings")
                 },
                 {
-                    label: 'Delete',
-                    icon: 'pi pi-times'
+                    label: "About us",
+                    icon: "pi pi-info"
+                },
+                {
+                    label: "Contact us",
+                    icon: "pi pi-envelope"
+                },
+                {
+                    template: () => <div>please see</div>
                 }
             ]
         }
+        
     ];
     
     const ref = useRef<any>(null);
@@ -51,7 +70,7 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
                 e.preventDefault();
                 console.log(form);
             } }>
-                <SplitButton label={"Create"} appendTo={document.body}  model={buttonItems} className={"p-d-none p-d-md-inline-flex p-mr-4"} icon={"pi pi-plus"} />
+                <Button label={"Create"} appendTo={document.body} icon={"pi pi-video"} onClick={() => history.push("/create")} className={"p-d-none p-d-md-inline-flex p-mr-4"} />
                 {location.pathname === "/games" ? (
                     <div className="p-inputgroup">
                     <InputText value={form} name={"find"} onChange={(e) => setForm(e.currentTarget.value)} placeholder={"Search for games"} />

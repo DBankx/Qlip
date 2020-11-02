@@ -14,6 +14,7 @@ import Game from "../../features/game/gameClip/Game";
 import Channel from '../../features/channel/Channel';
 import ClipEditForm from "../../features/clip/clipEditForm/ClipEditForm";
 import Alert from "../layout/Alert"; 
+import Settings from "../../features/settings/Settings";
 
 const App = () => {
     
@@ -45,6 +46,7 @@ const App = () => {
                 <Route exact path={"/games/:id"} component={Game} />
                 <Route exact path={"/channel/:username"} component={Channel} />
                 <Route exact path={"/manage/:id"} component={ClipEditForm} />
+                <Route exact path={"/settings"} component={Settings} />
             </Switch>
         </div>
     </Fragment>
