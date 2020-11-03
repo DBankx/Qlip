@@ -4,8 +4,6 @@ import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
 import {IChannelUser, IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
-import {CommonStore} from "../stores/commonStore";
-import {RootStore} from "../stores/rootStore";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";

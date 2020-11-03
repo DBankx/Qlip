@@ -1,6 +1,6 @@
 ﻿import { RootStore } from "./rootStore";
 import {action, makeObservable, observable, runInAction} from "mobx";
-import { IChannel } from "../../infrastructure/models/channel";
+import {IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
 import {ChannelRequest} from "../api/agent";
 import {IClip} from "../../infrastructure/models/clip";
 
@@ -14,6 +14,7 @@ export class ChannelStore{
     @observable channel : IChannel | null = null;
     @observable loadingChannel : boolean = false;
     @observable loadingFilter: boolean = false;
+    @observable updating: boolean = false;
     
     
     @action loadChannel = async (username: string) => {
@@ -67,6 +68,32 @@ export class ChannelStore{
         }
             
         this.loadingFilter = false;
+    }
+    
+    @action updateChannel = async (values: IChannelFormValues) => {
+        this.updating = true;
+        try{
+            await ChannelRequest.updateChannel(values);
+            runInAction(() => {
+                this.rootStore.authStore.user!.username = values.username ? values.username : this.rootStore.authStore.user!.username;
+                if(this.channel) {
+                    this.channel.twitch = values.twitch ? values.twitch : this.channel.twitch
+                    this.channel.bio = values.bio ? values.bio : this.channel.bio
+                    this.channel.youtube = values.youtube ? values.youtube : this.channel.youtube
+                    this.channel.instagram = values.instagram ? values.instagram : this.channel.instagram
+                    this.channel.twitter = values.twitter? values.twitter: this.channel.twitter
+                }
+                this.updating = false;
+            })
+        } catch(error){
+            runInAction(() =>  {
+
+                this.rootStore.commonStore.showAlert("success", "Update", "Account has been updated");
+
+                this.rootStore.authStore.logout();
+            })
+            throw error;
+        }
     }
     
 }

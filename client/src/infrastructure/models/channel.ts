@@ -32,4 +32,5 @@ export interface IChannelFormValues{
     instagram?: string;
     twitch?: string;
     youtube?: string;
+    username? : string;
 }
