@@ -54,6 +54,7 @@
           <e p="IsSubscribedValueResolver.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
           <e p="UpdateChannel.cs" t="Include" />
+          <e p="UpdatePassword.cs" t="Include" />
         </e>
         <e p="Clip" t="Include">
           <e p="ClipDislikeReslover.cs" t="Include" />

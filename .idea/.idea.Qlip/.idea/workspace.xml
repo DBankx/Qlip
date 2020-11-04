@@ -23,11 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="added subscription features to a user and channel">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Channel/UpdateChannel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Channel/UpdateChannel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Controllers/ChannelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Controllers/ChannelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/api/agent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/stores/channelStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/channelStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/settings/ChannelSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/settings/ChannelSettings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/channel/ChannelHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/channel/ChannelHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipEditForm/ManagedClip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipEditForm/ManagedClip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/settings/AdvancedSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/settings/AdvancedSettings.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/features/settings/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/settings/Settings.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" afterDir="false" />
     </list>
@@ -62,18 +72,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/features/clip/clipHome/ClipHome.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/channel/channelsTab/ChannelsTab.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/channel/channelsTab/ChannelUser.tsx" />
-        <option value="$PROJECT_DIR$/client/public/index.html" />
-        <option value="$PROJECT_DIR$/Domain/Comment.cs" />
-        <option value="$PROJECT_DIR$/Persistance/DataContext.cs" />
-        <option value="$PROJECT_DIR$/Application/Comment/CommentDto.cs" />
-        <option value="$PROJECT_DIR$/Application/Comment/MappingProfile.cs" />
         <option value="$PROJECT_DIR$/Application/Comment/Add.cs" />
         <option value="$PROJECT_DIR$/Api/CommentHub.cs" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDetails.tsx" />
-        <option value="$PROJECT_DIR$/Api/Startup.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/ClipDto.cs" />
         <option value="$PROJECT_DIR$/Domain/Clip.cs" />
         <option value="$PROJECT_DIR$/client/src/features/comment/Comment.tsx" />
@@ -86,33 +87,42 @@
         <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/SelectedClipPreview.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDescription.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/clip/clipEditForm/EditForm.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/clipEditForm/ManagedClip.tsx" />
         <option value="$PROJECT_DIR$/Support/Video/IVideoAccessor.cs" />
         <option value="$PROJECT_DIR$/Support/Video/VideoAccessor.cs" />
         <option value="$PROJECT_DIR$/Application/Clip/UploadClip.cs" />
         <option value="$PROJECT_DIR$/client/src/features/comment/CommentInput.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" />
         <option value="$PROJECT_DIR$/client/src/application/stores/gameStore.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/stores/subscriptionStore.ts" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipActions.tsx" />
         <option value="$PROJECT_DIR$/client/src/index.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/Alert.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/CommentSection.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/toolbar/Toolbar.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/images/undraw_account_490v.svg" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
         <option value="$PROJECT_DIR$/client/src/features/settings/Account.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/settings/ChannelSettings.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/settings/Settings.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/api/agent.ts" />
-        <option value="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" />
         <option value="$PROJECT_DIR$/Application/Channel/UpdateChannel.cs" />
-        <option value="$PROJECT_DIR$/client/src/features/settings/AdvancedSettings.tsx" />
+        <option value="$PROJECT_DIR$/Api/Controllers/ChannelController.cs" />
+        <option value="$PROJECT_DIR$/Api/Startup.cs" />
+        <option value="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/api/agent.ts" />
         <option value="$PROJECT_DIR$/client/src/application/stores/channelStore.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/clip/clipEditForm/ManagedClip.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" />
+        <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/settings/Settings.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/settings/ChangePasswordForm.tsx" />
+        <option value="$PROJECT_DIR$/Application/Channel/UpdatePassword.cs" />
+        <option value="$PROJECT_DIR$/client/src/application/stores/authStore.ts" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/channel/ChannelHeader.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/settings/AdvancedSettings.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/channelCustomization/ProfilePicture.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/channelCustomization/CustomizePage.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
+        <option value="$PROJECT_DIR$/client/src/features/channelCustomization/BioForm.tsx" />
       </list>
     </option>
   </component>
@@ -196,7 +206,7 @@
       <workItem from="1603797517455" duration="8510000" />
       <workItem from="1604072602060" duration="6251000" />
       <workItem from="1604138382367" duration="19838000" />
-      <workItem from="1604248030836" duration="28173000" />
+      <workItem from="1604248030836" duration="48066000" />
     </task>
     <task id="LOCAL-00001" summary="Added an endpoint for a user to like a game and updated channel model">
       <created>1603145518945</created>
@@ -341,10 +351,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1604303102816" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1601899535116">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1604472018414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1601899535116" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1604472018414" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603553985854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -361,6 +371,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="322" y="142" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1604218811373" />
+    <state x="93" y="93" width="1350" height="638" key="dock-window-1" timestamp="1604472791634">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1604472791634" />
     <state x="542" y="126" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603410749571">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -369,9 +383,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="753" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602950340486" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1604434354961">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1604509003304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1604434354961" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1604509003304" />
   </component>
 </project>

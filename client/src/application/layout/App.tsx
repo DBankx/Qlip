@@ -15,10 +15,12 @@ import Channel from '../../features/channel/Channel';
 import ClipEditForm from "../../features/clip/clipEditForm/ClipEditForm";
 import Alert from "../layout/Alert"; 
 import Settings from "../../features/settings/Settings";
+import Spinner from './Spinner';
+import CustomizePage from "../../features/channelCustomization/CustomizePage"; 
 
 const App = () => {
     
-    const {sidebarVisible, setAppLoaded, token} = useContext(rootStoreContext).commonStore;
+    const {sidebarVisible, setAppLoaded, token, appLoaded} = useContext(rootStoreContext).commonStore;
     const {getCurrentUser} = useContext(rootStoreContext).authStore;
     
     useEffect(() => {
@@ -28,6 +30,8 @@ const App = () => {
             setAppLoaded()
         }
     }, [getCurrentUser, setAppLoaded, token])
+    
+    if(!appLoaded) return <Spinner />
     
   return (
     <Fragment>
@@ -47,6 +51,7 @@ const App = () => {
                 <Route exact path={"/channel/:username"} component={Channel} />
                 <Route exact path={"/manage/:id"} component={ClipEditForm} />
                 <Route exact path={"/settings"} component={Settings} />
+                <Route exact path={"/customize/:username"} component={CustomizePage} />
             </Switch>
         </div>
     </Fragment>

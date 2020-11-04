@@ -1,6 +1,6 @@
 ﻿import { RootStore } from "./rootStore";
 import {action, makeObservable, observable, runInAction} from "mobx";
-import {IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
+import {IChannel, IChannelFormValues, IChannelPasswordValues} from "../../infrastructure/models/channel";
 import {ChannelRequest} from "../api/agent";
 import {IClip} from "../../infrastructure/models/clip";
 
@@ -92,6 +92,21 @@ export class ChannelStore{
 
                 this.rootStore.authStore.logout();
             })
+            throw error;
+        }
+    }
+    
+    @action changePassword = async (values: IChannelPasswordValues) => {
+        this.updating = true;
+        try{
+            await ChannelRequest.changePassword(values);
+            runInAction(() => {
+                this.updating = false;
+                this.rootStore.commonStore.showAlert("success", "Password changed", "Your password has been updated!")
+            })
+        } catch(error) {
+            runInAction(() => this.updating = false);
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccesful");
             throw error;
         }
     }

@@ -7,11 +7,13 @@ import { Fragment } from "react";
 import {Formik} from "formik";
 import {IChannelFormValues} from "../../infrastructure/models/channel";
 import * as yup from "yup";
+import ChangePasswordForm from "./ChangePasswordForm";
 
 const AdvancedSettings = () => {
     const {user, isLoggedIn} = useContext(rootStoreContext).authStore;
-    const {updateChannel, updating} = useContext(rootStoreContext).channelStore;
+    const {updateChannel} = useContext(rootStoreContext).channelStore;
     const [showForm, setShowForm] = useState<boolean>(false);
+    const [showPasswordForm, setShowPasswordForm] = useState<boolean>(false);
     const validationSchema = yup.object().shape({
         username: yup.string().required("New username is required").min(3, "Username must be longer than 2 characters")
     })
@@ -48,8 +50,12 @@ const AdvancedSettings = () => {
                 <div className={"p-grid p-mb-5"}>
                     <p className={"hide-sm"}>Change password</p>
                     <div className={"p-lg-offset-1 p-md-offset-1 p-sm-offset-1"}>
-                        <a style={{textDecoration: "none", display: "block"}} href={"#"} onClick={() => setShowForm(!showForm) }>Change account password</a>
-                        <small style={{color: "#777777"}}>setting a new password will log you out</small>
+                        <a style={{textDecoration: "none", display: "block"}} href={"#"} onClick={() => setShowPasswordForm(!showPasswordForm) }>Change account password</a>
+                        {showPasswordForm && <ChangePasswordForm setShowPasswordForm={setShowPasswordForm} />} 
+                       <div style={{display: "block"}}>
+                        <small style={{color: "#777777", display: "block"}}>Please log out and log back in after resetting your password</small>
+
+                        </div>
                     </div>
                 </div>
 

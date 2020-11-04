@@ -3,7 +3,7 @@ import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/
 import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
-import {IChannelUser, IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
+import {IChannelUser, IChannel, IChannelFormValues, IChannelPasswordValues} from "../../infrastructure/models/channel";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -113,7 +113,8 @@ export const GameRequest = {
 // Channel Requests
 export const ChannelRequest = {
     updateChannel: (values: IChannelFormValues) : Promise<{}> => Requests.put("/channel", values),
-    getChannel: (username: string): Promise<IChannel> => Requests.get(`/channel/${username}`)
+    getChannel: (username: string): Promise<IChannel> => Requests.get(`/channel/${username}`),
+    changePassword: (values: IChannelPasswordValues): Promise<{}> => Requests.put(`/channel/password`, values)
 }
 
 // subsrciption requests

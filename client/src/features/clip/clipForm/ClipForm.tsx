@@ -14,7 +14,7 @@ import gameNameOptions from "../../../application/common/gameNameOptions";
 import {history} from "../../../index";
 
 const ClipForm = ( ) => {
-    const {uploadingClip, uploadedClip, uploadClip, selectClip, selectClipBlob, deleteUploadedClip, removeSelectedClip, createClip, clip} = useContext(rootStoreContext).clipStore;
+    const {uploadingClip, uploadedClip, uploadClip, selectClip, selectClipBlob, deleteUploadedClip, removeSelectedClip, createClip} = useContext(rootStoreContext).clipStore;
     const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
     
     // yup validation schema 

@@ -68,7 +68,7 @@ namespace Api
             var identityCoreBuilder = services.AddIdentityCore<ApplicationUser>();
             var identityBuilder = new IdentityBuilder(identityCoreBuilder.UserType, identityCoreBuilder.Services);
             identityBuilder.AddSignInManager<SignInManager<ApplicationUser>>();
-            identityBuilder.AddEntityFrameworkStores<DataContext>();
+            identityBuilder.AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
             
             // adding auto mapper
             services.AddAutoMapper(typeof(MappingProfile).Assembly);

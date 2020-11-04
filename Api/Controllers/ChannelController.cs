@@ -27,6 +27,12 @@ namespace Api.Controllers
         {
             return await _mediator.Send(new Details.Query {Username = username});
         }
+
+        [HttpPut("password")]
+        public async Task<ActionResult<Unit>> UpdatePassword(UpdatePassword.Command command)
+        {
+            return await _mediator.Send(command);
+        }
         
     }
 }

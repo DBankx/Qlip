@@ -34,3 +34,9 @@ export interface IChannelFormValues{
     youtube?: string;
     username? : string;
 }
+
+export interface IChannelPasswordValues{
+    oldPassword: string,
+    newPassword: string;
+    confirmPassword: string;
+}

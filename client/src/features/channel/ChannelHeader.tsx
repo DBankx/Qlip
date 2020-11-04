@@ -5,6 +5,7 @@ import {Button} from "primereact/button";
 import {SplitButton} from "primereact/splitbutton";
 import {Menu} from "primereact/menu";
 import rootStoreContext from "../../application/stores/rootStore";
+import {history} from "../../index";
 
 interface IProps{
     channel: IChannel
@@ -23,7 +24,8 @@ const ChannelHeader: React.FC<IProps> = ({channel}) => {
     const userChannelButtonOptions = [
        {
            label: "Customise channel",
-           icon: "pi pi-user-edit"
+           icon: "pi pi-user-edit",
+           command: () => history.push(`/customize/${channel.username}`)
        },
        {
            label: "Manage videos",
