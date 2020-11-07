@@ -14,7 +14,6 @@ interface IProps{
 const TopLikeGames: React.FC<IProps> = ({channel}) => {
     const isMobile = useMediaQuery({query: "(max-width: 600px)"});
     const sliderSettings = {
-        dots: true,
         infinite: false,
         speed: 500,
         slidesToShow: 1,
@@ -33,12 +32,12 @@ const TopLikeGames: React.FC<IProps> = ({channel}) => {
                 {channel.likedGames.length > 0 ? (isMobile ? (
                     <div style={{width: "100%"}}>
                         <Slider {...sliderSettings}>
-                            {channel.likedGames.slice(0, 4).map((game: IGame) => (
+                            {channel.likedGames.map((game: IGame) => (
                                 <ChannelGame game={game} /> 
                             ))}
                         </Slider>
                     </div>
-                ) :  (channel.likedGames.slice(0, 4).map((game: IGame) => (
+                ) :  (channel.likedGames.map((game: IGame) => (
                     <div key={game.id} className={"p-col-12 p-md-4 p-lg-3 p-sm-6"}>
                     <ChannelGame game={game} />
                     </div>

@@ -11,7 +11,7 @@ import ChangePasswordForm from "./ChangePasswordForm";
 
 const AdvancedSettings = () => {
     const {user, isLoggedIn} = useContext(rootStoreContext).authStore;
-    const {updateChannel} = useContext(rootStoreContext).channelStore;
+    const {updateUsername} = useContext(rootStoreContext).channelStore;
     const [showForm, setShowForm] = useState<boolean>(false);
     const [showPasswordForm, setShowPasswordForm] = useState<boolean>(false);
     const validationSchema = yup.object().shape({
@@ -19,15 +19,14 @@ const AdvancedSettings = () => {
     })
     return (
         <Fragment>
-            {isLoggedIn && user ? (
                 <div>
                 <div className={"p-grid p-mb-5"}>
                 <p className={"hide-sm"}>Change username</p>
                 <div className={"p-lg-offset-1 p-md-offset-1 p-sm-offset-1"}>
                     <a style={{textDecoration: "none", display: "block"}} href={"#"} onClick={() => setShowForm(!showForm) }>Change Username and Channel Username</a>
                     {showForm && (
-                        <Formik validationSchema={validationSchema} initialValues={{username: user.username}} onSubmit={(values: IChannelFormValues, action) => {
-                            updateChannel(values).catch((error) => action.setFieldError(Object.keys(error.data.errors)[0], Object.values<string>(error.data.errors)[0])).finally(() => action.setSubmitting(false))
+                        <Formik validationSchema={validationSchema} initialValues={{username: user!.username}} onSubmit={(values: IChannelFormValues, action) => {
+                            updateUsername(values).catch((error) => action.setFieldError(Object.keys(error.data.errors)[0], Object.values<string>(error.data.errors)[0])).finally(() => action.setSubmitting(false))
                         }}>
                             {({handleBlur, handleSubmit, handleChange, values, isValid, isSubmitting, touched, errors, dirty}) => (
                                 <form onSubmit={handleSubmit} className={"p-mt-2 p-mb-2"}>
@@ -66,11 +65,7 @@ const AdvancedSettings = () => {
                             <small style={{color: "#777777"}}>Deleting your account is permanent and will remove your channel and all your qlips!</small>
                         </div>
                     </div>
-                
-                    
                 </div>
-            ) : <p>not log</p>}
-            
         </Fragment>
     )
 }

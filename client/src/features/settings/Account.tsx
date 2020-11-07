@@ -14,15 +14,7 @@ const Account  = () => {
         <div className={"p-grid p-jc-between p-ai-center p-mt-4"}>
             <div>
                 <p style={{fontSize: "1.3em"}}>Choose how you appear on Qlip</p>
-                {isLoggedIn && user ? <p className={"p-mt-3"} style={{color: "#777777"}}>Signed in as {user.email}</p> : <div>
-                    <p className={"p-mt-3 p-mb-3"} style={{color: "#777777"}}>You are not logged in</p>
-                    <div className={"p-d-flex p-ai-center"}>
-                        <Button label={"Register"} onClick={() => openAuthModal(<Register />, "Join qlip")}  /> 
-                        <p className={"p-ml-3 p-mr-3"}>or</p>
-                        <Button label={"login"} onClick={() => openAuthModal(<Login />, "Sign in to qlip")} className={"p-button-outlined"}/>    
-                    </div>
-                </div>}
-            </div>
+               <p className={"p-mt-3"} style={{color: "#777777"}}>Signed in as {user!.email}</p>            </div>
             <div className={"hide-sm"}>
                 <img alt={"account"} src={accountimg} style={{width: "150px"}}/>
             </div>

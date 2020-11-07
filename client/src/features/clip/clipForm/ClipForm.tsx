@@ -150,8 +150,8 @@ const ClipForm = ( ) => {
                             </div>
                         
                         <div style={{float: "left", marginTop: "1em"}}>
-                        <Button label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" }  />
-                        <Button type={"button"} label={"Cancel"} onClick={() => history.push("/")} icon={"pi pi-times"} className={"p-button-danger p-button-text"} style={{backgroundColor: "#D9381E", color: "#fff", borderColor: "#D9381E", marginLeft: "2em"}} />
+                        <Button label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} style={{fontWeight: 600}} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" }  />
+                        <Button type={"button"} label={"Cancel"} onClick={() => history.goBack()} icon={"pi pi-times"} className={"p-button-danger p-button-text"} style={{color: "#D9381E", marginLeft: "2em", fontWeight: 600}} />
                         </div>
                     </form>
                 )}

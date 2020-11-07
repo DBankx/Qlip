@@ -70,6 +70,26 @@ export class ChannelStore{
         this.loadingFilter = false;
     }
     
+    
+    @action updateUsername = async (values: IChannelFormValues) => {
+        if(window.confirm("Are you sure you want to change your username? understand that this action will log you out")){
+            try{
+                await ChannelRequest.updateChannel(values);
+               runInAction(() => {
+                 this.rootStore.authStore.logout();  
+               }) 
+            } catch (error){
+                runInAction(() =>  {
+
+                    this.rootStore.commonStore.showAlert("success", "Update", "Account has been updated");
+
+                    this.rootStore.authStore.logout();
+                })
+                throw error;
+            }
+        }
+    }
+    
     @action updateChannel = async (values: IChannelFormValues) => {
         this.updating = true;
         try{
@@ -87,10 +107,7 @@ export class ChannelStore{
             })
         } catch(error){
             runInAction(() =>  {
-
-                this.rootStore.commonStore.showAlert("success", "Update", "Account has been updated");
-
-                this.rootStore.authStore.logout();
+                this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful");
             })
             throw error;
         }

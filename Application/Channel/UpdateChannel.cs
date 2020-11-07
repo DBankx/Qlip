@@ -56,10 +56,12 @@ namespace Application.Channel
                     throw new RestException(HttpStatusCode.BadRequest, new {username = "Username already exists"});
                 }
 
-                user.UserName = request.Username ?? user.UserName;
+                if (!string.IsNullOrWhiteSpace(request.Username))
+                {
+                    user.UserName = request.Username ?? user.UserName;
+                    await _userManager.UpdateAsync(user);
+                }
 
-                await _userManager.UpdateAsync(user);
-                
                 var success = await _context.SaveChangesAsync() > 0;
                 
                 if(success) return Unit.Value;

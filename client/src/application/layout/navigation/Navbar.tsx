@@ -116,9 +116,9 @@ const Navbar = () => {
         } else{
             return (
         <div className={"p-d-none p-d-md-inline-flex"}>
-            <Button label={"Login"} onClick={() => openAuthModal(<Login/>, "Sign In to Qlip")}
-                    className="p-button-outlined p-button-sm p-mr-3" icon={"pi pi-user"}/>
-            <Button label={"Sign up"} onClick={() => openAuthModal(<Register />, "Join Qlip")} className={"p-button-sm"}/>
+            <Button label={"Login"} style={{fontWeight: 600}} onClick={() => openAuthModal(<Login/>, "Sign In to Qlip")}
+                    className="p-button-outlined p-button-sm p-mr-3" icon={"pi pi-sign-in"}/>
+            <Button label={"Sign up"} style={{fontWeight: 600}} onClick={() => openAuthModal(<Register />, "Join Qlip")} className={"p-button-sm"}/>
         </div>
             )
         }

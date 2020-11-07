@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, {useContext} from "react";
 import {IChannel, IChannelFormValues} from "../../infrastructure/models/channel";
 import {Card} from "primereact/card";
 import {Formik} from "formik";
@@ -7,6 +7,8 @@ import {observer} from "mobx-react-lite";
 import {Button} from "primereact/button";
 import {InputText} from "primereact/inputtext";
 import {useMediaQuery} from "react-responsive";
+import rootStoreContext from "../../application/stores/rootStore";
+import {history} from "../../index";
 
 interface IProps{
     channel: IChannel
@@ -15,8 +17,14 @@ interface IProps{
 const BioForm : React.FC<IProps> = ({channel}) => {
     const isMobile = useMediaQuery({query: "(max-width: 500px)"})
     const isTablet = useMediaQuery({query: "(min-width: 500px) and (max-width: 1024px"});
+    const {updateChannel} = useContext(rootStoreContext).channelStore;
     return (
-                   <Formik initialValues={{bio: channel.bio ? channel.bio : "", twitter: channel.twitter ? channel.twitter : "", instagram: channel.instagram ? channel.instagram : "", twitch: channel.twitch ? channel.twitch : "", youtube: channel.youtube ? channel.youtube : ""}} onSubmit={(values: IChannelFormValues) => console.log(values)}>
+                   <Formik initialValues={{bio: channel.bio ? channel.bio : "", twitter: channel.twitter ? channel.twitter : "", instagram: channel.instagram ? channel.instagram : "", twitch: channel.twitch ? channel.twitch : "", youtube: channel.youtube ? channel.youtube : ""}} onSubmit={(values: IChannelFormValues, action) => {
+                       updateChannel(values).then(() => {
+                           action.setSubmitting(false)
+                           history.push(`/channel/${channel.username}`);
+                       })
+                   }}>
                        {({
                            handleBlur,
                            handleSubmit,
@@ -28,7 +36,7 @@ const BioForm : React.FC<IProps> = ({channel}) => {
                            dirty
                          }) => (
                             
-                           <form className={"bioform"}>
+                           <form onSubmit={handleSubmit} className={"bioform"}>
                                <Card className={"card-border"}>
                                    <div className={"p-grid bioform-grid"}>
                                        <p className={"p-col-1 hide-sm"}>Bio</p>
@@ -94,7 +102,7 @@ const BioForm : React.FC<IProps> = ({channel}) => {
 
                                    <hr className={"divider pmt-2"}/>
                                    
-                                   <div style={{padding: "1em", width: "100%", background: "#121212"}}>
+                                   <div style={{padding: "1em", width: "100%"}}>
                                    <Button type={"submit"}  disabled={isSubmitting || !dirty} icon={isSubmitting ? "pi pi-spin pi-spinner" : ""} label={"Save changes"} style={{fontWeight: 600, marginTop: "0 auto", width: isMobile ? "100%" : "auto"}} />
                                    </div>
                                </Card>

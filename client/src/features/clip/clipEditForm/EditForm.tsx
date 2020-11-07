@@ -73,8 +73,8 @@ const EditForm: React.FC<IProps> = ({clip}) => {
                             )}
                         </div>
                             <div style={{float: "left", marginTop: "1em"}}>
-                                <Button label={"Update"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-check"} type={"submit"} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" }  />
-                                <Button type={"button"} label={"Cancel"} onClick={() => history.push("/")} icon={"pi pi-times"} className={"p-button-danger p-button-text"} style={{color: "#D9381E", marginLeft: "1em"}} />
+                                <Button label={"Update"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-check"} type={"submit"} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" } style={{fontWeight: 600}}  />
+                                <Button type={"button"} label={"Cancel"} onClick={() => history.push("/")} icon={"pi pi-times"} className={"p-button-danger p-button-text"} style={{color: "#D9381E", marginLeft: "1em", fontWeight: 600}} />
                             </div>
                         </div>
                         

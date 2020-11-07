@@ -25,11 +25,12 @@ const ChannelHeader: React.FC<IProps> = ({channel}) => {
        {
            label: "Customise channel",
            icon: "pi pi-user-edit",
-           command: () => history.push(`/customize/${channel.username}`)
+           command: () => history.push(`/customize`)
        },
        {
-           label: "Manage videos",
-           icon: "pi pi-sort"
+           label: "Manage qlips",
+           icon: "pi pi-sort",
+           command: () => history.push("/manageqlips")
        }
    ]
 
@@ -53,12 +54,12 @@ const ChannelHeader: React.FC<IProps> = ({channel}) => {
                   <span style={{display: "block", marginBottom: "0.2em", fontWeight: 600, fontSize: "1.25em"}}>{channel.username}</span>
                   <span style={{color: "#777777", fontSize: "0.9em"}}>{channel.subsrciberCount} {channel.subsrciberCount > 1 ? "Subscribers" : "Subscriber"}</span>
                   <div className={"hide-bg"}>
-                      {!isLoggedIn ? <Button tooltip={"Login to subscribe"} label={"Subscribe"} icon={"pi pi-plus"} className={"p-mt-2"} tooltipOptions={{position: "bottom"}} /> : channel.isUser ? (<SplitButton className={"p-button-outlined p-button-small p-mt-2"} label={"Manage"} icon={"fas fa-edit"} model={userChannelButtonOptions} />):(<Button label={channel.subscribedToUser ? "Subscribed" : "Subscribe" } className={"p-button-sm p-mt-2"} icon={subscribing ? "pi pi-spin pi-spinner" : channel.subscribedToUser ? "pi pi-check" : "pi pi-plus"} style={channel.subscribedToUser? subscribedStyle : {}} onClick={channel.subscribedToUser ? () => UnSubscribeToUser(channel.username) : () => SubscribeToUser(channel.username)} />)}
+                      {!isLoggedIn ? <Button tooltip={"Login to subscribe"} label={"Subscribe"} icon={"pi pi-plus"} className={"p-mt-2"} style={{fontWeight: 600}} tooltipOptions={{position: "bottom"}} /> : channel.isUser ? (<SplitButton style={{fontWeight: 600}} className={"p-button-outlined p-button-small p-mt-2"} label={"Manage"} icon={"fas fa-edit"} model={userChannelButtonOptions} />):(<Button label={channel.subscribedToUser ? "Subscribed" : "Subscribe" } className={"p-button-sm p-mt-2"} icon={subscribing ? "pi pi-spin pi-spinner" : channel.subscribedToUser ? "pi pi-check" : "pi pi-plus"} style={channel.subscribedToUser? subscribedStyle : {fontWeight: 600}} onClick={channel.subscribedToUser ? () => UnSubscribeToUser(channel.username) : () => SubscribeToUser(channel.username)} />)}
                   </div>
               </div>
           </div>
           <div className={"p-grid p-ai-center hide-sm channel-triggers"}>
-              {!isLoggedIn ? <Button tooltip={"Login to subscribe"} label={"Subscribe"} icon={"pi pi-plus"} tooltipOptions={{position: "bottom"}} /> : channel.isUser ? (<SplitButton className={"p-ml-3 p-button-outlined"} label={"Manage Channel"} icon={"fas fa-edit"} model={userChannelButtonOptions} />) : (<Button label={channel.subscribedToUser ? "Subscribed" : "Subscribe" } className={"p-button-sm"} icon={subscribing ? "pi pi-spin pi-spinner" : channel.subscribedToUser ? "pi pi-check" : "pi pi-plus"} onClick={channel.subscribedToUser ? () => UnSubscribeToUser(channel.username) : () => SubscribeToUser(channel.username)} style={channel.subscribedToUser? subscribedStyle : {}} />)}
+              {!isLoggedIn ? <Button style={{fontWeight: 600}} tooltip={"Login to subscribe"} label={"Subscribe"} icon={"pi pi-plus"} tooltipOptions={{position: "bottom"}} /> : channel.isUser ? (<SplitButton className={"p-ml-3 p-button-outlined"} style={{fontWeight: 600}} label={"Manage Channel"} icon={"fas fa-edit"} model={userChannelButtonOptions} />) : (<Button label={channel.subscribedToUser ? "Subscribed" : "Subscribe" } className={"p-button-sm"} icon={subscribing ? "pi pi-spin pi-spinner" : channel.subscribedToUser ? "pi pi-check" : "pi pi-plus"} onClick={channel.subscribedToUser ? () => UnSubscribeToUser(channel.username) : () => SubscribeToUser(channel.username)} style={channel.subscribedToUser? subscribedStyle : {fontWeight: 600}} />)}
               <div className={"p-ml-3"}>
               <Button icon={"pi pi-ellipsis-v"} onClick={(event) => optionsRef.current.toggle(event)} className={"p-button-sm p-button-text"} aria-controls="popup_menu" aria-haspopup/>
               <Menu popup={true} id={"popup_menu"} ref={optionsRef} model={optionsModel} />

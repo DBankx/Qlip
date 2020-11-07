@@ -65,8 +65,8 @@ const ChangePasswordForm: React.FC<IProps> = ({setShowPasswordForm}) => {
                         
                        <div className={"p-field"}>
                        <div style={{display: "block", textAlign: "right"}}>
-                           <Button onClick={() => setShowPasswordForm(false)} type={"button"} label={"CANCEL"} className={"p-button-sm p-button-danger p-button-text"}/>
-                           <Button disabled={!isValid || isSubmitting || !dirty} icon={isSubmitting ? "pi pi-spin pi-spinner": ""} type={"submit"} label={"CHANGE"} className={"p-button-sm"} />
+                           <Button onClick={() => setShowPasswordForm(false)} type={"button"} label={"CANCEL"} style={{fontWeight: 600}} className={"p-button-sm p-button-danger p-button-text"}/>
+                           <Button disabled={!isValid || isSubmitting || !dirty} icon={isSubmitting ? "pi pi-spin pi-spinner": ""} style={{fontWeight: 600}} type={"submit"} label={"CHANGE"} className={"p-button-sm"} />
                        </div> 
                     </div>
                         

@@ -16,7 +16,8 @@ import ClipEditForm from "../../features/clip/clipEditForm/ClipEditForm";
 import Alert from "../layout/Alert"; 
 import Settings from "../../features/settings/Settings";
 import Spinner from './Spinner';
-import CustomizePage from "../../features/channelCustomization/CustomizePage"; 
+import CustomizePage from "../../features/channelCustomization/CustomizePage";
+import ManageQlips from "../../features/channel/manageQlips/ManageQlips";
 
 const App = () => {
     
@@ -51,7 +52,8 @@ const App = () => {
                 <Route exact path={"/channel/:username"} component={Channel} />
                 <Route exact path={"/manage/:id"} component={ClipEditForm} />
                 <Route exact path={"/settings"} component={Settings} />
-                <Route exact path={"/customize/:username"} component={CustomizePage} />
+                <Route exact path={"/customize"} component={CustomizePage} />
+                <Route exact path={"/manageqlips"} component={ManageQlips} />
             </Switch>
         </div>
     </Fragment>

@@ -1,13 +1,18 @@
-﻿import React from "react";
+﻿import React, {useContext} from "react";
 import {observer} from "mobx-react-lite";
 import Account from "./Account";
 import ChannelSettings from "./ChannelSettings";
-import AdvancedSettings from "./AdvancedSettings"; 
+import AdvancedSettings from "./AdvancedSettings";
+import rootStoreContext from "../../application/stores/rootStore"; 
+import EmptySettings from "./EmptySettings"; 
 
 const Settings = () => {
+    const {isLoggedIn, user} = useContext(rootStoreContext).authStore;
     return (
         <div className={"sidebar-way main-container inner-container sidebar-void"}>
-            <section id={"account"}>
+            {isLoggedIn && user ? (
+                <div>
+                <section id={"account"}>
                 <b>Account</b>
                 <Account />
                 </section>
@@ -23,6 +28,10 @@ const Settings = () => {
                 <small style={{display: "block", color: "#777777", margin: "1em 0"}}>Set up your page exactly how you want it</small>
             <AdvancedSettings />
             </section>
+                </div>
+                ): (
+                    <EmptySettings />
+            )}
         </div>
     )
 }

@@ -16,7 +16,6 @@ interface IProps{
 const RecentClips: React.FC<IProps> = ({channel}) => {
 const isMobile = useMediaQuery({query: "(max-width: 600px)"});
     const sliderSettings = {
-        dots: true,
         infinite: false,
         speed: 500,
         slidesToShow: 1,

@@ -9,7 +9,7 @@ const ChannelSettings = () => {
     const {isLoggedIn, user} = useContext(rootStoreContext).authStore;
     return (
         <Fragment>
-            {isLoggedIn && user ? (<div className={"p-grid"}>
+            <div className={"p-grid"}>
                 <div className={"hide-sm"}>
                     <p style={{fontSize: "0.9em"}}>Channel Details</p>
                 </div>
@@ -22,13 +22,10 @@ const ChannelSettings = () => {
                         </div>
                     </div>
                     <Link style={{display: "block", color: "#81C784", textDecoration: "none", marginTop: "1em", fontWeight: 500}} to={"manage"}>Manage qlips</Link>
-                    <Link style={{display: "block", color: "#81C784", textDecoration: "none",  marginTop: "1em", fontWeight: 500}} to={"manage"}>Customise channel</Link>
+                    <Link style={{display: "block", color: "#81C784", textDecoration: "none",  marginTop: "1em", fontWeight: 500}} to={`customize/${user!.username}`}>Customise channel</Link>
                     <Link style={{display: "block", color: "#81C784", textDecoration: "none",  marginTop: "1em", fontWeight: 500}} to={"manage"}>Change profile picture</Link>
                 </div>
-            </div>) : <div>
-                <small style={{marginBottom: "1em", display: "block"}}>You are not logged in</small>
-                <p>Please <a href={"#"}>Login</a> to setup your channel</p>
-            </div>}
+            </div>
         </Fragment>
         
     )

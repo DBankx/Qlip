@@ -70,7 +70,7 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
                 e.preventDefault();
                 console.log(form);
             } }>
-                <Button label={"Create"} appendTo={document.body} icon={"pi pi-video"} onClick={() => history.push("/create")} className={"p-d-none p-d-md-inline-flex p-mr-4"} />
+                <Button label={"Create"} appendTo={document.body} icon={"pi pi-video"} onClick={() => history.push("/create")} style={{fontWeight: 600}} className={"p-d-none p-d-md-inline-flex p-mr-4"} />
                 {location.pathname === "/games" ? (
                     <div className="p-inputgroup">
                     <InputText value={form} name={"find"} onChange={(e) => setForm(e.currentTarget.value)} placeholder={"Search for games"} />

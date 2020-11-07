@@ -52,6 +52,7 @@ export class AuthStore{
         this.user = null;
         this.rootStore.commonStore.deleteToken();
         window.location.reload();
+        this.rootStore.commonStore.showAlert("info", "You have been logged out", "");
     }
     
     @action getCurrentUser = async () => {

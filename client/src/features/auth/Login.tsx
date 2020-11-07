@@ -61,7 +61,7 @@ const Login = () => {
                         {errors.password && touched.password && (<small id="username2-help" className="p-invalid p-d-block">{errors.password}</small>)}
                     </div>
                     
-                    <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner" : ""} disabled={!isValid || isSubmitting || !dirty } style={{width: "100%", marginBottom: "1em", fontSize: "1.2em"}} label={"Sign In"} className={""}  />
+                    <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner" : ""} disabled={!isValid || isSubmitting || !dirty } style={{width: "100%", marginBottom: "1em", fontSize: "1.2em", fontWeight: 600}} label={"Sign In"} className={""}  />
                     
                     <div className={"p-grid"} style={{marginBottom: "1em"}}>
                         <div className={"p-lg-6 p-col-12 p-md-6"}>

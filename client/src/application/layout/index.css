@@ -682,10 +682,6 @@ span {
   font-size: 0.8em;
 }
 
-.card-border .p-button.p-button-secondary, .p-buttonset.p-button-secondary > .p-button, .p-splitbutton.p-button-secondary > .p-button {
-  background: #78909C;
-}
-
 .inner-container {
   padding-left: 7em;
   padding-right: 7em;
