@@ -17,6 +17,7 @@
           <e p="ChannelController.cs" t="Include" />
           <e p="ClipController.cs" t="Include" />
           <e p="GamesController.cs" t="Include" />
+          <e p="SearchController.cs" t="Include" />
           <e p="SubscriptionController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
         </e>
@@ -103,6 +104,9 @@
               <e p="Application.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Search" t="Include">
+          <e p="SearchClipByTitle.cs" t="Include" />
         </e>
       </e>
       <e p="client\node_modules\@babel\parser" t="IncludeRecursive" />
