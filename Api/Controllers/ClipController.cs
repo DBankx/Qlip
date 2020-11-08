@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.Clip;
+using Application.Comment;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -85,6 +87,13 @@ namespace Api.Controllers
         public async Task<ActionResult<Unit>> DislikeClip(string clipId)
         {
             return await _mediator.Send(new DislikeClip.Command {ClipId = clipId});
+        }
+
+        [Authorize]
+        [HttpDelete("comment/{id}")]
+        public async Task<ActionResult<Unit>> DeleteComment(Guid id)
+        {
+            return await _mediator.Send(new Delete.Command {Id = id});
         }
     }
 }

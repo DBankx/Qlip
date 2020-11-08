@@ -821,3 +821,19 @@ color: #81C784;
     margin-left: 1em;
   }
 }
+
+.comment-options{
+  display: none;
+}
+
+.comment{
+  &:hover{
+    .comment-options{
+      display: initial;
+    }
+  }
+}
+
+.none{
+  display: none;
+}

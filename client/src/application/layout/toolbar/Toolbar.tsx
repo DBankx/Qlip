@@ -10,12 +10,16 @@ import rootStoreContext from "../../stores/rootStore";
 import Register from "../../../features/auth/Register";
 import Login from "../../../features/auth/Login";
 import {Formik} from "formik";
+import * as yup from "yup";
 
 const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
     const {isLoggedIn, user, logout} = useContext(rootStoreContext).authStore;
     const {openAuthModal} = useContext(rootStoreContext).commonStore;
     // placeholder form state managment
     const [form, setForm] = useState("");
+    const clipSearchValidationSchema = yup.object().shape({
+        title: yup.string().required()
+    })
 
     // placeholder for more menu items
     const moreMenuItems =  [
@@ -73,14 +77,14 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
                     <Button label="Search" icon={"pi pi-search"} className={"p-button-text"}/>
                 </div>
                 ) : (
-                        <Formik initialValues={{title: ""}} onSubmit={(values, action) => {
+                        <Formik validationSchema={clipSearchValidationSchema} initialValues={{title: ""}} onSubmit={(values, action) => {
                             history.push(`/search/qlips?title=${values.title}`);
                             action.setSubmitting(false);
                         }}>
                             {({handleSubmit, values, errors, touched, dirty, handleChange, handleBlur, isSubmitting, isValid }) => (
                                 <form onSubmit={handleSubmit} style={{width: "100%"}} className={"p-d-flex"}>
                                     <div className="p-inputgroup">
-                                <InputText  value={values.title} name={"title"} onChange={handleChange} onBlur={handleBlur} placeholder={"Search for qlips"} />
+                                <InputText  value={values.title} name={"title"} onChange={handleChange} onBlur={handleBlur} placeholder={"Search for qlips"} className={`${errors.title && touched.title && "p-invalid"} p-d-block`} />
                                 <Button label="Search" disabled={!isValid || isSubmitting || !dirty} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-search"} type={"submit"} className={"p-button-text"}/>
                                     </div>
                                 </form>

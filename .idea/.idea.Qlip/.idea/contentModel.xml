@@ -80,6 +80,7 @@
         <e p="comment" t="Include">
           <e p="Add.cs" t="Include" />
           <e p="CommentDto.cs" t="Include" />
+          <e p="Delete.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
         </e>
         <e p="Errors" t="Include" />

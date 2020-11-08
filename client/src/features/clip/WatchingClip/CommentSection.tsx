@@ -35,7 +35,7 @@ const CommentSection : React.FC<IProps> = ({clip}) => {
             <CommentInput />
             {clip && clip.comments && clip.comments.map((comment: IComment) => (
                 <div key={comment.id}>
-                    <Comment comment={comment} />
+                    <Comment comment={comment} clip={clip}/>
                 </div>
             ))}
         </div>

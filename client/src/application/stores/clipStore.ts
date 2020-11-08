@@ -30,6 +30,7 @@ export class ClipStore{
     @observable SearchResponse: IPaginatedClipResponse | null = null;
     @observable SearchPageNumber: number = 1;
     @observable SearchPageSize: number = 20;
+    @observable deletingComment: boolean = false;
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
@@ -294,5 +295,21 @@ export class ClipStore{
     
     @action changePage = (num: number) => {
         this.SearchPageNumber = num;
+    }
+    
+    @action deleteComment = async (commentId: string) => {
+        this.deletingComment = true;
+        try{
+            await ClipRequest.deleteComment(commentId);
+            runInAction(() => {
+                this.clip!.comments = this.clip!.comments.filter((c) => c.id !== commentId);
+                this.deletingComment = false;
+                this.rootStore.commonStore.showAlert("success", "Comment deleted", "");
+            })
+            } catch(error){
+            runInAction(() => this.deletingComment = false);
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Error deleting comment");
+            throw error;
+        }
     }
 }
