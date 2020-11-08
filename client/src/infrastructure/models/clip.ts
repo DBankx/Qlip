@@ -1,4 +1,5 @@
-﻿export interface IClip{
+﻿
+export interface IClip{
     id: string;
     url: string;
     thumbnail?: string;
@@ -17,6 +18,18 @@
     subscribedToAuthor: boolean;
     isUser: boolean;
     comments: IComment[];
+}
+
+export interface IPaginatedClipResponse{
+    pageNumber: number;
+    pageSize: number;
+    firstPage: string;
+    lastPage: string;
+    totalPages: number;
+    totalRecords: number;
+    nextPage: string;
+    previousPage: string;
+    data: IClip[]
 }
 
 export interface IComment{

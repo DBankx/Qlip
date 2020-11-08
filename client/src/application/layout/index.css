@@ -718,4 +718,50 @@ span {
   padding: 1em;
 }
 
+.search-thumbnail {
+  position: relative;
+}
+.search-thumbnail .search-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+.search-thumbnail .search-content img {
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.search-thumbnail:hover {
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+.search-thumbnail:hover .search-content {
+  opacity: 1;
+}
+
+.wrapper {
+  min-height: calc(80vh - 20px);
+}
+
+.pagination-footer {
+  height: 20px;
+}
+
+.label {
+  background: #383838;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: 0.7em;
+}
+.label:last-child {
+  margin-left: 1em;
+}
+
 /*# sourceMappingURL=index.css.map */

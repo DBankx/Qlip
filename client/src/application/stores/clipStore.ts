@@ -1,7 +1,7 @@
 ﻿import {RootStore} from "./rootStore";
 import {action, computed, makeObservable, observable, runInAction} from "mobx";
-import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/models/clip";
-import {ClipRequest} from "../api/agent";
+import {IClip, IClipFormValues, IPaginatedClipResponse, IUploadedClipValues} from "../../infrastructure/models/clip";
+import {ClipRequest, SearchRequest} from "../api/agent";
 import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 
 //========================================================================
@@ -27,6 +27,9 @@ export class ClipStore{
     @observable selectedClipBlob: any = null;
     @observable deletingClip: boolean = false;
     @observable.ref hubConnection: HubConnection | null = null;
+    @observable SearchResponse: IPaginatedClipResponse | null = null;
+    @observable SearchPageNumber: number = 1;
+    @observable SearchPageSize: number = 20;
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
@@ -267,5 +270,29 @@ export class ClipStore{
             this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");
             throw error;
         }
+    }
+    
+    // search for a clip by title
+    @action searchClipByTitle = async (title: string) => {
+       this.loadingInitial = true;
+       try{
+           let response = await SearchRequest.searchForClipByTitle(title, this.SearchPageNumber, this.SearchPageSize);
+           runInAction(() => {
+               this.SearchResponse = response;
+               this.loadingInitial = false;
+           })
+       }catch(error){
+           runInAction(() => this.loadingInitial = false);
+           this.rootStore.commonStore.showAlert("error", "Error Occurred", "Problem searching qlips");
+           throw error;
+       }
+    }
+    
+    @action changePageSize = (num: number) => {
+        this.SearchPageSize = num;
+    }
+    
+    @action changePage = (num: number) => {
+        this.SearchPageNumber = num;
     }
 }

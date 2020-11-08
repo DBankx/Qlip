@@ -18,6 +18,7 @@ import Settings from "../../features/settings/Settings";
 import Spinner from './Spinner';
 import CustomizePage from "../../features/channelCustomization/CustomizePage";
 import ManageQlips from "../../features/channel/manageQlips/ManageQlips";
+import ClipSearchPage from "../../features/search/clips/ClipSearchPage";
 
 const App = () => {
     
@@ -54,6 +55,7 @@ const App = () => {
                 <Route exact path={"/settings"} component={Settings} />
                 <Route exact path={"/customize"} component={CustomizePage} />
                 <Route exact path={"/manageqlips"} component={ManageQlips} />
+                <Route exact path={"/search/qlips"} component={ClipSearchPage} />
             </Switch>
         </div>
     </Fragment>

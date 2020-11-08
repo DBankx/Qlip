@@ -1,5 +1,5 @@
 ﻿import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
-import {IClip, IClipFormValues, IUploadedClipValues} from "../../infrastructure/models/clip";
+import {IClip, IClipFormValues, IPaginatedClipResponse, IUploadedClipValues} from "../../infrastructure/models/clip";
 import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
@@ -70,7 +70,7 @@ const sleep = (ms: number) => (response: AxiosResponse) =>
 
 // creating the template requests
 const Requests = {
-    get: (url: string) => axios.get(url).then(sleep(1000)).then(ResponseBody),
+    get: (url: string, config? : {}) => axios.get(url, config).then(sleep(1000)).then(ResponseBody),
     post:(url: string, body?: {}, config? :{} ) => axios.post(url, body, config).then(sleep(1000)).then(ResponseBody),
     delete:(url: string) => axios.delete(url).then(sleep(1000)).then(ResponseBody),
     put:(url: string, body?:{}, config?:{}) => axios.put(url, body, config).then(sleep(1000)).then(ResponseBody),
@@ -122,4 +122,9 @@ export const SubscriptionRequest = {
     subscribeToUser: (username: string) : Promise<{}> => Requests.post(`/subscription/${username}/subscribe`),
     unSubscribe: (username: string) : Promise<{}> => Requests.post(`/subscription/${username}/unSubscribe`),
     getFollows: (username: string, predicate: string): Promise<IChannelUser[]> => Requests.get(`/subscription/${username}/${predicate}`)
+}
+
+// search requests
+export const SearchRequest = {
+    searchForClipByTitle: (title: string, pageNumber: number, pageSize: number) : Promise<IPaginatedClipResponse> => Requests.get("/search/qlips", {params: {title, pageNumber, pageSize}})
 }

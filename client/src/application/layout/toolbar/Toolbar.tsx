@@ -9,6 +9,7 @@ import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../stores/rootStore";
 import Register from "../../../features/auth/Register";
 import Login from "../../../features/auth/Login";
+import {Formik} from "formik";
 
 const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
     const {isLoggedIn, user, logout} = useContext(rootStoreContext).authStore;
@@ -63,27 +64,29 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
     ];
     
     const ref = useRef<any>(null);
-
     const leftContent = (
         <Fragment>
-            <form style={{width: "100%"}} className={"p-d-flex"} onSubmit={(e: FormEvent<HTMLFormElement>) => {
-                e.preventDefault();
-                console.log(form);
-            } }>
-                <Button label={"Create"} appendTo={document.body} icon={"pi pi-video"} onClick={() => history.push("/create")} style={{fontWeight: 600}} className={"p-d-none p-d-md-inline-flex p-mr-4"} />
+                <Button label={"Create"} icon={"pi pi-video"} onClick={() => history.push("/create")} style={{fontWeight: 600}} className={"p-d-none p-d-md-inline-flex p-mr-4"} />
                 {location.pathname === "/games" ? (
                     <div className="p-inputgroup">
                     <InputText value={form} name={"find"} onChange={(e) => setForm(e.currentTarget.value)} placeholder={"Search for games"} />
                     <Button label="Search" icon={"pi pi-search"} className={"p-button-text"}/>
                 </div>
                 ) : (
-                    <div className="p-inputgroup">
-                    <InputText value={form} name={"find"} onChange={(e) => setForm(e.currentTarget.value)} placeholder={"Search for qlips"} />
-                    <Button label="Search" icon={"pi pi-search"} className={"p-button-text"}/>
-                </div>
+                        <Formik initialValues={{title: ""}} onSubmit={(values, action) => {
+                            history.push(`/search/qlips?title=${values.title}`);
+                            action.setSubmitting(false);
+                        }}>
+                            {({handleSubmit, values, errors, touched, dirty, handleChange, handleBlur, isSubmitting, isValid }) => (
+                                <form onSubmit={handleSubmit} style={{width: "100%"}} className={"p-d-flex"}>
+                                    <div className="p-inputgroup">
+                                <InputText  value={values.title} name={"title"} onChange={handleChange} onBlur={handleBlur} placeholder={"Search for qlips"} />
+                                <Button label="Search" disabled={!isValid || isSubmitting || !dirty} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-search"} type={"submit"} className={"p-button-text"}/>
+                                    </div>
+                                </form>
+                                )}
+                       </Formik>
                 )}
-                
-            </form>
 
             <div>   
                 <Menu model={moreMenuItems} popup ref={ref} id="popup_menu" appendTo={document.body} />
