@@ -10,12 +10,26 @@ import PaginatedSearch from "../PaginatedSearch";
 const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({location}) => {
     const params = new URLSearchParams(location.search)
     const title = params.get("title");
-    const {loadingInitial, searchClipByTitle, SearchResponse, changePage, changePageSize, SearchPageNumber, SearchPageSize} = useContext(rootStoreContext).clipStore;
+    const {loadingInitial, searchClipByTitle, SearchResponse, changePage, changePageSize, SearchPageNumber, SearchPageSize, sortSearchedClip} = useContext(rootStoreContext).clipStore;
+    const sortOptions = [
+        {
+            label: "Most Popular",
+            command: () => sortSearchedClip("VIEWS")
+        },
+        {
+            label: "Date Added (Newest)",
+            command: () => sortSearchedClip("NEWEST")
+        },
+        {
+            label: "Data Added (Oldest)",
+            command: () => sortSearchedClip("OLDEST")
+        }
+    ]
     const {showSidebar} = useContext(rootStoreContext).commonStore;
     useEffect(() => {
         showSidebar();
         searchClipByTitle(title!);
-    }, [title, searchClipByTitle])
+    }, [title, searchClipByTitle, showSidebar, SearchPageSize, SearchPageNumber])
     
     if (loadingInitial || SearchResponse === null ) return <Spinner />
     
@@ -25,7 +39,7 @@ const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({locati
             <div>
             <h2 style={{fontWeight: "normal"}}>Search results for: <span style={{fontWeight: 600}}>{title}</span></h2>
                 <div className={"p-d-flex p-ai-center p-jc-between p-mt-2"}>
-                    <SplitButton label={"SORT BY"} className={"p-button-sm p-button-secondary"} icon={"pi pi-filter"} />
+                    <SplitButton label={"SORT BY"} model={sortOptions} className={"p-button-sm p-button-secondary"} icon={"pi pi-filter"} />
                     <div>
                         <small style={{color: "#777777"}}>{SearchResponse.totalRecords} result(s) found</small>
                     </div>

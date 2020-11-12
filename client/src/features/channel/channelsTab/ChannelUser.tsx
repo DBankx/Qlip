@@ -7,7 +7,7 @@ import rootStoreContext from "../../../application/stores/rootStore";
 
 interface IProps{
     channelUser: IChannelUser,
-    channel: IChannel
+    channel?: IChannel
 }
 
 const ChannelUser : React.FC<IProps> = ({channelUser, channel}) => {
@@ -29,7 +29,7 @@ const ChannelUser : React.FC<IProps> = ({channelUser, channel}) => {
                 <span style={{color: "#777777", fontSize: "0.8em"}}>{channelUser.subscriberCount} {channelUser.subscriberCount > 1 ? "Subscribers" : "Subscriber"}</span>
             </div>
             </Link>
-                <Button label={channel.isUser || channelUser.subscribedToChannel ? "Subscribed" : "Subscribe"} icon={subscribingTarget === channelUser.username && subscribingToChannel ? "pi pi-spin pi-spinner" : channel.isUser || channelUser.subscribedToChannel ? "pi pi-check" : "pi pi-plus"} className={"p-button-sm p-mt-2"} style={channel.isUser || channelUser.subscribedToChannel ? subscribedStyle : {}} onClick={channelUser.subscribedToChannel ? () => subscriptionToChannelFollow(channelUser.username, "unsubscribing") : () => subscriptionToChannelFollow(channelUser.username, "subscribing")} />
+                <Button label={channel?.isUser || channelUser.subscribedToChannel ? "Subscribed" : "Subscribe"} icon={subscribingTarget === channelUser.username && subscribingToChannel ? "pi pi-spin pi-spinner" : channel?.isUser || channelUser.subscribedToChannel ? "pi pi-check" : "pi pi-plus"} className={"p-button-sm p-mt-2"} style={channel?.isUser || channelUser.subscribedToChannel ? subscribedStyle : {}} onClick={channelUser.subscribedToChannel ? () => subscriptionToChannelFollow(channelUser.username, "unsubscribing") : () => subscriptionToChannelFollow(channelUser.username, "subscribing")} />
         </div>
     )
 }

@@ -312,4 +312,30 @@ export class ClipStore{
             throw error;
         }
     }
+    
+    @action sortSearchedClip = (predicate: string)=> {
+        switch(predicate){
+            case "VIEWS":
+                this.SearchResponse!.data.sort((a, b) => {
+                    return b.views - a.views; 
+                });
+                break;
+            case "NEWEST":
+                this.SearchResponse!.data.sort((a: IClip, b:IClip) => {
+                    var oldDate = new Date(a.createdAt);
+                    var newDate = new Date(b.createdAt);
+                    return newDate.getTime() - oldDate.getTime();
+                });
+                break;
+            case "OLDEST":
+                this.SearchResponse!.data.sort((a: IClip, b:IClip) => {
+                    var oldDate = new Date(a.createdAt);
+                    var newDate = new Date(b.createdAt);
+                    return oldDate.getTime() - newDate.getTime();
+                });
+                break;
+            default:
+                return this.SearchResponse!.data;
+        }
+    }
 }

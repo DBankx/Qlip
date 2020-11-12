@@ -19,6 +19,19 @@ export interface IChannel{
     subscribedToUser: boolean;
 }
 
+
+export interface IPaginatedChannelResponse{
+    pageNumber: number;
+    pageSize: number;
+    firstPage: string;
+    lastPage: string;
+    totalPages: number;
+    totalRecords: number;
+    nextPage: string;
+    previousPage: string;
+    data: IChannelUser[];
+}
+
 export interface IChannelUser{
     gravatarProfileImage: string;
     subscriberCount: number;

@@ -97,6 +97,7 @@
           <e p="LikeGame.cs" t="Include" />
           <e p="List.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
+          <e p="SearchGameByName.cs" t="Include" />
           <e p="UnlikeGame.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -107,6 +108,7 @@
           </e>
         </e>
         <e p="Search" t="Include">
+          <e p="SearchChannelByUsername.cs" t="Include" />
           <e p="SearchClipByTitle.cs" t="Include" />
         </e>
       </e>

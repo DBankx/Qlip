@@ -1,7 +1,12 @@
 ﻿import { RootStore } from "./rootStore";
 import {action, makeObservable, observable, runInAction} from "mobx";
-import {IChannel, IChannelFormValues, IChannelPasswordValues} from "../../infrastructure/models/channel";
-import {ChannelRequest} from "../api/agent";
+import {
+    IChannel,
+    IChannelFormValues,
+    IChannelPasswordValues,
+    IPaginatedChannelResponse
+} from "../../infrastructure/models/channel";
+import {ChannelRequest, SearchRequest} from "../api/agent";
 import {IClip} from "../../infrastructure/models/clip";
 
 export class ChannelStore{
@@ -15,8 +20,11 @@ export class ChannelStore{
     @observable loadingChannel : boolean = false;
     @observable loadingFilter: boolean = false;
     @observable updating: boolean = false;
-    
-    
+    @observable searchResponse: IPaginatedChannelResponse | null = null;
+    @observable SearchPageNumber: number = 1;
+    @observable SearchPageSize: number = 20;
+    @observable loadingChannels: boolean = false;
+
     @action loadChannel = async (username: string) => {
         this.loadingChannel = true;
         try{
@@ -127,5 +135,28 @@ export class ChannelStore{
             throw error;
         }
     }
-    
+
+    // search for a channel by username 
+    @action searchChannelByUsername = async (username: string) => {
+        this.loadingChannels= true;
+        try{
+            let response = await SearchRequest.searchChannelByUsername(username, this.SearchPageNumber, this.SearchPageSize);
+            runInAction(() => {
+                this.searchResponse = response;
+                this.loadingChannels = false;
+            })
+        }catch(error){
+            runInAction(() => this.loadingChannels = false);
+            this.rootStore.commonStore.showAlert("error", "Error Occurred", "Problem finding channels");
+            throw error;
+        }
+    }
+
+    @action changePageSize = (num: number) => {
+        this.SearchPageSize = num;
+    }
+
+    @action changePage = (num: number) => {
+        this.SearchPageNumber = num;
+    }
 }

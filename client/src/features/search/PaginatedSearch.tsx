@@ -7,7 +7,6 @@ interface IProps{
     pageSize: number,
     changePage: (num: number) => void,
     changePageSize: (num: number) => void;
-    
 }
 
 const PaginatedSearch : React.FC<IProps> = ({data, pageSize, changePage, changePageSize}) => {

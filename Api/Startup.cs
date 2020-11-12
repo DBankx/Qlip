@@ -88,7 +88,7 @@ namespace Api
             {
                 option.AddDefaultPolicy(builder =>
                 {
-                    builder.AllowAnyHeader().WithOrigins("http://localhost:3000").AllowAnyMethod().AllowCredentials();
+                    builder.AllowAnyHeader().WithOrigins(new string[]{"http://localhost:3000", "http://localhost:3001"}).AllowAnyMethod().AllowCredentials();
                 });
             });
             

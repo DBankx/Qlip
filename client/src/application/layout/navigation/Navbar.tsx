@@ -56,7 +56,8 @@ const Navbar = () => {
             command: () => history.push("/games")
         },
         {
-            separator: true
+            label: "Channels",
+            icon: "pi pi-search"
         },
         isLoggedIn ?
             {
@@ -91,7 +92,7 @@ const Navbar = () => {
                     command: () => openAuthModal(<Login/>, "Sign In to Qlip")
                 }
             ]
-        } 
+        }
     ];
 
     const authButtons = () => {

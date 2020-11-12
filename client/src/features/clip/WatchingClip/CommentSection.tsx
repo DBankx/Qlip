@@ -29,7 +29,7 @@ const CommentSection : React.FC<IProps> = ({clip}) => {
     return (
         <div className={"comment-box"}>
             <div className={"p-d-flex p-ai-center p-jc-between"}>
-                <span>1263 Comments</span>
+                <span>{clip.comments.length} Comment(s)</span>
                 <SplitButton label={"SORT BY"} icon={"pi pi-filter"} className={"p-button-sm p-button-secondary"} model={channelSortOptions}  />
             </div>
             <CommentInput />

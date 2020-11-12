@@ -46,5 +46,6 @@ namespace Api.Controllers
         {
             return await _mediator.Send(new UnlikeGame.Command {GameId = gameId});
         }
+        
     }
 }

@@ -28,4 +28,6 @@ const ClipOwnerDetails : React.FC<IProps> = ({clip}) => {
     )
 }
 
+
+
 export default observer(ClipOwnerDetails);
