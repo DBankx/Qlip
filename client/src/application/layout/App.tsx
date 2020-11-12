@@ -20,6 +20,8 @@ import CustomizePage from "../../features/channelCustomization/CustomizePage";
 import ManageQlips from "../../features/channel/manageQlips/ManageQlips";
 import ClipSearchPage from "../../features/search/clips/ClipSearchPage";
 import ChannelSearchPage from '../../features/search/channels/ChannelSearchPage';
+import UnAuthorized from "../../application/common/UnAuthorized";
+import PrivateRoute from "../../infrastructure/utils/PrivateRoute";
 
 const App = () => {
     
@@ -48,16 +50,17 @@ const App = () => {
             <Switch>
                 <Route exact path={"/"} component={ClipHome} />
                 <Route exact path={`/qlip/:id`} component={ClipPage} />
-                <Route exact path={"/create"} component={CreateClip} />
-                <Route exact path={"/games"} component={GamesHome} />
+                <PrivateRoute exact path={"/create"} component={CreateClip} />
+                <Route exact path={["/games", "/search/games"]} component={GamesHome} />
                 <Route exact path={"/games/:id"} component={Game} />
                 <Route exact path={"/channel/:username"} component={Channel} />
-                <Route exact path={"/manage/:id"} component={ClipEditForm} />
+                <PrivateRoute exact path={"/manage/:id"} component={ClipEditForm} />
                 <Route exact path={"/settings"} component={Settings} />
-                <Route exact path={"/customize"} component={CustomizePage} />
-                <Route exact path={"/manageqlips"} component={ManageQlips} />
+                <PrivateRoute exact path={"/customize"} component={CustomizePage} />
+                <PrivateRoute exact path={"/manageqlips"} component={ManageQlips} />
                 <Route exact path={"/search/qlips"} component={ClipSearchPage} />
                 <Route exact path={"/search/channels"} component={ChannelSearchPage} />
+                <Route exact path={"/unauthorized"} component={UnAuthorized} />
             </Switch>
         </div>
     </Fragment>

@@ -159,4 +159,10 @@ export class ChannelStore{
     @action changePage = (num: number) => {
         this.SearchPageNumber = num;
     }
+    
+    @action sortChannelBySubscribers = () => {
+        this.searchResponse!.data.sort((a, b) => {
+            return b.subscriberCount - a.subscriberCount;
+        })
+    }
 }

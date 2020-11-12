@@ -1,7 +1,7 @@
 ﻿import {RootStore} from "../../application/stores/rootStore";
 import {action, makeObservable, observable, runInAction} from "mobx";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
-import {GameRequest} from "../../application/api/agent";
+import {GameRequest, SearchRequest} from "../../application/api/agent";
 import {SyntheticEvent} from "react";
 
 export class GameStore{
@@ -98,4 +98,20 @@ export class GameStore{
         }
     }
     
+    @action searchGamesByName = async (gameName: string) => {
+        this.loadingGames = true;
+        try{
+            let response = await SearchRequest.searchGameByName(gameName, this.pageSize, this.pageNumber);
+            runInAction(() => {
+                this.games = response;
+                this.loadingGames= false;
+            })
+        }catch(error){
+            runInAction(() => {
+                this.loadingGames = false;
+                this.rootStore.commonStore.showAlert("error", "Error occurred", "Problem loading games");
+            })
+            throw error;
+        }
+    }
 }

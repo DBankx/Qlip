@@ -35,7 +35,7 @@ const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({locati
     
     return (
         <div>
-        <div className={"sidebar-way main-container inner-container sidebar-void wrapper"}>
+       <div className={"sidebar-way main-container inner-container sidebar-void wrapper"}>
             <div>
             <h2 style={{fontWeight: "normal"}}>Search results for: <span style={{fontWeight: 600}}>{title}</span></h2>
                 <div className={"p-d-flex p-ai-center p-jc-between p-mt-2"}>

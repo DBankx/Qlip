@@ -76,7 +76,7 @@ const Login = () => {
                         {confirmPassword !== values.password && (<small id="username2-help" className="p-invalid p-d-block">Passwords do not match</small>)}
                     </div>
 
-                    <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner" : ""} disabled={!isValid || isSubmitting || !dirty || confirmPassword !== values.password } style={{width: "100%", marginBottom: "1em", fontSize: "1.2em", fontWeight: 600}} label={"Sign In"} className={""}  />
+                    <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner" : ""} disabled={!isValid || isSubmitting || !dirty || confirmPassword !== values.password } style={{width: "100%", marginBottom: "1em", fontSize: "1.2em", fontWeight: 600}} label={"Register"} className={""}  />
 
                     <div style={{marginBottom: "1em"}}>
                         <span style={{color: "#777777", fontSize: "0.7em", textAlign: "center"}}>By joining, you agree to Qlip’s Terms of Service,

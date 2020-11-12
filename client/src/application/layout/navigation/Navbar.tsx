@@ -55,10 +55,6 @@ const Navbar = () => {
             icon: 'fas fa-gamepad',
             command: () => history.push("/games")
         },
-        {
-            label: "Channels",
-            icon: "pi pi-search"
-        },
         isLoggedIn ?
             {
                 label: user?.username,

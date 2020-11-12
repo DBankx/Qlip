@@ -10,7 +10,7 @@ import ChannelUser from "../../channel/channelsTab/ChannelUser";
 const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({location}) => {
     const params = new URLSearchParams(location.search)
     const username = params.get("username");
-    const {loadingChannels, searchChannelByUsername, searchResponse, changePage, changePageSize, SearchPageNumber, SearchPageSize} = useContext(rootStoreContext).channelStore;
+    const {loadingChannels, searchChannelByUsername, sortChannelBySubscribers, searchResponse, changePage, changePageSize, SearchPageNumber, SearchPageSize} = useContext(rootStoreContext).channelStore;
     const {showSidebar} = useContext(rootStoreContext).commonStore;
     useEffect(() => {
         showSidebar();
@@ -18,6 +18,10 @@ const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({locati
     }, [username, searchChannelByUsername, showSidebar])
 
     if (loadingChannels || searchResponse === null ) return <Spinner />
+    
+    const sortChannelOption = [
+        {label : "Subscribers", command: () => sortChannelBySubscribers() }
+    ]
 
     return (
         <div>
@@ -25,7 +29,7 @@ const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({locati
                 <div>
                     <h2 style={{fontWeight: "normal"}}>Channel results for: <span style={{fontWeight: 600}}>{username}</span></h2>
                     <div className={"p-d-flex p-ai-center p-jc-between p-mt-2"}>
-                        <SplitButton label={"SORT BY"} className={"p-button-sm p-button-secondary"} icon={"pi pi-filter"} />
+                        <SplitButton model={sortChannelOption} label={"SORT BY"} className={"p-button-sm p-button-secondary"} icon={"pi pi-filter"} />
                         <div>
                             <small style={{color: "#777777"}}>{searchResponse.totalRecords} result(s) found</small>
                         </div>
