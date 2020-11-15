@@ -29,16 +29,14 @@ const CommentInput = () => {
                       handleBlur,
                     handleChange,
                     isValid,
-                    setSubmitting,
                     isSubmitting,
-                    handleReset,
                     resetForm
                   }) => (
                     <form onSubmit={handleSubmit}>
                     <InputTextarea id={"comment-input"} value={values.text} name={"text"} onBlur={handleBlur} onChange={handleChange} disabled={!isLoggedIn || isSubmitting} rows={4}  className={`${errors.text && touched.text && "p-invalid"} p-d-block`}  tooltip={!isLoggedIn ? "Login to leave a comment" : "Leave a comment"} autoResize style={{width: "100%"}} placeholder={"Leave a comment"}/>
                     <div style={{float: "right", marginTop: "0.3em"}}>
-                    <Button type={"button"} label={"CANCEL"} className={"p-button-sm p-button-text p-button-plain"} />
-                    <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner": ""} label={"COMMENT"} disabled={!isValid || isSubmitting} className={"p-button-sm"} />
+                    <Button type={"button"} onClick={() => resetForm()} style={{fontWeight: 600, marginRight: "1em"}} label={"CANCEL"} className={"p-button-sm p-button-text p-button-plain"} />
+                    <Button type={"submit"} icon={isSubmitting ? "pi pi-spin pi-spinner": ""} label={"COMMENT"} disabled={!isValid || isSubmitting} className={"p-button-sm"} style={{fontWeight: 600}} />
                     </div>         
                     </form>
                 )}

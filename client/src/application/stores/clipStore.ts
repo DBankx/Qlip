@@ -20,17 +20,15 @@ export class ClipStore{
     @observable clipRegistry: Map<string, IClip> = new Map();
     @observable loadingInitial: boolean = false;
     @observable clip: IClip | null = null;
-    @observable uploadedClip: IUploadedClipValues | null = null;
-    @observable uploadingClip: boolean = false;
-    @observable progress: number = 0;
-    @observable selectedClip: string | null = null;
-    @observable selectedClipBlob: any = null;
+    @observable uploadedClip: IUploadedClipValues = {publicId: "", url: "", thumbnail: ""};
     @observable deletingClip: boolean = false;
     @observable.ref hubConnection: HubConnection | null = null;
     @observable SearchResponse: IPaginatedClipResponse | null = null;
     @observable SearchPageNumber: number = 1;
     @observable SearchPageSize: number = 20;
     @observable deletingComment: boolean = false;
+    @observable UpNextClips: IClip[] = [];
+    @observable watchedClips: IClip[] = [];
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
@@ -120,6 +118,10 @@ export class ClipStore{
                 if(this.rootStore.authStore.user?.username === this.clip.authorName){
                     this.clip.isUser = true;
                 }
+                const isClipWatched = this.watchedClips.find((c) => c.id === clip!.id);
+                if(!isClipWatched){
+                    this.watchedClips.push(clip);
+                }
                 this.loadingInitial = false;
             } else {
                 let clipFromApi = await ClipRequest.getClip(id);
@@ -127,6 +129,10 @@ export class ClipStore{
                     this.clip = clipFromApi;
                     if(this.rootStore.authStore.user?.username === this.clip.authorName){
                         this.clip.isUser = true;
+                    }
+                    const isClipWatched = this.watchedClips.find((c) => c.id === clip!.id);
+                    if(!isClipWatched){
+                        this.watchedClips.push(clipFromApi);
                     }
                     this.loadingInitial = false;
                 })
@@ -139,36 +145,6 @@ export class ClipStore{
         }
     }
     
-    @action uploadClip = async (videoFile: Blob) => {
-        this.uploadingClip = true;
-        try{
-            const clip = await ClipRequest.uploadClip(videoFile, (event: ProgressEvent) => {
-                runInAction(() => {
-                    this.progress =  Math.round((100 * event.loaded) / event.total);
-                })
-            });
-            runInAction(() => {
-                this.uploadedClip = clip;
-                this.uploadingClip = false;
-            })
-            this.rootStore.commonStore.showAlert("success", "Success", "Qlip uploaded sucessfully!");
-        }catch(error){
-            runInAction(() => {
-                this.uploadingClip = false;
-            })
-
-            this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");
-        }
-    }
-    
-    @action selectClip = (previewClip: any) => {
-        this.selectedClip = previewClip;
-    }
-    
-    @action selectClipBlob = (previewClipBlob: Blob) => {
-        this.selectedClipBlob = previewClipBlob;
-    }
-    
     // deleting the clip the user uploaded in the form
     @action deleteUploadedClip = async () => {
         this.deletingClip = true;
@@ -176,7 +152,7 @@ export class ClipStore{
             if(this.uploadedClip != null){
             await ClipRequest.deleteUploadedClip(this.uploadedClip.publicId);
             runInAction(() => {
-                this.uploadedClip = null;
+                this.uploadedClip = {publicId: "", url: "", thumbnail: ""};
                 this.deletingClip = false;
             })
             }
@@ -187,11 +163,11 @@ export class ClipStore{
             console.log(error);
         }
     }
-    
-    // remove the selected clip from state
-    @action removeSelectedClip = () => {
-        this.selectedClipBlob = null;
-        this.selectedClip = null;
+   
+    @action setUploadedClip = (publicId: string, url: string, thumbnail: string) => {
+        this.uploadedClip.publicId = publicId;
+        this.uploadedClip.url = url;
+        this.uploadedClip.thumbnail = thumbnail;
     }
     
     // create a clip
@@ -338,4 +314,21 @@ export class ClipStore{
                 return this.SearchResponse!.data;
         }
     }
+    
+    @action getRecommended = async () => {
+        this.loadingInitial = true;
+        try{
+           const fullSearchedClips = await SearchRequest.searchClipByGameName(this.clip!.gameName, this.SearchPageNumber, this.SearchPageSize);
+           console.log(fullSearchedClips.data);
+           runInAction(() => {
+             this.UpNextClips = fullSearchedClips.data.filter((clip) => this.watchedClips.every((watched) => watched.id !== clip.id)); 
+               this.loadingInitial = false;
+           })
+        }catch(error){
+            runInAction(() => this.loadingInitial = false);
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Problem loading recommended")
+            throw error;
+        }
+    }
 }
+

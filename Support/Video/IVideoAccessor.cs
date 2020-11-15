@@ -5,7 +5,6 @@ namespace Support.Video
 {
     public interface IVideoAccessor
     {
-        Task<VideoUploadResult> UploadClip(IFormFile videoFile);
         string DeleteClip(string publicId);
     }
 }

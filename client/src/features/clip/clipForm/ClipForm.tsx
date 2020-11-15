@@ -14,7 +14,7 @@ import gameNameOptions from "../../../application/common/gameNameOptions";
 import {history} from "../../../index";
 
 const ClipForm = ( ) => {
-    const {uploadingClip, uploadedClip, uploadClip, selectClip, selectClipBlob, deleteUploadedClip, removeSelectedClip, createClip} = useContext(rootStoreContext).clipStore;
+    let {uploadedClip, deleteUploadedClip, createClip, setUploadedClip} = useContext(rootStoreContext).clipStore;
     const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
     
     // yup validation schema 
@@ -22,6 +22,57 @@ const ClipForm = ( ) => {
         title: yup.string().required("Required").min(3, "Qlip title is too short!").max(80, "Qlip title too long!"),
         description: yup.string().notRequired().max(5000, "Qlip description is too long").min(4, "Qlip description is too short")
     });
+    
+    //=========== Qlip upload management =============
+    const checkUploadResult = (resultEvent: any) => {
+        if(resultEvent.event === "success"){
+           setUploadedClip(resultEvent.info.public_id, resultEvent.info.secure_url, resultEvent.info.thumbnail_url); 
+           showAlert("success", "Upload successful", "Qlip uploaded successfully");
+            console.log(resultEvent.info);
+        }
+        if(resultEvent.event === "abort"){
+            showAlert("info", "Upload aborted", "Upload has been aborted")
+        }
+    }
+   // @ts-ignore
+    let widget = window.cloudinary.createUploadWidget({
+       cloudName: "dbankx",
+       uploadPreset: "xwks4vxq",
+        styles:{
+           palette:{
+               window: "#181818",
+               tabIcon: "#81C784",
+               menuIcons: "#81C784",
+               action: "#81C784",
+               inactiveTabIcon: "rgba(129,199,132,0.53)",
+               windowBorder: "#81C784",
+               inProgress: "#81C784",
+               complete: "#81C784",
+               sourceBg: "#1E1E1E",
+               textDark: "#fff",
+               link: "#81C784",
+           }
+        },
+        sources: ["local", "url"],
+        multiple: false,
+        showUploadMoreButton: false,
+        clientAllowedFormats: ["mp4"],
+        maxVideoFileSize: 100000000,
+        maxFiles: 1
+   }, (error: any, result: any) => {
+        if(error){
+            showAlert("error", "Upload failed", "Error occurred while uploading qlip");
+        }   
+        checkUploadResult(result)
+    })
+
+    // show the upload widget
+    const showWidget = (widget: any) => {
+        widget.open();
+    }
+    //============================
+    
+   
     
     //clip help footer 
     function renderFooter(){
@@ -34,7 +85,7 @@ const ClipForm = ( ) => {
     
     return(
         <div>
-            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: ""  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
+            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: "", thumbnail: uploadedClip ? uploadedClip.thumbnail : ""  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
                 {({handleSubmit,
                       errors,
                       touched,
@@ -74,9 +125,8 @@ const ClipForm = ( ) => {
                         </div>
                         
                         <div className={"p-field"}>
-                            
                             {/* clip help*/}
-                            <div >
+                            <div>
                             <Button type={"button"} label="Help" icon="pi pi-question-circle" className={"p-button-sm p-button-text p-button-help"} onClick={() => showClipUploadHelper()} />
                             <Dialog header="Uploading a Qlip" visible={clipUploadHelpVisible} style={{ width: '50vw' }} footer={renderFooter()} onHide={() => removeClipUploadHelper()}>
                                 <b>Things to note</b>
@@ -93,47 +143,8 @@ const ClipForm = ( ) => {
                             </Dialog>
                             </div>
                             {/* clip help*/}
-                            
-                            {uploadingClip && (
-                                <h3 style={{color: "#81C784", fontWeight: "normal"}}>Uploading Qlip -- PLEASE WAIT</h3>
-                            )}
-                            <FileUpload name="file" customUpload={true} disabled={uploadingClip} 
-                                        emptyTemplate={() => <div style={{textAlign: "center"}} className={"p-m-0"}>
-                                <i className={"far fa-file-video fa-6x"}/>
-                                <p className={"p-mt-2"}>Drag and drop files here to upload!</p>
-                            </div>} 
-                                        uploadHandler={(e) => {
-                                if(uploadedClip){
-                                    showAlert("error", "Upload", "Qlip has already been uploaded");
-                                } else {
-                                uploadClip(e.files[0]);
-                                    showAlert("info", "Uploading", "Please wait");
-                                }
-                            }
-                            }   accept="video/mp4" maxFileSize={200000000} chooseLabel={"Select"} onError={(e) => showAlert("error", "Error occurred", "Error selecting files")} onSelect={(e) => {
-                                const reader = new FileReader();
-                                reader.onload = () => {
-                                    if(reader.readyState === 2){
-                                        selectClip(reader.result);
-                                    }   
-                                }
-
-                                reader.readAsDataURL(e.files[0]);
-                                selectClipBlob(e.files[0]);
-                            }} onClear={() => {
-                                if(uploadedClip){
-                                    deleteUploadedClip().then(() => (showAlert("info", "Deleting", "Deleting uploaded qlip")));
-                                }
-                                removeSelectedClip();
-                            }} onRemove={(e) => {
-                                removeSelectedClip();
-                                if(e.file){
-                                    showAlert("info", "", "Removed file")
-                                }
-                                if(uploadedClip){
-                                    deleteUploadedClip().then(() => showAlert("info", "Deleting", "Deleting uploaded qlip"));
-                                }
-                            }} />
+                          
+                            <Button className="p-button-raised clip-upload-button" onClick={() => showWidget(widget)} disabled={uploadedClip.url !== ""}  type="button" label={uploadedClip.url === "" ? "UPLOAD A VIDEO" : "QLIP UPLOADED SUCCESSFULLY"} />
                         </div>
                         
                         <div className={"p-field"}>
@@ -150,7 +161,7 @@ const ClipForm = ( ) => {
                             </div>
                         
                         <div style={{float: "left", marginTop: "1em"}}>
-                        <Button label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} style={{fontWeight: 600}} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" }  />
+                        <Button label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} style={{fontWeight: 600}} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" || values.thumbnail === "" }  />
                         <Button type={"button"} label={"Cancel"} onClick={() => history.goBack()} icon={"pi pi-times"} className={"p-button-danger p-button-text"} style={{color: "#D9381E", marginLeft: "2em", fontWeight: 600}} />
                         </div>
                     </form>

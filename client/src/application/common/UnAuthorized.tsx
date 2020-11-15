@@ -15,10 +15,10 @@ const UnAuthorized = () => {
                 <img src={authLogo} alt={"auth"} style={isMobile ? {width: "300px"} : {width: "400px"}} />
                 <div style={{textAlign: "center"}}>
                     <h3>You are not allowed to view this content</h3>
-                    <div style={isMobile ? {margin: "1em auto"} : {display: "flex", alignItems: "center", margin: "1em auto", justifyContent: "center"}}>
-                        <Button onClick={() => openAuthModal(<Login />, "")} label={"Login"} className={"p-button-outlined"} style={isMobile ? {width: "100%", fontWeight: 600}  : {fontWeight: 600}} />
-                        <h5 style={isMobile ? {margin: "0.5em 0"} : {margin: "0 1em"}}>OR</h5>
-                        <Button label={"Register"} onClick={() => openAuthModal(<Register />, "")} style={isMobile ? {width: "100%", fontWeight: 600} : {fontWeight: 600}} />
+                    <div style={{margin: "1em auto"}}>
+                        <Button onClick={() => openAuthModal(<Login />, "")} label={"Login"} className={"p-button-outlined"} style={{width: "100%", fontWeight: 600}} />
+                        <h5 style={{margin: "0.5em 0"}}>OR</h5>
+                        <Button label={"Register"} onClick={() => openAuthModal(<Register />, "")} style={{width: "100%", fontWeight: 600}} />
                     </div>
                 </div>
             </div>

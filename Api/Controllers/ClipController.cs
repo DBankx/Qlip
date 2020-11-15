@@ -61,14 +61,6 @@ namespace Api.Controllers
         }
 
         [Authorize]
-        [HttpPost("upload")]
-        [DisableRequestSizeLimit]
-        public async Task<ActionResult<VideoUploadResult>> UploadClip([FromForm] UploadClip.Command command)
-        {
-            return await _mediator.Send(command);
-        }
-        
-        [Authorize]
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<Unit>> DeleteUploadedClip(string id)
         {

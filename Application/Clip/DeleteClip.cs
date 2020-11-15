@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -38,16 +39,20 @@ namespace Application.Clip
                     throw new RestException(HttpStatusCode.NotFound, new {clip = "Not Found"});
                 }
 
-                // delete the clip from clodinary using the found clip identifier
+                // delete the clip from cloudinary using the found clip identifier
                 var result = _videoAccessor.DeleteClip(clip.Id);
 
                 if (result == null)
                 {
                     throw new Exception("Problem deleting clip");
                 }
+
+                var comments = await _context.Comments.Where(x => x.Clip == clip).ToListAsync();
                 
                 // delete clip from database
                 _context.Clips.Remove(clip);
+                // remove all the comments connected to the qlip
+                _context.Comments.RemoveRange(comments);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

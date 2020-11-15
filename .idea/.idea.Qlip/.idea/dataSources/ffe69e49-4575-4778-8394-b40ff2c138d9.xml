@@ -1318,214 +1318,218 @@ Name</ColNames>
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <index id="386" parent="302" name="IX_Clips_GameId">
+    <column id="386" parent="302" name="Thumbnail">
+      <Position>9</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <index id="387" parent="302" name="IX_Clips_GameId">
       <ColNames>GameId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="387" parent="302" name="IX_Clips_ApplicationUserId">
+    <index id="388" parent="302" name="IX_Clips_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="388" parent="302" name="PRIMARY">
+    <key id="389" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="389" parent="302" name="FK_Clips_Games_GameId">
+    <foreign-key id="390" parent="302" name="FK_Clips_Games_GameId">
       <ColNames>GameId</ColNames>
       <RefTableName>games</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <foreign-key id="390" parent="302" name="FK_Clips_AspNetUsers_ApplicationUserId">
+    <foreign-key id="391" parent="302" name="FK_Clips_AspNetUsers_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <column id="391" parent="303" name="Id">
+    <column id="392" parent="303" name="Id">
       <Position>1</Position>
       <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="392" parent="303" name="UserId">
+    <column id="393" parent="303" name="UserId">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="393" parent="303" name="ClipId">
+    <column id="394" parent="303" name="ClipId">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="394" parent="303" name="Text">
+    <column id="395" parent="303" name="Text">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="395" parent="303" name="PostedAt">
+    <column id="396" parent="303" name="PostedAt">
       <Position>5</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="396" parent="303" name="IX_Comments_UserId">
+    <index id="397" parent="303" name="IX_Comments_UserId">
       <ColNames>UserId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="397" parent="303" name="IX_Comments_ClipId">
+    <index id="398" parent="303" name="IX_Comments_ClipId">
       <ColNames>ClipId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="398" parent="303" name="PRIMARY">
+    <key id="399" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="399" parent="303" name="FK_Comments_AspNetUsers_UserId">
+    <foreign-key id="400" parent="303" name="FK_Comments_AspNetUsers_UserId">
       <ColNames>UserId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <foreign-key id="400" parent="303" name="FK_Comments_Clips_ClipId">
+    <foreign-key id="401" parent="303" name="FK_Comments_Clips_ClipId">
       <ColNames>ClipId</ColNames>
       <RefTableName>clips</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <column id="401" parent="304" name="ApplicationUserId">
+    <column id="402" parent="304" name="ApplicationUserId">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="402" parent="304" name="ClipId">
+    <column id="403" parent="304" name="ClipId">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="403" parent="304" name="IX_DislikeUserClips_ApplicationUserId">
+    <index id="404" parent="304" name="IX_DislikeUserClips_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="404" parent="304" name="PRIMARY">
+    <key id="405" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ClipId
 ApplicationUserId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="405" parent="304" name="FK_DislikeUserClips_AspNetUsers_ApplicationUserId">
+    <foreign-key id="406" parent="304" name="FK_DislikeUserClips_AspNetUsers_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="406" parent="304" name="FK_DislikeUserClips_Clips_ClipId">
+    <foreign-key id="407" parent="304" name="FK_DislikeUserClips_Clips_ClipId">
       <ColNames>ClipId</ColNames>
       <RefTableName>clips</RefTableName>
       <RefColNames>Id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="407" parent="305" name="ObserverId">
+    <column id="408" parent="305" name="ObserverId">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="408" parent="305" name="TargetId">
+    <column id="409" parent="305" name="TargetId">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="409" parent="305" name="IX_Followings_TargetId">
+    <index id="410" parent="305" name="IX_Followings_TargetId">
       <ColNames>TargetId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="410" parent="305" name="PRIMARY">
+    <key id="411" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ObserverId
 TargetId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="411" parent="305" name="FK_Followings_AspNetUsers_ObserverId">
+    <foreign-key id="412" parent="305" name="FK_Followings_AspNetUsers_ObserverId">
       <ColNames>ObserverId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="412" parent="305" name="FK_Followings_AspNetUsers_TargetId">
+    <foreign-key id="413" parent="305" name="FK_Followings_AspNetUsers_TargetId">
       <ColNames>TargetId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="413" parent="306" name="Id">
+    <column id="414" parent="306" name="Id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="414" parent="306" name="Slug">
+    <column id="415" parent="306" name="Slug">
       <Position>2</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="415" parent="306" name="Name">
+    <column id="416" parent="306" name="Name">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="416" parent="306" name="Released">
+    <column id="417" parent="306" name="Released">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="417" parent="306" name="Background_Image">
+    <column id="418" parent="306" name="Background_Image">
       <Position>5</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="418" parent="306" name="Rating">
+    <column id="419" parent="306" name="Rating">
       <Position>6</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="419" parent="306" name="Playtime">
+    <column id="420" parent="306" name="Playtime">
       <Position>7</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="420" parent="306" name="ApplicationUserId">
+    <column id="421" parent="306" name="ApplicationUserId">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <index id="421" parent="306" name="IX_Games_ApplicationUserId">
+    <index id="422" parent="306" name="IX_Games_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="422" parent="306" name="PRIMARY">
+    <key id="423" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="423" parent="306" name="FK_Games_AspNetUsers_ApplicationUserId">
+    <foreign-key id="424" parent="306" name="FK_Games_AspNetUsers_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <column id="424" parent="307" name="ApplicationUserId">
+    <column id="425" parent="307" name="ApplicationUserId">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="425" parent="307" name="ClipId">
+    <column id="426" parent="307" name="ClipId">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="426" parent="307" name="IX_UserClips_ApplicationUserId">
+    <index id="427" parent="307" name="IX_UserClips_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="427" parent="307" name="PRIMARY">
+    <key id="428" parent="307" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ClipId
 ApplicationUserId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="428" parent="307" name="FK_UserClips_AspNetUsers_ApplicationUserId">
+    <foreign-key id="429" parent="307" name="FK_UserClips_AspNetUsers_ApplicationUserId">
       <ColNames>ApplicationUserId</ColNames>
       <RefTableName>aspnetusers</RefTableName>
       <RefColNames>Id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="429" parent="307" name="FK_UserClips_Clips_ClipId">
+    <foreign-key id="430" parent="307" name="FK_UserClips_Clips_ClipId">
       <ColNames>ClipId</ColNames>
       <RefTableName>clips</RefTableName>
       <RefColNames>Id</RefColNames>

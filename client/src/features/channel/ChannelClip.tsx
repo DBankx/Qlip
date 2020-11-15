@@ -15,7 +15,7 @@ const ChannelClip: React.FC<IProps> = ({clip}) => {
         <div className={""}>
             <Link to={`/qlip/${clip.id}`}>
                 <div className={"channel-thumbnail p-mr-3"}>
-                    <video src={clip.url} style={{width: "100%"}} onLoadedMetadata={e => setDuration(e.currentTarget.duration)}  className={"clip-channel-thumbnail"} />
+                    <img src={clip.thumbnail} style={{width: "100%"}} alt="thumbnail" className={"clip-channel-thumbnail"} />
                     <div className={"clip-duration"}>{duration.toFixed(2) + "S"}</div>
                     <div className={"channel-overlay"}>
                         <div className={"content"}>

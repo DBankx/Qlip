@@ -47,5 +47,12 @@ namespace Api.Controllers
             return await _mediator.Send(new SearchGameByName.Query
                 {GameName = gameName, PaginationFilter = Filter, Route = Request.Path.Value});
         }
+
+        [HttpGet("clipgames")]
+        public async Task<ActionResult<PagedResponse<List<ClipDto>>>> SearchClipByGameName([FromQuery] string gameName, [FromQuery] PaginationFilter filter)
+        {
+            return await _mediator.Send(new SearchClipByGameName.Query
+                {GameName = gameName, PaginationFilter = filter, Route = Request.Path.Value});
+        }
     }
 }

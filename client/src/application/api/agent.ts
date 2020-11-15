@@ -129,5 +129,6 @@ export const SubscriptionRequest = {
 export const SearchRequest = {
     searchForClipByTitle: (title: string, pageNumber: number, pageSize: number) : Promise<IPaginatedClipResponse> => Requests.get("/search/qlips", {params: {title, pageNumber, pageSize}}),
     searchChannelByUsername: (username: string, pageNumber: number, pageSize: number): Promise<IPaginatedChannelResponse> => Requests.get(`/search/channels`, {params: {username, pageSize, pageNumber}}),
-    searchGameByName: (gameName: string, pageSize: number, pageNumber: number) : Promise<IPaginatedGameResponse> => Requests.get("search/games", {params: {gameName, pageSize, pageNumber}}) 
+    searchGameByName: (gameName: string, pageSize: number, pageNumber: number) : Promise<IPaginatedGameResponse> => Requests.get("search/games", {params: {gameName, pageSize, pageNumber}}), 
+    searchClipByGameName: (gameName: string, pageNumber: number, pageSize: number): Promise<IPaginatedClipResponse> => Requests.get("/search/clipgames", {params: {gameName, pageNumber, pageSize}})
 }

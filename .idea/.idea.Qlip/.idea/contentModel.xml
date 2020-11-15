@@ -31,6 +31,7 @@
             </e>
           </e>
         </e>
+        <e p="Perandor AR Triple Kill.mp4" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
@@ -75,7 +76,6 @@
           <e p="MappingProfile.cs" t="Include" />
           <e p="RestException.cs" t="Include" />
           <e p="SubscriberCountValueResolver.cs" t="Include" />
-          <e p="UploadClip.cs" t="Include" />
         </e>
         <e p="comment" t="Include">
           <e p="Add.cs" t="Include" />
@@ -109,6 +109,7 @@
         </e>
         <e p="Search" t="Include">
           <e p="SearchChannelByUsername.cs" t="Include" />
+          <e p="SearchClipByGameName.cs" t="Include" />
           <e p="SearchClipByTitle.cs" t="Include" />
         </e>
       </e>
@@ -333,6 +334,8 @@
           <e p="20201024150839_AddedFollowingsTable.Designer.cs" t="Include" />
           <e p="20201027114316_AddedComment.cs" t="Include" />
           <e p="20201027114316_AddedComment.Designer.cs" t="Include" />
+          <e p="20201115174610_AddedThumbnailToClipEntity.cs" t="Include" />
+          <e p="20201115174610_AddedThumbnailToClipEntity.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

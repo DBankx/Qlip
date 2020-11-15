@@ -2,7 +2,7 @@
 export interface IClip{
     id: string;
     url: string;
-    thumbnail?: string;
+    thumbnail: string;
     createdAt: Date;
     gameName: string;
     title: string;
@@ -46,9 +46,11 @@ export interface IClipFormValues{
     gameName?: string;
     title: string;
     description: string;
+    thumbnail?: string;
 }
 
 export interface IUploadedClipValues{
     publicId: string;
     url: string;
+    thumbnail: string;
 }

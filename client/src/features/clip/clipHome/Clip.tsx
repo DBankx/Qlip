@@ -18,7 +18,7 @@ const Clip: React.FC<IProps> = ({clipData}) => {
     return <div className={"clip-box p-col-12 p-lg-3 p-md-6 p-sm-6"}>
         <Link to={`/qlip/${clipData.id}`}>
         <div className={"video-thumbnail"}>
-        <video src={clipData.url} onLoadedMetadata={e => setDuration(e.currentTarget.duration)}  className={"clip-thumbnail"} />
+        <img src={clipData.thumbnail} alt="thumbnail" className={"clip-thumbnail"} />
         <div className={"clip-duration"}>{duration.toFixed(2) + "S"}</div>
         <div className={"overlay"}>
             <div className={"content"}>
@@ -32,7 +32,7 @@ const Clip: React.FC<IProps> = ({clipData}) => {
                 <img className={"clip-author-image"} src={clipData.authorImage} alt={"author-avatar"} />
             </div>
             <div className={"p-col-10"}>
-                <Link to={`/qlip/${clipData.id}`} className={"truncate"} style={{fontSize: "0.9em", fontWeight: 500}}>{clipData.title}</Link>
+                <Link to={`/qlip/${clipData.id}`} className={"upNext-title"} style={{fontSize: "0.9em", fontWeight: 500}}>{clipData.title}</Link>
                 <Link to={"/"} style={{color: "#777777", display: "block", fontSize: "0.85em"}}>{clipData.authorName}</Link>
                 <div className={"p-d-flex"} style={{color: "#777777", fontSize: "0.8em"}}>
                     <span>{clipData.views} Views</span>

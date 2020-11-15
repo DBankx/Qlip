@@ -18,6 +18,7 @@ namespace Application.Clip
         public string AuthorImage { get; set; }
         public int AuthorSubscriberCount { get; set; }
         public bool SubscribedToAuthor { get; set; }
+        public string Thumbnail { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
         public bool IsLiked { get; set; }

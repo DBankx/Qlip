@@ -17,9 +17,9 @@ const SearchClip : React.FC<IProps> = ({clip}) => {
     return (
         <Link to={`/qlip/${clip.id}`} style={{color: "#fff", textDecoration: "none"}}>
         <div className={"p-grid"}>
-            <div className={"p-col-12 p-sm-4 p-md-4 p-lg-4"}>
+            <div className={"p-col-12 p-sm-4 p-md-4 p-lg-4"} >
                 <div className={"search-thumbnail"}>
-                    <video src={clip.url} style={{width: "100%"}} />
+                    <img src={clip.url} alt="thumbnail" style={{width: "100%"}} />
                     <div className={"search-content"}>
                         <img src={playButton} alt={"play"} />
                     </div>
