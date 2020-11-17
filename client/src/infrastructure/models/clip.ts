@@ -53,4 +53,9 @@ export interface IUploadedClipValues{
     publicId: string;
     url: string;
     thumbnail: string;
+    duration: number | null,
+    format: string | null,
+    original_filename: string | null;
+    created_at: Date | null;
+    frame_rate: number | null;
 }

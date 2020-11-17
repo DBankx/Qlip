@@ -31,10 +31,8 @@
     "react-scripts": "3.4.3",
     "react-transition-group": "^4.4.1",
     "sass": "^1.26.11",
-    "screenfull": "^5.0.2",
     "typescript": "^3.7.5",
     "uikit-react": "^3.0.20",
-    "video-react": "^0.14.1",
     "yup": "^0.29.3"
   },
   "scripts": {

@@ -26,7 +26,7 @@ const ClipForm = ( ) => {
     //=========== Qlip upload management =============
     const checkUploadResult = (resultEvent: any) => {
         if(resultEvent.event === "success"){
-           setUploadedClip(resultEvent.info.public_id, resultEvent.info.secure_url, resultEvent.info.thumbnail_url); 
+           setUploadedClip(resultEvent.info.public_id, resultEvent.info.secure_url, resultEvent.info.thumbnail_url,resultEvent.info.created_at, resultEvent.info.duration, resultEvent.info.original_filename, resultEvent.info.frame_rate, resultEvent.info.format); 
            showAlert("success", "Upload successful", "Qlip uploaded successfully");
             console.log(resultEvent.info);
         }

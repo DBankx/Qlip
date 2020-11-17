@@ -203,7 +203,6 @@
       <e p="client\node_modules\react-scripts" t="IncludeRecursive" />
       <e p="client\node_modules\react-transition-group" t="IncludeRecursive" />
       <e p="client\node_modules\sass" t="IncludeRecursive" />
-      <e p="client\node_modules\screenfull" t="IncludeRecursive" />
       <e p="client\node_modules\strip-ansi" t="IncludeRecursive" />
       <e p="client\node_modules\style-to-object" t="IncludeRecursive" />
       <e p="client\node_modules\tiny-warning" t="IncludeRecursive" />
@@ -266,7 +265,6 @@
         <e p="lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
       </e>
       <e p="client\node_modules\uikit-react" t="IncludeRecursive" />
-      <e p="client\node_modules\video-react" t="IncludeRecursive" />
       <e p="client\node_modules\yup" t="IncludeRecursive" />
       <e p="Domain" t="IncludeRecursive">
         <e p="ApplicationUser.cs" t="Include" />

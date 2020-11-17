@@ -3,6 +3,7 @@ import {action, computed, makeObservable, observable, runInAction} from "mobx";
 import {IClip, IClipFormValues, IPaginatedClipResponse, IUploadedClipValues} from "../../infrastructure/models/clip";
 import {ClipRequest, SearchRequest} from "../api/agent";
 import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
+import {boolean} from "yup";
 
 //========================================================================
 //============= Store for clip states in the app ================
@@ -20,7 +21,7 @@ export class ClipStore{
     @observable clipRegistry: Map<string, IClip> = new Map();
     @observable loadingInitial: boolean = false;
     @observable clip: IClip | null = null;
-    @observable uploadedClip: IUploadedClipValues = {publicId: "", url: "", thumbnail: ""};
+    @observable uploadedClip: IUploadedClipValues = {publicId: "", url: "", thumbnail: "", duration: null, created_at: null, format: null, frame_rate: null, original_filename: null};
     @observable deletingClip: boolean = false;
     @observable.ref hubConnection: HubConnection | null = null;
     @observable SearchResponse: IPaginatedClipResponse | null = null;
@@ -29,6 +30,7 @@ export class ClipStore{
     @observable deletingComment: boolean = false;
     @observable UpNextClips: IClip[] = [];
     @observable watchedClips: IClip[] = [];
+    @observable autoPlay: boolean = true;
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
@@ -152,7 +154,7 @@ export class ClipStore{
             if(this.uploadedClip != null){
             await ClipRequest.deleteUploadedClip(this.uploadedClip.publicId);
             runInAction(() => {
-                this.uploadedClip = {publicId: "", url: "", thumbnail: ""};
+                this.uploadedClip = {publicId: "", url: "", thumbnail: "", original_filename: null, frame_rate: null, format: null, created_at: null, duration: null};
                 this.deletingClip = false;
             })
             }
@@ -164,10 +166,15 @@ export class ClipStore{
         }
     }
    
-    @action setUploadedClip = (publicId: string, url: string, thumbnail: string) => {
+    @action setUploadedClip = (publicId: string, url: string, thumbnail: string, created_at: Date, duration: number, original_filename: string, frame_rate: number, format: string) => {
         this.uploadedClip.publicId = publicId;
         this.uploadedClip.url = url;
         this.uploadedClip.thumbnail = thumbnail;
+        this.uploadedClip.duration = duration;
+        this.uploadedClip.format = format;
+        this.uploadedClip.created_at = created_at;
+        this.uploadedClip.frame_rate = frame_rate;
+        this.uploadedClip.original_filename = original_filename;
     }
     
     // create a clip
@@ -329,6 +336,10 @@ export class ClipStore{
             this.rootStore.commonStore.showAlert("error", "Error occurred", "Problem loading recommended")
             throw error;
         }
+    }
+    
+    @action setAutoPlay = (event:boolean) => {
+        this.autoPlay = event;
     }
 }
 

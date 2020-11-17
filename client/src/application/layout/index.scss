@@ -892,3 +892,18 @@ color: #81C784;
   font-size: 1.12em;
   text-align: center;
 }
+
+.playing-next{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

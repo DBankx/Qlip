@@ -1,19 +1,20 @@
-﻿import React, {useContext} from "react";
+﻿import React, {useContext, useState} from "react";
 import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../../../application/stores/rootStore";
 import {toJS} from "mobx";
 import SearchClip from "../../../search/clips/SearchClip";
 import UpNextClip from "./UpNextClip";
+import {InputSwitch} from "primereact/inputswitch";
 
 const UpNext = () => {
-    const {watchedClips, UpNextClips} = useContext(rootStoreContext).clipStore;
-    console.log(toJS(UpNextClips));
+    const {watchedClips, UpNextClips, autoPlay, setAutoPlay} = useContext(rootStoreContext).clipStore;
     return (
         <div>
            <div className={"p-d-flex p-ai-center p-jc-between p-mb-2"}>
                <p>Up next</p>
-               <div>
-                   <p style={{fontWeight: 600, color: "#777777"}}>AUTOPLAY</p>
+               <div style={{display: "flex", alignItems: "center"}}>
+                   <p style={{fontWeight: 600, color: "#777777", marginRight: "0.3em"}}>AUTOPLAY</p>
+                   <InputSwitch style={{height: "20px"}} checked={autoPlay} onChange={(e) => setAutoPlay(e.value)} /> 
                </div>
            </div>
             {UpNextClips.length > 0 && <UpNextClip clip={UpNextClips[0]} />}
