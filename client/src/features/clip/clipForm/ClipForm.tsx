@@ -130,16 +130,18 @@ const ClipForm = ( ) => {
                             <Button type={"button"} label="Help" icon="pi pi-question-circle" className={"p-button-sm p-button-text p-button-help"} onClick={() => showClipUploadHelper()} />
                             <Dialog header="Uploading a Qlip" visible={clipUploadHelpVisible} style={{ width: '50vw' }} footer={renderFooter()} onHide={() => removeClipUploadHelper()}>
                                 <b>Things to note</b>
+                                <li>If the upload widget isint popping up when you click on the "upload a video" button please wait for some seconds, if that doesnt work try refreshing the page</li>
                                 <li>Maximum file size is 100 MB</li>
-                                    <li>Qlips only allow videos below the 1 minute mark</li>
-                                    <li>Your video is automatically cut down to 1 minute in the uploading process</li>
-                                    <li>Please select only one video to upload</li>
+                                <li>Qlips only allow videos below the 1 minute mark</li>
+                                <li>Your video is automatically cut down to 1 minute in the uploading process</li>
+                                <li>Please select only one video to upload</li>
                                 <li>Only mp4 formats are allowed</li>
                                 <b style={{marginTop: "1em"}}>How to upload a clip</b>
-                                <li>choose a file from your device by clicking "select"</li>
-                                <li>view the preview card to make sure the video is in order</li>
-                                <li>click on upload to upload the video</li>
-                                <li>if a mistake was made click on the cancel button</li>
+                                <li>Click on the "Uplaod a video" button *you cant miss it</li>
+                                <li>Drag and drop your video file into the upload widget or browse for files</li>
+                                <li>The upload process starts automatically</li>
+                                <li>If a mistake was made click on the cancel/abort button</li>
+                                <li>If the upload is completed successfully you will see a video preview popup</li>
                             </Dialog>
                             </div>
                             {/* clip help*/}

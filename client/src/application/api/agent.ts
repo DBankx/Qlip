@@ -4,6 +4,7 @@ import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
 import {IChannelUser, IChannel, IChannelFormValues, IChannelPasswordValues, IPaginatedChannelResponse} from "../../infrastructure/models/channel";
+import { IEmailFormValues } from "../../infrastructure/models/email";
 
 // setting the default url
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -131,4 +132,8 @@ export const SearchRequest = {
     searchChannelByUsername: (username: string, pageNumber: number, pageSize: number): Promise<IPaginatedChannelResponse> => Requests.get(`/search/channels`, {params: {username, pageSize, pageNumber}}),
     searchGameByName: (gameName: string, pageSize: number, pageNumber: number) : Promise<IPaginatedGameResponse> => Requests.get("search/games", {params: {gameName, pageSize, pageNumber}}), 
     searchClipByGameName: (gameName: string, pageNumber: number, pageSize: number): Promise<IPaginatedClipResponse> => Requests.get("/search/clipgames", {params: {gameName, pageNumber, pageSize}})
+}
+
+export const EmailRequest = {
+    sendEmail: (values: IEmailFormValues) : Promise<{}> => Requests.post("/email", values)
 }

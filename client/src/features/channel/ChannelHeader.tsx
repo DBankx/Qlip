@@ -37,7 +37,8 @@ const ChannelHeader: React.FC<IProps> = ({channel}) => {
     const optionsModel = [
         {
             label: `Report ${channel.username}`,
-            icon: "pi pi-times"
+            icon: "pi pi-times",
+            command: () => history.push(`/report/${channel.username}`)
         },
         {
             label: "Copy channel link",

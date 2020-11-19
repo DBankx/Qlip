@@ -20,7 +20,7 @@ const LikedClipsTab : React.FC<IProps> = ({channel}) => {
                     <div key={clip.id} className={"p-col-12 p-lg-3 p-md-5 p-sm-6"}>
                         <ChannelClip clip={clip} />
                     </div>
-                )) : <span>{channel.isUser ? "you" : channel.username} has no liked Qlips</span>}
+                )) : <span>{channel.isUser ? "you" : channel.username} {channel.isUser ? "have" : "has"} no liked Qlips</span>}
             </div>
         </div>
     )

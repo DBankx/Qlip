@@ -22,6 +22,7 @@ import ClipSearchPage from "../../features/search/clips/ClipSearchPage";
 import ChannelSearchPage from '../../features/search/channels/ChannelSearchPage';
 import UnAuthorized from "../../application/common/UnAuthorized";
 import PrivateRoute from "../../infrastructure/utils/PrivateRoute";
+import Report from "../../features/email/Report";
 
 const App = () => {
     
@@ -61,6 +62,7 @@ const App = () => {
                 <Route exact path={"/search/qlips"} component={ClipSearchPage} />
                 <Route exact path={"/search/channels"} component={ChannelSearchPage} />
                 <Route exact path={"/unauthorized"} component={UnAuthorized} />
+                <PrivateRoute component={Report} path={["/report/:username", "/email-contact"]} exact />
             </Switch>
         </div>
     </Fragment>

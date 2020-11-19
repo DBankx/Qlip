@@ -62,11 +62,13 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
                 },
                 {
                     label: "About us",
-                    icon: "pi pi-info"
+                    icon: "pi pi-info",
+                    command: () => history.push("/about")
                 },
                 {
                     label: "Contact us",
-                    icon: "pi pi-envelope"
+                    icon: "pi pi-envelope",
+                    command: () => history.push("/contact")
                 },
                 {
                     template: () => <div>please see</div>

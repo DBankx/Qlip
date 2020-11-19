@@ -354,7 +354,6 @@
         <e p="Email" t="Include">
           <e p="IMailer.cs" t="Include" />
           <e p="Mailer.cs" t="Include" />
-          <e p="SmtpSettings.cs" t="Include" />
         </e>
         <e p="Game" t="Include">
           <e p="SeedGameData.cs" t="Include" />

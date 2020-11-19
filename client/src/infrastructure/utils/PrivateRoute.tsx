@@ -4,7 +4,7 @@ import rootStoreContext from "../../application/stores/rootStore";
 
 const PrivateRoute: React.FC<{
     component: any;
-    path: string;
+    path: string|string[];
     exact: boolean;
 }> = ({path, exact, component}) => {
     const {isLoggedIn} = useContext(rootStoreContext).authStore;

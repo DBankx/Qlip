@@ -23,8 +23,10 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
     const {isLoggedIn} = useContext(rootStoreContext).authStore;
     const {showAlert} = useContext(rootStoreContext).commonStore;
     const isMobile = useMediaQuery({query: "(max-width: 400px)"});
+    
     // copy the link of the clip to the keyboard
-    var url = document.location.href;
+    let url = document.location.href;
+    
     new Clipboard(".share-btn", {
         text: function (){
             return url;
@@ -37,19 +39,21 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
                 {
                     label: 'Report',
                     icon: 'far fa-flag',
+                    command: () => history.push(`/report/${clip.authorName}`)
                 },
                 {
                     label: 'Delete',
                     icon: deletingClip ? "pi pi-spin pi-spinner" : "pi pi-times",
                     command: () => deleteClip(clip.id).then(() => history.push("/"))
                 },
-         {
-        label: 'SHARE',
-            icon: "fas fa-share",
-            className: "share-btn hide-bg",
-            command: () => showAlert("info", "Copied", "Url copied to clipboard!")
-        }
-    ];
+                {
+                    label: 'SHARE',
+                    icon: "fas fa-share",
+                    className: "share-btn hide-bg",
+                    command: () => showAlert("info", "Copied", "Url copied to clipboard!")
+                }
+                
+                ];
     
     
     return (
