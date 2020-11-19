@@ -9,6 +9,7 @@
       <PackageReference Include="CloudinaryDotNet" Version="1.13.1" />
       <PackageReference Include="FluentValidation.AspNetCore" Version="9.2.0" />
       <PackageReference Include="GravatarSharp.Core" Version="0.3.0.2" />
+      <PackageReference Include="MailKit" Version="2.9.0" />
       <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
       <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />

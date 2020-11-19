@@ -16,6 +16,7 @@
         <e p="Controllers" t="Include">
           <e p="ChannelController.cs" t="Include" />
           <e p="ClipController.cs" t="Include" />
+          <e p="EmailController.cs" t="Include" />
           <e p="GamesController.cs" t="Include" />
           <e p="SearchController.cs" t="Include" />
           <e p="SubscriptionController.cs" t="Include" />
@@ -31,7 +32,6 @@
             </e>
           </e>
         </e>
-        <e p="Perandor AR Triple Kill.mp4" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
@@ -82,6 +82,9 @@
           <e p="CommentDto.cs" t="Include" />
           <e p="Delete.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />
+        </e>
+        <e p="Email" t="Include">
+          <e p="SendEmail.cs" t="Include" />
         </e>
         <e p="Errors" t="Include" />
         <e p="Follows" t="Include">
@@ -348,6 +351,11 @@
       <e p="Qlip.sln" t="IncludeFlat" />
       <e p="Support" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Email" t="Include">
+          <e p="IMailer.cs" t="Include" />
+          <e p="Mailer.cs" t="Include" />
+          <e p="SmtpSettings.cs" t="Include" />
+        </e>
         <e p="Game" t="Include">
           <e p="SeedGameData.cs" t="Include" />
         </e>

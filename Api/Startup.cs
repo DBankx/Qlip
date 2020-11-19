@@ -21,6 +21,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using MySql.Data.MySqlClient;
 using Persistance;
+using Support.Email;
 using Support.Security.Jwt;
 using Support.Security.UserAccess;
 using Support.Services;
@@ -148,6 +149,7 @@ namespace Api
             services.AddScoped<IVideoAccessor, VideoAccessor>();
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IUserAccessor, UserAccessor>();
+            services.AddSingleton<IMailer, Mailer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

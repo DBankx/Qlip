@@ -25,20 +25,13 @@
     <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="added subscription features to a user and channel">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipDescription.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/upNext/UpNext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/WatchingClip/upNext/UpNext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipForm/SelectedClipPreview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipForm/SelectedClipPreview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/search/clips/SearchClip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/search/clips/SearchClip.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Perandor AR Triple Kill.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Api/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support/Support.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Support/Support.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/settings/ChannelSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/settings/ChannelSettings.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,16 +64,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/Comment/Delete.cs" />
-        <option value="$PROJECT_DIR$/client/src/features/comment/Comment.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipOwnerDetails.tsx" />
-        <option value="$PROJECT_DIR$/client/src/infrastructure/models/channel.ts" />
-        <option value="$PROJECT_DIR$/client/src/features/channel/channelsTab/ChannelUser.tsx" />
-        <option value="$PROJECT_DIR$/Api/Startup.cs" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/CommentSection.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/game/GamePaginator.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/search/PaginatedSearch.tsx" />
-        <option value="$PROJECT_DIR$/Api/Controllers/GamesController.cs" />
         <option value="$PROJECT_DIR$/Application/Game/SearchGameByName.cs" />
         <option value="$PROJECT_DIR$/Application/Search/SearchClipByTitle.cs" />
         <option value="$PROJECT_DIR$/Application/Search/SearchChannelByUsername.cs" />
@@ -120,8 +103,18 @@
         <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/SelectedClipPreview.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/stores/clipStore.ts" />
         <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/upNext/UpNext.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayer.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
+        <option value="$PROJECT_DIR$/client/src/features/clip/WatchingClip/ClipPlayer.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/settings/ChannelSettings.tsx" />
+        <option value="$PROJECT_DIR$/Support/Email/IEmailSupport.cs" />
+        <option value="$PROJECT_DIR$/Api/Controllers/EmailController.cs" />
+        <option value="$PROJECT_DIR$/Support/Email/EmailSupport.cs" />
+        <option value="$PROJECT_DIR$/Support/Email/IMailer.cs" />
+        <option value="$PROJECT_DIR$/Application/Email/SendEmail.cs" />
+        <option value="$PROJECT_DIR$/Api/Startup.cs" />
+        <option value="$PROJECT_DIR$/Support/Email/SmtpSettings.cs" />
+        <option value="$PROJECT_DIR$/Support/Email/Mailer.cs" />
+        <option value="$PROJECT_DIR$/Api/appsettings.json" />
       </list>
     </option>
   </component>
@@ -214,7 +207,10 @@
       <workItem from="1605182718064" duration="8237000" />
       <workItem from="1605284891795" duration="348000" />
       <workItem from="1605351617352" duration="54973000" />
-      <workItem from="1605638052894" duration="7095000" />
+      <workItem from="1605638052894" duration="8087000" />
+      <workItem from="1605701606109" duration="1027000" />
+      <workItem from="1605703110631" duration="6523000" />
+      <workItem from="1605782327194" duration="4988000" />
     </task>
     <task id="LOCAL-00001" summary="Added an endpoint for a user to like a game and updated channel model">
       <created>1603145518945</created>

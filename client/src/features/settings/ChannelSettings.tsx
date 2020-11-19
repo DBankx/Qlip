@@ -21,7 +21,7 @@ const ChannelSettings = () => {
                             <small style={{color: "#777777"}}>{user!.email}</small>
                         </div>
                     </div>
-                    <Link style={{display: "block", color: "#81C784", textDecoration: "none", marginTop: "1em", fontWeight: 500}} to={"manage"}>Manage qlips</Link>
+                    <Link style={{display: "block", color: "#81C784", textDecoration: "none", marginTop: "1em", fontWeight: 500}} to={"manageqlips"}>Manage qlips</Link>
                     <Link style={{display: "block", color: "#81C784", textDecoration: "none",  marginTop: "1em", fontWeight: 500}} to={`customize/${user!.username}`}>Customise channel</Link>
                     <Link style={{display: "block", color: "#81C784", textDecoration: "none",  marginTop: "1em", fontWeight: 500}} to={"manage"}>Change profile picture</Link>
                 </div>
