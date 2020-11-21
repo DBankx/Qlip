@@ -27,7 +27,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("qlips")]
-        public async Task<ActionResult<PagedResponse<List<ClipDto>>>> SearchClipByTitle([FromQuery]string title, [FromQuery] PaginationFilter filter)
+        public async Task<ActionResult<PagedResponse<List<AllClipsDto>>>> SearchClipByTitle([FromQuery]string title, [FromQuery] PaginationFilter filter)
         {
             return await _mediator.Send(new SearchClipByTitle.Query {Title = title, PaginationFilter = filter, Route = Request.Path.Value});
         }

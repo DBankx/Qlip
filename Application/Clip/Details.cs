@@ -1,12 +1,15 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Api.Middlewares.Errors;
 using AutoMapper;
+using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
+using Support.Security.UserAccess;
 
 namespace Application.Clip
 {
@@ -25,11 +28,13 @@ namespace Application.Clip
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
+            private readonly IUserAccessor _userAccessor;
 
-            public Handler(DataContext context, IMapper mapper)
+            public Handler(DataContext context, IMapper mapper, IUserAccessor userAccessor)
             {
                 _context = context;
                 _mapper = mapper;
+                _userAccessor = userAccessor;
             }
 
             public async Task<ClipDto> Handle(Query request, CancellationToken cancellationToken)
@@ -41,9 +46,22 @@ namespace Application.Clip
                     throw new RestException(HttpStatusCode.NotFound, new {clip = "Not found"});
                 }
 
-                // increment the views everytime this endpoint is reached
-                clip.views++;
-                
+                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUser());
+
+                if (user != null)
+                {
+                    var view = await _context.Views.SingleOrDefaultAsync(x => x.Clip == clip && x.User == user);
+                    if (view == null)
+                    {
+                        view = new View
+                        {
+                            User = user,
+                            Clip = clip,
+                            WatchedAt = DateTime.Now
+                        };
+                        _context.Views.Add(view);
+                    }
+                }
 
                 await _context.SaveChangesAsync();
 

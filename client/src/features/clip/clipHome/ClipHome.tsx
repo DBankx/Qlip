@@ -20,6 +20,10 @@ const ClipHome = () => {
     
     return (
         <div className={"sidebar-way main-container sidebar-void"}>
+            <div style={{display: "flex", alignItems: "center", width: "100%"}}>
+                <h4 style={{fontWeight: 600, color: "#777777"}}>All Qlips</h4>
+                <hr className="divider" style={{width: "90%", marginLeft: "1em"}} />
+            </div>
         <div className={"p-grid home-clip p-ai-center"}>
             {clipsData.map((clip: IClip) => (
                 <div key={clip.id}>

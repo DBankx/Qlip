@@ -41,7 +41,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<ClipDto>>> GetAllClips()
+        public async Task<ActionResult<List<AllClipsDto>>> GetAllClips()
         {
             return await _mediator.Send(new List.Query());
         }

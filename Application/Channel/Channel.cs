@@ -14,11 +14,11 @@ namespace Application.Channel
         public string Instagram { get; set; }
         public string Youtube { get; set; }
         public string Twitch { get; set; }
-        public ICollection<ClipDto> Clips { get; set; }
+        public ICollection<AllClipsDto> Clips { get; set; }
         public int OverallViews { get; set; }
         public string Username { get; set; }
         public ICollection<AllGamesDto> LikedGames { get; set; }
-        public ICollection<ClipDto> LikedClips { get; set; }
+        public ICollection<AllClipsDto> LikedClips { get; set; }
         public int SubsrciberCount { get; set; }
         public bool SubscribedToUser { get; set; }
     }

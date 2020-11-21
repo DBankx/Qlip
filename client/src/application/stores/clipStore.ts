@@ -114,32 +114,15 @@ export class ClipStore{
     @action getClip = async (id: string) => {
         this.loadingInitial = true;
         try{
-            let clip = this.clipRegistry.get(id);
-            if(clip != null){
-                this.clip = clip;
-                if(this.rootStore.authStore.user?.username === this.clip.authorName){
-                    this.clip.isUser = true;
-                }
-                const isClipWatched = this.watchedClips.find((c) => c.id === clip!.id);
-                if(!isClipWatched){
-                    this.watchedClips.push(clip);
-                }
-                this.loadingInitial = false;
-            } else {
                 let clipFromApi = await ClipRequest.getClip(id);
                 runInAction(() => {
                     this.clip = clipFromApi;
                     if(this.rootStore.authStore.user?.username === this.clip.authorName){
                         this.clip.isUser = true;
                     }
-                    const isClipWatched = this.watchedClips.find((c) => c.id === clip!.id);
-                    if(!isClipWatched){
-                        this.watchedClips.push(clipFromApi);
-                    }
                     this.loadingInitial = false;
                 })
-            }
-        }catch(error){
+            } catch(error){
             runInAction(() => {
                 this.loadingInitial = false;
             });
@@ -326,7 +309,6 @@ export class ClipStore{
         this.loadingInitial = true;
         try{
            const fullSearchedClips = await SearchRequest.searchClipByGameName(this.clip!.gameName, this.SearchPageNumber, this.SearchPageSize);
-           console.log(fullSearchedClips.data);
            runInAction(() => {
              this.UpNextClips = fullSearchedClips.data.filter((clip) => this.watchedClips.every((watched) => watched.id !== clip.id)); 
                this.loadingInitial = false;

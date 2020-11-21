@@ -14,7 +14,7 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
     const {UpNextClips, autoPlay} = useContext(rootStoreContext).clipStore;
     const [end, setEnded] = useState<boolean>(false);
     const options = {
-        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
+        controls: ['play-large', 'play','pause', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
             i18n: {
                 rewind: "Rewind {seektime}s",
                 play: "Play",
@@ -42,12 +42,11 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
                 quality: "Quality",
                 loop: "Loop",
         },
-        autoplay: true
+        autoplay: false
     };
     
     useEffect(() => {
         const player = new plyr(".js-plyr", options);
-        
         player.source = {
             type: "video",
             sources: [
@@ -56,6 +55,8 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
             },
         ],
     };
+
+        
         
         player.on("ended", (() => {
             if(UpNextClips.length > 0 && autoPlay){
@@ -75,7 +76,7 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
         <Fragment>
         <div className={"p-mt-2 p-shadow-7"} style={{position: "relative"}} >
            <video className={"js-plyr plyr"} />
-            {end && <div className="playing-next">
+            {end && UpNextClips.length > 0 && <div className="playing-next">
                <div>
                    PLAYING NEXT...
                </div>

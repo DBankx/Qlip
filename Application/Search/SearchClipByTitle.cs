@@ -18,7 +18,7 @@ namespace Application.Search
 {
     public class SearchClipByTitle
     {
-        public class Query : IRequest<PagedResponse<List<ClipDto>>>
+        public class Query : IRequest<PagedResponse<List<AllClipsDto>>>
         {
             public string Title { get; set; }
             public PaginationFilter PaginationFilter { get; set; }
@@ -26,7 +26,7 @@ namespace Application.Search
         }
 
 
-        public class Handler : IRequestHandler<Query, PagedResponse<List<ClipDto>>>
+        public class Handler : IRequestHandler<Query, PagedResponse<List<AllClipsDto>>>
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
@@ -39,7 +39,7 @@ namespace Application.Search
                 _uriService = uriService;
             }
 
-            public async Task<PagedResponse<List<ClipDto>>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<PagedResponse<List<AllClipsDto>>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var validFilter = new PaginationFilter(request.PaginationFilter.PageNumber, request.PaginationFilter.PageSize);
                                 
@@ -53,7 +53,7 @@ namespace Application.Search
 
                 var totalRecords = await _context.Clips.CountAsync(x => x.Title.Contains(request.Title)); 
 
-                var pagedResponse = PaginationHelper.CreatePagedReponse<ClipDto>(_mapper.Map<List<ClipDto>>(clips), validFilter,
+                var pagedResponse = PaginationHelper.CreatePagedReponse<AllClipsDto>(_mapper.Map<List<AllClipsDto>>(clips), validFilter,
                                    totalRecords, _uriService, request.Route);
                
                 return pagedResponse;

@@ -14,12 +14,12 @@ namespace Application.Clip
     /// </summary>
     public class List
     {
-        public class Query : IRequest<List<ClipDto>>
+        public class Query : IRequest<List<AllClipsDto>>
         {
         }
 
 
-        public class Handler : IRequestHandler<Query, List<ClipDto>>
+        public class Handler : IRequestHandler<Query, List<AllClipsDto>>
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
@@ -30,11 +30,11 @@ namespace Application.Clip
                 _mapper = mapper;
             }
 
-            public async Task<List<ClipDto>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<AllClipsDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var clips = await _context.Clips.ToListAsync();
 
-                return _mapper.Map<List<Domain.Clip>, List<ClipDto>>(clips);
+                return _mapper.Map<List<Domain.Clip>, List<AllClipsDto>>(clips);
             }
         }
     }

@@ -1,26 +1,23 @@
-﻿import React, {useContext} from "react";
-import authLogo from "../../application/layout/images/undraw_authentication_fsn5.svg";
+﻿import React, {useContext, useEffect} from "react";
 import {Button} from "primereact/button";
-import {useMediaQuery} from "react-responsive";
 import rootStoreContext from "../../application/stores/rootStore";
 import Login from "../../features/auth/Login";
-import Register from "../../features/auth/Register";
+import {history} from "../../index";
 
 const UnAuthorized = () => {
-    const isMobile = useMediaQuery({query: "(max-width: 500px)"});
     const {openAuthModal} = useContext(rootStoreContext).commonStore;
+    const {isLoggedIn} = useContext(rootStoreContext).authStore;
+    useEffect(() => {
+        if(isLoggedIn){
+            history.goBack();
+        }
+    }, [isLoggedIn])
     return (
         <div className={"sidebar-way main-container sidebar-void"}>
-            <div className={"spinner"}>
-                <img src={authLogo} alt={"auth"} style={isMobile ? {width: "300px"} : {width: "400px"}} />
-                <div style={{textAlign: "center"}}>
-                    <h3>You are not allowed to view this content</h3>
-                    <div style={{margin: "1em auto"}}>
-                        <Button onClick={() => openAuthModal(<Login />, "")} label={"Login"} className={"p-button-outlined"} style={{width: "100%", fontWeight: 600}} />
-                        <h5 style={{margin: "0.5em 0"}}>OR</h5>
-                        <Button label={"Register"} onClick={() => openAuthModal(<Register />, "")} style={{width: "100%", fontWeight: 600}} />
-                    </div>
-                </div>
+            <div className={"spinner"} style={{textAlign: "center"}}>
+               <h1 style={{color: "#777777"}}>401</h1> 
+                <p style={{color: "#777777", fontWeight: 600}}>Unauthorized</p>
+                <Button label="Login" className="p-button-sm p-button-outlined" onClick={() => openAuthModal(<Login />, "")} style={{width: "100%", marginTop: "1em"}} />
             </div>
         </div>
     )

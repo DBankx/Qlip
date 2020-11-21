@@ -58,6 +58,7 @@ namespace Application.Channel
                     clips.Add(await _context.Clips.SingleOrDefaultAsync(x => x.Id == clip.ClipId));
                 }
 
+                var userClips = await _context.Clips.Where(x => x.ApplicationUser == user).ToListAsync();
                
                 var channel =  new Channel
                 {
@@ -69,11 +70,11 @@ namespace Application.Channel
                     Twitter = user.Twitter,
                     Youtube = user.Youtube,
                     Username = user.UserName,
-                    Clips = _mapper.Map<List<ClipDto>>(user.Clips),
-                    OverallViews = user.Clips.Sum(x => x.views),
+                    Clips = _mapper.Map<List<AllClipsDto>>(user.Clips),
                     LikedGames = _mapper.Map<List<AllGamesDto>>(user.LikedGames),
-                    LikedClips = _mapper.Map<List<ClipDto>>(clips),
-                    SubsrciberCount = user.Followers.Count()
+                    LikedClips = _mapper.Map<List<AllClipsDto>>(clips),
+                    SubsrciberCount = user.Followers.Count(),
+                 OverallViews =  userClips.Sum(x => x.Views.Count)
                 };
 
                 if (loggedInUser != null)

@@ -20,5 +20,6 @@ namespace Domain
         public virtual ICollection<DislikeUserClip> DislikeUserClips { get; set; }
         public virtual ICollection<UserFollowings> Followings { get; set; }
         public virtual ICollection<UserFollowings> Followers { get; set; }
+        public virtual ICollection<View> Views { get; set; }
     }
 }
