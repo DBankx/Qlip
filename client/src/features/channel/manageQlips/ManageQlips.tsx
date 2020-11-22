@@ -48,7 +48,7 @@ const ManageQlips = () => {
                     <SplitButton label={"SORT BY"} icon={"pi pi-filter"} model={sortingOptionsModel} style={isMobile ? {} : {marginLeft: "1em"}} className={"p-button-sm p-button-secondary"} />
                 </div>
                 <div className={"p-grid p-ai-center"}>
-                    {channel.clips.map((clip) => (
+                    {channel.clips.length > 0 ? channel.clips.map((clip) => (
                         <div key={clip.id} className={"p-col-12 p-lg-3 p-md-5 p-sm-6"}>
                            <div>
                                <ChannelClip clip={clip} />
@@ -58,7 +58,14 @@ const ManageQlips = () => {
                               </div> 
                            </div> 
                         </div>
-                    ))}
+                    )) : (
+                        <div className="p-text-center" style={{margin: "4em auto", fontWeight: 600, color: "#777777"}}>
+                            <div>
+                                <p>You havent uploaded any qlip :(</p>
+                                <Button label="Add a Qlip" onClick={() => history.push("/create")} className="p-button-outlined p-button-sm p-mt-3" />
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

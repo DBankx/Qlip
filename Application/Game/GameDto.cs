@@ -12,6 +12,6 @@ namespace Application.Game
         public string Background_Image { get; set; }
         public string Rating { get; set; }
         public int Playtime { get; set; }
-        public virtual ICollection<ClipDto> Clips { get; set; }
+        public virtual ICollection<AllClipsDto> Clips { get; set; }
     }
 }

@@ -28,10 +28,9 @@ export class CommonStore {
     @observable clipUploadHelpVisible: boolean = false;
     @observable token: string | null = localStorage.getItem("token");
     @observable appLoaded: boolean = false;
-    @observable.shallow modal: { open: boolean, body: any, header: string } = {
+    @observable.shallow modal: { open: boolean, body: any} = {
         open: false,
         body: null,
-        header: ""
     }
     @observable.shallow alertOptions : {severity: any, summary: string, detail: string, life: number} = {
         severity: undefined,
@@ -71,10 +70,9 @@ export class CommonStore {
         this.appLoaded = true;
     }
 
-    @action openAuthModal = (content: any, header: string) => {
+    @action openAuthModal = (content: any) => {
         this.modal.open = true;
         this.modal.body = content;
-        this.modal.header = header;
     }
 
     @action closeAuthModal = () => {

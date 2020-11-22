@@ -17,7 +17,7 @@ const UnAuthorized = () => {
             <div className={"spinner"} style={{textAlign: "center"}}>
                <h1 style={{color: "#777777"}}>401</h1> 
                 <p style={{color: "#777777", fontWeight: 600}}>Unauthorized</p>
-                <Button label="Login" className="p-button-sm p-button-outlined" onClick={() => openAuthModal(<Login />, "")} style={{width: "100%", marginTop: "1em"}} />
+                <Button label="Login" className="p-button-sm p-button-outlined" onClick={() => openAuthModal(<Login />)} style={{width: "100%", marginTop: "1em"}} />
             </div>
         </div>
     )

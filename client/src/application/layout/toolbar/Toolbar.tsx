@@ -33,17 +33,17 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
     // placeholder for more menu items
     const moreMenuItems =  [
         {
-            label: "User",
+            label: "Account",
            items:[
                {
                    label: "Your channel",
                    icon: "pi pi-user",
-                   command: isLoggedIn && user ? () => history.push(`/channel/${user.username}`) : () => openAuthModal(<Login />, "Sign in to qlip")
+                   command: isLoggedIn && user ? () => history.push(`/channel/${user.username}`) : () => openAuthModal(<Login />)
                },
                {
                    label: isLoggedIn && user ? "Account settings" : "Create Account",
                    icon: "pi pi-user-plus",
-                   command: isLoggedIn && user ? () => alert("logged in")  : () => openAuthModal(<Register />, "Join Qlip")
+                   command: isLoggedIn && user ? () => alert("logged in")  : () => openAuthModal(<Register />)
                },
                {
                    label: "Sign out",

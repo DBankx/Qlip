@@ -14,13 +14,13 @@ const UpNext = () => {
                <p>Up next</p>
                <div style={{display: "flex", alignItems: "center"}}>
                    <p style={{fontWeight: 600, color: "#777777", marginRight: "0.3em"}}>AUTOPLAY</p>
-                   <InputSwitch style={{height: "20px"}} checked={autoPlay} onChange={(e) => setAutoPlay(e.value)} /> 
+                   <InputSwitch checked={autoPlay} onChange={(e) => setAutoPlay(e.value)} /> 
                </div>
            </div>
-            {UpNextClips.length > 0 && <UpNextClip clip={UpNextClips[0]} />}
+            {UpNextClips && UpNextClips.data.length > 0 && <UpNextClip clip={UpNextClips.data[0]} />}
             <hr className="divider p-mb-2 p-mt-2" />
-            {UpNextClips.length > 1 ? (
-                UpNextClips.splice(1).map((clip) => (
+            {UpNextClips && UpNextClips.data.length > 1 ? (
+                UpNextClips!.data.splice(1).map((clip) => (
                     <div key={clip.id}>
                         <UpNextClip clip={clip} />
                     </div>

@@ -32,4 +32,19 @@ namespace Application.Clip
                 return views;
             }
         }
+        
+    public class ViewReslover3 : IValueResolver<Domain.Clip, HistoryClipsDto, int>
+    {
+        private readonly DataContext _context;
+    
+        public ViewReslover3(DataContext context)
+        {
+            _context = context;
+        }
+        public int Resolve(Domain.Clip source, HistoryClipsDto destination, int destMember, ResolutionContext context)
+        {
+            var views = source.Views.Count;
+            return views;
+        }
+    } 
 }

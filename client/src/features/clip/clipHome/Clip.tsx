@@ -15,7 +15,7 @@ const Clip: React.FC<IProps> = ({clipData}) => {
     
     const [duration, setDuration] = useState(0);
     
-    return <div className={"clip-box p-col-12 p-lg-3 p-md-6 p-sm-6"}>
+    return <div >
         <Link to={`/qlip/${clipData.id}`}>
         <div className={"video-thumbnail"}>
         <img src={clipData.thumbnail} alt="thumbnail" className={"clip-thumbnail"} />
@@ -39,6 +39,11 @@ const Clip: React.FC<IProps> = ({clipData}) => {
                     <span style={{margin: "0 0.4em"}}>•</span>
                     <span>{dayjs(clipData.createdAt).fromNow()}</span>
                 </div>
+                {clipData.isWatched && (
+                    <div className="watched-label">
+                        watched
+                    </div>
+                )}
             </div>
         
         </div>

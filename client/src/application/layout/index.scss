@@ -118,8 +118,6 @@ span{
 }
 
 .clip-box{
-  width: 19.5rem;
-  height: 16rem;
   
   .clip-thumbnail{
     width: 100%;
@@ -196,24 +194,20 @@ span{
   top: 0;
 
   &::-webkit-scrollbar {
-    width: 9px;
+    width: 0;
     display: none
   }
-  &::-webkit-scrollbar-track {
-    background: #181818;        
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: #4A4A4A;    
-    border-radius: 20px;       
-    border: 3px solid #181818; 
-  }
-  &:hover{
-    &::-webkit-scrollbar {
-      display: block
-    }
-  }
+  
+  
+}
+ 
+.main-logo{
+  width: 80px;
 }
 
+.p-menu ul{
+  width: 100%;
+}
 .sidebar-way{
   margin-left: 15em;
 }
@@ -742,8 +736,16 @@ color: #81C784;
   padding-right: 7em;
 }
 
+.inner-container-2{
+  padding-left: 12em;
+  padding-right: 12em;
+}
+
 @media (max-width: 500px) {
   .inner-container{
+    padding: 0;
+  }
+  .inner-container-2{
     padding: 0;
   }
 }
@@ -854,6 +856,7 @@ color: #81C784;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      z-index: 1;
     }
   }
   &:hover{
@@ -870,6 +873,7 @@ color: #81C784;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-height: 1.5em;
 }
 
 .upNext{
@@ -906,4 +910,14 @@ color: #81C784;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+.watched-label{
+  padding: 0.2em 1em;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.7em;
+  background-color: rgba(129,199,132,0.32);
+  width: fit-content;
+  margin-top: 0.5em;
 }

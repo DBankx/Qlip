@@ -28,12 +28,40 @@ export class ClipStore{
     @observable SearchPageNumber: number = 1;
     @observable SearchPageSize: number = 20;
     @observable deletingComment: boolean = false;
-    @observable UpNextClips: IClip[] = [];
+    @observable UpNextClips: IPaginatedClipResponse | null = null;
     @observable watchedClips: IClip[] = [];
     @observable autoPlay: boolean = true;
+    @observable historyQlips: IClip[] = [];
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
+    }
+    
+    @computed get notWatchedQlips(){
+        return this.clipsData.filter((clip) => !clip.isWatched);
+    }
+    
+    @computed get watchedQlips(){
+        return this.clipsData.filter((clip) => clip.isWatched);
+    }
+    
+    @computed get groupedHistory(){
+       return this.groupHistoryByDate(Array.from(this.historyQlips)); 
+    }
+    
+    groupHistoryByDate(clips: IClip[]){
+        const sortedQlips = clips.sort((a, b) => {
+            let oldDate = new Date(a.watchedAt);
+            let newDate = new Date(b.watchedAt);
+            return newDate.getTime() - oldDate.getTime();
+        });
+        
+        return Object.entries(sortedQlips.reduce((clips, clip) => {
+            const date = new Date(clip.watchedAt).toISOString().split("T")[0];
+            clips[date] = clips[date] ? [...clips[date], clip] : [clip];
+            return clips;
+        }, {} as {[key: string]: IClip[]})
+        );
     }
     
     // build hub connection
@@ -310,7 +338,7 @@ export class ClipStore{
         try{
            const fullSearchedClips = await SearchRequest.searchClipByGameName(this.clip!.gameName, this.SearchPageNumber, this.SearchPageSize);
            runInAction(() => {
-             this.UpNextClips = fullSearchedClips.data.filter((clip) => this.watchedClips.every((watched) => watched.id !== clip.id)); 
+             this.UpNextClips = fullSearchedClips; 
                this.loadingInitial = false;
            })
         }catch(error){
@@ -323,5 +351,20 @@ export class ClipStore{
     @action setAutoPlay = (event:boolean) => {
         this.autoPlay = event;
     }
+    
+    @action getHistoryClips = async () => {
+        this.loadingInitial = true;
+        try{
+            let history = await ClipRequest.getHistory();
+            runInAction(() => {
+                this.historyQlips = history;
+                this.loadingInitial = false;
+            })
+        }catch(error){
+            runInAction(() => this.loadingInitial = false);
+            this.rootStore.commonStore.showAlert("error", "Error occurred", "Problem getting history");
+            throw error;
+        }
+    } 
 }
 

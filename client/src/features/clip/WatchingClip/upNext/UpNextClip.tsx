@@ -18,7 +18,7 @@ const UpNextClip: React.FC<IProps> = ({clip}) => {
         <div className="p-grid">
             <div className="p-col-6" style={{padding: 0}}>
                 <div className="upNext-thumbnail">
-                    <video src={clip.url} style={{width: "100%"}} />
+                    <img alt="author" src={clip.thumbnail} style={{width: "100%"}} />
                     <div className={"upNext-content"}>
                         <img src={playButton} alt={"play"} />
                     </div>

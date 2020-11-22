@@ -27,8 +27,7 @@ const isMobile = useMediaQuery({query: "(max-width: 600px)"});
     return (
         <div>
             <div style={{display: "flex", alignItems: "center"}}>
-            <span style={{fontSize: "0.9em"}}>Recent uploads</span>
-                {!isMobile && (<Button label={"Play all recent"} icon={"pi pi-play"} className={"p-button-text p-button-plain p-ml-3"} />)}
+            <p style={{fontWeight: 600, color: "#777777"}}>Recent uploads</p>
             </div>
             <div style={{marginTop: "1em"}} className={isMobile ? "" : "p-grid p-ai-center"}>
                 {channel.clips.length > 0 ? (isMobile ? (

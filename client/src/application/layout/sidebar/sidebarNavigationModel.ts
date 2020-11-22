@@ -1,7 +1,10 @@
-﻿export const sidebarNavigationModel =  [
+﻿import {history} from "../../../index";
+
+export const sidebarNavigationModel =  [
     {
         label: 'Home',
-        icon: "pi pi-home"
+        icon: "pi pi-home",
+        command: () => history.push("/")
         
     },
     {
@@ -10,17 +13,9 @@
         
     },
     {
-        label: 'Navigate',
-        items: [
-            {
-                label: 'React Website',
-                icon: 'pi pi-external-link',
-                url: 'https://reactjs.org/'
-            },
-            {
-                label: 'Router',
-                icon: 'pi pi-upload'
-            }
-        ]
-    }
+      label: "Your History",
+      icon: "fas fa-history",
+      command: () => history.push("/history")  
+    },
+    
 ];

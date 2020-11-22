@@ -87,5 +87,12 @@ namespace Api.Controllers
         {
             return await _mediator.Send(new Delete.Command {Id = id});
         }
+
+        [Authorize]
+        [HttpGet("history")]
+        public async Task<ActionResult<List<HistoryClipsDto>>> ListHistory()
+        {
+            return await _mediator.Send(new ListHistory.Query());
+        }
     }
 }

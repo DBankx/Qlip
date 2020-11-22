@@ -14,9 +14,9 @@ const GameClipContents : React.FC<IProps> = ({game}) => {
             {game.clips!.length > 0 ? (
                 <div >
                     <div className={"p-mt-2"}>
-                        <div className={"p-grid home-clip p-ai-center"}>
+                        <div className={"p-grid home-clip"}>
                             {game.clips?.map((clip: IClip) => (
-                                <div key={clip.id}>
+                                <div key={clip.id} className="clip-box p-col-12 p-xl-3 p-lg-4 p-md-5 p-sm-6">
                                     <Clip clipData={clip} />
                                 </div>
                             ))}

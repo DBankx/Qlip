@@ -23,6 +23,7 @@ import ChannelSearchPage from '../../features/search/channels/ChannelSearchPage'
 import UnAuthorized from "../../application/common/UnAuthorized";
 import PrivateRoute from "../../infrastructure/utils/PrivateRoute";
 import Report from "../../features/email/Report";
+import HistoryPage from "../../features/history/History";
 
 const App = () => {
     
@@ -63,6 +64,7 @@ const App = () => {
                 <Route exact path={"/search/channels"} component={ChannelSearchPage} />
                 <Route exact path={"/unauthorized"} component={UnAuthorized} />
                 <PrivateRoute component={Report} path={["/report/:username", "/email-contact"]} exact />
+                <PrivateRoute component={HistoryPage} path="/history" exact />
             </Switch>
         </div>
     </Fragment>

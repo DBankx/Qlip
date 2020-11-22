@@ -1,6 +1,6 @@
 ﻿import React, {useRef} from "react";
 import {Menubar} from "primereact/menubar";
-import logo from  "../images/placeholder_logo.png"
+import logo from  "../images/logo.png"
 import {Button} from "primereact/button";
 import {Link} from "react-router-dom";
 import {useContext} from "react";
@@ -23,19 +23,9 @@ const Navbar = () => {
             icon: 'pi pi-fw pi-video',
             items: [
                 {
-                    label: 'New',
-                    icon: 'pi pi-fw pi-plus',
-                    items: [
-                        {
-                            label: 'Bookmark',
-                            icon: 'pi pi-fw pi-bookmark'
-                        },
-                        {
-                            label: 'Video',
-                            icon: 'pi pi-fw pi-video'
-                        },
-
-                    ]
+                    label: 'All',
+                    icon: 'pi pi-globe',
+                    command: () => history.push("/")
                 },
                 {
                     label: 'Delete',
@@ -45,8 +35,9 @@ const Navbar = () => {
                     separator: true
                 },
                 {
-                    label: 'Export',
-                    icon: 'pi pi-fw pi-external-link'
+                    label: 'Upload',
+                    icon: 'pi pi-plus',
+                    command: () => history.push("/create")
                 }
             ]
         },
@@ -81,11 +72,11 @@ const Navbar = () => {
             items: [
                 {
                     label: "Register",
-                    command: () => openAuthModal(<Register />, "Join Qlip")
+                    command: () => openAuthModal(<Register />)
                 },
                 {
                     label: "login",
-                    command: () => openAuthModal(<Login/>, "Sign In to Qlip")
+                    command: () => openAuthModal(<Login/>)
                 }
             ]
         }
@@ -101,6 +92,7 @@ const Navbar = () => {
                                 <OverlayPanel appendTo={document.body} ref={loggedInModalItemsOptions} >
                                     <div className={"logged-in-options"}>
                                             <li><Button icon={"pi pi-user"} label={"Your Channel"} className={"p-button-sm p-button-text p-button-plain"} style={{width: "100%"}}onClick={() => history.push(`/channel/${user!.username}`)} /></li>
+                                        <li><Button icon={"fas fa-history"} label={"Your History"} className={"p-button-sm p-button-text p-button-plain"} style={{width: "100%"}}onClick={() => history.push(`/history`)} /></li>
                                             <li><Button icon={"pi pi-power-off"} label={"Logout"} className={"p-button-sm p-button-text p-button-plain"}  style={{width: "100%"}} onClick={() => logout()} /></li>
                                     </div>
                                 </OverlayPanel>
@@ -113,16 +105,16 @@ const Navbar = () => {
         } else{
             return (
         <div className={"p-d-none p-d-md-inline-flex"}>
-            <Button label={"Login"} style={{fontWeight: 600}} onClick={() => openAuthModal(<Login/>, "Sign In to Qlip")}
+            <Button label={"Login"} style={{fontWeight: 600}} onClick={() => openAuthModal(<Login/>)}
                     className="p-button-outlined p-button-sm p-mr-3" icon={"pi pi-sign-in"}/>
-            <Button label={"Sign up"} style={{fontWeight: 600}} onClick={() => openAuthModal(<Register />, "Join Qlip")} className={"p-button-sm"}/>
+            <Button label={"Sign up"} style={{fontWeight: 600}} onClick={() => openAuthModal(<Register />)} className={"p-button-sm"}/>
         </div>
             )
         }
     }
     
     return(
-        <Menubar model={navigationMenuModel}  start={() => <Link to={"/"}><img alt={"logo"} src={logo} height="40" className="p-mr-2"/></Link>} end={authButtons} />
+        <Menubar model={navigationMenuModel}  start={() => <Link to={"/"}><img alt={"logo"} src={logo} style={{marginLeft: "1em"}}  className="p-mr-2 main-logo"/></Link>} end={authButtons} />
     )
 }
 

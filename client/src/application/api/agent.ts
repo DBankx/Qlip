@@ -94,7 +94,8 @@ export const ClipRequest = {
     likeClip: (clipId: string): Promise<{}> => Requests.post(`clip/like/${clipId}`),
     dislikeClip: (clipId: string): Promise<{}> => Requests.post(`clip/dislike/${clipId}`),
     updateClip: (clip: IClipFormValues): Promise<IClip> => Requests.put(`clip/${clip.id}`, clip),
-    deleteComment: (commentId: string): Promise<{}> => Requests.delete(`clip/comment/${commentId}`)
+    deleteComment: (commentId: string): Promise<{}> => Requests.delete(`clip/comment/${commentId}`),
+    getHistory: () : Promise<IClip[]> => Requests.get("clip/history")
 }
 
 // Auth requests

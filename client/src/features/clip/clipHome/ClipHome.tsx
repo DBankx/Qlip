@@ -6,8 +6,9 @@ import {IClip} from "../../../infrastructure/models/clip";
 import Clip from "./Clip";
 
 const ClipHome = () => {
-    const {loadingInitial, loadAllClips, clipsData} = useContext(rootStoreContext).clipStore;
+    const {loadingInitial, loadAllClips, clipsData, watchedQlips, notWatchedQlips} = useContext(rootStoreContext).clipStore;
     const {showSidebar} = useContext(rootStoreContext).commonStore;
+    const {isLoggedIn} = useContext(rootStoreContext).authStore;
     
     useEffect(() => {
         showSidebar();
@@ -20,17 +21,55 @@ const ClipHome = () => {
     
     return (
         <div className={"sidebar-way main-container sidebar-void"}>
-            <div style={{display: "flex", alignItems: "center", width: "100%"}}>
-                <h4 style={{fontWeight: 600, color: "#777777"}}>All Qlips</h4>
-                <hr className="divider" style={{width: "90%", marginLeft: "1em"}} />
-            </div>
-        <div className={"p-grid home-clip p-ai-center"}>
-            {clipsData.map((clip: IClip) => (
-                <div key={clip.id}>
-                <Clip clipData={clip} />
+            {!isLoggedIn ? (
+                <div>
+                <h4 style={{fontWeight: 600, color: "#777777", overflow: "hidden", whiteSpace: "nowrap", marginBottom: "1em"}} >All Qlips<span style={{display: "inline-block", width: "100%"}}><hr className="divider" style={{width: "100%"}} /></span></h4>
+                <div className={"p-grid home-clip"}>
+                    {clipsData.map((clip: IClip) => (
+                        <div className={"clip-box p-col-12 p-xl-3 p-lg-4 p-md-5 p-sm-6"}  key={clip.id}>
+                            <Clip clipData={clip} />
+                        </div>
+                    ))}
                 </div>
-            ))}
-        </div>
+                </div>
+                    ) : (
+                        <div>
+                            <div style={{position: "relative"}}>
+                <h4 style={{fontWeight: 600, color: "#777777", overflow: "hidden", whiteSpace: "nowrap", marginBottom: "1em"}} >New Qlips<span style={{display: "inline-block", width: "100%"}}><hr className="divider" style={{width: "100%"}} /></span></h4>
+                                <div className={"p-grid home-clip"} style={{position: "relative"}}>
+                                    {notWatchedQlips.length > 0 ? notWatchedQlips.map((clip: IClip) => (
+                                        <div className={"clip-box p-col-12 p-xl-3 p-lg-4 p-md-5 p-sm-6"}  key={clip.id}>
+                                            <Clip clipData={clip} />
+                                        </div>
+                                    )) : 
+                                        <div className="p-text-center" style={{margin: "2em auto", fontWeight: 600, color: "#777777"}}>
+                                            <div>
+                                        <i className="fas fa-video-slash fa-4x"/>
+                                        <p>There are no new qlips :(</p>
+                                            </div>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                            <div>
+                                <h4 style={{fontWeight: 600, color: "#777777", overflow: "hidden", whiteSpace: "nowrap", marginBottom: "1em"}} >Watched<span style={{display: "inline-block", width: "100%"}}><hr className="divider" style={{width: "100%"}} /></span></h4>
+                                <div className={"p-grid home-clip"}>
+                                    {watchedQlips.length > 0 ? watchedQlips.map((clip: IClip) => (
+                                        <div className={"clip-box p-col-12 p-xl-3 p-lg-4 p-md-5 p-sm-6"}  key={clip.id}>
+                                            <Clip clipData={clip} />
+                                        </div>
+                                    )) :
+                                        <div className="p-text-center" style={{margin: "2em auto", fontWeight: 600, color: "#777777"}}>
+                                            <div>
+                                                <i className="fas fa-video-slash fa-4x"/>
+                                                <p>You have not watched any qlips :(</p>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+           </div>
+            )}
         </div>
     )
 }

@@ -25,7 +25,11 @@ const ChannelsTab : React.FC<IProps> = ({channel}) => {
                     <div key={user.username} className={"p-col-6 p-sm-4 p-lg-2 p-md-3"}>
                         <ChannelUser channelUser={user} channel={channel} />
                     </div>
-                )) : <span>{channel.isUser ? "You" : channel.username} {channel.isUser ? "have" : "has"} no subscriptions</span>}
+                )) :  <div className="p-text-center" style={{margin: "4em auto", fontWeight: 600, color: "#777777"}}>
+                    <div>
+                        <span>{channel.isUser ? "You" : channel.username} {channel.isUser ? "have" : "has"} no subscriptions</span>
+                    </div>
+                </div>}
             </div>
         </Fragment>
     )

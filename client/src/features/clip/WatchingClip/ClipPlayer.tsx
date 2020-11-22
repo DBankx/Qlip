@@ -59,10 +59,10 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
         
         
         player.on("ended", (() => {
-            if(UpNextClips.length > 0 && autoPlay){
+            if(UpNextClips!.data.length > 0 && autoPlay){
                 setEnded(!end);
                 setTimeout(()=> {
-                    history.push(`/qlip/${UpNextClips[0].id}`)
+                    history.push(`/qlip/${UpNextClips!.data[0].id}`)
                 }, 2000)
             }
         }));
@@ -76,7 +76,7 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
         <Fragment>
         <div className={"p-mt-2 p-shadow-7"} style={{position: "relative"}} >
            <video className={"js-plyr plyr"} />
-            {end && UpNextClips.length > 0 && <div className="playing-next">
+            {end && UpNextClips!.data.length > 0 && <div className="playing-next">
                <div>
                    PLAYING NEXT...
                </div>

@@ -24,7 +24,7 @@ const ChannelClip: React.FC<IProps> = ({clip}) => {
                     </div>
                 </div>
             </Link>
-            <Link to={`/qlip/${clip.id}`} className={"truncate"} style={{fontSize: "0.9em", fontWeight: 500, textDecoration: "none", color: "#fff"}}>{clip.title}</Link>
+            <Link to={`/qlip/${clip.id}`} className={"upNext-title"} style={{fontSize: "0.9em", fontWeight: 500, textDecoration: "none", color: "#fff"}}>{clip.title}</Link>
             <div className={"p-d-flex clip-content"} style={{color: "#777777", fontSize: "0.8em"}}>
                 <span>{clip.views} Views</span>
                 <span style={{margin: "0 0.4em"}}>•</span>

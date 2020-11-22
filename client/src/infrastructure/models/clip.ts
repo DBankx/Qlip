@@ -18,6 +18,8 @@ export interface IClip{
     subscribedToAuthor: boolean;
     isUser: boolean;
     comments: IComment[];
+    isWatched: boolean;
+    watchedAt: Date;
 }
 
 export interface IPaginatedClipResponse{

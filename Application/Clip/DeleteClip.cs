@@ -48,11 +48,17 @@ namespace Application.Clip
                 }
 
                 var comments = await _context.Comments.Where(x => x.Clip == clip).ToListAsync();
-                
+                var views = await _context.Views.Where(x => x.Clip == clip).ToListAsync();
+                var dislikes = await _context.DislikeUserClips.Where(x => x.Clip == clip).ToListAsync();
+                var likes = await _context.UserClips.Where(x => x.Clip == clip).ToListAsync();
                 // delete clip from database
                 _context.Clips.Remove(clip);
                 // remove all the comments connected to the qlip
                 _context.Comments.RemoveRange(comments);
+                // remove all the views
+                _context.Views.RemoveRange(views);
+_context.DislikeUserClips.RemoveRange(dislikes);
+_context.UserClips.RemoveRange(likes);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

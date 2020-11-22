@@ -13,13 +13,13 @@ const Settings = () => {
             {isLoggedIn && user ? (
                 <div>
                 <section id={"account"}>
-                <b>Account</b>
+                <h2 style={{fontWeight: 600}}>Account</h2>
                 <Account />
                 </section>
             <hr className={"divider p-mt-2 p-mb-4"} />
             <section id={"channel"}>
                <b>Your channel</b>
-               <small style={{display: "block", color: "#777777", margin: "1em 0"}}>This is your presense on Qlip.tv, you need this channel to show off your awesome qlips!</small>
+               <small style={{display: "block", color: "#777777", margin: "1em 0"}}>This is your presence on Qlip.tv, you need this channel to show off your awesome qlips!</small>
                 <ChannelSettings />
            </section>
             <hr className={"divider p-mt-2 p-mb-4"} />

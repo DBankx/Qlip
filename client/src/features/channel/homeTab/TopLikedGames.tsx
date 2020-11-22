@@ -25,8 +25,7 @@ const TopLikeGames: React.FC<IProps> = ({channel}) => {
     return (
         <div>
             <div style={{display: "flex", alignItems: "center"}}>
-                <span style={{fontSize: "0.9em"}}>Recent Fav games</span>
-                {!isMobile && (<Button label={"View all Favorite games"} icon={"pi pi-eye"} className={"p-button-text p-button-plain p-ml-3"} />)}
+                <p style={{fontWeight: 600, color: "#777777"}}>Favorite games</p>
             </div>
                 <div style={{marginTop: "1em"}} className={isMobile ? "" : "p-grid p-ai-center"}>
                 {channel.likedGames.length > 0 ? (isMobile ? (

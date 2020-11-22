@@ -1,4 +1,4 @@
-﻿import React, {useContext} from "react";
+﻿import React, {useContext, useEffect} from "react";
 import rootStoreContext from "../../application/stores/rootStore";
 import {observer} from "mobx-react-lite";
 import { RouteComponentProps } from "react-router-dom";
@@ -11,6 +11,10 @@ import * as yup from "yup";
 
 const Report: React.FC<RouteComponentProps<{username: string}>> = ({location, history, match}) => {
     const {sendingEmail, sendEmail} = useContext(rootStoreContext).emailStore;
+    const {showSidebar} = useContext(rootStoreContext).commonStore;
+    useEffect(() => {
+        showSidebar()
+    }, [showSidebar])
     const validationSchema = yup.object().shape({
         body: yup.string().required("Body is required to send an email"),
         subject: yup.string().required("subject is required to send an email")

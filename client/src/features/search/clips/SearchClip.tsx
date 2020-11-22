@@ -37,10 +37,12 @@ const SearchClip : React.FC<IProps> = ({clip}) => {
                     <img src={clip.authorImage} alt={"avatar"} style={{width: "30px", borderRadius: "50%"}} />
                     <p className={"p-ml-2"} style={{fontSize: "0.9em"}}>{clip.authorName}</p>
                 </div>
-                <div style={{margin: "0.6em 0"}}>
-                    <span className={"label"}>{clip.likes} Likes</span>
-                    <span className={"label"}>{clip.dislikes} Dislikes</span>
-                </div>
+                
+                {clip.isWatched && (
+                    <div className="watched-label" style={{marginTop: "1em"}}>
+                        watched
+                    </div>
+                )}
             </div>
         </div>
         </Link>

@@ -25,6 +25,14 @@ namespace Application.Clip
                 .ForMember(x => x.AuthorImage, opt => opt.MapFrom(s => s.ApplicationUser.GravatarProfileImage))
                 .ForMember(x => x.Views, opt => opt.MapFrom<ViewReslover2>())
                 .ForMember(x => x.IsWatched, opt => opt.MapFrom<IsWatchedResolver>());
+
+
+            CreateMap<Domain.Clip, HistoryClipsDto>()
+                .ForMember(x => x.AuthorName, opt => opt.MapFrom(s => s.ApplicationUser.UserName))
+                .ForMember(x => x.AuthorImage, opt => opt.MapFrom(s => s.ApplicationUser.GravatarProfileImage))
+                .ForMember(x => x.Views, opt => opt.MapFrom<ViewReslover3>())
+                .ForMember(x => x.WatchedAt, opt => opt.MapFrom<WatchedAtValueResolver>());
+
         }
     }
 }
