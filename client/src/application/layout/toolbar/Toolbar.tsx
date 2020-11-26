@@ -81,7 +81,7 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
     const ref = useRef<any>(null);
     const leftContent = (
         <Fragment>
-                <Button label={"Upload"} onClick={() => history.push("/create")} style={{fontWeight: 600}} className={"p-d-none p-d-md-inline-flex p-mr-4 p-button-bg"} />
+                <Button label={"Upload"} onClick={() => history.push("/create")} style={{fontWeight: 600}} className={"p-d-none p-d-md-inline-flex p-mr-4"} />
                 
                         <Formik validationSchema={clipSearchValidationSchema} initialValues={{title: "", predicate: "qlips"}} onSubmit={(values, action) => {
                           history.push(`/search/${values.predicate}?${values.predicate === "channels" ? "username" : "title"}=${values.title}`);

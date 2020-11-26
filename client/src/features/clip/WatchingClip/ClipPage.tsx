@@ -4,7 +4,7 @@ import rootStoreContext from "../../../application/stores/rootStore";
 import { RouteComponentProps } from "react-router-dom";
 import Spinner from "../../../application/layout/Spinner";
 import ClipDetails from "./ClipDetails";
-import UpNext from "./upNext/UpNext"; 
+import UpNext from "./upNext/UpNext";
 
 const ClipPage: React.FC<RouteComponentProps<{id: string}>> = ({match}) => {
     const rootStore = useContext(rootStoreContext);

@@ -8,6 +8,8 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import "./application/layout/index.css";
+import "react-placeholder/lib/reactPlaceholder.css";
+import 'react-placeholder/lib/reactPlaceholder.css';
 // ========= routing ================
 import {Router} from "react-router-dom";
 import {createBrowserHistory} from "history";

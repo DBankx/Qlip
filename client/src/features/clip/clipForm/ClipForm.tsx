@@ -4,16 +4,15 @@ import * as yup from "yup";
 import { IClipFormValues} from "../../../infrastructure/models/clip";
 import {InputText} from "primereact/inputtext";
 import {Editor} from "primereact/editor";
-import {FileUpload} from "primereact/fileupload";
 import rootStoreContext from "../../../application/stores/rootStore";
 import {observer} from "mobx-react-lite";
 import {Dialog} from "primereact/dialog";
 import {Button} from "primereact/button";
-import {Dropdown} from "primereact/dropdown";
-import gameNameOptions from "../../../application/common/gameNameOptions";
 import {history} from "../../../index";
+import GameSearchPane from "./GameSearchPane";
 
 const ClipForm = ( ) => {
+    
     let {uploadedClip, deleteUploadedClip, createClip, setUploadedClip} = useContext(rootStoreContext).clipStore;
     const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
     
@@ -89,7 +88,7 @@ const ClipForm = ( ) => {
                 {({handleSubmit,
                       errors,
                       touched,
-                      values,
+                      values, 
                       handleChange,
                     handleBlur,
                     setFieldValue,
@@ -117,8 +116,10 @@ const ClipForm = ( ) => {
                         
                         <div className={"p-field"} style={{marginTop: "3em"}}>
                             <span className={"p-float-label"}>
-                            <Dropdown optionValue={"name"} className={errors.gameName && touched.gameName ? "p-invalid": "a"} name={"gameName"} style={{width: "100%", height: "50px"}} value={values.gameName} options={gameNameOptions} onChange={handleChange} optionLabel="name" filter showClear filterBy="name" placeholder="Select a Game" onBlur={handleBlur("gameName")} />
-                            </span>
+                                <InputText id="gameName" name="gameName" value={values.gameName} onChange={handleChange} onBlur={handleBlur} style={{width: "100%", height: "50px"}} className={`${errors.gameName && touched.gameName && "p-inavlid"} p-d-block`} />
+                                <GameSearchPane gameName={values.gameName} />
+                                <label htmlFor="gameName" className="p-d-block">Game name (required)</label>
+                           </span>
                             {errors.gameName && touched.gameName && (
                                 <small id="username2-help" className="p-invalid p-d-block">*{errors.title}</small>
                             )}

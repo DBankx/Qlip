@@ -1,9 +1,9 @@
 ﻿import React, {useContext, useEffect} from "react";
 import rootStoreContext from "../../../application/stores/rootStore";
-import Spinner from "../../../application/layout/Spinner";
 import {observer} from "mobx-react-lite";
 import {IClip} from "../../../infrastructure/models/clip";
 import Clip from "./Clip";
+import ClipHomePlaceholder from "./ClipHomePlaceholder";
 
 const ClipHome = () => {
     const {loadingInitial, loadAllClips, clipsData, watchedQlips, notWatchedQlips} = useContext(rootStoreContext).clipStore;
@@ -16,7 +16,7 @@ const ClipHome = () => {
     }, [loadAllClips, showSidebar])
     
     if(loadingInitial) {
-        return <Spinner/>
+        return <ClipHomePlaceholder />;
     }
     
     return (

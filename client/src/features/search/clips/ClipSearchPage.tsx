@@ -32,7 +32,6 @@ const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({locati
     }, [title, searchClipByTitle, showSidebar, SearchPageSize, SearchPageNumber])
     
     if (loadingInitial || SearchResponse === null ) return <Spinner />
-    
     return (
         <div>
        <div className={"sidebar-way main-container inner-container sidebar-void wrapper"}>
@@ -45,7 +44,7 @@ const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({locati
                     </div>
                 </div>
                 <hr className={"divider p-mt-2 p-mb-2"} />
-                <small>Page {SearchResponse.pageNumber} of {SearchResponse.totalPages}</small>
+                <small>Page {SearchResponse.pageNumber} of {SearchResponse!.totalPages}</small>
                 <div className={"p-mt-2"}>
                     {SearchResponse.data.length > 0 ? SearchResponse.data.map((clip) => (
                         <div key={clip.id}>

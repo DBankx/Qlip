@@ -24,6 +24,8 @@ import UnAuthorized from "../../application/common/UnAuthorized";
 import PrivateRoute from "../../infrastructure/utils/PrivateRoute";
 import Report from "../../features/email/Report";
 import HistoryPage from "../../features/history/History";
+import Contact from "../../features/contact/Contact";
+import Other from "../../features/contact/Other";
 
 const App = () => {
     
@@ -65,6 +67,8 @@ const App = () => {
                 <Route exact path={"/unauthorized"} component={UnAuthorized} />
                 <PrivateRoute component={Report} path={["/report/:username", "/email-contact"]} exact />
                 <PrivateRoute component={HistoryPage} path="/history" exact />
+                <Route exact path={"/contact"} component={Contact} />
+                <Route exact path={"/other-contact"} component={Other} />
             </Switch>
         </div>
     </Fragment>

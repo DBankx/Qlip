@@ -58,8 +58,8 @@ const Navbar = () => {
                         command: () => history.push(`/channel/${user?.username}`)
                     },
                     {
-                        label: "Logout",
-                        icon: "pi pi-power-off",
+                        label: "Sign out",
+                        icon: "pi pi-sign-out",
                         command: () => logout()
                     }
                 ]
@@ -79,6 +79,12 @@ const Navbar = () => {
                     command: () => openAuthModal(<Login/>)
                 }
             ]
+        },
+        {
+            label: "Your History",
+            icon: "fas fa-history",
+            command: () => history.push("/history"),
+            className: "hide-bg"
         }
     ];
 
@@ -88,12 +94,12 @@ const Navbar = () => {
                 <div className={"avatar-section hide-sm hide-md"}>
                         <div className={"p-d-flex p-flex-wrap p-jc-between p-ai-center"}>
                             <div onClick={(event) => loggedInModalItemsOptions.current.toggle(event)} style={{marginRight: "0.5em"}}>
-                                <span  style={{fontSize: "0.9em"}}>{user?.username} <i className="pi pi-chevron-down" style={{float: "right", fontSize: "0.9em", color: "#777777", marginTop: "0.5em"}} /></span>
+                                <span  style={{fontSize: "0.9em"}}>{user?.username} <i className="pi pi-chevron-down" style={{float: "right", fontSize: "0.9em", color: "#777777", marginTop: "0.3em"}} /></span>
                                 <OverlayPanel appendTo={document.body} ref={loggedInModalItemsOptions} >
                                     <div className={"logged-in-options"}>
                                             <li><Button icon={"pi pi-user"} label={"Your Channel"} className={"p-button-sm p-button-text p-button-plain"} style={{width: "100%"}}onClick={() => history.push(`/channel/${user!.username}`)} /></li>
                                         <li><Button icon={"fas fa-history"} label={"Your History"} className={"p-button-sm p-button-text p-button-plain"} style={{width: "100%"}}onClick={() => history.push(`/history`)} /></li>
-                                            <li><Button icon={"pi pi-power-off"} label={"Logout"} className={"p-button-sm p-button-text p-button-plain"}  style={{width: "100%"}} onClick={() => logout()} /></li>
+                                            <li><Button icon={"pi pi-sign-out"} label={"Sign out"} className={"p-button-sm p-button-text p-button-plain"}  style={{width: "100%"}} onClick={() => logout()} /></li>
                                     </div>
                                 </OverlayPanel>
                                 <span className={"followers-count"}>{user?.email}</span>

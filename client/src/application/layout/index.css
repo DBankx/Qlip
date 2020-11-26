@@ -858,4 +858,11 @@ span {
   margin-top: 0.5em;
 }
 
+.small-contact-box {
+  width: 100px;
+  height: 10px;
+  background: #fff;
+  margin: 1em auto;
+}
+
 /*# sourceMappingURL=index.css.map */

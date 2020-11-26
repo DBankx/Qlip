@@ -208,6 +208,7 @@
       <e p="client\node_modules\quill" t="IncludeRecursive" />
       <e p="client\node_modules\react" t="IncludeRecursive" />
       <e p="client\node_modules\react-dom" t="IncludeRecursive" />
+      <e p="client\node_modules\react-placeholder" t="IncludeRecursive" />
       <e p="client\node_modules\react-router-dom" t="IncludeRecursive" />
       <e p="client\node_modules\react-scripts" t="IncludeRecursive" />
       <e p="client\node_modules\react-transition-group" t="IncludeRecursive" />
