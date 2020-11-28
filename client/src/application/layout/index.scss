@@ -928,3 +928,32 @@ color: #81C784;
   background: #fff;
   margin: 1em auto;
 }
+
+.game-search-pane{
+  background: #1E1E1E;
+  border: 1px solid #4A4A4A;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.game-dropdown-list{
+  padding: 1em;
+  img{
+    width: 150px;
+  }
+  &:hover{
+    background: #4A4A4A;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 500px){
+  .game-dropdown-list{
+    img{
+      width: 120px;
+    }
+  }
+}

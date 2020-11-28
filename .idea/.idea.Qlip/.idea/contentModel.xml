@@ -22,6 +22,7 @@
           <e p="SubscriptionController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
         </e>
+        <e p="debug.log" t="Include" />
         <e p="Middlewares" t="Include">
           <e p="ErrorHandlingMiddleware.cs" t="Include" />
         </e>
@@ -120,6 +121,7 @@
           <e p="SearchChannelByUsername.cs" t="Include" />
           <e p="SearchClipByGameName.cs" t="Include" />
           <e p="SearchClipByTitle.cs" t="Include" />
+          <e p="SearchGamesByClipsNo.cs" t="Include" />
         </e>
       </e>
       <e p="client\node_modules\@babel\parser" t="IncludeRecursive" />

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import playButton from "../../../application/layout/images/play.png";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import parse from "html-react-parser";
 
 dayjs.extend(relativeTime);
 

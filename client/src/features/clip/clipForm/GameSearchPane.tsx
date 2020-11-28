@@ -2,6 +2,7 @@
 import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../../application/stores/rootStore";
 import Spinner from "../../../application/layout/Spinner";
+import CreateGameDropdownList from "./CreateGameDropdownList";
 
 interface IProps{
     gameName: string;
@@ -15,10 +16,14 @@ const GameSearchPane : React.FC<IProps> = ({gameName}) => {
        } 
     }, [gameName, searchGamesByName])
     return (
-        <div>
-            {
-                loadingGames ? <Spinner /> : `${games?.data.length}` 
-            }
+        <div className="game-search-pane">
+            {loadingGames ? <Spinner /> : (
+                games && games.data.map((game) => (
+                    <div key={game.id}>
+                        <CreateGameDropdownList game={game} />       
+                    </div>
+                ))
+            )} 
         </div>
     )
 }

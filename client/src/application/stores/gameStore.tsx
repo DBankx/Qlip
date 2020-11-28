@@ -18,6 +18,8 @@ export class GameStore{
     @observable pageSize: number = 20;
     @observable likingGame: boolean = false;
     @observable target: number = 0;
+    @observable selectedGame: string = "";
+    @observable showGameSearchPane: boolean = false;
     
     @action loadGames = async () => {
         this.loadingGames = true;
@@ -114,4 +116,33 @@ export class GameStore{
             throw error;
         }
     }
+    
+    @action sortGamesByClipNo = async() => {
+        this.loadingGames = true;
+        try{
+            let response = await SearchRequest.searchClipByClipNo(this.pageNumber, this.pageSize);
+            runInAction(() => {
+                this.games = response;
+                this.loadingGames = false;
+            })
+        } catch (error) {
+            runInAction(() => {
+                this.loadingGames = false;
+                this.rootStore.commonStore.showAlert("error", "Error occurred", "Problem loading games");
+            })
+            throw error;
+        }
+    }
+    
+    @action selectGame = (gameName: string) => {
+        this.selectedGame = gameName;
+    }
+    
+    @action toggleGameSearchPaneOff = () => {
+        this.showGameSearchPane = false; 
+    }
+
+    @action toggleGameSearchPaneOn = () => {
+        this.showGameSearchPane = true;
+    } 
 }

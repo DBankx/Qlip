@@ -1,12 +1,9 @@
 ﻿import React, {useContext, useEffect} from "react";
 import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../application/stores/rootStore";
-import dayjs from "dayjs";
-import calendar from "dayjs/plugin/calendar";
 import Spinner from "../../application/layout/Spinner";
 import HistoryClip from "./HistoryClip";
 
-dayjs.extend(calendar);
 const HistoryPage = () => {
     const {getHistoryClips, groupedHistory, loadingInitial} = useContext(rootStoreContext).clipStore;
     const {showSidebar} = useContext(rootStoreContext).commonStore;
@@ -22,12 +19,7 @@ const HistoryPage = () => {
             <h2 style={{fontWeight: 600}}>Qlip History</h2>
             {groupedHistory.length > 0 ? groupedHistory.map(([date, historyclips]) => (
                 <div key={date} style={{marginTop: "2em"}}>
-                <h4 style={{fontWeight: 600, color: "#777777", overflow: "hidden", whiteSpace: "nowrap"}}>{dayjs().calendar(dayjs(date), {
-                    sameDay: "[Today]",
-                    lastDay: "[Yesterday]",
-                    lastWeek: "[Last] dddd",
-                    nextDay: "[Yesterday]"
-                })}<span style={{display: "inline-block", width: "100%"}}><hr className="divider"/></span></h4>
+                <h4 style={{fontWeight: 600, color: "#777777", overflow: "hidden", whiteSpace: "nowrap"}}>{date}<span style={{display: "inline-block", width: "100%"}}><hr className="divider"/></span></h4>
                     <div>
                         {historyclips.map((clip) => (
                             <div key={clip.id}>

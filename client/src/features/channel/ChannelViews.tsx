@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, {useContext} from "react";
 import {observer} from "mobx-react-lite";
 import {TabPanel, TabView} from "primereact/tabview";
 import ChannelHomeView from "./homeTab/ChannelHomeView";
@@ -6,16 +6,20 @@ import { IChannel } from "../../infrastructure/models/channel";
 import ClipsTab from "./clipsTab/ClipsTab";
 import AboutTab from "./aboutTab/AboutTab";
 import LikedClipsTab from "./likedClipsTab/LikedClipsTab";
-import ChannelsTab from "./channelsTab/ChannelsTab"; 
+import ChannelsTab from "./channelsTab/ChannelsTab";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
-interface IProps{
+
+interface IProps extends RouteComponentProps{ 
     channel: IChannel
 }
 
-const ChannelViews: React.FC<IProps> = ({channel}) => {
+const ChannelViews: React.FC<IProps> = ({channel, location}) => {
+    const params = new URLSearchParams(location.search)
+    const tab = params.get("tab");
     return (
         <div style={{marginTop: "1.4em"}}>
-       <TabView>
+       <TabView activeIndex={tab === null ? 0 : tab === "about" ? 2 : tab === "subscriptions" ? 4 : tab === "liked" ? 3 : 1}>
            <TabPanel header={<div><p className={"hide-sm"}>home</p><i className={"pi pi-home hide-bg"}/></div>}>
                <div>
                    <ChannelHomeView channel={channel} />
@@ -46,4 +50,4 @@ const ChannelViews: React.FC<IProps> = ({channel}) => {
     )
 }
 
-export default observer(ChannelViews);
+export default withRouter(observer(ChannelViews));

@@ -1,4 +1,4 @@
-﻿import React, {useContext} from "react";
+﻿import React, {useContext, useEffect} from "react";
 import {Formik} from "formik";
 import * as yup from "yup";
 import { IClipFormValues} from "../../../infrastructure/models/clip";
@@ -15,6 +15,14 @@ const ClipForm = ( ) => {
     
     let {uploadedClip, deleteUploadedClip, createClip, setUploadedClip} = useContext(rootStoreContext).clipStore;
     const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
+
+    const {selectedGame, toggleGameSearchPaneOn, showGameSearchPane, toggleGameSearchPaneOff} = useContext(rootStoreContext).gameStore;
+    
+    useEffect(() => {
+        if(selectedGame){
+            toggleGameSearchPaneOff();
+        }
+    }, [selectedGame, toggleGameSearchPaneOff])
     
     // yup validation schema 
     const qlipValidationschema = yup.object().shape({
@@ -84,7 +92,7 @@ const ClipForm = ( ) => {
     
     return(
         <div>
-            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: "", thumbnail: uploadedClip ? uploadedClip.thumbnail : ""  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
+            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: selectedGame, thumbnail: uploadedClip ? uploadedClip.thumbnail : ""  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
                 {({handleSubmit,
                       errors,
                       touched,
@@ -116,8 +124,11 @@ const ClipForm = ( ) => {
                         
                         <div className={"p-field"} style={{marginTop: "3em"}}>
                             <span className={"p-float-label"}>
-                                <InputText id="gameName" name="gameName" value={values.gameName} onChange={handleChange} onBlur={handleBlur} style={{width: "100%", height: "50px"}} className={`${errors.gameName && touched.gameName && "p-inavlid"} p-d-block`} />
-                                <GameSearchPane gameName={values.gameName} />
+                                <InputText id="gameName" name="gameName" value={values.gameName} onChange={(e) => {
+                                    handleChange(e);
+                                    toggleGameSearchPaneOn();
+                                }} onBlur={handleBlur} style={{width: "100%", height: "50px"}} className={`${errors.gameName && touched.gameName && "p-inavlid"} p-d-block`} />
+                                {values.gameName.length > 0 && showGameSearchPane && <GameSearchPane gameName={values.gameName} />}
                                 <label htmlFor="gameName" className="p-d-block">Game name (required)</label>
                            </span>
                             {errors.gameName && touched.gameName && (

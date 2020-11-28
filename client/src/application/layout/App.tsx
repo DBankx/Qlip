@@ -26,6 +26,7 @@ import Report from "../../features/email/Report";
 import HistoryPage from "../../features/history/History";
 import Contact from "../../features/contact/Contact";
 import Other from "../../features/contact/Other";
+import PopularGames from "../../features/game/PopularGames";
 
 const App = () => {
     
@@ -69,6 +70,7 @@ const App = () => {
                 <PrivateRoute component={HistoryPage} path="/history" exact />
                 <Route exact path={"/contact"} component={Contact} />
                 <Route exact path={"/other-contact"} component={Other} />
+                <Route exact path={"/popular-games"} component={PopularGames} />
             </Switch>
         </div>
     </Fragment>
