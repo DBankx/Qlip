@@ -1,4 +1,4 @@
-﻿import React, {FormEvent, Fragment, useContext, useRef, useState} from "react";
+﻿import React, { Fragment, useContext, useRef} from "react";
 import {Toolbar} from "primereact/toolbar"
 import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
@@ -19,7 +19,6 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
     const {openAuthModal} = useContext(rootStoreContext).commonStore;
     const isMobile = useMediaQuery({query: "(max-width: 500px)"});
     // placeholder form state managment
-    const [form, setForm] = useState("");
     const clipSearchValidationSchema = yup.object().shape({
         title: yup.string().required()
     })
@@ -43,7 +42,7 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
                {
                    label: isLoggedIn && user ? "Account settings" : "Create Account",
                    icon: "pi pi-user-plus",
-                   command: isLoggedIn && user ? () => alert("logged in")  : () => openAuthModal(<Register />)
+                   command: isLoggedIn && user ? () => history.push("/settings")  : () => openAuthModal(<Register />)
                },
                {
                    label: "Sign out",
@@ -81,7 +80,7 @@ const Toolbars: React.FC<RouteComponentProps> = ({location}) => {
     const ref = useRef<any>(null);
     const leftContent = (
         <Fragment>
-                <Button label={"Upload"} onClick={() => history.push("/create")} style={{fontWeight: 600}} className={"p-d-none p-d-md-inline-flex p-mr-4"} />
+                <Button label="Upload" onClick={() => history.push("/create")} style={{fontWeight: 600}} className={"p-d-none p-d-md-inline-flex p-mr-4"} />
                 
                         <Formik validationSchema={clipSearchValidationSchema} initialValues={{title: "", predicate: "qlips"}} onSubmit={(values, action) => {
                           history.push(`/search/${values.predicate}?${values.predicate === "channels" ? "username" : "title"}=${values.title}`);

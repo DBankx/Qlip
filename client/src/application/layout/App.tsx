@@ -66,7 +66,7 @@ const App = () => {
                 <Route exact path={"/search/qlips"} component={ClipSearchPage} />
                 <Route exact path={"/search/channels"} component={ChannelSearchPage} />
                 <Route exact path={"/unauthorized"} component={UnAuthorized} />
-                <PrivateRoute component={Report} path={["/report/:username", "/email-contact"]} exact />
+                <PrivateRoute component={Report} path={["/report/:username", "/email-contact", "/send-feedback", "/history-report"]} exact />
                 <PrivateRoute component={HistoryPage} path="/history" exact />
                 <Route exact path={"/contact"} component={Contact} />
                 <Route exact path={"/other-contact"} component={Other} />

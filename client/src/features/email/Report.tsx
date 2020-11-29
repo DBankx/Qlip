@@ -27,14 +27,26 @@ const Report: React.FC<RouteComponentProps<{username: string}>> = ({location, hi
         {name: "Video not uploading", code: "VD"},
         {name: "Reporting a user", code: "RP"},
         location.pathname.startsWith("/report") &&
-        {name: `Reporting ${match.params.username}`, code: "RPU"}
+        {name: `Reporting ${match.params.username}`, code: "RPU"},
+        {name: "Sending Feedback", code: "SF"},
+        {name: "Report your history", code: "RH"}
     ] 
     return (
         <div className="sidebar-way main-container sidebar-void">
-            <h2 style={{fontWeight: 600}}>{location.pathname.startsWith("/report") ? `Report ${match.params.username}` : "Contact us by mail"}</h2>
+            <h2 style={{fontWeight: 600}}>{location.pathname.startsWith("/report") ? `Report ${match.params.username}` : location.pathname.startsWith("/send") ? "Send Feedback" : location.pathname.startsWith("/history") ? "Report your history" :  "Contact us by mail"}</h2>
             {location.pathname === "/email-contact" && (<p style={{marginTop: "1em", color: "#777777"}}>Thank your for choosing to contact Qlip by mail, Please choose a subject below and type in your message in the box and we will get back to you as soon as possible!. Thanks for understanding!</p>)}
+            {location.pathname === "/history-report" && <p style={{marginTop: "1em", color: "#777777"}}>
+               If you see a video you havent watched in your history please report it asap!, someone might be trying to access your profile 
+            </p>}
+            {location.pathname === "/send-feedback" && (
+                <p style={{marginTop: "1em", color: "#777777"}}>
+                    Thank you for opting to give us a feedback, Please send your message to us and your query will be dealt with!
+                </p>
+            )}
             {location.pathname.startsWith("/report") && (<p style={{marginTop: "1em", color: "#777777"}}>Please tell us what {match.params.username} did wrong :(</p>)}
-            <Formik validationSchema={validationSchema} initialValues={{body: "", subject: location.pathname.startsWith("/report") ? `Reporting ${match.params.username}` : ""}} onSubmit={(values: IEmailFormValues, action) => sendEmail(values).then(() => action.resetForm())}>
+            
+            
+            <Formik validationSchema={validationSchema} initialValues={{body: "", subject: location.pathname.startsWith("/report") ? `Reporting ${match.params.username}` : location.pathname.startsWith("/send") ? "Sending Feedback" : location.pathname.startsWith("/history") ? "Report your history" : ""}} onSubmit={(values: IEmailFormValues, action) => sendEmail(values).then(() => action.resetForm())}>
                 {({
                     handleSubmit,
                     handleBlur,

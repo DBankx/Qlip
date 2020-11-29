@@ -349,6 +349,8 @@
           <e p="20201115174610_AddedThumbnailToClipEntity.Designer.cs" t="Include" />
           <e p="20201121093814_addedViewTable.cs" t="Include" />
           <e p="20201121093814_addedViewTable.Designer.cs" t="Include" />
+          <e p="20201129094338_addedDuration.cs" t="Include" />
+          <e p="20201129094338_addedDuration.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

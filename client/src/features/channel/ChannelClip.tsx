@@ -1,22 +1,22 @@
-﻿import React, {useState} from "react";
+﻿import React from "react";
 import { IClip } from "../../infrastructure/models/clip";
 import {observer} from "mobx-react-lite";
 import playButton from "../../application/layout/images/play.png";
 import {Link} from "react-router-dom";
 import dayjs from "dayjs";
+import formatVideoTime from "../../infrastructure/HelperFunctions/formatVideoTime";
 
 interface IProps{
     clip: IClip
 }
 
 const ChannelClip: React.FC<IProps> = ({clip}) => {
-    const [duration, setDuration] = useState(0);
     return (
         <div className={""}>
-            <Link to={`/qlip/${clip.id}`}>
+            <Link to={`/qlip/${clip.id}`} style={{color: "#fff"}}>
                 <div className={"channel-thumbnail p-mr-3"}>
                     <img src={clip.thumbnail} style={{width: "100%"}} alt="thumbnail" className={"clip-channel-thumbnail"} />
-                    <div className={"clip-duration"}>{duration.toFixed(2) + "S"}</div>
+                    <div className={"clip-duration"}>{formatVideoTime(clip.duration)}</div>
                     <div className={"channel-overlay"}>
                         <div className={"content"}>
                             <img className={"play-button-channel"} alt={"play-button"} src={playButton} />

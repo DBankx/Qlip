@@ -16,6 +16,7 @@ namespace Application.Clip
         public string GameName { get; set; }
         public string AuthorName { get; set; }
         public string AuthorImage { get; set; }
+        public double Duration { get; set; }
         public int AuthorSubscriberCount { get; set; }
         public bool SubscribedToAuthor { get; set; }
         public string Thumbnail { get; set; }

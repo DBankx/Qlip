@@ -28,8 +28,8 @@ const Navbar = () => {
                     command: () => history.push("/")
                 },
                 {
-                    label: 'Delete',
-                    icon: 'pi pi-fw pi-trash'
+                    label: 'Search',
+                    icon: 'pi pi-search'
                 },
                 {
                     separator: true

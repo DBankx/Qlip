@@ -40,11 +40,13 @@ const ClipsTab : React.FC<IProps> = ({clips}) => {
             <div>
                 <div className={isMobile ? "p-grid p-ai-center p-jc-center" : "p-grid p-ai-center"}>
                     {loadingFilter ? <Spinner /> : clips.length > 0 ? (
-                        clips.map((clip: IClip) => (
-                            <div key={clip.id} className={"p-col-12 p-lg-3 p-md-5 p-sm-6"}>
+                        <div className="p-grid">
+                            {clips.map((clip: IClip) => (
+                            <div key={clip.id} className={"clip-box p-col-12 p-xl-3 p-lg-4 p-md-5 p-sm-6"}>
                                 <ChannelClip clip={clip} />
                             </div>
-                        ))
+                        ))}
+                        </div>
                     ) : (
                         <div className="p-text-center" style={{margin: "4em auto", fontWeight: 600, color: "#777777"}}>
                             <div>

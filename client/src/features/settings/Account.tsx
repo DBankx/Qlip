@@ -1,14 +1,10 @@
 ﻿import React, {useContext} from "react";
 import {observer} from "mobx-react-lite";
-import {Button} from "primereact/button";
 import rootStoreContext from "../../application/stores/rootStore";
-import Register from "../auth/Register";
-import Login from "../auth/Login";
 import accountimg from "../../application/layout/images/undraw_profile_pic_ic5t.svg";
 
 const Account  = () => {
-    const {user, isLoggedIn} = useContext(rootStoreContext).authStore;
-    const {openAuthModal} = useContext(rootStoreContext).commonStore;
+    const {user} = useContext(rootStoreContext).authStore;
     
     return (
         <div className={"p-grid p-jc-between p-ai-center p-mt-4"}>

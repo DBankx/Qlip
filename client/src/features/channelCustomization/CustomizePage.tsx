@@ -1,6 +1,6 @@
 ﻿import React, {useContext, useEffect} from "react";
 import {observer} from "mobx-react-lite";
-import {Link, RouteComponentProps} from "react-router-dom";
+import {Link} from "react-router-dom";
 import rootStoreContext from "../../application/stores/rootStore";
 import Spinner from "../../application/layout/Spinner";
 import ProfilePicture from "./ProfilePicture"; 

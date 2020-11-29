@@ -7,7 +7,6 @@ import {history} from "../../index";
 const Contact = () => {
     const headerMail = <div  style={{textAlign: "center", marginTop: "1em"}}><i className="fas fa-envelope-open fa-4x"/></div>
     const headerPhone = <div  style={{textAlign: "center", marginTop: "1em"}}><i className="fas fa-phone-volume fa-4x"/></div>
-    const headerTwitter = <div  style={{textAlign: "center", marginTop: "1em"}}><i className="fab fa-twitter fa-4x"/></div>
     const headerFlag= <div  style={{textAlign: "center", marginTop: "1em"}}><i className="fas fa-flag fa-4x"/></div>
     return (
         <div className="sidebar-way main-container inner-container sidebar-void">

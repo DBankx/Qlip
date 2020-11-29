@@ -182,7 +182,8 @@ span{
   left: 0;
   background: #181818;
   font-size: 0.6em;
-  padding: 0.1em;
+  padding: 0.1em 0.3em;
+  color: #fff;
 }
 
 .main-sidebar{ 
@@ -937,6 +938,7 @@ color: #81C784;
   position: absolute;
   width: 100%;
   z-index: 3;
+  margin-bottom: 1em;
 }
 
 .game-dropdown-list{
@@ -945,7 +947,7 @@ color: #81C784;
     width: 150px;
   }
   &:hover{
-    background: #4A4A4A;
+    background:rgba(74,74,74,0.32) ;
     cursor: pointer;
   }
 }
@@ -957,3 +959,12 @@ color: #81C784;
     }
   }
 }
+
+.copyright{
+  position: absolute;
+  bottom: 0;
+  color: #4A4A4A;
+  font-size: 0.7em;
+  width: 100%;
+}
+

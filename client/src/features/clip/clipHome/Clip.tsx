@@ -1,9 +1,10 @@
-﻿import React, {useState} from "react";
+﻿import React from "react";
 import {IClip} from "../../../infrastructure/models/clip";
 import playButton from "../../../application/layout/images/play.png";
 import {Link} from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import formatVideoTime from "../../../infrastructure/HelperFunctions/formatVideoTime";
 
 dayjs.extend(relativeTime);
 
@@ -13,13 +14,11 @@ interface IProps{
 
 const Clip: React.FC<IProps> = ({clipData}) => {
     
-    const [duration, setDuration] = useState(0);
-    
     return <div >
         <Link to={`/qlip/${clipData.id}`}>
         <div className={"video-thumbnail"}>
         <img src={clipData.thumbnail} alt="thumbnail" className={"clip-thumbnail"} />
-        <div className={"clip-duration"}>{duration.toFixed(2) + "S"}</div>
+        <div className={"clip-duration"}>{formatVideoTime(clipData.duration)}</div>
         <div className={"overlay"}>
             <div className={"content"}>
                 <img className={"play-button"} alt={"play-button"} src={playButton} />

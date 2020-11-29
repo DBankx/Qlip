@@ -20,6 +20,7 @@ export interface IClip{
     comments: IComment[];
     isWatched: boolean;
     watchedAt: Date;
+    duration: number;
 }
 
 export interface IPaginatedClipResponse{
@@ -49,6 +50,7 @@ export interface IClipFormValues{
     title: string;
     description: string;
     thumbnail?: string;
+    duration?: number;
 }
 
 export interface IUploadedClipValues{

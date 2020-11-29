@@ -44,7 +44,26 @@ const Sidebar = () => {
         },
         {
             separator: true
+        },
+        {
+            label: "Send Feedback",
+            icon: "pi pi-comment",
+            command: () => history.push("/send-feedback")
+        },
+        {
+            label: "Report history",
+            icon: "fas fa-flag",
+            command: () => history.push("/history-report")
+        },
+        {
+            separator: true
+        },
+        {
+            label: "2020-2021 copyright Qlip",
+            className: "copyright",
+            icon: "far fa-copyright"
         }
+        
 
     ];
     return (

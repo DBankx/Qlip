@@ -11,7 +11,7 @@ import {useMediaQuery} from "react-responsive";
 
 const ManageQlips = () => {
     const {user} = useContext(rootStoreContext).authStore;
-    const {loadingFilter, sortChannelClipsByMostPopular, sortChannelClipsByDate} = useContext(rootStoreContext).channelStore;
+    const {sortChannelClipsByMostPopular, sortChannelClipsByDate} = useContext(rootStoreContext).channelStore;
     const {channel, loadChannel, loadingChannel} = useContext(rootStoreContext).channelStore;
     const isMobile = useMediaQuery({query: "(max-width: 400px)"});
     useEffect(() => {

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import playButton from "../../../application/layout/images/play.png";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import formatVideoTime from "../../../infrastructure/HelperFunctions/formatVideoTime";
 
 dayjs.extend(relativeTime);
 
@@ -19,6 +20,7 @@ const SearchClip : React.FC<IProps> = ({clip}) => {
             <div className={"p-col-12 p-sm-4 p-md-4 p-lg-4"} >
                 <div className={"search-thumbnail"}>
                     <img src={clip.thumbnail} alt="thumbnail" style={{width: "100%"}} />
+                    <div className={"clip-duration"}>{formatVideoTime(clip.duration)}</div>
                     <div className={"search-content"}>
                         <img src={playButton} alt={"play"} />
                     </div>

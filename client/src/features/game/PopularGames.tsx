@@ -4,7 +4,6 @@ import rootStoreContext from "../../application/stores/rootStore";
 import GamesPlaceholder from "./GamesPlaceholder";
 import GameBanner from "./GameBanner";
 import { RouteComponentProps } from "react-router-dom";
-import Game from "./gameClip/Game";
 import PaginatedSearch from "../search/PaginatedSearch";
 
 const PopularGames : React.FC<RouteComponentProps> = ({location}) => {

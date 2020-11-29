@@ -161,7 +161,8 @@ span {
   left: 0;
   background: #181818;
   font-size: 0.6em;
-  padding: 0.1em;
+  padding: 0.1em 0.3em;
+  color: #fff;
 }
 
 .main-sidebar {
@@ -873,6 +874,7 @@ span {
   position: absolute;
   width: 100%;
   z-index: 3;
+  margin-bottom: 1em;
 }
 
 .game-dropdown-list {
@@ -882,7 +884,7 @@ span {
   width: 150px;
 }
 .game-dropdown-list:hover {
-  background: #4A4A4A;
+  background: rgba(74, 74, 74, 0.32);
   cursor: pointer;
 }
 
@@ -890,6 +892,13 @@ span {
   .game-dropdown-list img {
     width: 120px;
   }
+}
+.copyright {
+  position: absolute;
+  bottom: 0;
+  color: #4A4A4A;
+  font-size: 0.7em;
+  width: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */

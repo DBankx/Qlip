@@ -4,7 +4,7 @@ import {IChannel} from "../../../infrastructure/models/channel";
 import { Fragment } from "react";
 import ChannelUser from "./ChannelUser";
 import rootStoreContext from "../../../application/stores/rootStore";
-import Spinner from "../../../application/layout/Spinner";
+import {ProgressSpinner} from "primereact/progressspinner";
 
 interface IProps{
     channel: IChannel
@@ -15,11 +15,15 @@ const ChannelsTab : React.FC<IProps> = ({channel}) => {
     useEffect(() => {
         getFollows(channel.username, "following");
     }, [channel.username, getFollows]);
-    if(loadingSubscriptions && follows === null) return <Spinner />
     return (
         <Fragment>
             <span>Subscriptions</span>
             <hr className={"divider p-mt-2 p-mb-2"} />
+            {loadingSubscriptions || follows === null ? (<div className="p-text-center" style={{margin: "4em auto", fontWeight: 600, color: "#777777"}}>
+                <div>
+                    <ProgressSpinner style={{width: '40px', height: '40px'}} strokeWidth={"4"}  /> 
+                </div>
+            </div>) : (
             <div className={"p-grid p-ai-center"}>
                 {follows && follows.length > 0 ? follows!.map((user) => (
                     <div key={user.username} className={"p-col-6 p-sm-4 p-lg-2 p-md-3"}>
@@ -31,6 +35,7 @@ const ChannelsTab : React.FC<IProps> = ({channel}) => {
                     </div>
                 </div>}
             </div>
+            )}
         </Fragment>
     )
 }

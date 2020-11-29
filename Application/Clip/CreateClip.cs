@@ -26,6 +26,7 @@ namespace Application.Clip
             public string Url { get; set; }
             public string GameName { get; set; }
             public string Thumbnail { get; set; }
+            public double Duration { get; set; }
         }
 
         public class CommandValidator : AbstractValidator<Command>
@@ -62,7 +63,8 @@ namespace Application.Clip
                     Title = request.Title,
                     Description = request.Description,
                     CreatedAt = DateTime.Now,
-                    Thumbnail = request.Thumbnail
+                    Thumbnail = request.Thumbnail,
+                    Duration = request.Duration
                 };
                 
                 // get the user

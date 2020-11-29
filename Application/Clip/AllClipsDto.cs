@@ -12,5 +12,6 @@ namespace Application.Clip
         public bool IsWatched { get; set; }
         public string Thumbnail { get; set; }
         public DateTime CreatedAt { get; set; }
+        public double Duration { get; set; }
     }
 }

@@ -2,7 +2,6 @@
 import {observer} from "mobx-react-lite";
 import { IGame } from "../../../infrastructure/models/game";
 import { IChannel } from "../../../infrastructure/models/channel";
-import {Button} from "primereact/button";
 import {useMediaQuery} from "react-responsive";
 import Slider from "react-slick";
 import ChannelGame from "../ChannelGame";
@@ -32,7 +31,9 @@ const TopLikeGames: React.FC<IProps> = ({channel}) => {
                     <div style={{width: "100%"}}>
                         <Slider {...sliderSettings}>
                             {channel.likedGames.map((game: IGame) => (
-                                <ChannelGame game={game} /> 
+                                <div key={game.id}>
+                                <ChannelGame game={game} />
+                                </div>
                             ))}
                         </Slider>
                     </div>

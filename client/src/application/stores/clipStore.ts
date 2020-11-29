@@ -3,7 +3,6 @@ import {action, computed, makeObservable, observable, runInAction} from "mobx";
 import {IClip, IClipFormValues, IPaginatedClipResponse, IUploadedClipValues} from "../../infrastructure/models/clip";
 import {ClipRequest, SearchRequest} from "../api/agent";
 import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {boolean} from "yup";
 
 //========================================================================
 //============= Store for clip states in the app ================

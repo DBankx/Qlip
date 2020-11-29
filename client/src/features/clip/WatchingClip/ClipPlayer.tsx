@@ -70,7 +70,7 @@ const ClipPlayer: React.FC<IProps> = ({clip}) => {
     return () => {
             player.destroy();
         };
-    }, [clip, options]);
+    }, [clip, options, UpNextClips, autoPlay, end]);
     
     return (
         <Fragment>

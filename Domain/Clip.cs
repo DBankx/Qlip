@@ -11,6 +11,7 @@ namespace Domain
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
         public string Thumbnail { get; set; }
+        public double Duration { get; set; }
         public virtual Game Game { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual ICollection<UserClip> UserClips { get; set; }

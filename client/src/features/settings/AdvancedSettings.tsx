@@ -10,7 +10,7 @@ import * as yup from "yup";
 import ChangePasswordForm from "./ChangePasswordForm";
 
 const AdvancedSettings = () => {
-    const {user, isLoggedIn} = useContext(rootStoreContext).authStore;
+    const {user} = useContext(rootStoreContext).authStore;
     const {updateUsername} = useContext(rootStoreContext).channelStore;
     const [showForm, setShowForm] = useState<boolean>(false);
     const [showPasswordForm, setShowPasswordForm] = useState<boolean>(false);

@@ -13,7 +13,7 @@ import GameSearchPane from "./GameSearchPane";
 
 const ClipForm = ( ) => {
     
-    let {uploadedClip, deleteUploadedClip, createClip, setUploadedClip} = useContext(rootStoreContext).clipStore;
+    let {uploadedClip, createClip, setUploadedClip} = useContext(rootStoreContext).clipStore;
     const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
 
     const {selectedGame, toggleGameSearchPaneOn, showGameSearchPane, toggleGameSearchPaneOff} = useContext(rootStoreContext).gameStore;
@@ -92,7 +92,7 @@ const ClipForm = ( ) => {
     
     return(
         <div>
-            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: selectedGame, thumbnail: uploadedClip ? uploadedClip.thumbnail : ""  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
+            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: selectedGame, thumbnail: uploadedClip ? uploadedClip.thumbnail : "", duration: uploadedClip.duration ? uploadedClip.duration : 0  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
                 {({handleSubmit,
                       errors,
                       touched,

@@ -6,7 +6,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import {Button} from "primereact/button";
 import {Menu} from "primereact/menu";
 import rootStoreContext from "../../application/stores/rootStore";
-import Spinner from "../../application/layout/Spinner";
 import {history} from "../../index";
 
 interface IProps{

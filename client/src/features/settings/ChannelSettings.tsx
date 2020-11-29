@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 const ChannelSettings = () => {
-    const {isLoggedIn, user} = useContext(rootStoreContext).authStore;
+    const {user} = useContext(rootStoreContext).authStore;
     return (
         <Fragment>
             <div className={"p-grid"}>
@@ -23,7 +23,7 @@ const ChannelSettings = () => {
                     </div>
                     <Link style={{display: "block", color: "#81C784", textDecoration: "none", marginTop: "1em", fontWeight: 500}} to={"manageqlips"}>Manage qlips</Link>
                     <Link style={{display: "block", color: "#81C784", textDecoration: "none",  marginTop: "1em", fontWeight: 500}} to={`customize/${user!.username}`}>Customise channel</Link>
-                    <Link style={{display: "block", color: "#81C784", textDecoration: "none",  marginTop: "1em", fontWeight: 500}} to={"manage"}>Change profile picture</Link>
+                    <a href="https://en.gravatar.com/support/activating-your-account/" target="_blank" rel="noopener noreferrer" style={{display: "block", color: "#81C784", textDecoration: "none",  marginTop: "1em", fontWeight: 500}}>Change profile picture</a>
                 </div>
             </div>
         </Fragment>

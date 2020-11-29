@@ -6,6 +6,7 @@ import {SplitButton} from "primereact/splitbutton";
 import {Menu} from "primereact/menu";
 import rootStoreContext from "../../application/stores/rootStore";
 import {history} from "../../index";
+import Clipboard from "clipboard";
 
 interface IProps{
     channel: IChannel
@@ -14,6 +15,7 @@ interface IProps{
 const ChannelHeader: React.FC<IProps> = ({channel}) => {
     const {subscribing, SubscribeToUser, UnSubscribeToUser} = useContext(rootStoreContext).subscriptionStore;
     const {isLoggedIn} = useContext(rootStoreContext).authStore;
+    const {showAlert} = useContext(rootStoreContext).commonStore;
     const subscribedStyle = {
         color: "#777777",
         borderColor: "#777777",
@@ -34,6 +36,16 @@ const ChannelHeader: React.FC<IProps> = ({channel}) => {
        }
    ]
 
+    // copy the link of the clip to the keyboard
+    let url = document.location.href;
+
+    new Clipboard(".share-btn", {
+        text: function (){
+            return url;
+        }
+    })
+
+
     const optionsModel = [
         {
             label: `Report ${channel.username}`,
@@ -42,7 +54,9 @@ const ChannelHeader: React.FC<IProps> = ({channel}) => {
         },
         {
             label: "Copy channel link",
-            icon: "pi pi-copy"
+            icon: "pi pi-copy",
+            className: "share-btn",
+            command: () => showAlert("info", "Copied", "Url copied to clipboard!")
         }
     ]
     const optionsRef = useRef<any>(null);

@@ -1,11 +1,8 @@
 ﻿import React, {useContext, useEffect} from "react";
 import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../../application/stores/rootStore";
-import Spinner from "../../../application/layout/Spinner";
 import CreateGameDropdownList from "./CreateGameDropdownList";
 import GameSearchPanePlaceholder from "./GameSearchPanePlaceholder";
-import {Button} from "primereact/button";
-import {history} from "../../../index";
 
 interface IProps{
     gameName: string;

@@ -23,7 +23,7 @@ const GamesHome : React.FC<RouteComponentProps> = ({location}) => {
         }else{
             loadGames();
         }
-    }, [loadGames, pageSize, pageNumber, showSidebar, gameName, searchGamesByName])
+    }, [loadGames, pageSize, pageNumber, showSidebar, gameName, searchGamesByName, location.pathname])
     const sortOptions = [
         {
             label: "Ratings",

@@ -1,13 +1,11 @@
-﻿import React, {useContext, useState} from "react";
+﻿import React, {useContext} from "react";
 import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../../../application/stores/rootStore";
-import {toJS} from "mobx";
-import SearchClip from "../../../search/clips/SearchClip";
 import UpNextClip from "./UpNextClip";
 import {InputSwitch} from "primereact/inputswitch";
 
 const UpNext = () => {
-    const {watchedClips, UpNextClips, autoPlay, setAutoPlay} = useContext(rootStoreContext).clipStore;
+    const {UpNextClips, autoPlay, setAutoPlay} = useContext(rootStoreContext).clipStore;
     return (
         <div>
            <div className={"p-d-flex p-ai-center p-jc-between p-mb-2"}>

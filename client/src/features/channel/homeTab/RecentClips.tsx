@@ -1,7 +1,6 @@
 ﻿import React from "react";
 import {observer} from "mobx-react-lite";
 import { IChannel } from "../../../infrastructure/models/channel";
-import {Button} from "primereact/button";
 import ChannelClip from "../ChannelClip";
 import {useMediaQuery} from "react-responsive";
 import "slick-carousel/slick/slick.css";
@@ -40,11 +39,14 @@ const isMobile = useMediaQuery({query: "(max-width: 600px)"});
                         ))} 
                     </Slider>
                     </div>
-                ) :  (channel.clips.slice(0, 4).map((clip: IClip) => (
-                        <div key={clip.id} className={"p-col-12 p-lg-3 p-md-5 p-sm-6"}>
+                ) :  (
+                    <div className="p-grid">
+                    {channel.clips.slice(0, 4).map((clip: IClip) => (
+                        <div key={clip.id} className={"clip-box p-col-12 p-xl-3 p-lg-4 p-md-5 p-sm-6"}>
                         <ChannelClip clip={clip} />
+                    </div>))}
                     </div>
-                )))) :  <span>{channel.isUser ? "You have not uploaded any qlips recently": <span>{channel.username} has not uploaded any qlips recently</span>}</span>}
+                )) :  <span>{channel.isUser ? "You have not uploaded any qlips recently": <span>{channel.username} has not uploaded any qlips recently</span>}</span>}
             </div>
         </div>
     )

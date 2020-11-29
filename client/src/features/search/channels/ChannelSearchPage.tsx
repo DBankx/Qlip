@@ -10,7 +10,7 @@ import ChannelUser from "../../channel/channelsTab/ChannelUser";
 const ClipSearchPage : React.FC<RouteComponentProps<{title: string}>> = ({location}) => {
     const params = new URLSearchParams(location.search)
     const username = params.get("username");
-    const {loadingChannels, searchChannelByUsername, sortChannelBySubscribers, searchResponse, changePage, changePageSize, SearchPageNumber, SearchPageSize} = useContext(rootStoreContext).channelStore;
+    const {loadingChannels, searchChannelByUsername, sortChannelBySubscribers, searchResponse, changePage, changePageSize, SearchPageSize} = useContext(rootStoreContext).channelStore;
     const {showSidebar} = useContext(rootStoreContext).commonStore;
     useEffect(() => {
         showSidebar();
