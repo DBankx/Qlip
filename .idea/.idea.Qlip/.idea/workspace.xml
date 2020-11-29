@@ -22,7 +22,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="added subscription features to a user and channel" />
+    <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="added subscription features to a user and channel">
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,8 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/Clip/ClipDto.cs" />
-        <option value="$PROJECT_DIR$/client/src/infrastructure/HelperFunctions/formatVideoTime.ts" />
         <option value="$PROJECT_DIR$/client/src/infrastructure/models/clip.ts" />
         <option value="$PROJECT_DIR$/client/src/features/search/clips/SearchClip.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/email/Report.tsx" />
@@ -109,10 +110,12 @@
         <option value="$PROJECT_DIR$/Api/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/Api/appsettings.json" />
         <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
         <option value="$PROJECT_DIR$/client/src/application/stores/commonStore.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/common/AlertRegister.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/common/ScrollToTop.tsx" />
+        <option value="$PROJECT_DIR$/client/src/index.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
       </list>
     </option>
   </component>
@@ -216,7 +219,7 @@
       <workItem from="1606242479821" duration="8757000" />
       <workItem from="1606288577153" duration="463000" />
       <workItem from="1606373842029" duration="8735000" />
-      <workItem from="1606546415921" duration="44187000" />
+      <workItem from="1606546415921" duration="44492000" />
     </task>
     <task id="LOCAL-00001" summary="Added an endpoint for a user to like a game and updated channel model">
       <created>1603145518945</created>
