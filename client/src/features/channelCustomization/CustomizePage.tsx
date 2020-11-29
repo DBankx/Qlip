@@ -9,10 +9,12 @@ import BioForm from "./BioForm";
 const CustomizePage: React.FC = () => {
     const {channel, loadChannel, loadingChannel} = useContext(rootStoreContext).channelStore;
     const {user} = useContext(rootStoreContext).authStore;
+    const {showSidebar} = useContext(rootStoreContext).commonStore;
     useEffect(() => {
         if(!channel)
+            showSidebar();
             loadChannel(user!.username);
-    }, [channel, loadChannel, user])
+    }, [channel, loadChannel, user, showSidebar])
     
     if(loadingChannel || channel === null) return <Spinner />
     

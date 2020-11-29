@@ -40,6 +40,10 @@ axios.interceptors.response.use(undefined, (error) => {
     if (error.response.status === 404) {
         history.push('/notfound');
     }
+    if(error.response.status === 401 && error.response.headers["www-authenticate"].startsWith("Bearer error")){
+        window.localStorage.removeItem("token");
+        history.push("/");
+    }
     //redirect to notfound page for invalid id guid
     if (
         error.response.status === 400 &&

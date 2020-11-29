@@ -28,6 +28,7 @@ import Contact from "../../features/contact/Contact";
 import Other from "../../features/contact/Other";
 import PopularGames from "../../features/game/PopularGames";
 import About from "../../features/contact/About";
+import NotFound from "../common/NotFound";
 
 const App: React.FC<RouteComponentProps> = ({location}) => {
     
@@ -59,7 +60,7 @@ const App: React.FC<RouteComponentProps> = ({location}) => {
                 <PrivateRoute key={location.pathname} exact path={["/create", "/create/:gameName"]} component={CreateClip} />
                 <Route key={location.pathname} exact path={["/games", "/search/games"]} component={GamesHome} />
                 <Route exact path={"/games/:id"} component={Game} />
-                <Route exact path={"/channel/:username"} component={Channel} />
+                <Route key={location.search} exact path={"/channel/:username"} component={Channel} />
                 <PrivateRoute exact path={"/manage/:id"} component={ClipEditForm} />
                 <Route exact path={"/settings"} component={Settings} />
                 <PrivateRoute exact path={"/customize"} component={CustomizePage} />
@@ -73,6 +74,7 @@ const App: React.FC<RouteComponentProps> = ({location}) => {
                 <Route exact path={"/other-contact"} component={Other} />
                 <Route exact path={"/popular-games"} component={PopularGames} />
                 <Route exact path="/about" component={About} />
+                <Route component={NotFound} />
             </Switch>
         </div>
     </Fragment>

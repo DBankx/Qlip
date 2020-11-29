@@ -1,12 +1,17 @@
-﻿import React from "react";
+﻿import React, {useContext, useEffect} from "react";
 import {history} from "../../index";
 import {Button} from "primereact/button";
 import csharp from "../../application/layout/images/c#.png";
 import ts from "../../application/layout/images/ts.png";
 import sass from "../../application/layout/images/sass.png";
 import core from "../../application/layout/images/core.png";
+import rootStoreContext from "../../application/stores/rootStore";
 
 const About = () => {
+    const {showSidebar} = useContext(rootStoreContext).commonStore;
+    useEffect(() => {
+        showSidebar();
+    }, [showSidebar])
     return (
         <div className="sidebar-way main-container sidebar-void">
            <h2>About us</h2> 

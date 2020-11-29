@@ -8,7 +8,9 @@ import PaginatedSearch from "../search/PaginatedSearch";
 
 const PopularGames : React.FC<RouteComponentProps> = ({location}) => {
     const {sortGamesByClipNo, games, loadingGames, pageSizePopular, pageNumberPopular, changePagePopular, changePageSizePopular} = useContext(rootStoreContext).gameStore;
+    const {showSidebar} = useContext(rootStoreContext).commonStore;
     useEffect(() => {
+        showSidebar();
         sortGamesByClipNo();
     }, [sortGamesByClipNo, pageSizePopular, pageNumberPopular])
    

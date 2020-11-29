@@ -916,4 +916,10 @@ span {
   height: fit-content;
 }
 
+@media (max-width: 500px) {
+  .cardx {
+    width: 90vw;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */

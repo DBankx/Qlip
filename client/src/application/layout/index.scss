@@ -982,3 +982,9 @@ color: #81C784;
   background-color: rgba(129,199,132,0.32);
   height: fit-content;
 }
+
+@media (max-width: 500px) {
+  .cardx {
+    width: 90vw;
+  }
+}

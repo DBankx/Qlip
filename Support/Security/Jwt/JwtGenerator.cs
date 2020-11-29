@@ -34,7 +34,7 @@ namespace Support.Security.Jwt
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(claims),
-                    Expires = DateTime.Now.AddDays(7),
+                    Expires = DateTime.Now.AddDays(2),
                     SigningCredentials = cred
                 };
 

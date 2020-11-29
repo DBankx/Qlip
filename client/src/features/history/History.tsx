@@ -8,8 +8,8 @@ const HistoryPage = () => {
     const {getHistoryClips, groupedHistory, loadingInitial} = useContext(rootStoreContext).clipStore;
     const {showSidebar} = useContext(rootStoreContext).commonStore;
     useEffect(() => {
+        showSidebar()
        getHistoryClips(); 
-       showSidebar()
     }, [getHistoryClips, showSidebar]);
     
     if(loadingInitial) return <Spinner />

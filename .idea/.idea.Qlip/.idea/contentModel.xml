@@ -17,6 +17,7 @@
           <e p="ChannelController.cs" t="Include" />
           <e p="ClipController.cs" t="Include" />
           <e p="EmailController.cs" t="Include" />
+          <e p="FallbackController.cs" t="Include" />
           <e p="GamesController.cs" t="Include" />
           <e p="SearchController.cs" t="Include" />
           <e p="SubscriptionController.cs" t="Include" />

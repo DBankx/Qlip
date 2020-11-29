@@ -58,6 +58,11 @@ const Navbar = () => {
                         command: () => history.push(`/channel/${user?.username}`)
                     },
                     {
+                        label: "Your history",
+                        icon: "fas fa-history",
+                        command: () => history.push("/history")
+                    },
+                    {
                         label: "Sign out",
                         icon: "pi pi-sign-out",
                         command: () => logout()
@@ -81,10 +86,26 @@ const Navbar = () => {
             ]
         },
         {
-            label: "Your History",
-            icon: "fas fa-history",
-            command: () => history.push("/history"),
-            className: "hide-bg"
+            label: "Settings",
+            icon: "pi pi-cog",
+            className: "hide-bg",
+            command: () => history.push("/settings")
+        },
+        {
+            label: "Info",
+            icon: "pi pi-info",
+            className: "hide-bg",
+            items: [
+                {
+                    label: "About us",
+                    icon: "pi pi-info-circle",
+                    command: () => history.push("/about")
+                },{
+                label: "Contact us",
+                    icon: "fas fa-envelope",
+                    command: () => history.push("/contact")
+                }
+            ]
         }
     ];
 

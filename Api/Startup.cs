@@ -102,7 +102,9 @@ namespace Api
                     IssuerSigningKey = key,
                     ValidateIssuer = false,
                     ValidateIssuerSigningKey = true,
-                    ValidateAudience = false
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero,
                 };
                 
                 // send the token to signalR
@@ -161,6 +163,10 @@ namespace Api
                 //app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
+            
+            app.UseStaticFiles();
+            
             app.UseRouting();
 
             app.UseCors();
@@ -173,6 +179,7 @@ namespace Api
             {
                 endpoints.MapControllers();
                 endpoints.MapHub<CommentHub>("/comment");
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }

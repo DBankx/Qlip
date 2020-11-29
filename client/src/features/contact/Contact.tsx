@@ -1,10 +1,15 @@
-﻿import React from "react";
+﻿import React, {useContext, useEffect} from "react";
 import {observer} from "mobx-react-lite";
 import {Card} from "primereact/card";
 import {Button} from "primereact/button";
 import {history} from "../../index";
+import rootStoreContext from "../../application/stores/rootStore";
 
 const Contact = () => {
+    const {showSidebar} = useContext(rootStoreContext).commonStore;
+    useEffect(() => {
+        showSidebar();
+    }, [showSidebar])
     const headerMail = <div  style={{textAlign: "center", marginTop: "1em"}}><i className="fas fa-envelope-open fa-4x"/></div>
     const headerPhone = <div  style={{textAlign: "center", marginTop: "1em"}}><i className="fas fa-phone-volume fa-4x"/></div>
     const headerFlag= <div  style={{textAlign: "center", marginTop: "1em"}}><i className="fas fa-flag fa-4x"/></div>
