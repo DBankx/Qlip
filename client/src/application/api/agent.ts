@@ -7,7 +7,7 @@ import {IChannelUser, IChannel, IChannelFormValues, IChannelPasswordValues, IPag
 import { IEmailFormValues } from "../../infrastructure/models/email";
 
 // setting the default url
-axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL; 
 
 // setting up axios interceptors
 axios.interceptors.request.use((config: AxiosRequestConfig) => {

@@ -65,7 +65,7 @@ export class ClipStore{
     
     // build hub connection
     @action startConnection = async(clipId: string) => {
-        this.hubConnection = new HubConnectionBuilder().withUrl("http://localhost:5000/comment", {
+        this.hubConnection = new HubConnectionBuilder().withUrl(process.env.REACT_APP_API_COMMENT_URL!, {
             accessTokenFactory: () => this.rootStore.commonStore.token!
         }).configureLogging(LogLevel.Information).withAutomaticReconnect().build();
         

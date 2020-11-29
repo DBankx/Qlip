@@ -44,8 +44,8 @@ const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  
     }
    // @ts-ignore
     let widget = window.cloudinary.createUploadWidget({
-       cloudName: "dbankx",
-       uploadPreset: "xwks4vxq",
+       cloudName: process.env.REACT_APP_CLOUD_NAME,
+       uploadPreset: process.env.REACT_APP_UPLOAD_PRESET,
         styles:{
            palette:{
                window: "#181818",
