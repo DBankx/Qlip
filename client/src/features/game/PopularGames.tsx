@@ -1,19 +1,36 @@
 ﻿import React, {useContext, useEffect} from "react";
 import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../application/stores/rootStore";
-import Spinner from "../../application/layout/Spinner";
 import GamesPlaceholder from "./GamesPlaceholder";
+import GameBanner from "./GameBanner";
+import { RouteComponentProps } from "react-router-dom";
+import Game from "./gameClip/Game";
+import PaginatedSearch from "../search/PaginatedSearch";
 
-const PopularGames = () => {
-    const {sortGamesByClipNo, games, loadingGames} = useContext(rootStoreContext).gameStore;
+const PopularGames : React.FC<RouteComponentProps> = ({location}) => {
+    const {sortGamesByClipNo, games, loadingGames, pageSizePopular, pageNumberPopular, changePagePopular, changePageSizePopular} = useContext(rootStoreContext).gameStore;
     useEffect(() => {
         sortGamesByClipNo();
-    }, [sortGamesByClipNo()])
-    // if(loadingGames || games === null) return <GamesPlaceholder />
-   if(true) return <GamesPlaceholder />
+    }, [sortGamesByClipNo, pageSizePopular, pageNumberPopular])
+   
     return (
+        <div>
         <div className="sidebar-way main-container sidebar-void">
-            {games !== null && games?.data.length}
+            <h2>Popular games on Qlip</h2>
+            {loadingGames ? <GamesPlaceholder /> : (<div style={{marginTop: "1em"}} className="p-grid">
+                {games && games?.data.map((game) => (
+                    <div key={game.id} className="p-col-12 p-md-4 p-lg-3 p-sm-6">
+                        <GameBanner game={game} />
+                    </div>
+                ))}
+            </div>)}
+            
+        </div>
+            
+            <div>
+                <PaginatedSearch changePageSize={changePageSizePopular} changePage={changePagePopular} data={games !== null && games} pageSize={pageSizePopular}  />
+            </div>
+            
         </div>
     )
 }

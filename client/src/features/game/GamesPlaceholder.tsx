@@ -3,7 +3,7 @@ import ContentLoader from "react-content-loader";
 
 const GamesPlaceholder = () => {
     return (
-        <div className="sidebar-way main-container sidebar-void">
+        <div className="">
             <div className="p-grid">
                 
                 <div className="p-col-12 p-xl-3 p-lg-4 p-md-5 p-sm-6">

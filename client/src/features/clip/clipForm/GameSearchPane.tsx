@@ -4,6 +4,8 @@ import rootStoreContext from "../../../application/stores/rootStore";
 import Spinner from "../../../application/layout/Spinner";
 import CreateGameDropdownList from "./CreateGameDropdownList";
 import GameSearchPanePlaceholder from "./GameSearchPanePlaceholder";
+import {Button} from "primereact/button";
+import {history} from "../../../index";
 
 interface IProps{
     gameName: string;
@@ -19,12 +21,18 @@ const GameSearchPane : React.FC<IProps> = ({gameName}) => {
     return (
         <div className="game-search-pane">
             {loadingGames ? <GameSearchPanePlaceholder /> : (
-                games && games.data.map((game) => (
+                games && games.data.length > 0 ? games.data.map((game) => (
                     <div key={game.id}>
                         <CreateGameDropdownList game={game} />       
                     </div>
-                ))
-            )} 
+                )) : (<div className="p-text-center" style={{margin: "4em auto", fontWeight: 600, color: "#777777"}}>
+                        <div>
+                            <p>Game wasnt found in our database :(</p>
+                            <p>Please check your spelling</p>
+                        </div>
+                    </div>
+                )
+            ) } 
         </div>
     )
 }

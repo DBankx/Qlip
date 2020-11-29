@@ -16,6 +16,8 @@ export class GameStore{
     @observable loadingGames: boolean = false;
     @observable pageNumber: number = 1;
     @observable pageSize: number = 20;
+    @observable pageNumberPopular: number = 1;
+    @observable pageSizePopular: number = 20;
     @observable likingGame: boolean = false;
     @observable target: number = 0;
     @observable selectedGame: string = "";
@@ -58,7 +60,16 @@ export class GameStore{
     @action changePageSize = (num: number) => {
         this.pageSize = num;
     }
-    
+
+    @action changePagePopular = (num: number) => {
+        this.pageNumberPopular = num;
+    }
+
+    @action changePageSizePopular = (num: number) => {
+        this.pageSize = num;
+    }
+
+
     @action likeGame = async (event:SyntheticEvent<HTMLButtonElement>, gameId: number) => {
         this.likingGame = true;
         this.target = gameId; 
@@ -120,7 +131,7 @@ export class GameStore{
     @action sortGamesByClipNo = async() => {
         this.loadingGames = true;
         try{
-            let response = await SearchRequest.searchClipByClipNo(this.pageNumber, this.pageSize);
+            let response = await SearchRequest.searchClipByClipNo(this.pageNumberPopular, this.pageSizePopular);
             runInAction(() => {
                 this.games = response;
                 this.loadingGames = false;
