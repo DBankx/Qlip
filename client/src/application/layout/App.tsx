@@ -29,11 +29,13 @@ import Other from "../../features/contact/Other";
 import PopularGames from "../../features/game/PopularGames";
 import About from "../../features/contact/About";
 import NotFound from "../common/NotFound";
+import AlertRegister from "../common/AlertRegister";
 
 const App: React.FC<RouteComponentProps> = ({location}) => {
     
     const {sidebarVisible, setAppLoaded, token, appLoaded} = useContext(rootStoreContext).commonStore;
-    const {getCurrentUser} = useContext(rootStoreContext).authStore;
+    const {getCurrentUser, isLoggedIn} = useContext(rootStoreContext).authStore;
+    const {showAlertRegister} = useContext(rootStoreContext).commonStore;
     
     useEffect(() => {
         if(token){
@@ -49,6 +51,7 @@ const App: React.FC<RouteComponentProps> = ({location}) => {
     <Fragment>
       <Navbar />
       <Toolbars />
+        {!isLoggedIn && showAlertRegister && <AlertRegister />}
         <Alert />
       <AuthModal />
         {sidebarVisible && (

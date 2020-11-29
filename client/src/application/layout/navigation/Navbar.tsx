@@ -50,7 +50,7 @@ const Navbar = () => {
             {
                 label: user?.username,
                 icon: "pi pi-user",
-                className: "hide-bg",
+                className: "hide-biggest",
                 items: [
                     {
                         label: "View Profile",
@@ -73,7 +73,7 @@ const Navbar = () => {
         {
             label: "Join Qlip",
             icon: "pi pi-user",
-            className: "hide-bg",
+            className: "hide-biggest",
             items: [
                 {
                     label: "Register",
@@ -88,13 +88,13 @@ const Navbar = () => {
         {
             label: "Settings",
             icon: "pi pi-cog",
-            className: "hide-bg",
+            className: "hide-biggest",
             command: () => history.push("/settings")
         },
         {
             label: "Info",
             icon: "pi pi-info",
-            className: "hide-bg",
+            className: "hide-biggest",
             items: [
                 {
                     label: "About us",

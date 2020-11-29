@@ -39,6 +39,7 @@ export class CommonStore {
         life: 3000
     };
     
+    @observable showAlertRegister : boolean = true;
     @observable alertVisible: boolean = false;
 
     @action showClipUploadHelper = () => {
@@ -97,7 +98,9 @@ export class CommonStore {
         }, 3000)
     }
    
-    
+    @action removeAlertRegister = () => {
+        this.showAlertRegister = false;
+    }
    
 }
 

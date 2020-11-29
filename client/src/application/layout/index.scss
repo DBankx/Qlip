@@ -86,6 +86,7 @@ span{
 .sidebar-nullified{
   margin-left: 0;
 }
+ 
 }
 
 .spinner{
@@ -348,6 +349,12 @@ span{
 @media(max-width: 360px){
   .hide-xs{
     display: none;
+  }
+}
+
+@media(min-width: 960px){
+  .hide-biggest{
+    display: none
   }
 }
 
@@ -986,5 +993,24 @@ color: #81C784;
 @media (max-width: 500px) {
   .cardx {
     width: 90vw;
+  }
+}
+
+.alert-reg{
+  position: relative;
+  top: 8.7em;
+  left: 12.5em;
+  background-color: rgb(240,244,255);
+  border: 1px solid #B9C9F7;
+  color: #7A7D85;
+  padding: 1em;
+  width: 86vw;
+}
+
+@media(max-width: 1120px){
+  .alert-reg{
+    margin-left: 0;
+    left: 0;
+    width: 100vw;
   }
 }
