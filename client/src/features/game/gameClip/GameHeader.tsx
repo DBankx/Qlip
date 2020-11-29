@@ -27,7 +27,7 @@ const GameHeader : React.FC<IProps> = ({game}) => {
                         <span style={{margin: "0 10px"}}>•</span>
                         <span><i  style={isMobile ? {fontSize: "0.9em"} : {}} className={"pi pi-calendar"} /> {game.released}</span>
                     </div>
-                    <Button label={"Add Qlip"} onClick={() => history.push("/create")} icon={"pi pi-video"} className={"p-button-sm p-button-outlined"} style={{marginTop: "1em"}} />
+                    <Button label={"Add Qlip"} onClick={() => history.push(`/create/${game.name}`)} icon={"pi pi-video"} className={"p-button-sm p-button-outlined"} style={{marginTop: "1em"}} />
                 </div>
             </div>
         </div>

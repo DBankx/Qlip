@@ -10,8 +10,9 @@ import {Dialog} from "primereact/dialog";
 import {Button} from "primereact/button";
 import {history} from "../../../index";
 import GameSearchPane from "./GameSearchPane";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
-const ClipForm = ( ) => {
+const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  => {
     
     let {uploadedClip, createClip, setUploadedClip} = useContext(rootStoreContext).clipStore;
     const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
@@ -92,7 +93,7 @@ const ClipForm = ( ) => {
     
     return(
         <div>
-            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: selectedGame, thumbnail: uploadedClip ? uploadedClip.thumbnail : "", duration: uploadedClip.duration ? uploadedClip.duration : 0  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
+            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: match.params.gameName ? match.params.gameName : selectedGame, thumbnail: uploadedClip ? uploadedClip.thumbnail : "", duration: uploadedClip.duration ? uploadedClip.duration : 0  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
                 {({handleSubmit,
                       errors,
                       touched,
@@ -131,6 +132,7 @@ const ClipForm = ( ) => {
                                 {values.gameName.length > 0 && showGameSearchPane && <GameSearchPane gameName={values.gameName} />}
                                 <label htmlFor="gameName" className="p-d-block">Game name (required)</label>
                            </span>
+                            {match.params.gameName && <small>To add a new game please click on the upload button on the navbar</small>}
                             {errors.gameName && touched.gameName && (
                                 <small id="username2-help" className="p-invalid p-d-block">*{errors.title}</small>
                             )}
@@ -185,4 +187,4 @@ const ClipForm = ( ) => {
     )
 }
 
-export default observer(ClipForm);
+export default withRouter(observer(ClipForm));

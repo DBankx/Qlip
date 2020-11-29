@@ -1,7 +1,7 @@
 import React, {Fragment, useContext, useEffect} from 'react';
 import Navbar from "./navigation/Navbar";
 import Toolbars from "./toolbar/Toolbar";
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, withRouter} from "react-router-dom";
 import ClipHome from "../../features/clip/clipHome/ClipHome";
 import {observer} from "mobx-react-lite";
 import Sidebar from "./sidebar/Sidebar";
@@ -55,7 +55,7 @@ const App = () => {
             <Switch>
                 <Route exact path={"/"} component={ClipHome} />
                 <Route exact path={`/qlip/:id`} component={ClipPage} />
-                <PrivateRoute exact path={"/create"} component={CreateClip} />
+                <PrivateRoute exact path={["/create", "/create/:gameName"]} component={CreateClip} />
                 <Route exact path={["/games", "/search/games"]} component={GamesHome} />
                 <Route exact path={"/games/:id"} component={Game} />
                 <Route exact path={"/channel/:username"} component={Channel} />
@@ -77,4 +77,4 @@ const App = () => {
   );
 }
 
-export default observer(App);
+export default withRouter(observer(App));
