@@ -155,5 +155,25 @@ export class GameStore{
 
     @action toggleGameSearchPaneOn = () => {
         this.showGameSearchPane = true;
-    } 
+    }
+    
+    @action sortGames = (predicate: string) => {
+        switch (predicate){
+            case "RATING":
+                this.games!.data.sort((a, b) => parseInt(b.rating) - parseInt(a.rating));
+                break;
+            case "PLAYTIME":
+                this.games!.data.sort((a, b) => b.playtime - a.playtime);
+                break;
+            case "DATE":
+                this.games!.data.sort((a, b) => {
+                    var oldDate = new Date(a.released);
+                    var newDate = new Date(b.released);
+                    return newDate.getTime() - oldDate.getTime();
+                })
+                break;
+            default:
+                return this.games?.data
+        }
+    }
 }
