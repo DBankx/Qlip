@@ -1,7 +1,7 @@
 import React, {Fragment, useContext, useEffect} from 'react';
 import Navbar from "./navigation/Navbar";
 import Toolbars from "./toolbar/Toolbar";
-import {Route, Switch, withRouter} from "react-router-dom";
+import {Route, Switch, withRouter, RouteComponentProps} from "react-router-dom";
 import ClipHome from "../../features/clip/clipHome/ClipHome";
 import {observer} from "mobx-react-lite";
 import Sidebar from "./sidebar/Sidebar";
@@ -27,8 +27,9 @@ import HistoryPage from "../../features/history/History";
 import Contact from "../../features/contact/Contact";
 import Other from "../../features/contact/Other";
 import PopularGames from "../../features/game/PopularGames";
+import About from "../../features/contact/About";
 
-const App = () => {
+const App: React.FC<RouteComponentProps> = ({location}) => {
     
     const {sidebarVisible, setAppLoaded, token, appLoaded} = useContext(rootStoreContext).commonStore;
     const {getCurrentUser} = useContext(rootStoreContext).authStore;
@@ -55,8 +56,8 @@ const App = () => {
             <Switch>
                 <Route exact path={"/"} component={ClipHome} />
                 <Route exact path={`/qlip/:id`} component={ClipPage} />
-                <PrivateRoute exact path={["/create", "/create/:gameName"]} component={CreateClip} />
-                <Route exact path={["/games", "/search/games"]} component={GamesHome} />
+                <PrivateRoute key={location.pathname} exact path={["/create", "/create/:gameName"]} component={CreateClip} />
+                <Route key={location.pathname} exact path={["/games", "/search/games"]} component={GamesHome} />
                 <Route exact path={"/games/:id"} component={Game} />
                 <Route exact path={"/channel/:username"} component={Channel} />
                 <PrivateRoute exact path={"/manage/:id"} component={ClipEditForm} />
@@ -66,11 +67,12 @@ const App = () => {
                 <Route exact path={"/search/qlips"} component={ClipSearchPage} />
                 <Route exact path={"/search/channels"} component={ChannelSearchPage} />
                 <Route exact path={"/unauthorized"} component={UnAuthorized} />
-                <PrivateRoute component={Report} path={["/report/:username", "/email-contact", "/send-feedback", "/history-report"]} exact />
+                <PrivateRoute key={location.pathname} component={Report} path={["/report/:username", "/email-contact", "/send-feedback", "/history-report"]} exact />
                 <PrivateRoute component={HistoryPage} path="/history" exact />
                 <Route exact path={"/contact"} component={Contact} />
                 <Route exact path={"/other-contact"} component={Other} />
                 <Route exact path={"/popular-games"} component={PopularGames} />
+                <Route exact path="/about" component={About} />
             </Switch>
         </div>
     </Fragment>

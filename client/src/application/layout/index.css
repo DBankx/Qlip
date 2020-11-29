@@ -901,4 +901,19 @@ span {
   width: 100%;
 }
 
+.img-sec {
+  margin-top: 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+.img-sec img {
+  width: 250px;
+}
+
+.details {
+  padding: 1em;
+  background-color: rgba(129, 199, 132, 0.32);
+  height: fit-content;
+}
+
 /*# sourceMappingURL=index.css.map */

@@ -23,8 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6913916-2d6e-4821-81da-9b94ddab83ca" name="Default Changelist" comment="added subscription features to a user and channel">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Qlip/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/application/layout/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/features/game/gameClip/GameHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/game/gameClip/GameHeader.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/features/history/HistoryClip.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/sidebar/sidebarNavigationModel.ts" />
         <option value="$PROJECT_DIR$/client/src/features/channel/Channel.tsx" />
         <option value="$PROJECT_DIR$/Api/Controllers/SearchController.cs" />
@@ -88,8 +91,6 @@
         <option value="$PROJECT_DIR$/client/src/features/search/clips/SearchClip.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/navigation/Navbar.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/email/Report.tsx" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
-        <option value="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/contact/Contact.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/search/channels/ChannelSearchPage.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/settings/AdvancedSettings.tsx" />
@@ -113,9 +114,12 @@
         <option value="$PROJECT_DIR$/client/src/features/channel/clipsTab/ClipsTab.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/likedClipsTab/LikedClipsTab.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/channel/homeTab/TopLikedGames.tsx" />
+        <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/sidebar/Sidebar.tsx" />
+        <option value="$PROJECT_DIR$/client/src/application/layout/index.scss" />
+        <option value="$PROJECT_DIR$/client/src/features/contact/About.tsx" />
         <option value="$PROJECT_DIR$/client/src/application/layout/App.tsx" />
         <option value="$PROJECT_DIR$/client/src/features/game/gameClip/GameHeader.tsx" />
-        <option value="$PROJECT_DIR$/client/src/features/clip/clipForm/ClipForm.tsx" />
       </list>
     </option>
   </component>
@@ -219,7 +223,7 @@
       <workItem from="1606242479821" duration="8757000" />
       <workItem from="1606288577153" duration="463000" />
       <workItem from="1606373842029" duration="8735000" />
-      <workItem from="1606546415921" duration="30501000" />
+      <workItem from="1606546415921" duration="34538000" />
     </task>
     <task id="LOCAL-00001" summary="Added an endpoint for a user to like a game and updated channel model">
       <created>1603145518945</created>
@@ -364,10 +368,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606600515017" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1605161317355">
+    <state width="498" height="477" key="SwitcherDM" timestamp="1606651432968">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1605161317355" />
+    <state width="498" height="477" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1606651432968" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603553985854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -400,9 +404,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="753" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606604116337" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606651325018">
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606654891985">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606651325018" />
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606654891985" />
   </component>
 </project>

@@ -13,7 +13,7 @@ const GameHeader : React.FC<IProps> = ({game}) => {
     const isMobile = useMediaQuery({query: "(max-width:400px)"});
     return (
         <div>
-            <Button style={{marginBottom: "1em"}} label={"Back to games"} icon={"pi pi-arrow-left"} className={"p-button-text p-button-sm"} onClick={() => history.push("/games")} />
+            <Button style={{marginBottom: "1em"}} label={"Back to games"} icon={"pi pi-arrow-left"} className={"p-button-text p-button-sm"} onClick={() => history.goBack()} />
             <div className={"p-grid p-ai-center border-bottom"}>
                 <div className={"p-col-12 p-md-4 p-sm-12 p-lg-4"}>
             <img src={game.background_Image} alt={"game-banner"} style={{width: "100%"}} />

@@ -46,6 +46,11 @@ const Sidebar = () => {
             separator: true
         },
         {
+          label: "About us",
+          icon: "pi pi-info",
+          command: () => history.push("/about")  
+        },
+        {
             label: "Send Feedback",
             icon: "pi pi-comment",
             command: () => history.push("/send-feedback")
