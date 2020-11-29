@@ -13,13 +13,16 @@ import 'react-placeholder/lib/reactPlaceholder.css';
 // ========= routing ================
 import {Router} from "react-router-dom";
 import {createBrowserHistory} from "history";
+import ScrollToTop from "./application/common/ScrollToTop";
 
 export const history = createBrowserHistory();
 
 
 ReactDOM.render(
       <Router history={history}>
+          <ScrollToTop>
     <App />
+          </ScrollToTop>
       </Router>,
   document.getElementById('root')
 );
