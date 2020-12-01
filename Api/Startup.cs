@@ -61,7 +61,7 @@ namespace Api
             services.AddDbContext<DataContext>(option =>
             {
                 option.UseLazyLoadingProxies();
-                option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"));
+                option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"), option => option.EnableRetryOnFailure());
             });
             
             //============ Adding identity options =====================
@@ -88,7 +88,7 @@ namespace Api
             {
                 option.AddDefaultPolicy(builder =>
                 {
-                    builder.AllowAnyHeader().WithOrigins(new string[]{"http://localhost:3000", "http://localhost:3001"}).AllowAnyMethod().AllowCredentials();
+                    builder.AllowAnyHeader().WithOrigins(new string[]{"http://localhost:3000", "http://localhost:3001", "https://qlip.azurewebsites.net"}).AllowAnyMethod().AllowCredentials();
                 });
             });
             
@@ -162,7 +162,26 @@ namespace Api
             {
                 //app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
+            app.UseXContentTypeOptions();
+            app.UseReferrerPolicy(options => options.NoReferrer());
+            app.UseXXssProtection(options => options.EnabledWithBlockMode());
+            app.UseXfo(opt => opt.Deny());
+            app.UseCsp(opt => 
+                opt
+                    .BlockAllMixedContent()
+                    .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "https://ka-f.fontawesome.com"))
+                    .FormActions(s => s.Self())
+                    .FrameAncestors(s => s.Self())
+                    .ImageSources(s => s.Self().CustomSources("https://res.cloudinary.com", "http://www.gravatar.com", "data:", "blob:", "https://media.rawg.io"))
+                    .ScriptSources(s => s.Self().CustomSources("sha256-eE1k/Cs1U0Li9/ihPPQ7jKIGDvR8fYw65VJw+txfifw=", "https://cdnjs.cloudflare.com", "https://kit.fontawesome.com", "https://widget.cloudinary.com"))
+                    .MediaSources(s => s.Self().CustomSources("https://res.cloudinary.com", "blob:", "https://cdn.plyr.io", "https://media.rawg.io"))
+                );
+            
             app.UseDefaultFiles();
             
             app.UseStaticFiles();

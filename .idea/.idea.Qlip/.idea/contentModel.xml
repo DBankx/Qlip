@@ -40,6 +40,68 @@
         </e>
         <e p="SignalR" t="Include" />
         <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="apple-icon-114x114.png" t="Include" />
+          <e p="apple-icon-120x120.png" t="Include" />
+          <e p="apple-icon-144x144.png" t="Include" />
+          <e p="apple-icon-152x152.png" t="Include" />
+          <e p="apple-icon-180x180.png" t="Include" />
+          <e p="apple-icon-57x57.png" t="Include" />
+          <e p="apple-icon-60x60.png" t="Include" />
+          <e p="apple-icon-72x72.png" t="Include" />
+          <e p="apple-icon-76x76.png" t="Include" />
+          <e p="apple-icon-precomposed.png" t="Include" />
+          <e p="apple-icon.png" t="Include" />
+          <e p="asset-manifest.json" t="Include" />
+          <e p="browserconfig.xml" t="Include" />
+          <e p="favicon-16x16.png" t="Include" />
+          <e p="favicon-32x32.png" t="Include" />
+          <e p="favicon-96x96.png" t="Include" />
+          <e p="favicon.ico" t="Include" />
+          <e p="index.html" t="Include" />
+          <e p="manifest.json" t="Include" />
+          <e p="ms-icon-144x144.png" t="Include" />
+          <e p="ms-icon-150x150.png" t="Include" />
+          <e p="ms-icon-310x310.png" t="Include" />
+          <e p="ms-icon-70x70.png" t="Include" />
+          <e p="precache-manifest.0f172238b34db6d672cdae13ba68dc38.js" t="Include" />
+          <e p="robots.txt" t="Include" />
+          <e p="service-worker.js" t="Include" />
+          <e p="static" t="Include">
+            <e p="css" t="Include">
+              <e p="2.111581d2.chunk.css" t="Include" />
+              <e p="2.111581d2.chunk.css.map" t="Include" />
+              <e p="main.684ed4d8.chunk.css" t="Include" />
+              <e p="main.684ed4d8.chunk.css.map" t="Include" />
+            </e>
+            <e p="js" t="Include">
+              <e p="2.f3506887.chunk.js" t="Include" />
+              <e p="2.f3506887.chunk.js.LICENSE.txt" t="Include" />
+              <e p="2.f3506887.chunk.js.map" t="Include" />
+              <e p="main.4c94c06a.chunk.js" t="Include" />
+              <e p="main.4c94c06a.chunk.js.map" t="Include" />
+              <e p="runtime-main.09b85ec0.js" t="Include" />
+              <e p="runtime-main.09b85ec0.js.map" t="Include" />
+            </e>
+            <e p="media" t="Include">
+              <e p="c#.c9ec6982.png" t="Include" />
+              <e p="color.c7a33805.png" t="Include" />
+              <e p="logo.e5fe8350.png" t="Include" />
+              <e p="placeholder_user.dea1d9c6.png" t="Include" />
+              <e p="primeicons.159263bf.eot" t="Include" />
+              <e p="primeicons.2e3a6b48.ttf" t="Include" />
+              <e p="primeicons.4e915114.svg" t="Include" />
+              <e p="primeicons.79432094.woff" t="Include" />
+              <e p="sass.acd1d437.png" t="Include" />
+              <e p="slick.b7c9e1e4.woff" t="Include" />
+              <e p="slick.ced611da.eot" t="Include" />
+              <e p="slick.d41f55a7.ttf" t="Include" />
+              <e p="slick.f97e3bbf.svg" t="Include" />
+              <e p="ts.ea7caf8d.png" t="Include" />
+              <e p="undraw_profile_pic_ic5t.8a117bf8.svg" t="Include" />
+            </e>
+          </e>
+        </e>
       </e>
       <e p="Application" t="IncludeRecursive">
         <e p="Application.csproj" t="IncludeRecursive" />
