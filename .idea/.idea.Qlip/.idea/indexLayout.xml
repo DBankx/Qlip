@@ -4,6 +4,7 @@
     <attachedFolders />
     <explicitIncludes>
       <Path>client</Path>
+      <Path>publish</Path>
     </explicitIncludes>
     <explicitExcludes />
   </component>

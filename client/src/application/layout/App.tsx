@@ -51,7 +51,7 @@ const App: React.FC<RouteComponentProps> = ({location}) => {
     <Fragment>
       <Navbar />
       <Toolbars />
-        {!isLoggedIn && showAlertRegister && <AlertRegister />}
+        {!isLoggedIn && showAlertRegister && <AlertRegister status="alert-reg" icon="pi pi-info" message="Please log in to access all features we have to offer!!" />}
         <Alert />
       <AuthModal />
         {sidebarVisible && (

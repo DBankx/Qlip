@@ -23,7 +23,11 @@ const UpNext = () => {
                         <UpNextClip clip={clip} />
                     </div>
                 ))
-            ) : <p>There are no more recommended qlips</p>}
+            ) :  <div className="p-text-center" style={{margin: "3em auto", fontWeight: 600, color: "#777777"}}>
+                <div>
+                    <p>No related qlips left to watch :(</p>
+                </div>
+            </div>}
         </div>
     )
 }

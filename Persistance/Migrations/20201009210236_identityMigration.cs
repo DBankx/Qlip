@@ -42,7 +42,8 @@ namespace Persistance.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     GravatarProfileImage = table.Column<string>(nullable: true),
-                    Gender = table.Column<string>(nullable: true)
+                    Gender = table.Column<string>(nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

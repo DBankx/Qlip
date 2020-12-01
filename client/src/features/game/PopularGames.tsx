@@ -12,7 +12,7 @@ const PopularGames : React.FC<RouteComponentProps> = ({location}) => {
     useEffect(() => {
         showSidebar();
         sortGamesByClipNo();
-    }, [sortGamesByClipNo, pageSizePopular, pageNumberPopular])
+    }, [sortGamesByClipNo, pageSizePopular, pageNumberPopular, showSidebar])
    
     return (
         <div>

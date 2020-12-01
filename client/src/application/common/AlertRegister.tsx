@@ -1,13 +1,18 @@
 ﻿import React, {useContext} from "react";
 import rootStoreContext from "../stores/rootStore";
 
-const AlertRegister = () => {
-    const {removeAlertRegister} = useContext(rootStoreContext).commonStore;
+interface IProps {
+    message: string;
+    icon: string;
+    status: string;
+}
+const AlertRegister : React.FC<IProps> = ({message, icon, status}) => {
+    const {removeAlertRegister, sidebarVisible} = useContext(rootStoreContext).commonStore;
     return (
-        <div className="alert-reg p-d-flex p-ai-center p-jc-between">
+        <div style={!sidebarVisible ? {width: "100vw", left: "0"} : {}} className={`${status} p-d-flex p-ai-center p-jc-between`}>
             <div className="p-d-flex p-ai-center">
-            <i className="pi pi-info" />
-            <p style={{marginLeft: "2em"}}>Please log in or register to access all features!!</p>
+            <i className={icon} />
+            <p style={{marginLeft: "2em"}}>{message}</p>
             </div>
             <i className="pi pi-times p-ml-2" onClick={() => removeAlertRegister() } />
         </div>

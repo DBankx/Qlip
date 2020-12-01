@@ -51,18 +51,17 @@ namespace Api
             
             //=================== Connecting to mySqlDatabase =========================
             // building connection string;
-            var builder = new MySqlConnectionStringBuilder();
-            builder.Password = Configuration["dbpassword"];
-            builder.Server = "localhost";
-            builder.UserID = "root";
-            builder.Database = "qlip";
-            _connection = builder.ConnectionString;
+            // var builder = new MySqlConnectionStringBuilder();
+            // builder.Password = Configuration["dbpassword"];
+            // builder.Server = "localhost";
+            // builder.UserID = "root";
+            // builder.Database = "qlip";
+            // _connection = builder.ConnectionString;
             // adding the database
             services.AddDbContext<DataContext>(option =>
             {
                 option.UseLazyLoadingProxies();
                 option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"));
-                option.EnableSensitiveDataLogging();
             });
             
             //============ Adding identity options =====================
@@ -152,6 +151,7 @@ namespace Api
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IUserAccessor, UserAccessor>();
             services.AddSingleton<IMailer, Mailer>();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

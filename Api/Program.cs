@@ -22,6 +22,7 @@ namespace Api
                 {
                     var context = services.GetRequiredService<DataContext>();
                     context.Database.Migrate();
+                    SeedGameData.SeedGamesData(context).Wait();
                 }
                 catch (Exception e)
                 {

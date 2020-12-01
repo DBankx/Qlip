@@ -17,24 +17,29 @@ const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  
     let {uploadedClip, createClip, setUploadedClip} = useContext(rootStoreContext).clipStore;
     const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
 
-    const {selectedGame, toggleGameSearchPaneOn, showGameSearchPane, toggleGameSearchPaneOff} = useContext(rootStoreContext).gameStore;
+    const {selectedGame, toggleGameSearchPaneOn, showGameSearchPane, toggleGameSearchPaneOff, selectGame} = useContext(rootStoreContext).gameStore;
+    
     
     useEffect(() => {
         if(selectedGame){
             toggleGameSearchPaneOff();
         }
-    }, [selectedGame, toggleGameSearchPaneOff])
+        if(match.params.gameName){
+            selectGame(match.params.gameName)
+        }
+    }, [selectedGame, toggleGameSearchPaneOff, match.params.gameName, selectGame])
     
     // yup validation schema 
     const qlipValidationschema = yup.object().shape({
-        title: yup.string().required("Required").min(3, "Qlip title is too short!").max(80, "Qlip title too long!"),
-        description: yup.string().notRequired().max(5000, "Qlip description is too long").min(4, "Qlip description is too short")
+        title: yup.string().required("Qlip title is required").min(3, "Qlip title is too short!").max(80, "Qlip title too long!"),
+        description: yup.string().notRequired().max(5000, "Qlip description is too long").min(4, "Qlip description is too short"),
+        gameName: yup.string().required("Game name is required")
     });
     
     //=========== Qlip upload management =============
     const checkUploadResult = (resultEvent: any) => {
         if(resultEvent.event === "success"){
-           setUploadedClip(resultEvent.info.public_id, resultEvent.info.secure_url, resultEvent.info.thumbnail_url,resultEvent.info.created_at, resultEvent.info.duration, resultEvent.info.original_filename, resultEvent.info.frame_rate, resultEvent.info.format); 
+           setUploadedClip(resultEvent.info.public_id, resultEvent.info.secure_url, resultEvent.info.secure_url.split(".mp4")[0] + ".jpg",resultEvent.info.created_at, resultEvent.info.duration, resultEvent.info.original_filename, resultEvent.info.frame_rate, resultEvent.info.format);
            showAlert("success", "Upload successful", "Qlip uploaded successfully");
             console.log(resultEvent.info);
         }
@@ -93,7 +98,10 @@ const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  
     
     return(
         <div>
-            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: match.params.gameName ? match.params.gameName : selectedGame, thumbnail: uploadedClip ? uploadedClip.thumbnail : "", duration: uploadedClip.duration ? uploadedClip.duration : 0  }} onSubmit={(values: IClipFormValues) => createClip(values).then(() => history.push(`/qlip/${values.id}`))} >
+            <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: match.params.gameName ? match.params.gameName : "", thumbnail: uploadedClip ? uploadedClip.thumbnail : "", duration: uploadedClip.duration ? uploadedClip.duration : 0  }} onSubmit={(values: IClipFormValues, action) => {
+                selectedGame !== "" ? createClip(values).then(() => history.push(`/qlip/${values.id}`)) : action.setSubmitting(false); 
+            }
+            } >
                 {({handleSubmit,
                       errors,
                       touched,
@@ -105,9 +113,9 @@ const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  
                     isValid,
                     setSubmitting,
                     isSubmitting,
-                    handleReset
+                    handleReset,
                   }) => (
-                    <form encType={"multipart/formdata"} onSubmit={handleSubmit} className={"clip-form"}>
+                    <form id="clip-form" encType={"multipart/formdata"} onSubmit={handleSubmit} className={"clip-form"}>
                         <div className="p-field" style={{position: "relative"}}>
                             <span className={"p-float-label"}>
                             <InputText id="title" name={"title"} value={values.title} onChange={handleChange} onBlur={handleBlur}  style={{width: "100%", height: "50px"}} aria-describedby="username2-help" width={100} className={`${errors.title && touched.title && "p-invalid"} p-d-block`} />
@@ -125,16 +133,16 @@ const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  
                         
                         <div className={"p-field"} style={{marginTop: "3em"}}>
                             <span className={"p-float-label"}>
-                                <InputText id="gameName" name="gameName" value={values.gameName} onChange={(e) => {
+                                <InputText disabled={!!match.params.gameName} id="gameName" onBlur={handleBlur} name="gameName" value={values.gameName} onChange={(e) => {
                                     handleChange(e);
                                     toggleGameSearchPaneOn();
-                                }} onBlur={handleBlur} style={{width: "100%", height: "50px"}} className={`${errors.gameName && touched.gameName && "p-inavlid"} p-d-block`} />
-                                {values.gameName.length > 0 && showGameSearchPane && <GameSearchPane gameName={values.gameName} />}
+                                }} style={{width: "100%", height: "50px"}} className={`${errors.gameName && touched.gameName && "p-invalid"} p-d-block`}  />
+                                {values.gameName!.length > 0 && showGameSearchPane && <GameSearchPane gameName={values.gameName!} setFieldValue={setFieldValue!}  />}
                                 <label htmlFor="gameName" className="p-d-block">Game name (required)</label>
                            </span>
-                            {match.params.gameName && <small>To add a new game please click on the upload button on the navbar</small>}
+                            <small style={{color: "#777777"}}>Please only select a game from our database</small>
                             {errors.gameName && touched.gameName && (
-                                <small id="username2-help" className="p-invalid p-d-block">*{errors.title}</small>
+                                <small id="username2-help" className="p-invalid p-d-block">*{errors.gameName}</small>
                             )}
                         </div>
                         
@@ -177,7 +185,7 @@ const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  
                             </div>
                         
                         <div style={{float: "left", marginTop: "1em"}}>
-                        <Button label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} style={{fontWeight: 600}} disabled={!isValid || !dirty || isSubmitting || values.id === "" || values.url === "" || values.thumbnail === "" }  />
+                        <Button onClick={() => selectedGame === "" && showAlert("error", "Game error", "Please select a game from our database")} label={"Create"} icon={isSubmitting ? "pi pi-spin pi-spinner" : "pi pi-video"} type={"submit"} style={{fontWeight: 600}} disabled={!isValid || !dirty || !isValid || isSubmitting || values.id === "" || values.url === "" }  />
                         <Button type={"button"} label={"Cancel"} onClick={() => history.goBack()} icon={"pi pi-times"} className={"p-button-danger p-button-text"} style={{color: "#D9381E", marginLeft: "2em", fontWeight: 600}} />
                         </div>
                     </form>

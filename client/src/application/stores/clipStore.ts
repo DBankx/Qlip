@@ -31,6 +31,7 @@ export class ClipStore{
     @observable watchedClips: IClip[] = [];
     @observable autoPlay: boolean = true;
     @observable historyQlips: IClip[] = [];
+    @observable deletingTarget: string = "";
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
@@ -218,6 +219,7 @@ export class ClipStore{
     
     @action deleteClip = async (id: string) => {
         this.deletingClip = true;
+        this.deletingTarget = id;
         try{
             await ClipRequest.deleteClip(id);
             runInAction(() => {
@@ -226,6 +228,9 @@ export class ClipStore{
                 this.deletingClip = false;
                 this.rootStore.commonStore.showAlert("success", "Deleted", "Qlip deleted sucessfully!");
             })
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000)
         }catch(error){
             runInAction(() => this.deletingClip = false);
             this.rootStore.commonStore.showAlert("error", "Error occurred", "Operation unsuccessful!");

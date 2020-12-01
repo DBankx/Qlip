@@ -1007,6 +1007,16 @@ color: #81C784;
   width: 87vw;
 }
 
+.other{
+  background-color: rgb(240,244,255);
+  border: 1px solid #B9C9F7;
+  color: #7A7D85;
+  padding: 1em;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+
 @media(max-width: 1120px){
   .alert-reg{
     margin-left: 0;

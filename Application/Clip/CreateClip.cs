@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Api.Middlewares.Errors;
 using AutoMapper;
+using Domain;
 using MediatR;
 using Persistance;
 using Support.Video;
@@ -85,9 +86,18 @@ namespace Application.Clip
 
                 clip.Game = game;
                 
+                // add a new view
+                var view = new View
+                {
+                    User = user,
+                    Clip = clip
+                };
+                
                 _context.Clips.Add(clip);
                 
                 user.Clips.Add(clip);
+
+                _context.Views.Add(view);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

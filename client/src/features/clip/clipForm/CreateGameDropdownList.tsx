@@ -4,13 +4,19 @@ import {observer} from "mobx-react-lite";
 import rootStoreContext from "../../../application/stores/rootStore";
 
 interface IProps{
-    game: IGame
+    game: IGame;
+    setFieldValue: any;
+    gameName: string;
 }
 
-const CreateGameDropdownList : React.FC<IProps> = ({game}) => {
-    const {selectGame, toggleGameSearchPaneOff} = useContext(rootStoreContext).gameStore;
+const CreateGameDropdownList : React.FC<IProps> = ({game, setFieldValue, gameName}) => {
+    const {toggleGameSearchPaneOff, selectGame, selectedGame} = useContext(rootStoreContext).gameStore;
+    if(gameName !== selectedGame){
+        selectGame("");
+    }
     return (
         <div onClick={() => {
+            setFieldValue("gameName",game.name);
             selectGame(game.name);
             toggleGameSearchPaneOff();
         }} className="p-d-flex game-dropdown-list">

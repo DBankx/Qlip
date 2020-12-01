@@ -352,6 +352,10 @@
           <e p="20201121093814_addedViewTable.Designer.cs" t="Include" />
           <e p="20201129094338_addedDuration.cs" t="Include" />
           <e p="20201129094338_addedDuration.Designer.cs" t="Include" />
+          <e p="20201201063020_addUserMigration.cs" t="Include" />
+          <e p="20201201063020_addUserMigration.Designer.cs" t="Include" />
+          <e p="20201201064111_addUserDateMigration.cs" t="Include" />
+          <e p="20201201064111_addUserDateMigration.Designer.cs" t="Include" />
           <e p="DataContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -401,6 +405,7 @@
         </e>
         <e p="Support.csproj" t="IncludeRecursive" />
         <e p="Video" t="Include">
+          <e p="CloudinarySettings.cs" t="Include" />
           <e p="IVideoAccessor.cs" t="Include" />
           <e p="VideoAccessor.cs" t="Include" />
           <e p="VideoUploadResult.cs" t="Include" />

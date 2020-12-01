@@ -21,7 +21,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.8" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
   </ItemGroup>
   <ItemGroup>
@@ -31,5 +31,59 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SignalR" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-114x114.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-120x120.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-144x144.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-152x152.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-180x180.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-57x57.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-60x60.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-72x72.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-76x76.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon-precomposed.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\apple-icon.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\asset-manifest.json" />
+    <_ContentIncludedByDefault Remove="wwwroot\browserconfig.xml" />
+    <_ContentIncludedByDefault Remove="wwwroot\favicon-16x16.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\favicon-32x32.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\favicon-96x96.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\favicon.ico" />
+    <_ContentIncludedByDefault Remove="wwwroot\index.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\manifest.json" />
+    <_ContentIncludedByDefault Remove="wwwroot\ms-icon-144x144.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\ms-icon-150x150.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\ms-icon-310x310.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\ms-icon-70x70.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\precache-manifest.70955aba577c54559b2a60b07aaa2273.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\robots.txt" />
+    <_ContentIncludedByDefault Remove="wwwroot\service-worker.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\css\2.111581d2.chunk.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\css\2.111581d2.chunk.css.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\css\main.59df7c9d.chunk.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\css\main.59df7c9d.chunk.css.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\2.aebe914f.chunk.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\2.aebe914f.chunk.js.LICENSE.txt" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\2.aebe914f.chunk.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\main.295b2d3b.chunk.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\main.295b2d3b.chunk.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\runtime-main.09b85ec0.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\runtime-main.09b85ec0.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\c#.c9ec6982.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\color.c7a33805.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\logo.e5fe8350.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\placeholder_user.dea1d9c6.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\primeicons.159263bf.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\primeicons.2e3a6b48.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\primeicons.4e915114.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\primeicons.79432094.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\sass.acd1d437.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\slick.b7c9e1e4.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\slick.ced611da.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\slick.d41f55a7.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\slick.f97e3bbf.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\ts.ea7caf8d.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\media\undraw_profile_pic_ic5t.8a117bf8.svg" />
   </ItemGroup>
 </Project>

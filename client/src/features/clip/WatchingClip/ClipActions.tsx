@@ -44,7 +44,7 @@ const ClipAction: React.FC<IProps> = ({clip}) => {
                 {
                     label: 'Delete',
                     icon: deletingClip ? "pi pi-spin pi-spinner" : "pi pi-times",
-                    command: () => deleteClip(clip.id).then(() => history.push("/"))
+                    command: () => history.push("/manageqlips") 
                 },
                 {
                     label: 'SHARE',

@@ -5,18 +5,17 @@ using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace Support.Video
 {
     public class VideoAccessor : IVideoAccessor
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly Cloudinary _cloudinary;
-        public VideoAccessor(IConfiguration config, IHttpContextAccessor httpContextAccessor)
+        public VideoAccessor(IOptions<CloudinarySettings> config)
         {
-            _httpContextAccessor = httpContextAccessor;
             // instantiate a new instance of cloudinary using details provided
-            _cloudinary = new Cloudinary(config["cloudinary"]);
+            _cloudinary = new Cloudinary(config.Value.CloudinaryConnectionString);
         }
         
 

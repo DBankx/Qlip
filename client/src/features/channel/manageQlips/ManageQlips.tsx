@@ -8,17 +8,21 @@ import ChannelClip from "../ChannelClip";
 import {Button} from "primereact/button";
 import {SplitButton} from "primereact/splitbutton";
 import {useMediaQuery} from "react-responsive";
+import AlertRegister from "../../../application/common/AlertRegister";
 
 const ManageQlips = () => {
     const {user} = useContext(rootStoreContext).authStore;
+    const {showSidebar} = useContext(rootStoreContext).commonStore;
+    const {deleteClip, deletingClip, deletingTarget} = useContext(rootStoreContext).clipStore;
     const {sortChannelClipsByMostPopular, sortChannelClipsByDate} = useContext(rootStoreContext).channelStore;
     const {channel, loadChannel, loadingChannel} = useContext(rootStoreContext).channelStore;
     const isMobile = useMediaQuery({query: "(max-width: 400px)"});
     useEffect(() => {
+        showSidebar();
         if(channel === null){
             loadChannel(user!.username)
         }
-    }, [user, channel, loadChannel])
+    }, [user, channel, loadChannel, showSidebar])
 
     const sortingOptionsModel= [
         {
@@ -43,6 +47,7 @@ const ManageQlips = () => {
             <div className={"p-mt-4"}>
                 <h2>Manage your qlips</h2>
                 <hr className={"divider p-mt-3 p-mb-3"} />
+                <AlertRegister status="other" message="Please if you cant see your videos here refresh the page" icon="pi pi-wifi" /> 
                 <div className={isMobile ? "p-d-flex p-jc-between p-ai-center" : "p-d-flex p-ai-center"}>
                     <p style={{color: "#777777"}}>All qlips</p>
                     <SplitButton label={"SORT BY"} icon={"pi pi-filter"} model={sortingOptionsModel} style={isMobile ? {} : {marginLeft: "1em"}} className={"p-button-sm p-button-secondary"} />
@@ -53,7 +58,7 @@ const ManageQlips = () => {
                            <div>
                                <ChannelClip clip={clip} />
                               <div>
-                                  <Button icon={"pi pi-trash"} className={"p-button-text"} tooltip={"Delete qlip"} tooltipOptions={{position: "bottom"}} />
+                                  <Button icon={deletingClip && deletingTarget === clip.id ? "pi pi-spin pi-spinner" : "pi pi-trash"} onClick={() => deleteClip(clip.id)} label={deletingClip && deletingTarget === clip.id ? "deleting..." : ""} className={"p-button-text"} tooltip={"Delete qlip"} tooltipOptions={{position: "bottom"}} />
                                   <Button icon={"pi pi-pencil"} onClick={() => history.push(`/manage/${clip.id}`)} label={"EDIT"} className={"p-button-text"} style={{fontWeight: 600}} />
                               </div> 
                            </div> 
