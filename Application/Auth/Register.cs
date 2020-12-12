@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 using Api.Middlewares.Errors;
 using Domain;
 using FluentValidation;
-using GravatarSharp.Core;
-using GravatarSharp.Core.Model;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
+using Presis.GravatarHelper;
 using Support.Security.Jwt;
 
 namespace Application.Auth
@@ -66,7 +65,7 @@ namespace Application.Auth
                     Email = request.Email,
                     Gender = request.Gender,
                     UserName = request.Username,
-                    GravatarProfileImage = GravatarController.GetImageUrl(request.Email),
+                    GravatarProfileImage = GravatarHelper.GetGravatarUri(request.Email, GravatarHelper.GravatarMissingImage.MonsterId, 90, false).ToString(),
                     CreatedAt = DateTime.Now
                 };
 

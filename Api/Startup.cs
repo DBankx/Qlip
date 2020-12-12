@@ -31,7 +31,7 @@ namespace Api
 {
     public class Startup
     {
-        private string _connection;
+        // private string _connection;
         
         public Startup(IConfiguration configuration)
         {
@@ -61,7 +61,7 @@ namespace Api
             services.AddDbContext<DataContext>(option =>
             {
                 option.UseLazyLoadingProxies();
-                option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"), option => option.EnableRetryOnFailure());
+                option.UseMySql(Configuration.GetConnectionString("ApplicationDatabase"));
             });
             
             //============ Adding identity options =====================
@@ -106,22 +106,22 @@ namespace Api
                     ClockSkew = TimeSpan.Zero,
                 };
                 
-                // send the token to signalR
-                options.Events = new JwtBearerEvents
-                {
-                    OnMessageReceived = context =>
-                    {
-                        var accessToken = context.Request.Query["access_token"];
-                        // get the path
-                        var path = context.HttpContext.Request.Path;
-                        if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/comment"))
-                        {
-                            context.Token = accessToken;
-                        }
-
-                        return Task.CompletedTask;
-                    }
-                };
+                // // send the token to signalR
+                // options.Events = new JwtBearerEvents
+                // {
+                //     OnMessageReceived = context =>
+                //     {
+                //         var accessToken = context.Request.Query["access_token"];
+                //         // get the path
+                //         var path = context.HttpContext.Request.Path;
+                //         if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/comment"))
+                //         {
+                //             context.Token = accessToken;
+                //         }
+                //
+                //         return Task.CompletedTask;
+                //     }
+                // };
             });
             
             //================ Signal R =====================
@@ -197,7 +197,6 @@ namespace Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<CommentHub>("/comment");
                 endpoints.MapFallbackToController("Index", "Fallback");
             });
         }

@@ -1,8 +1,13 @@
 ﻿import {RootStore} from "./rootStore";
 import {action, computed, makeObservable, observable, runInAction} from "mobx";
-import {IClip, IClipFormValues, IPaginatedClipResponse, IUploadedClipValues} from "../../infrastructure/models/clip";
+import {
+    IClip,
+    IClipFormValues,
+    ICommentFormValue,
+    IPaginatedClipResponse,
+    IUploadedClipValues
+} from "../../infrastructure/models/clip";
 import {ClipRequest, SearchRequest} from "../api/agent";
-import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 
 //========================================================================
 //============= Store for clip states in the app ================
@@ -22,7 +27,6 @@ export class ClipStore{
     @observable clip: IClip | null = null;
     @observable uploadedClip: IUploadedClipValues = {publicId: "", url: "", thumbnail: "", duration: null, created_at: null, format: null, frame_rate: null, original_filename: null};
     @observable deletingClip: boolean = false;
-    @observable.ref hubConnection: HubConnection | null = null;
     @observable SearchResponse: IPaginatedClipResponse | null = null;
     @observable SearchPageNumber: number = 1;
     @observable SearchPageSize: number = 20;
@@ -32,6 +36,7 @@ export class ClipStore{
     @observable autoPlay: boolean = true;
     @observable historyQlips: IClip[] = [];
     @observable deletingTarget: string = "";
+    @observable addingComment: boolean = false;
 
     @computed get clipsData(){
         return Array.from(this.clipRegistry.values());
@@ -64,58 +69,31 @@ export class ClipStore{
         );
     }
     
-    // build hub connection
-    @action startConnection = async(clipId: string) => {
-        this.hubConnection = new HubConnectionBuilder().withUrl(process.env.REACT_APP_API_COMMENT_URL!, {
-            accessTokenFactory: () => this.rootStore.commonStore.token!
-        }).configureLogging(LogLevel.Information).withAutomaticReconnect().build();
-        
-        this.hubConnection.start().then(() => console.log(this.hubConnection!.state)).then(() => {
-            console.log("Attempting to join qlip");
-            this.hubConnection && this.hubConnection.invoke("AddToGroup", clipId);
-        }).catch(error => console.log("Error establishing connection", error));
-        
-        this.hubConnection.on("RecieveComment", comment => {
-            runInAction(() => {
-                this.clip!.comments.push(comment);
-            })
-        })
-      
+    @action removeUploadedClip = () => {
+        this.uploadedClip.publicId = "";
+        this.uploadedClip.url = "";
+        this.uploadedClip.thumbnail = "";
+        this.uploadedClip.duration = 0;
+        this.uploadedClip.format = "";
+        this.uploadedClip.created_at = null;
+        this.uploadedClip.frame_rate = 0;
+        this.uploadedClip.original_filename = "";
     }
-    
-    @action startConn = async (clipId: string) => {
-        this.hubConnection = new HubConnectionBuilder().withUrl("http://localhost:5000/comment", {
-            accessTokenFactory: () => this.rootStore.commonStore.token!
-        }).withAutomaticReconnect().configureLogging(LogLevel.Information).build();
-        
-        try {
-            await this.hubConnection.start();
-            console.log(this.hubConnection.state);
-            await this.hubConnection.invoke("AddToGroup", clipId).catch((err) => console.log(err.toString()))
-        }catch(error){
-            console.log("ther was an error", error);
-            this.rootStore.commonStore.showAlert("error", "Error establishing connection", "Please refresh");
-        }
-
-        this.hubConnection.on("RecieveComment", comment => {
-            runInAction(() => {
-                this.clip!.comments.push(comment);
-            })
-        })
-        
-    }
-
-    @action stopHubConnection = () => {
-        this.hubConnection!.invoke("RemoveFromGroup", this.clip!.id).then(() =>
-            this.hubConnection!.stop()).then(() => console.log("Connection stopped")).catch((err) => console.log(err))
-    }
-
-    @action addComment = async (values: any) => {
-        values.clipId = this.clip!.id;
+   
+    @action addComment = async (clipId: string, data: ICommentFormValue) => {
+        this.addingComment = true;
         try{
-            await this.hubConnection!.invoke("SendComment", values);
+            var comment = await ClipRequest.addComment(clipId, data);
+            runInAction(() => {
+                if(this.clip !== null){
+                    this.clip.comments.unshift(comment);
+                }
+                this.addingComment = false;
+            })
         }catch(error){
-            console.log(error);
+            runInAction(() => this.addingComment = false);
+            this.rootStore.commonStore.showAlert("error", "Error occured", "Problem adding a comment!");
+            throw error;
         }
     }
 

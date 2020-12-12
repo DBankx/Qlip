@@ -86,5 +86,13 @@
     <_ContentIncludedByDefault Remove="wwwroot\static\media\slick.f97e3bbf.svg" />
     <_ContentIncludedByDefault Remove="wwwroot\static\media\ts.ea7caf8d.png" />
     <_ContentIncludedByDefault Remove="wwwroot\static\media\undraw_profile_pic_ic5t.8a117bf8.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\precache-manifest.0f172238b34db6d672cdae13ba68dc38.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\css\main.684ed4d8.chunk.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\css\main.684ed4d8.chunk.css.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\2.f3506887.chunk.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\2.f3506887.chunk.js.LICENSE.txt" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\2.f3506887.chunk.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\main.4c94c06a.chunk.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\static\js\main.4c94c06a.chunk.js.map" />
   </ItemGroup>
 </Project>

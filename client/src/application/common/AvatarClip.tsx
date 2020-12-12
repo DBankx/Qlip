@@ -9,7 +9,7 @@ const AvatarClip = () => {
     return (
         <Link to={`/channel/${clip?.authorName}`} style={{textDecoration: "none", color: "#fff"}}>
         <div className={"avatar-clip"}>
-            <div className={"p-d-flex p-flex-wrap p-ai-center"}>
+            <div className={"p-d-flex p-ai-center"}>
                 <img style={{borderRadius: "50%", width: "45px", marginBottom: "3px"}} src={clip?.authorImage ? clip.authorImage : user } alt={"username-clip"} />
                 <div>
                     <div className={"p-ml-2"}>

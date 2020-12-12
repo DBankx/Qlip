@@ -14,7 +14,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 
 const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  => {
     
-    let {uploadedClip, createClip, setUploadedClip} = useContext(rootStoreContext).clipStore;
+    let {uploadedClip, createClip, setUploadedClip, removeUploadedClip} = useContext(rootStoreContext).clipStore;
     const {clipUploadHelpVisible, removeClipUploadHelper, showClipUploadHelper, showAlert} = useContext(rootStoreContext).commonStore;
 
     const {selectedGame, toggleGameSearchPaneOn, showGameSearchPane, toggleGameSearchPaneOff, selectGame} = useContext(rootStoreContext).gameStore;
@@ -99,7 +99,7 @@ const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  
     return(
         <div>
             <Formik validationSchema={qlipValidationschema} enableReinitialize={true} initialValues={{id: uploadedClip ?  uploadedClip.publicId : "", description: "", title: "", url: uploadedClip ? uploadedClip.url : "", gameName: match.params.gameName ? match.params.gameName : "", thumbnail: uploadedClip ? uploadedClip.thumbnail : "", duration: uploadedClip.duration ? uploadedClip.duration : 0  }} onSubmit={(values: IClipFormValues, action) => {
-                selectedGame !== "" ? createClip(values).then(() => history.push(`/qlip/${values.id}`)) : action.setSubmitting(false); 
+                selectedGame !== "" ? createClip(values).then(() => removeUploadedClip()).then(() => history.push(`/qlip/${values.id}`)) : action.setSubmitting(false); 
             }
             } >
                 {({handleSubmit,
@@ -111,9 +111,7 @@ const ClipForm : React.FC<RouteComponentProps<{gameName: string}>> = ({match})  
                     setFieldValue,
                     dirty,
                     isValid,
-                    setSubmitting,
                     isSubmitting,
-                    handleReset,
                   }) => (
                     <form id="clip-form" encType={"multipart/formdata"} onSubmit={handleSubmit} className={"clip-form"}>
                         <div className="p-field" style={{position: "relative"}}>

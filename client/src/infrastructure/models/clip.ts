@@ -43,6 +43,10 @@ export interface IComment{
     postedAt: string;
 }
 
+export interface ICommentFormValue{
+    text: string;
+}
+
 export interface IClipFormValues{
     id: string;
     url?: string;

@@ -19,7 +19,7 @@ dayjs.extend(relativeTime);
 
 const ClipAction: React.FC<IProps> = ({clip}) => {
     
-    const {deleteClip, deletingClip, likeClip, dislikeClip} = useContext(rootStoreContext).clipStore;
+    const {deletingClip, likeClip, dislikeClip} = useContext(rootStoreContext).clipStore;
     const {isLoggedIn} = useContext(rootStoreContext).authStore;
     const {showAlert} = useContext(rootStoreContext).commonStore;
     const isMobile = useMediaQuery({query: "(max-width: 400px)"});

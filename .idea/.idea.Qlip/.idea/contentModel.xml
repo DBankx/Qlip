@@ -12,7 +12,6 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="CommentHub.cs" t="Include" />
         <e p="Controllers" t="Include">
           <e p="ChannelController.cs" t="Include" />
           <e p="ClipController.cs" t="Include" />
@@ -64,22 +63,22 @@
           <e p="ms-icon-150x150.png" t="Include" />
           <e p="ms-icon-310x310.png" t="Include" />
           <e p="ms-icon-70x70.png" t="Include" />
-          <e p="precache-manifest.0f172238b34db6d672cdae13ba68dc38.js" t="Include" />
+          <e p="precache-manifest.c31b901db91513d1bbe4c172b2cdffa4.js" t="Include" />
           <e p="robots.txt" t="Include" />
           <e p="service-worker.js" t="Include" />
           <e p="static" t="Include">
             <e p="css" t="Include">
               <e p="2.111581d2.chunk.css" t="Include" />
               <e p="2.111581d2.chunk.css.map" t="Include" />
-              <e p="main.684ed4d8.chunk.css" t="Include" />
-              <e p="main.684ed4d8.chunk.css.map" t="Include" />
+              <e p="main.737abc71.chunk.css" t="Include" />
+              <e p="main.737abc71.chunk.css.map" t="Include" />
             </e>
             <e p="js" t="Include">
-              <e p="2.f3506887.chunk.js" t="Include" />
-              <e p="2.f3506887.chunk.js.LICENSE.txt" t="Include" />
-              <e p="2.f3506887.chunk.js.map" t="Include" />
-              <e p="main.4c94c06a.chunk.js" t="Include" />
-              <e p="main.4c94c06a.chunk.js.map" t="Include" />
+              <e p="2.10654270.chunk.js" t="Include" />
+              <e p="2.10654270.chunk.js.LICENSE.txt" t="Include" />
+              <e p="2.10654270.chunk.js.map" t="Include" />
+              <e p="main.3777e3ed.chunk.js" t="Include" />
+              <e p="main.3777e3ed.chunk.js.map" t="Include" />
               <e p="runtime-main.09b85ec0.js" t="Include" />
               <e p="runtime-main.09b85ec0.js.map" t="Include" />
             </e>
@@ -148,7 +147,7 @@
           <e p="WatchedAtValueResolver.cs" t="Include" />
         </e>
         <e p="comment" t="Include">
-          <e p="Add.cs" t="Include" />
+          <e p="AddComment.cs" t="Include" />
           <e p="CommentDto.cs" t="Include" />
           <e p="Delete.cs" t="Include" />
           <e p="MappingProfile.cs" t="Include" />

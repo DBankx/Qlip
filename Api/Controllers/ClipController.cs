@@ -94,5 +94,13 @@ namespace Api.Controllers
         {
             return await _mediator.Send(new ListHistory.Query());
         }
+
+        [Authorize]
+        [HttpPost("comment/{clipId}")]
+        public async Task<ActionResult<CommentDto>> CreateComment(string clipId, AddComment.Command command)
+        {
+            command.ClipId = clipId;
+            return await _mediator.Send(command);
+        }
     }
 }

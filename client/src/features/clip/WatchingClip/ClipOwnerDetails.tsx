@@ -21,7 +21,7 @@ const ClipOwnerDetails : React.FC<IProps> = ({clip}) => {
     }
     
     return (
-        <div className={"p-d-flex p-flex-wrap p-jc-between p-ai-center"}>
+        <div className={"p-d-flex p-jc-between p-ai-center"}>
             <AvatarClip />
             {!isLoggedIn ? <Button label={"Subscribe"} icon={"pi pi-plus"} tooltip={"Login to subscribe"} tooltipOptions={{position: "bottom"}} /> : clip.isUser ? (<Button label={"Edit"} style={{fontWeight: 600}} icon={"pi pi-pencil"} onClick={() => history.push(`/manage/${clip.id}`)} />) : (<Button label={clip.subscribedToAuthor ? "Subscribed" : "Subscribe" } className={"p-button-sm"} onClick={clip.subscribedToAuthor ? () => UnSubscribeToUser(clip.authorName) : () => SubscribeToUser(clip.authorName) } icon={subscribing ? "pi pi-spin pi-spinner" :clip.subscribedToAuthor ? "pi pi-check" : "pi pi-plus"} style={clip.subscribedToAuthor ? subscribedStyle : {fontWeight: 600}} />)} 
         </div>

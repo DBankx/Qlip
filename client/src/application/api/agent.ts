@@ -1,5 +1,11 @@
 ﻿import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
-import {IClip, IClipFormValues, IPaginatedClipResponse, IUploadedClipValues} from "../../infrastructure/models/clip";
+import {
+    IClip,
+    IClipFormValues, IComment,
+    ICommentFormValue,
+    IPaginatedClipResponse,
+    IUploadedClipValues
+} from "../../infrastructure/models/clip";
 import {IAuthFormValues, IUser} from "../../infrastructure/models/auth";
 import {history} from "../../index";
 import {IGame, IPaginatedGameResponse} from "../../infrastructure/models/game";
@@ -64,21 +70,14 @@ axios.interceptors.response.use(undefined, (error) => {
 // the axios response body
 const ResponseBody = (response: AxiosResponse) => response.data;
 
-// ========= for development purposes only =============
-// slow down the api
-const sleep = (ms: number) => (response: AxiosResponse) =>
-    new Promise<AxiosResponse>((resolve) =>
-        setTimeout(() => {
-            resolve(response);
-        }, ms)
-    );
+
 
 // creating the template requests
 const Requests = {
-    get: (url: string, config? : {}) => axios.get(url, config).then(sleep(1000)).then(ResponseBody),
-    post:(url: string, body?: {}, config? :{} ) => axios.post(url, body, config).then(sleep(1000)).then(ResponseBody),
-    delete:(url: string) => axios.delete(url).then(sleep(1000)).then(ResponseBody),
-    put:(url: string, body?:{}, config?:{}) => axios.put(url, body, config).then(sleep(1000)).then(ResponseBody),
+    get: (url: string, config? : {}) => axios.get(url, config).then(ResponseBody),
+    post:(url: string, body?: {}, config? :{} ) => axios.post(url, body, config).then(ResponseBody),
+    delete:(url: string) => axios.delete(url).then(ResponseBody),
+    put:(url: string, body?:{}, config?:{}) => axios.put(url, body, config).then(ResponseBody),
     uploadVideo: (url: string, file: Blob, onUploadProgress: ((progressEvent: ProgressEvent<EventTarget>) => void)) => {
         let formData: FormData = new FormData();
         formData.append("VideoFile", file);
@@ -99,7 +98,8 @@ export const ClipRequest = {
     dislikeClip: (clipId: string): Promise<{}> => Requests.post(`clip/dislike/${clipId}`),
     updateClip: (clip: IClipFormValues): Promise<IClip> => Requests.put(`clip/${clip.id}`, clip),
     deleteComment: (commentId: string): Promise<{}> => Requests.delete(`clip/comment/${commentId}`),
-    getHistory: () : Promise<IClip[]> => Requests.get("clip/history")
+    getHistory: () : Promise<IClip[]> => Requests.get("clip/history"),
+    addComment: (clipId: string, data: ICommentFormValue) : Promise<IComment> => Requests.post(`/clip/comment/${clipId}`, data)
 }
 
 // Auth requests
